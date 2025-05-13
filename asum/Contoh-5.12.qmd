@@ -353,28 +353,121 @@ plt.show()
 
 ---
 
-### 🔄 **Kasus 2: Reasuransi Proporsional 60%**  
-- **Klaim Ditahan**:  
-  $$
-  \text{A: } 0.6S_A + 0.4S_B, \quad \text{B: } 0.6S_B + 0.4S_A
-  $$  
-- **Varian Total**:  
-  $$
-  (0.6^2 \times 180 + 0.4^2 \times 448) + (0.6^2 \times 448 + 0.4^2 \times 180) = 326.56
-  $$
+### 🔄 Kasus 2: Reasuransi Proporsional 60% — Penjabaran Rinci
+
+Misalkan pada kasus 2 ini, perusahaan A dan B menggunakan skema reasuransi proporsional, di mana **setiap perusahaan hanya menanggung sendiri 60% dari klaim totalnya**, dan **mengalihkan 40% sisanya ke perusahaan lain sebagai reasuransi.**
+
+Dengan demikian:
+
+- Perusahaan A:  
+  - Menanggung **60% dari seluruh nilai klaimnya sendiri $S_A$** → disebut $SA^{(2)}_I$ (*"I" = internal/retained*)  
+  - Menerima **40% dari klaim milik perusahaan B $S_B$** → karena B mengalihkannya  
+  - Jadi total payout A adalah:  
+    $$
+    SA^{(2)}_I + SB^{(2)}_R = 0.6S_A + 0.4S_B
+    $$
+
+- Perusahaan B:  
+  - Menanggung **60% dari klaim $S_B$** → disebut $SB^{(2)}_I$  
+  - Menerima **40% dari klaim milik perusahaan A $S_A$**  
+  - Maka total payout B adalah:  
+    $$
+    SB^{(2)}_I + SA^{(2)}_R = 0.6S_B + 0.4S_A
+    $$
+
+📊 Dengan asumsi:
+
+- $\text{Var}(S_A) = 180$
+- $\text{Var}(S_B) = 448$
+
+Kita bisa hitung total variansi pembayaran (payout) dua perusahaan:
+
+$$
+\text{Var}(T_A) = 0.6^2 \cdot 180 + 0.4^2 \cdot 448 = 64.8 + 71.68 = 136.48
+$$
+$$
+\text{Var}(T_B) = 0.6^2 \cdot 448 + 0.4^2 \cdot 180 = 161.28 + 28.8 = 190.08
+$$
+
+🔢 Jadi, total variansi pembayaran dua perusahaan adalah:
+$$
+\text{Var}(T_A) + \text{Var}(T_B) = \boxed{326.56}
+$$
+
+📌 **Catatan penting**:
+
+- Proporsi “60%” di sini **bukan klaim per orang atau klaim awal saja**, melainkan **60% dari seluruh klaim agregat $S_A$ dan $S_B$**, tanpa batasan jumlah klaim.
+- Tidak seperti Kasus 1 (stop-loss), di mana perusahaan hanya menanggung klaim sampai batas tertentu (misal 36 unit pertama saja), di sini tidak ada batasan eksplisit — semua klaim tetap dibagi 60-40 berdasarkan total nilai klaim.
 
 ---
 
-### ⚖️ **Kasus 3: Reasuransi Proporsional 50%**  
-- **Klaim Ditahan**:  
-  $$
-  \text{A dan B: } 0.5S_A + 0.5S_B
-  $$  
-- **Varian Total**:  
-  $$
-  2 \times \left(0.5^2 \times 180 + 0.5^2 \times 448\right) = 314.00
-  $$  
-*Insight*: **Simetri 50%** → Risk pooling optimal dengan memanfaatkan independensi $S_A$ dan $S_B$.
+### ⚖️ Kasus 3: Reasuransi Proporsional 50% — Penjabaran Rinci
+
+Dalam pengaturan ini, kedua perusahaan A dan B menyepakati untuk **berbagi risiko secara merata**. Artinya:
+
+- 📊 **Masing-masing hanya menanggung 50% dari klaim yang masuk dari nasabahnya sendiri**
+- 🔄 Sisanya (50%) dialihkan ke perusahaan lainnya sebagai bentuk reasuransi
+
+Dengan kata lain:
+
+- Perusahaan A:
+  - Menanggung **50% dari klaim agregat miliknya sendiri $S_A$** → disebut $SA^{(3)}_I$
+  - Menerima **50% dari klaim milik perusahaan B $S_B$** → disebut $SB^{(3)}_R$
+  - Maka total klaim yang dibayarkan A adalah:
+    $$
+    SA^{(3)}_I + SB^{(3)}_R = 0.5S_A + 0.5S_B
+    $$
+
+- Perusahaan B:
+  - Menanggung **50% dari $S_B$** → $SB^{(3)}_I$
+  - Menerima **50% dari $S_A$** → $SA^{(3)}_R$
+  - Maka total klaim yang dibayarkan B adalah:
+    $$
+    SB^{(3)}_I + SA^{(3)}_R = 0.5S_B + 0.5S_A
+    $$
+
+---
+
+📊 Dengan data:
+- $\text{Var}(S_A) = 180$
+- $\text{Var}(S_B) = 448$
+
+📉 Variansi pembayaran perusahaan A:
+$$
+\text{Var}(T_A) = 0.5^2 \cdot 180 + 0.5^2 \cdot 448 = 45 + 112 = 157
+$$
+
+📉 Variansi pembayaran perusahaan B:
+$$
+\text{Var}(T_B) = 0.5^2 \cdot 448 + 0.5^2 \cdot 180 = 112 + 45 = 157
+$$
+
+🔢 Total variansi pembayaran dua perusahaan:
+$$
+\text{Var}(T_A) + \text{Var}(T_B) = \boxed{314}
+$$
+
+**Dengan kata lain, ini sama dengan**
+**Varian Total**:  
+$$
+2 \times \left(0.5^2 \times 180 + 0.5^2 \times 448\right) = 314.00
+$$
+
+---
+
+### 💡 Catatan Penting:
+
+- 💯 Ini adalah contoh **equal risk sharing** (berbagi risiko secara simetris).
+- 📉 Total variansi payout **paling rendah** dibanding Kasus 1 dan 2.
+- 📐 Ini membuktikan secara numerik hasil dari **Exercise 5.31**: pembagian 50%-50% meminimalkan total variansi.
+
+---
+
+### 🧠 Intuisi Sederhana:
+> Dalam skema ini, tidak ada satu pihak pun yang menanggung lebih banyak. Risiko dibelah dua. Hasilnya? Kedua perusahaan punya *payout yang setara*, *variansi yang seimbang*, dan *stabilitas yang optimal*.
+
+✨ Inilah bentuk *kerja sama reasuransi yang paling adil sekaligus paling efisien secara statistik*.
+
 
 ---
 

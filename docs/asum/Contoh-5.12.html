@@ -188,8 +188,10 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#definisi-model-klaim" id="toc-definisi-model-klaim" class="nav-link" data-scroll-target="#definisi-model-klaim">📦 <strong>Definisi Model Klaim</strong></a></li>
   <li><a href="#kasus-1-excess-of-loss" id="toc-kasus-1-excess-of-loss" class="nav-link" data-scroll-target="#kasus-1-excess-of-loss">📉 <strong>Kasus 1: Excess of Loss</strong></a></li>
-  <li><a href="#kasus-2-reasuransi-proporsional-60" id="toc-kasus-2-reasuransi-proporsional-60" class="nav-link" data-scroll-target="#kasus-2-reasuransi-proporsional-60">🔄 <strong>Kasus 2: Reasuransi Proporsional 60%</strong></a></li>
-  <li><a href="#kasus-3-reasuransi-proporsional-50" id="toc-kasus-3-reasuransi-proporsional-50" class="nav-link" data-scroll-target="#kasus-3-reasuransi-proporsional-50">⚖️ <strong>Kasus 3: Reasuransi Proporsional 50%</strong></a></li>
+  <li><a href="#kasus-2-reasuransi-proporsional-60-penjabaran-rinci" id="toc-kasus-2-reasuransi-proporsional-60-penjabaran-rinci" class="nav-link" data-scroll-target="#kasus-2-reasuransi-proporsional-60-penjabaran-rinci">🔄 Kasus 2: Reasuransi Proporsional 60% — Penjabaran Rinci</a></li>
+  <li><a href="#kasus-3-reasuransi-proporsional-50-penjabaran-rinci" id="toc-kasus-3-reasuransi-proporsional-50-penjabaran-rinci" class="nav-link" data-scroll-target="#kasus-3-reasuransi-proporsional-50-penjabaran-rinci">⚖️ Kasus 3: Reasuransi Proporsional 50% — Penjabaran Rinci</a></li>
+  <li><a href="#catatan-penting" id="toc-catatan-penting" class="nav-link" data-scroll-target="#catatan-penting">💡 Catatan Penting:</a></li>
+  <li><a href="#intuisi-sederhana" id="toc-intuisi-sederhana" class="nav-link" data-scroll-target="#intuisi-sederhana">🧠 Intuisi Sederhana:</a></li>
   <li><a href="#teorema-kunci" id="toc-teorema-kunci" class="nav-link" data-scroll-target="#teorema-kunci">📜 <strong>Teorema Kunci</strong></a></li>
   <li><a href="#tabel-ringkasan-hasil" id="toc-tabel-ringkasan-hasil" class="nav-link" data-scroll-target="#tabel-ringkasan-hasil">📊 <strong>Tabel Ringkasan Hasil</strong></a></li>
   <li><a href="#kesimpulan" id="toc-kesimpulan" class="nav-link" data-scroll-target="#kesimpulan">✅ Kesimpulan</a></li>
@@ -682,35 +684,113 @@ Perhitungan, code dan simulasi monte carlo
 </div>
 <hr>
 </section>
-<section id="kasus-2-reasuransi-proporsional-60" class="level3">
-<h3 class="anchored" data-anchor-id="kasus-2-reasuransi-proporsional-60">🔄 <strong>Kasus 2: Reasuransi Proporsional 60%</strong></h3>
+<section id="kasus-2-reasuransi-proporsional-60-penjabaran-rinci" class="level3">
+<h3 class="anchored" data-anchor-id="kasus-2-reasuransi-proporsional-60-penjabaran-rinci">🔄 Kasus 2: Reasuransi Proporsional 60% — Penjabaran Rinci</h3>
+<p>Misalkan pada kasus 2 ini, perusahaan A dan B menggunakan skema reasuransi proporsional, di mana <strong>setiap perusahaan hanya menanggung sendiri 60% dari klaim totalnya</strong>, dan <strong>mengalihkan 40% sisanya ke perusahaan lain sebagai reasuransi.</strong></p>
+<p>Dengan demikian:</p>
 <ul>
-<li><strong>Klaim Ditahan</strong>:<br>
-<span class="math display">\[
-\text{A: } 0.6S_A + 0.4S_B, \quad \text{B: } 0.6S_B + 0.4S_A
-\]</span><br>
+<li>Perusahaan A:
+<ul>
+<li>Menanggung <strong>60% dari seluruh nilai klaimnya sendiri <span class="math inline">\(S_A\)</span></strong> → disebut <span class="math inline">\(SA^{(2)}_I\)</span> (<em>“I” = internal/retained</em>)<br>
 </li>
-<li><strong>Varian Total</strong>:<br>
+<li>Menerima <strong>40% dari klaim milik perusahaan B <span class="math inline">\(S_B\)</span></strong> → karena B mengalihkannya<br>
+</li>
+<li>Jadi total payout A adalah:<br>
 <span class="math display">\[
-(0.6^2 \times 180 + 0.4^2 \times 448) + (0.6^2 \times 448 + 0.4^2 \times 180) = 326.56
+SA^{(2)}_I + SB^{(2)}_R = 0.6S_A + 0.4S_B
 \]</span></li>
+</ul></li>
+<li>Perusahaan B:
+<ul>
+<li>Menanggung <strong>60% dari klaim <span class="math inline">\(S_B\)</span></strong> → disebut <span class="math inline">\(SB^{(2)}_I\)</span><br>
+</li>
+<li>Menerima <strong>40% dari klaim milik perusahaan A <span class="math inline">\(S_A\)</span></strong><br>
+</li>
+<li>Maka total payout B adalah:<br>
+<span class="math display">\[
+SB^{(2)}_I + SA^{(2)}_R = 0.6S_B + 0.4S_A
+\]</span></li>
+</ul></li>
+</ul>
+<p>📊 Dengan asumsi:</p>
+<ul>
+<li><span class="math inline">\(\text{Var}(S_A) = 180\)</span></li>
+<li><span class="math inline">\(\text{Var}(S_B) = 448\)</span></li>
+</ul>
+<p>Kita bisa hitung total variansi pembayaran (payout) dua perusahaan:</p>
+<p><span class="math display">\[
+\text{Var}(T_A) = 0.6^2 \cdot 180 + 0.4^2 \cdot 448 = 64.8 + 71.68 = 136.48
+\]</span> <span class="math display">\[
+\text{Var}(T_B) = 0.6^2 \cdot 448 + 0.4^2 \cdot 180 = 161.28 + 28.8 = 190.08
+\]</span></p>
+<p>🔢 Jadi, total variansi pembayaran dua perusahaan adalah: <span class="math display">\[
+\text{Var}(T_A) + \text{Var}(T_B) = \boxed{326.56}
+\]</span></p>
+<p>📌 <strong>Catatan penting</strong>:</p>
+<ul>
+<li>Proporsi “60%” di sini <strong>bukan klaim per orang atau klaim awal saja</strong>, melainkan <strong>60% dari seluruh klaim agregat <span class="math inline">\(S_A\)</span> dan <span class="math inline">\(S_B\)</span></strong>, tanpa batasan jumlah klaim.</li>
+<li>Tidak seperti Kasus 1 (stop-loss), di mana perusahaan hanya menanggung klaim sampai batas tertentu (misal 36 unit pertama saja), di sini tidak ada batasan eksplisit — semua klaim tetap dibagi 60-40 berdasarkan total nilai klaim.</li>
 </ul>
 <hr>
 </section>
-<section id="kasus-3-reasuransi-proporsional-50" class="level3">
-<h3 class="anchored" data-anchor-id="kasus-3-reasuransi-proporsional-50">⚖️ <strong>Kasus 3: Reasuransi Proporsional 50%</strong></h3>
+<section id="kasus-3-reasuransi-proporsional-50-penjabaran-rinci" class="level3">
+<h3 class="anchored" data-anchor-id="kasus-3-reasuransi-proporsional-50-penjabaran-rinci">⚖️ Kasus 3: Reasuransi Proporsional 50% — Penjabaran Rinci</h3>
+<p>Dalam pengaturan ini, kedua perusahaan A dan B menyepakati untuk <strong>berbagi risiko secara merata</strong>. Artinya:</p>
 <ul>
-<li><strong>Klaim Ditahan</strong>:<br>
-<span class="math display">\[
-\text{A dan B: } 0.5S_A + 0.5S_B
-\]</span><br>
-</li>
-<li><strong>Varian Total</strong>:<br>
+<li>📊 <strong>Masing-masing hanya menanggung 50% dari klaim yang masuk dari nasabahnya sendiri</strong></li>
+<li>🔄 Sisanya (50%) dialihkan ke perusahaan lainnya sebagai bentuk reasuransi</li>
+</ul>
+<p>Dengan kata lain:</p>
+<ul>
+<li>Perusahaan A:
+<ul>
+<li>Menanggung <strong>50% dari klaim agregat miliknya sendiri <span class="math inline">\(S_A\)</span></strong> → disebut <span class="math inline">\(SA^{(3)}_I\)</span></li>
+<li>Menerima <strong>50% dari klaim milik perusahaan B <span class="math inline">\(S_B\)</span></strong> → disebut <span class="math inline">\(SB^{(3)}_R\)</span></li>
+<li>Maka total klaim yang dibayarkan A adalah: <span class="math display">\[
+SA^{(3)}_I + SB^{(3)}_R = 0.5S_A + 0.5S_B
+\]</span></li>
+</ul></li>
+<li>Perusahaan B:
+<ul>
+<li>Menanggung <strong>50% dari <span class="math inline">\(S_B\)</span></strong> → <span class="math inline">\(SB^{(3)}_I\)</span></li>
+<li>Menerima <strong>50% dari <span class="math inline">\(S_A\)</span></strong> → <span class="math inline">\(SA^{(3)}_R\)</span></li>
+<li>Maka total klaim yang dibayarkan B adalah: <span class="math display">\[
+SB^{(3)}_I + SA^{(3)}_R = 0.5S_B + 0.5S_A
+\]</span></li>
+</ul></li>
+</ul>
+<hr>
+<p>📊 Dengan data: - <span class="math inline">\(\text{Var}(S_A) = 180\)</span> - <span class="math inline">\(\text{Var}(S_B) = 448\)</span></p>
+<p>📉 Variansi pembayaran perusahaan A: <span class="math display">\[
+\text{Var}(T_A) = 0.5^2 \cdot 180 + 0.5^2 \cdot 448 = 45 + 112 = 157
+\]</span></p>
+<p>📉 Variansi pembayaran perusahaan B: <span class="math display">\[
+\text{Var}(T_B) = 0.5^2 \cdot 448 + 0.5^2 \cdot 180 = 112 + 45 = 157
+\]</span></p>
+<p>🔢 Total variansi pembayaran dua perusahaan: <span class="math display">\[
+\text{Var}(T_A) + \text{Var}(T_B) = \boxed{314}
+\]</span></p>
+<p><strong>Dengan kata lain, ini sama dengan</strong> <strong>Varian Total</strong>:<br>
 <span class="math display">\[
 2 \times \left(0.5^2 \times 180 + 0.5^2 \times 448\right) = 314.00
-\]</span><br>
-<em>Insight</em>: <strong>Simetri 50%</strong> → Risk pooling optimal dengan memanfaatkan independensi <span class="math inline">\(S_A\)</span> dan <span class="math inline">\(S_B\)</span>.</li>
+\]</span></p>
+<hr>
+</section>
+<section id="catatan-penting" class="level3">
+<h3 class="anchored" data-anchor-id="catatan-penting">💡 Catatan Penting:</h3>
+<ul>
+<li>💯 Ini adalah contoh <strong>equal risk sharing</strong> (berbagi risiko secara simetris).</li>
+<li>📉 Total variansi payout <strong>paling rendah</strong> dibanding Kasus 1 dan 2.</li>
+<li>📐 Ini membuktikan secara numerik hasil dari <strong>Exercise 5.31</strong>: pembagian 50%-50% meminimalkan total variansi.</li>
 </ul>
+<hr>
+</section>
+<section id="intuisi-sederhana" class="level3">
+<h3 class="anchored" data-anchor-id="intuisi-sederhana">🧠 Intuisi Sederhana:</h3>
+<blockquote class="blockquote">
+<p>Dalam skema ini, tidak ada satu pihak pun yang menanggung lebih banyak. Risiko dibelah dua. Hasilnya? Kedua perusahaan punya <em>payout yang setara</em>, <em>variansi yang seimbang</em>, dan <em>stabilitas yang optimal</em>.</p>
+</blockquote>
+<p>✨ Inilah bentuk <em>kerja sama reasuransi yang paling adil sekaligus paling efisien secara statistik</em>.</p>
 <hr>
 </section>
 <section id="teorema-kunci" class="level3">
