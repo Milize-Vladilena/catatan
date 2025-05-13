@@ -128,11 +128,180 @@ $$
 
 ---
 
-### 📉 **Kasus 1: Excess of Loss**  
-- **Retensi**:  
-  - A: $\min(S_A, 36)$  
-  - B: $\min(S_B, 56)$  
-- **Varian Total**:  
+### 🛑 Kasus 1: Reasuransi Stop-Loss (Excess of Loss) — Penjabaran Rinci
+
+Dalam pengaturan ini, perusahaan A dan B menggunakan strategi **stop-loss**, yaitu masing-masing perusahaan hanya menanggung klaim **hingga batas tertentu**, dan sisanya dialihkan ke perusahaan lainnya melalui reasuransi.
+
+---
+
+#### 📌 Struktur Stop-Loss:
+
+- **Perusahaan A**:
+  - Menanggung klaim hingga **36 unit** (atau £3.6 juta) → setara dengan **6 klaim** pertama (karena satu klaim = 6 unit)
+  - Klaim di atas 36 unit akan direasuransikan ke perusahaan B
+
+- **Perusahaan B**:
+  - Menanggung klaim hingga **56 unit** (atau £5.6 juta) → setara dengan **7 klaim** pertama (karena satu klaim = 8 unit)
+  - Klaim di atas 56 unit akan direasuransikan ke perusahaan A
+
+---
+
+#### 📦 Notasi:
+- $SA_I$, $SA_R$: jumlah klaim yang ditanggung sendiri dan direasuransikan oleh perusahaan A
+- $SB_I$, $SB_R$: jumlah klaim yang ditanggung sendiri dan direasuransikan oleh perusahaan B
+
+---
+
+## 📌 Rincian Nilai Harapan & Variansi – Kasus 1 (Stop-Loss)
+
+### 🧠 Asumsi Dasar:
+
+- Perusahaan **A**:
+  - Menanggung klaim sampai 36 unit (£3.6 juta)
+  - Satu klaim = 6 unit → klaim ke-6 dan seterusnya dialihkan ke reasuransi
+  - Banyaknya klaim mengikuti: $N_A \sim \text{Poisson}(5)$
+
+- Perusahaan **B**:
+  - Menanggung klaim sampai 56 unit (£5.6 juta)
+  - Satu klaim = 8 unit → klaim ke-8 dan seterusnya dialihkan ke reasuransi
+  - Banyaknya klaim mengikuti: $N_B \sim \text{Poisson}(7)$
+
+---
+
+#### 📊 Perhitungan Nilai Harapan dan Variansi:
+
+Untuk **Perusahaan A** (dengan $N_A \sim \text{Poisson}(5)$):
+
+- $E[SA_I] = 27.04$, $\text{Var}(SA_I) = 84.35$
+- $E[SA_R] = 2.96$, $\text{Var}(SA_R) = 42.61$
+
+Untuk **Perusahaan B** (dengan $N_B \sim \text{Poisson}(7)$):
+
+- $E[SB_I] = 47.66$, $\text{Var}(SB_I) = 131.85$
+- $E[SB_R] = 8.34$, $\text{Var}(SB_R) = 176.90$
+
+---
+
+#### 🧾 Total Payout:
+
+- **Perusahaan A**:  
+  - Total ekspektasi payout: $27.04 + 8.34 = \textbf{£3.538.000}$
+  - Total variansi payout: $84.35 + 176.90 = \textbf{261.25}$
+
+- **Perusahaan B**:  
+  - Total ekspektasi payout: $47.66 + 2.96 = \textbf{£5.062.000}$
+  - Total variansi payout: $131.85 + 42.61 = \textbf{174.46}$
+
+---
+
+:::{.callout-note title="Rincian" collapse=true}
+
+### 📊 Rincian Perusahaan A
+
+#### ✅ **1. Nilai Harapan SA_I (Klaim Ditanggung Sendiri)**
+
+Jika $n \leq 5$, maka seluruh klaim ditanggung sendiri: $S_{A,I} = 6n$
+
+Jika $n \geq 6$, maka hanya 6 klaim pertama yang ditanggung: $S_{A,I} = 36$
+
+$$
+E[S_{A,I}] = \sum_{n=0}^{5} 6n \cdot P(N_A = n) + 36 \cdot P(N_A \geq 6) = 27.04
+$$
+
+#### 🔢 **2. Variansi SA_I**:
+
+$$
+\text{Var}(S_{A,I}) = \sum_{n=0}^{5} (6n)^2 \cdot P(N_A = n) + 36^2 \cdot P(N_A \geq 6) - E[S_{A,I}]^2 = 84.35
+$$
+
+#### 📤 **3. Nilai Harapan SA_R (Klaim Direasuransikan)**
+
+$$
+E[S_{A,R}] = E[S_A - S_{A,I}] = E[S_A] - E[S_{A,I}] = 30 - 27.04 = 2.96
+$$
+
+#### 🧮 **4. Variansi SA_R**:
+
+$$
+\text{Var}(S_{A,R}) = \sum_{n=6}^{\infty} (6n - 36)^2 \cdot P(N_A = n) - E[S_{A,R}]^2 = 42.61
+$$
+
+---
+
+### 📊 Rincian Perusahaan B
+
+#### ✅ **1. Nilai Harapan SB_I (Klaim Ditanggung Sendiri)**
+
+Jika $n \leq 6$, maka seluruh klaim ditanggung sendiri: $S_{B,I} = 8n$
+
+Jika $n \geq 7$, maka hanya 7 klaim pertama yang ditanggung: $S_{B,I} = 56$
+
+$$
+E[S_{B,I}] = \sum_{n=0}^{6} 8n \cdot P(N_B = n) + 56 \cdot P(N_B \geq 7) = 47.66
+$$
+
+#### 🔢 **2. Variansi SB_I**:
+
+$$
+\text{Var}(S_{B,I}) = \sum_{n=0}^{6} (8n)^2 \cdot P(N_B = n) + 56^2 \cdot P(N_B \geq 7) - E[S_{B,I}]^2 = 131.85
+$$
+
+#### 📤 **3. Nilai Harapan SB_R (Klaim Direasuransikan)**
+
+$$
+E[S_{B,R}] = E[S_B - S_{B,I}] = 56 - 47.66 = 8.34
+$$
+
+#### 🧮 **4. Variansi SB_R**:
+
+$$
+\text{Var}(S_{B,R}) = \sum_{n=7}^{\infty} (8n - 56)^2 \cdot P(N_B = n) - E[S_{B,R}]^2 = 176.90
+$$
+
+:::
+
+---
+
+### 🧾 Total Payout — Perusahaan A dan B
+
+| Komponen        | A (£100k unit)       | B (£100k unit)       |
+|----------------|----------------------|----------------------|
+| $E[\text{Retained}]$ | $27.04$              | $47.66$              |
+| $E[\text{Reinsured}]$ | $8.34$ (dari B)       | $2.96$ (dari A)       |
+| **Total Ekspektasi** | $\boxed{35.38}$ → £3.538m | $\boxed{50.62}$ → £5.062m |
+
+| Komponen        | A                   | B                   |
+|----------------|---------------------|---------------------|
+| $\text{Var}[Retained]$ | 84.35               | 131.85              |
+| $\text{Var}[Reinsured]$ | 176.90              | 42.61               |
+| **Total Variansi** | $\boxed{261.25}$     | $\boxed{174.46}$     |
+
+---
+
+### 💡 Catatan Penting:
+
+- 🧱 Metode stop-loss efektif **melindungi perusahaan dari klaim besar yang melebihi batas tertentu**.
+- ❗Namun, dalam contoh ini, total variansi **masih lebih tinggi** dibandingkan dengan dua kasus proporsional.
+- ⚠️ Perusahaan A memikul variansi lebih besar dibanding B — artinya **beban risiko tidak dibagi secara merata**.
+
+---
+
+### 🧠 Intuisi Sederhana:
+
+> Di sini, perusahaan seperti "pasang pagar batas atas". Tapi ketika badai besar (klaim tinggi) datang, sebagian beban berat tetap tak bisa dihindari. Efektif, tapi tidak optimal dalam membagi risiko secara seimbang.
+
+### 🧠 Kesimpulan:
+
+📊 **Kesimpulan**:
+Skema stop-loss memberikan perlindungan parsial, tetapi **kurang efisien dibandingkan pembagian risiko proporsional**, terutama jika tujuan utama adalah **meminimalkan total variansi payout**.
+- Perusahaan A menanggung risiko klaim besar (lebih tinggi variansinya)
+- Reasuransi *membantu* stabilisasi, tetapi total variansi payout masih tinggi dibandingkan dengan model proporsional
+- 📉 Total variansi payout gabungan:  
+  $$
+  261.25 + 174.46 = \boxed{435.71}
+  $$
+
+- Perhitungan secara metode numerik juga bisa dilakukan diperoleh:
   $$
   \text{Var}(\min(S_A, 36)) + \text{Var}(\min(S_B, 56)) = 435.71
   $$  
@@ -491,9 +660,63 @@ $$
 | **Proporsional 60%**  | 326.56       | ▼ 48.0%                       |
 | **Proporsional 50%**  | 314.00       | ▼ **50.0%** 🏆                |
 
-### ✅ Kesimpulan
+---
+
+## 📊 TL;DR Perbandingan Total Variansi Payout dari Tiga Skema Reasuransi
+
+```{=html}
+<iframe
+  src="https://drive.google.com/file/d/1_bLOwKH4UpFtQeq_ts-Xukxr7ST2qsXD/preview"
+  width="100%"
+  height="470"
+  allow="autoplay"
+  style="border: 0px solid #ccc; margin-top: 20px;"
+>Browser Anda tidak mendukung iframe.
+<a href="https://drive.google.com/file/d/1_bLOwKH4UpFtQeq_ts-Xukxr7ST2qsXD/view?usp=sharing">Download PDF</a>.
+</iframe>
+```
+
+### 🧾 Tujuan:
+Membandingkan **efektivitas tiga jenis pengaturan reasuransi** (Stop-Loss, Proporsional 60%, dan Proporsional 50%) dalam **meminimalkan total variansi** pembayaran klaim dari dua perusahaan asuransi.
+
+---
+
+### ⚙️ Ringkasan Ketiga Skema:
+
+| Skema Reasuransi           | Perusahaan A                     | Perusahaan B                     | Total Variansi |
+|---------------------------|----------------------------------|----------------------------------|----------------|
+| 🛑 Stop-Loss              | 84.35 + 176.90 = **261.25**      | 131.85 + 42.61 = **174.46**      | **435.71**     |
+| 🔄 Proporsional 60%       | 0.6²·180 + 0.4²·448 = **136.48** | 0.6²·448 + 0.4²·180 = **190.08** | **326.56**     |
+| ⚖️ Proporsional 50%       | 0.5²·180 + 0.5²·448 = **157.00** | 0.5²·448 + 0.5²·180 = **157.00** | **314.00** ✅   |
+
+---
+
+### 📌 Analisis:
+
+- **Kasus 1 – Stop-Loss**:
+  - Perusahaan menanggung klaim hanya sampai batas tertentu (36 unit untuk A, 56 unit untuk B).
+  - Efektif membatasi kerugian ekstrim, namun total variansi payout tetap **paling tinggi**.
+  - **Beban risiko tidak seimbang**: A menanggung variansi lebih besar.
+
+- **Kasus 2 – Proporsional 60%**:
+  - Kedua perusahaan menanggung 60% dari klaimnya dan 40% dari klaim mitranya.
+  - Lebih efisien daripada stop-loss.
+  - **Tetap tidak seimbang**, karena perusahaan dengan risiko lebih besar menanggung beban lebih berat.
+
+- **Kasus 3 – Proporsional 50%**:
+  - Kedua perusahaan menanggung **setengah dari klaimnya** dan **setengah dari klaim mitra**.
+  - Total variansi payout **paling kecil dan seimbang** antar dua pihak.
+  - Ini adalah bentuk **equal risk sharing** yang secara teori dan numerik terbukti paling optimal.
+
+---
+
+### 🧠 Kesimpulan Strategis:
 
 ```markdown
+✔️ Proporsional 50% memberikan efisiensi maksimum
+✔️ Menyeimbangkan variansi antar perusahaan
+✔️ Membuktikan hasil Exercise 5.31 bahwa equal sharing adalah optimal
+✔️ Rekomendasi utama untuk stabilitas dan fairness dalam reasuransi
 🔹 Proporsional 50% terbukti secara numerik sebagai strategi optimal
 🔹 Variansi total minimum = risiko terdistribusi secara efisien
 🔹 Bukti konkret untuk teori minimisasi variansi dalam §5.7.5 dan Exercise 5.31

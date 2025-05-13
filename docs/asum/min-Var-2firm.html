@@ -275,7 +275,115 @@ T_B = g_2(S_B) + [S_A - g_1(S_A)]
 <p><span class="math display">\[
 \beta_1 = \left( \frac{\text{Var}[g_1(S_A)]}{\text{Var}[S_A]} \right)^{1/2}
 \]</span></p>
-<p>Ini <em>tidak</em> mengubah variansi bagian yang ditahan, tapi <em>menurunkan</em> <a href="../asum/kesamaan-variansi.html">variansi bagian</a> yang direasuransikan! 🌟</p>
+<p>Ini <em>tidak</em> mengubah variansi bagian yang ditahan, tapi <em>menurunkan</em> variansi bagian yang direasuransikan! 🌟</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Mengapa bisa sama?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Mengapa bisa sama?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<section id="analisis-kesamaan-variansi-mengapa-textvarg_1s_a-textvarg_1s_a" class="level2 callout-body-container callout-body">
+<h2 class="anchored" data-anchor-id="analisis-kesamaan-variansi-mengapa-textvarg_1s_a-textvarg_1s_a">📊 <strong>Analisis Kesamaan Variansi: Mengapa <span class="math inline">\(\text{Var}[g_1^*(S_A)] = \text{Var}[g_1(S_A)]\)</span>?</strong></h2>
+<section id="konteks-matematis" class="level3">
+<h3 class="anchored" data-anchor-id="konteks-matematis"><strong>1. Konteks Matematis</strong></h3>
+<p>Transformasi fungsi reasuransi non-proporsional <span class="math inline">\(g_1(S_A)\)</span> ke bentuk proporsional <span class="math inline">\(g_1^*(S_A) = \beta_1 S_A\)</span> dilakukan dengan <strong>dua syarat kritis</strong>:</p>
+<ol type="1">
+<li><strong>Mempertahankan Variansi Risiko yang Ditahan</strong>: <span class="math display">\[
+\text{Var}[S_A - g_1(S_A)] = \text{Var}[S_A - g_1^*(S_A)]
+\]</span></li>
+<li><strong>Memenuhi Kesamaan Variansi Reasuransi</strong>: <span class="math display">\[
+\text{Var}[g_1^*(S_A)] = \text{Var}[g_1(S_A)]
+\]</span></li>
+</ol>
+<hr>
+</section>
+<section id="derivasi-kunci" class="level3">
+<h3 class="anchored" data-anchor-id="derivasi-kunci"><strong>2. Derivasi Kunci</strong></h3>
+<section id="langkah-1-ekspansi-syarat-pertama" class="level4">
+<h4 class="anchored" data-anchor-id="langkah-1-ekspansi-syarat-pertama"><strong>Langkah 1: Ekspansi Syarat Pertama</strong></h4>
+<p>Dari syarat pertama: <span class="math display">\[
+\text{Var}[S_A - g_1(S_A)] = \text{Var}[S_A (1 - \beta_1)]
+\]</span> Ekspansi kedua sisi: <span class="math display">\[
+\text{Var}[S_A] + \text{Var}[g_1(S_A)] - 2\text{Cov}(S_A, g_1(S_A)) = (1-\beta_1)^2 \text{Var}[S_A]
+\]</span></p>
+</section>
+<section id="langkah-2-substitusi-syarat-kedua" class="level4">
+<h4 class="anchored" data-anchor-id="langkah-2-substitusi-syarat-kedua"><strong>Langkah 2: Substitusi Syarat Kedua</strong></h4>
+<p>Dari syarat kedua <span class="math inline">\(\text{Var}[g_1^*] = \text{Var}[g_1]\)</span>, substitusi <span class="math inline">\(g_1^* = \beta_1 S_A\)</span>: <span class="math display">\[
+\beta_1^2 \text{Var}[S_A] = \text{Var}[g_1(S_A)]
+\]</span> Sehingga: <span class="math display">\[
+\beta_1 = \sqrt{\frac{\text{Var}[g_1(S_A)]}{\text{Var}[S_A]}}
+\]</span></p>
+</section>
+<section id="langkah-3-bukti-kesamaan" class="level4">
+<h4 class="anchored" data-anchor-id="langkah-3-bukti-kesamaan"><strong>Langkah 3: Bukti Kesamaan</strong></h4>
+<p>Substitusi <span class="math inline">\(\beta_1\)</span> ke definisi <span class="math inline">\(g_1^*\)</span>: <span class="math display">\[
+\text{Var}[g_1^*(S_A)] = \text{Var}\left[\sqrt{\frac{\text{Var}[g_1]}{\text{Var}[S_A]}} S_A \right] = \frac{\text{Var}[g_1]}{\text{Var}[S_A]} \cdot \text{Var}[S_A] = \text{Var}[g_1(S_A)]
+\]</span></p>
+<hr>
+</section>
+</section>
+<section id="interpretasi-praktis" class="level3">
+<h3 class="anchored" data-anchor-id="interpretasi-praktis"><strong>3. Interpretasi Praktis</strong></h3>
+<section id="mekanisme-enforced-equality" class="level4">
+<h4 class="anchored" data-anchor-id="mekanisme-enforced-equality"><strong>Mekanisme “Enforced Equality”</strong></h4>
+<ul>
+<li><span class="math inline">\(\beta_1\)</span> <strong>didesain khusus</strong> agar variansi reasuransi tetap sama.<br>
+</li>
+<li>Ini adalah hasil matematis <strong>deterministik</strong>, bukan kebetulan.</li>
+</ul>
+</section>
+<section id="paradoks-reduksi-risiko" class="level4">
+<h4 class="anchored" data-anchor-id="paradoks-reduksi-risiko"><strong>Paradoks Reduksi Risiko</strong></h4>
+<p>Meskipun <span class="math inline">\(\text{Var}[g_1^*] = \text{Var}[g_1]\)</span>, risiko <strong>yang dialihkan</strong> ke reasuradur menjadi lebih stabil karena: 1. <strong>Eliminasi Ketidakpastian Non-Linear</strong>: Bentuk proporsional menghilangkan komponen stokastik tambahan pada <span class="math inline">\(g_1(S_A)\)</span>.<br>
+2. <strong>Prediktabilitas</strong>: Hubungan linear <span class="math inline">\(g_1^* = \beta_1 S_A\)</span> memudahkan proyeksi klaim.</p>
+<hr>
+</section>
+</section>
+<section id="contoh-numerik" class="level3">
+<h3 class="anchored" data-anchor-id="contoh-numerik"><strong>4. Contoh Numerik</strong></h3>
+<p>Misalkan: - <span class="math inline">\(\text{Var}[S_A] = 200\)</span><br>
+- <span class="math inline">\(\text{Var}[g_1(S_A)] = 80\)</span></p>
+<p>Maka: <span class="math display">\[
+\beta_1 = \sqrt{\frac{80}{200}} = 0.632
+\]</span> <strong>Hasil</strong>:<br>
+<span class="math display">\[
+\text{Var}[g_1^*] = (0.632)^2 \times 200 = 80 \quad (\text{Sama persis!})
+\]</span></p>
+<hr>
+</section>
+<section id="batasan-dan-realitas" class="level3">
+<h3 class="anchored" data-anchor-id="batasan-dan-realitas"><strong>5. Batasan dan Realitas</strong></h3>
+<section id="ketika-kesamaan-tidak-terjadi" class="level4">
+<h4 class="anchored" data-anchor-id="ketika-kesamaan-tidak-terjadi"><strong>Ketika Kesamaan Tidak Terjadi</strong></h4>
+<ul>
+<li>Jika <span class="math inline">\(g_1(S_A)\)</span> <strong>sangat non-linear</strong> (e.g., fungsi tangga), aproksimasi proporsional mungkin <strong>gagal mempertahankan variansi</strong>.<br>
+</li>
+<li>Solusi: Gunakan metode <strong>piecewise linear adjustment</strong> atau <strong>simulasi Monte Carlo</strong>.</li>
+</ul>
+</section>
+</section>
+<section id="catatan-aktuarial" class="level3">
+<h3 class="anchored" data-anchor-id="catatan-aktuarial"><strong>Catatan Aktuarial</strong></h3>
+<p>Dalam praktik, kesamaan ini <strong>hanya berlaku jika</strong>:<br>
+1. Portofolio memenuhi asumsi homogenitas risiko<br>
+2. Tidak ada parameter eksternal (e.g., inflasi) yang memengaruhi <span class="math inline">\(g_1(S_A)\)</span><br>
+3. Distribusi <span class="math inline">\(S_A\)</span> stabil dalam waktu (stationary)</p>
+<hr>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 🧩 **Simpulan Utama**  </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Kesamaan $\text{Var}<span class="co">[</span><span class="ot">g_1^*</span><span class="co">]</span> = \text{Var}<span class="co">[</span><span class="ot">g_1</span><span class="co">]</span>$ terjadi karena:  </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$\beta_1$ **dihitung secara eksplisit** untuk memenuhi syarat ini  </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Transformasi proporsional **menjaga skala risiko** meskipun mengubah struktur alih risiko  </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Merupakan solusi optimal dalam kerangka **mean-variance tradeoff**  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</div>
+</div>
 <p>Hal yang sama berlaku untuk <span class="math inline">\(g_2\)</span>. Maka: ✅ Total variansi <span class="math inline">\(\text{Var}[T_A] + \text{Var}[T_B]\)</span> paling kecil saat dua perusahaan menggunakan reasuransi <strong>proporsional</strong>.</p>
 <p>🎯 Dan dalam soal Exercise 5.31 kamu diminta membuktikan bahwa pengaturan optimal adalah ketika <strong>masing-masing perusahaan membagi risikonya secara merata</strong> ke yang lain! 🧩🤯</p>
 </section>
@@ -374,11 +482,11 @@ T_B = g_2(S_B) + [S_A - g_1(S_A)]
 </section>
 <section id="kesimpulan-emosional-rasional" class="level4">
 <h4 class="anchored" data-anchor-id="kesimpulan-emosional-rasional">🎯 Kesimpulan Emosional + Rasional:</h4>
-<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Variansi bukan sekadar angka statistik.</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Itu adalah ukuran seberapa siap kamu menghadapi masa depan.</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Semakin kecil variansimu, semakin besar peluangmu untuk bertahan, tumbuh, dan dipercaya.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Variansi bukan sekadar angka statistik.</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Itu adalah ukuran seberapa siap kamu menghadapi masa depan.</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Semakin kecil variansimu, semakin besar peluangmu untuk bertahan, tumbuh, dan dipercaya.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>✨ Dengan logika, empati, dan strategi minimisasi variansi — kita bukan cuma mengatur angka, tapi melindungi <em>masa depan perusahaan dan orang-orang di dalamnya</em>.</p>
 <hr>
 </section>
@@ -406,9 +514,9 @@ T_B = g_2(S_B) + [S_A - g_1(S_A)]
 </section>
 <section id="kesimpulan-brainstorming" class="level3">
 <h3 class="anchored" data-anchor-id="kesimpulan-brainstorming">🎉 Kesimpulan Brainstorming</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>🔹 Meminimalkan variansi = strategi reasuransi optimal  </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>🔹 Proporsionalitas = kunci efisiensi (lebih baik daripada bentuk arbitrer lainnya)  </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>🔹 Pembagian risiko 50%-50% terbukti secara matematis sebagai titik minimum total variansi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>🔹 Meminimalkan variansi = strategi reasuransi optimal  </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>🔹 Proporsionalitas = kunci efisiensi (lebih baik daripada bentuk arbitrer lainnya)  </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>🔹 Pembagian risiko 50%-50% terbukti secara matematis sebagai titik minimum total variansi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

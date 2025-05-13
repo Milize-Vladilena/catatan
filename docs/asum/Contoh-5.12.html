@@ -187,14 +187,28 @@ window.Quarto = {
   <li><a href="#penjelasan-matematis-contoh-5.12" id="toc-penjelasan-matematis-contoh-5.12" class="nav-link" data-scroll-target="#penjelasan-matematis-contoh-5.12">🏢 <strong>Penjelasan Matematis Contoh 5.12</strong></a>
   <ul class="collapse">
   <li><a href="#definisi-model-klaim" id="toc-definisi-model-klaim" class="nav-link" data-scroll-target="#definisi-model-klaim">📦 <strong>Definisi Model Klaim</strong></a></li>
-  <li><a href="#kasus-1-excess-of-loss" id="toc-kasus-1-excess-of-loss" class="nav-link" data-scroll-target="#kasus-1-excess-of-loss">📉 <strong>Kasus 1: Excess of Loss</strong></a></li>
-  <li><a href="#kasus-2-reasuransi-proporsional-60-penjabaran-rinci" id="toc-kasus-2-reasuransi-proporsional-60-penjabaran-rinci" class="nav-link" data-scroll-target="#kasus-2-reasuransi-proporsional-60-penjabaran-rinci">🔄 Kasus 2: Reasuransi Proporsional 60% — Penjabaran Rinci</a></li>
-  <li><a href="#kasus-3-reasuransi-proporsional-50-penjabaran-rinci" id="toc-kasus-3-reasuransi-proporsional-50-penjabaran-rinci" class="nav-link" data-scroll-target="#kasus-3-reasuransi-proporsional-50-penjabaran-rinci">⚖️ Kasus 3: Reasuransi Proporsional 50% — Penjabaran Rinci</a></li>
+  <li><a href="#kasus-1-reasuransi-stop-loss-excess-of-loss-penjabaran-rinci" id="toc-kasus-1-reasuransi-stop-loss-excess-of-loss-penjabaran-rinci" class="nav-link" data-scroll-target="#kasus-1-reasuransi-stop-loss-excess-of-loss-penjabaran-rinci">🛑 Kasus 1: Reasuransi Stop-Loss (Excess of Loss) — Penjabaran Rinci</a></li>
+  </ul></li>
+  <li><a href="#rincian-nilai-harapan-variansi-kasus-1-stop-loss" id="toc-rincian-nilai-harapan-variansi-kasus-1-stop-loss" class="nav-link" data-scroll-target="#rincian-nilai-harapan-variansi-kasus-1-stop-loss">📌 Rincian Nilai Harapan &amp; Variansi – Kasus 1 (Stop-Loss)</a>
+  <ul class="collapse">
+  <li><a href="#asumsi-dasar" id="toc-asumsi-dasar" class="nav-link" data-scroll-target="#asumsi-dasar">🧠 Asumsi Dasar:</a></li>
+  <li><a href="#total-payout-perusahaan-a-dan-b" id="toc-total-payout-perusahaan-a-dan-b" class="nav-link" data-scroll-target="#total-payout-perusahaan-a-dan-b">🧾 Total Payout — Perusahaan A dan B</a></li>
   <li><a href="#catatan-penting" id="toc-catatan-penting" class="nav-link" data-scroll-target="#catatan-penting">💡 Catatan Penting:</a></li>
   <li><a href="#intuisi-sederhana" id="toc-intuisi-sederhana" class="nav-link" data-scroll-target="#intuisi-sederhana">🧠 Intuisi Sederhana:</a></li>
+  <li><a href="#kesimpulan" id="toc-kesimpulan" class="nav-link" data-scroll-target="#kesimpulan">🧠 Kesimpulan:</a></li>
+  <li><a href="#kasus-2-reasuransi-proporsional-60-penjabaran-rinci" id="toc-kasus-2-reasuransi-proporsional-60-penjabaran-rinci" class="nav-link" data-scroll-target="#kasus-2-reasuransi-proporsional-60-penjabaran-rinci">🔄 Kasus 2: Reasuransi Proporsional 60% — Penjabaran Rinci</a></li>
+  <li><a href="#kasus-3-reasuransi-proporsional-50-penjabaran-rinci" id="toc-kasus-3-reasuransi-proporsional-50-penjabaran-rinci" class="nav-link" data-scroll-target="#kasus-3-reasuransi-proporsional-50-penjabaran-rinci">⚖️ Kasus 3: Reasuransi Proporsional 50% — Penjabaran Rinci</a></li>
+  <li><a href="#catatan-penting-1" id="toc-catatan-penting-1" class="nav-link" data-scroll-target="#catatan-penting-1">💡 Catatan Penting:</a></li>
+  <li><a href="#intuisi-sederhana-1" id="toc-intuisi-sederhana-1" class="nav-link" data-scroll-target="#intuisi-sederhana-1">🧠 Intuisi Sederhana:</a></li>
   <li><a href="#teorema-kunci" id="toc-teorema-kunci" class="nav-link" data-scroll-target="#teorema-kunci">📜 <strong>Teorema Kunci</strong></a></li>
   <li><a href="#tabel-ringkasan-hasil" id="toc-tabel-ringkasan-hasil" class="nav-link" data-scroll-target="#tabel-ringkasan-hasil">📊 <strong>Tabel Ringkasan Hasil</strong></a></li>
-  <li><a href="#kesimpulan" id="toc-kesimpulan" class="nav-link" data-scroll-target="#kesimpulan">✅ Kesimpulan</a></li>
+  </ul></li>
+  <li><a href="#tldr-perbandingan-total-variansi-payout-dari-tiga-skema-reasuransi" id="toc-tldr-perbandingan-total-variansi-payout-dari-tiga-skema-reasuransi" class="nav-link" data-scroll-target="#tldr-perbandingan-total-variansi-payout-dari-tiga-skema-reasuransi">📊 TL;DR Perbandingan Total Variansi Payout dari Tiga Skema Reasuransi</a>
+  <ul class="collapse">
+  <li><a href="#tujuan" id="toc-tujuan" class="nav-link" data-scroll-target="#tujuan">🧾 Tujuan:</a></li>
+  <li><a href="#ringkasan-ketiga-skema" id="toc-ringkasan-ketiga-skema" class="nav-link" data-scroll-target="#ringkasan-ketiga-skema">⚙️ Ringkasan Ketiga Skema:</a></li>
+  <li><a href="#analisis" id="toc-analisis" class="nav-link" data-scroll-target="#analisis">📌 Analisis:</a></li>
+  <li><a href="#kesimpulan-strategis" id="toc-kesimpulan-strategis" class="nav-link" data-scroll-target="#kesimpulan-strategis">🧠 Kesimpulan Strategis:</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -405,24 +419,251 @@ S_B \sim CP(7, X_B=8), \quad \text{Var}(S_B) = 7 \times 8^2 = 448
 </ul>
 <hr>
 </section>
-<section id="kasus-1-excess-of-loss" class="level3">
-<h3 class="anchored" data-anchor-id="kasus-1-excess-of-loss">📉 <strong>Kasus 1: Excess of Loss</strong></h3>
+<section id="kasus-1-reasuransi-stop-loss-excess-of-loss-penjabaran-rinci" class="level3">
+<h3 class="anchored" data-anchor-id="kasus-1-reasuransi-stop-loss-excess-of-loss-penjabaran-rinci">🛑 Kasus 1: Reasuransi Stop-Loss (Excess of Loss) — Penjabaran Rinci</h3>
+<p>Dalam pengaturan ini, perusahaan A dan B menggunakan strategi <strong>stop-loss</strong>, yaitu masing-masing perusahaan hanya menanggung klaim <strong>hingga batas tertentu</strong>, dan sisanya dialihkan ke perusahaan lainnya melalui reasuransi.</p>
+<hr>
+<section id="struktur-stop-loss" class="level4">
+<h4 class="anchored" data-anchor-id="struktur-stop-loss">📌 Struktur Stop-Loss:</h4>
 <ul>
-<li><strong>Retensi</strong>:
+<li><strong>Perusahaan A</strong>:
 <ul>
-<li>A: <span class="math inline">\(\min(S_A, 36)\)</span><br>
-</li>
-<li>B: <span class="math inline">\(\min(S_B, 56)\)</span><br>
-</li>
+<li>Menanggung klaim hingga <strong>36 unit</strong> (atau £3.6 juta) → setara dengan <strong>6 klaim</strong> pertama (karena satu klaim = 6 unit)</li>
+<li>Klaim di atas 36 unit akan direasuransikan ke perusahaan B</li>
 </ul></li>
-<li><strong>Varian Total</strong>:<br>
+<li><strong>Perusahaan B</strong>:
+<ul>
+<li>Menanggung klaim hingga <strong>56 unit</strong> (atau £5.6 juta) → setara dengan <strong>7 klaim</strong> pertama (karena satu klaim = 8 unit)</li>
+<li>Klaim di atas 56 unit akan direasuransikan ke perusahaan A</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="notasi" class="level4">
+<h4 class="anchored" data-anchor-id="notasi">📦 Notasi:</h4>
+<ul>
+<li><span class="math inline">\(SA_I\)</span>, <span class="math inline">\(SA_R\)</span>: jumlah klaim yang ditanggung sendiri dan direasuransikan oleh perusahaan A</li>
+<li><span class="math inline">\(SB_I\)</span>, <span class="math inline">\(SB_R\)</span>: jumlah klaim yang ditanggung sendiri dan direasuransikan oleh perusahaan B</li>
+</ul>
+<hr>
+</section>
+</section>
+</section>
+<section id="rincian-nilai-harapan-variansi-kasus-1-stop-loss" class="level2">
+<h2 class="anchored" data-anchor-id="rincian-nilai-harapan-variansi-kasus-1-stop-loss">📌 Rincian Nilai Harapan &amp; Variansi – Kasus 1 (Stop-Loss)</h2>
+<section id="asumsi-dasar" class="level3">
+<h3 class="anchored" data-anchor-id="asumsi-dasar">🧠 Asumsi Dasar:</h3>
+<ul>
+<li>Perusahaan <strong>A</strong>:
+<ul>
+<li>Menanggung klaim sampai 36 unit (£3.6 juta)</li>
+<li>Satu klaim = 6 unit → klaim ke-6 dan seterusnya dialihkan ke reasuransi</li>
+<li>Banyaknya klaim mengikuti: <span class="math inline">\(N_A \sim \text{Poisson}(5)\)</span></li>
+</ul></li>
+<li>Perusahaan <strong>B</strong>:
+<ul>
+<li>Menanggung klaim sampai 56 unit (£5.6 juta)</li>
+<li>Satu klaim = 8 unit → klaim ke-8 dan seterusnya dialihkan ke reasuransi</li>
+<li>Banyaknya klaim mengikuti: <span class="math inline">\(N_B \sim \text{Poisson}(7)\)</span></li>
+</ul></li>
+</ul>
+<hr>
+<section id="perhitungan-nilai-harapan-dan-variansi" class="level4">
+<h4 class="anchored" data-anchor-id="perhitungan-nilai-harapan-dan-variansi">📊 Perhitungan Nilai Harapan dan Variansi:</h4>
+<p>Untuk <strong>Perusahaan A</strong> (dengan <span class="math inline">\(N_A \sim \text{Poisson}(5)\)</span>):</p>
+<ul>
+<li><span class="math inline">\(E[SA_I] = 27.04\)</span>, <span class="math inline">\(\text{Var}(SA_I) = 84.35\)</span></li>
+<li><span class="math inline">\(E[SA_R] = 2.96\)</span>, <span class="math inline">\(\text{Var}(SA_R) = 42.61\)</span></li>
+</ul>
+<p>Untuk <strong>Perusahaan B</strong> (dengan <span class="math inline">\(N_B \sim \text{Poisson}(7)\)</span>):</p>
+<ul>
+<li><span class="math inline">\(E[SB_I] = 47.66\)</span>, <span class="math inline">\(\text{Var}(SB_I) = 131.85\)</span></li>
+<li><span class="math inline">\(E[SB_R] = 8.34\)</span>, <span class="math inline">\(\text{Var}(SB_R) = 176.90\)</span></li>
+</ul>
+<hr>
+</section>
+<section id="total-payout" class="level4">
+<h4 class="anchored">🧾 Total Payout:</h4>
+<ul>
+<li><strong>Perusahaan A</strong>:
+<ul>
+<li>Total ekspektasi payout: <span class="math inline">\(27.04 + 8.34 = \textbf{£3.538.000}\)</span></li>
+<li>Total variansi payout: <span class="math inline">\(84.35 + 176.90 = \textbf{261.25}\)</span></li>
+</ul></li>
+<li><strong>Perusahaan B</strong>:
+<ul>
+<li>Total ekspektasi payout: <span class="math inline">\(47.66 + 2.96 = \textbf{£5.062.000}\)</span></li>
+<li>Total variansi payout: <span class="math inline">\(131.85 + 42.61 = \textbf{174.46}\)</span></li>
+</ul></li>
+</ul>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled" title="Rincian">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Rincian
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="rincian-perusahaan-a" class="level3">
+<h3 class="anchored" data-anchor-id="rincian-perusahaan-a">📊 Rincian Perusahaan A</h3>
+<section id="nilai-harapan-sa_i-klaim-ditanggung-sendiri" class="level4">
+<h4 class="anchored" data-anchor-id="nilai-harapan-sa_i-klaim-ditanggung-sendiri">✅ <strong>1. Nilai Harapan SA_I (Klaim Ditanggung Sendiri)</strong></h4>
+<p>Jika <span class="math inline">\(n \leq 5\)</span>, maka seluruh klaim ditanggung sendiri: <span class="math inline">\(S_{A,I} = 6n\)</span></p>
+<p>Jika <span class="math inline">\(n \geq 6\)</span>, maka hanya 6 klaim pertama yang ditanggung: <span class="math inline">\(S_{A,I} = 36\)</span></p>
+<p><span class="math display">\[
+E[S_{A,I}] = \sum_{n=0}^{5} 6n \cdot P(N_A = n) + 36 \cdot P(N_A \geq 6) = 27.04
+\]</span></p>
+</section>
+<section id="variansi-sa_i" class="level4">
+<h4 class="anchored" data-anchor-id="variansi-sa_i">🔢 <strong>2. Variansi SA_I</strong>:</h4>
+<p><span class="math display">\[
+\text{Var}(S_{A,I}) = \sum_{n=0}^{5} (6n)^2 \cdot P(N_A = n) + 36^2 \cdot P(N_A \geq 6) - E[S_{A,I}]^2 = 84.35
+\]</span></p>
+</section>
+<section id="nilai-harapan-sa_r-klaim-direasuransikan" class="level4">
+<h4 class="anchored" data-anchor-id="nilai-harapan-sa_r-klaim-direasuransikan">📤 <strong>3. Nilai Harapan SA_R (Klaim Direasuransikan)</strong></h4>
+<p><span class="math display">\[
+E[S_{A,R}] = E[S_A - S_{A,I}] = E[S_A] - E[S_{A,I}] = 30 - 27.04 = 2.96
+\]</span></p>
+</section>
+<section id="variansi-sa_r" class="level4">
+<h4 class="anchored" data-anchor-id="variansi-sa_r">🧮 <strong>4. Variansi SA_R</strong>:</h4>
+<p><span class="math display">\[
+\text{Var}(S_{A,R}) = \sum_{n=6}^{\infty} (6n - 36)^2 \cdot P(N_A = n) - E[S_{A,R}]^2 = 42.61
+\]</span></p>
+<hr>
+</section>
+</section>
+<section id="rincian-perusahaan-b" class="level3">
+<h3 class="anchored" data-anchor-id="rincian-perusahaan-b">📊 Rincian Perusahaan B</h3>
+<section id="nilai-harapan-sb_i-klaim-ditanggung-sendiri" class="level4">
+<h4 class="anchored" data-anchor-id="nilai-harapan-sb_i-klaim-ditanggung-sendiri">✅ <strong>1. Nilai Harapan SB_I (Klaim Ditanggung Sendiri)</strong></h4>
+<p>Jika <span class="math inline">\(n \leq 6\)</span>, maka seluruh klaim ditanggung sendiri: <span class="math inline">\(S_{B,I} = 8n\)</span></p>
+<p>Jika <span class="math inline">\(n \geq 7\)</span>, maka hanya 7 klaim pertama yang ditanggung: <span class="math inline">\(S_{B,I} = 56\)</span></p>
+<p><span class="math display">\[
+E[S_{B,I}] = \sum_{n=0}^{6} 8n \cdot P(N_B = n) + 56 \cdot P(N_B \geq 7) = 47.66
+\]</span></p>
+</section>
+<section id="variansi-sb_i" class="level4">
+<h4 class="anchored" data-anchor-id="variansi-sb_i">🔢 <strong>2. Variansi SB_I</strong>:</h4>
+<p><span class="math display">\[
+\text{Var}(S_{B,I}) = \sum_{n=0}^{6} (8n)^2 \cdot P(N_B = n) + 56^2 \cdot P(N_B \geq 7) - E[S_{B,I}]^2 = 131.85
+\]</span></p>
+</section>
+<section id="nilai-harapan-sb_r-klaim-direasuransikan" class="level4">
+<h4 class="anchored" data-anchor-id="nilai-harapan-sb_r-klaim-direasuransikan">📤 <strong>3. Nilai Harapan SB_R (Klaim Direasuransikan)</strong></h4>
+<p><span class="math display">\[
+E[S_{B,R}] = E[S_B - S_{B,I}] = 56 - 47.66 = 8.34
+\]</span></p>
+</section>
+<section id="variansi-sb_r" class="level4">
+<h4 class="anchored" data-anchor-id="variansi-sb_r">🧮 <strong>4. Variansi SB_R</strong>:</h4>
+<p><span class="math display">\[
+\text{Var}(S_{B,R}) = \sum_{n=7}^{\infty} (8n - 56)^2 \cdot P(N_B = n) - E[S_{B,R}]^2 = 176.90
+\]</span></p>
+</section>
+</section>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="total-payout-perusahaan-a-dan-b" class="level3">
+<h3 class="anchored" data-anchor-id="total-payout-perusahaan-a-dan-b">🧾 Total Payout — Perusahaan A dan B</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Komponen</th>
+<th>A (£100k unit)</th>
+<th>B (£100k unit)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(E[\text{Retained}]\)</span></td>
+<td><span class="math inline">\(27.04\)</span></td>
+<td><span class="math inline">\(47.66\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(E[\text{Reinsured}]\)</span></td>
+<td><span class="math inline">\(8.34\)</span> (dari B)</td>
+<td><span class="math inline">\(2.96\)</span> (dari A)</td>
+</tr>
+<tr class="odd">
+<td><strong>Total Ekspektasi</strong></td>
+<td><span class="math inline">\(\boxed{35.38}\)</span> → £3.538m</td>
+<td><span class="math inline">\(\boxed{50.62}\)</span> → £5.062m</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Komponen</th>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\text{Var}[Retained]\)</span></td>
+<td>84.35</td>
+<td>131.85</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\text{Var}[Reinsured]\)</span></td>
+<td>176.90</td>
+<td>42.61</td>
+</tr>
+<tr class="odd">
+<td><strong>Total Variansi</strong></td>
+<td><span class="math inline">\(\boxed{261.25}\)</span></td>
+<td><span class="math inline">\(\boxed{174.46}\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="catatan-penting" class="level3">
+<h3 class="anchored" data-anchor-id="catatan-penting">💡 Catatan Penting:</h3>
+<ul>
+<li>🧱 Metode stop-loss efektif <strong>melindungi perusahaan dari klaim besar yang melebihi batas tertentu</strong>.</li>
+<li>❗Namun, dalam contoh ini, total variansi <strong>masih lebih tinggi</strong> dibandingkan dengan dua kasus proporsional.</li>
+<li>⚠️ Perusahaan A memikul variansi lebih besar dibanding B — artinya <strong>beban risiko tidak dibagi secara merata</strong>.</li>
+</ul>
+<hr>
+</section>
+<section id="intuisi-sederhana" class="level3">
+<h3 class="anchored" data-anchor-id="intuisi-sederhana">🧠 Intuisi Sederhana:</h3>
+<blockquote class="blockquote">
+<p>Di sini, perusahaan seperti “pasang pagar batas atas”. Tapi ketika badai besar (klaim tinggi) datang, sebagian beban berat tetap tak bisa dihindari. Efektif, tapi tidak optimal dalam membagi risiko secara seimbang.</p>
+</blockquote>
+</section>
+<section id="kesimpulan" class="level3">
+<h3 class="anchored" data-anchor-id="kesimpulan">🧠 Kesimpulan:</h3>
+<p>📊 <strong>Kesimpulan</strong>: Skema stop-loss memberikan perlindungan parsial, tetapi <strong>kurang efisien dibandingkan pembagian risiko proporsional</strong>, terutama jika tujuan utama adalah <strong>meminimalkan total variansi payout</strong>. - Perusahaan A menanggung risiko klaim besar (lebih tinggi variansinya) - Reasuransi <em>membantu</em> stabilisasi, tetapi total variansi payout masih tinggi dibandingkan dengan model proporsional - 📉 Total variansi payout gabungan:<br>
 <span class="math display">\[
+  261.25 + 174.46 = \boxed{435.71}
+  \]</span></p>
+<ul>
+<li>Perhitungan secara metode numerik juga bisa dilakukan diperoleh: <span class="math display">\[
 \text{Var}(\min(S_A, 36)) + \text{Var}(\min(S_B, 56)) = 435.71
 \]</span><br>
 <em>Catatan</em>: Perhitungan menggunakan distribusi terpotong (<strong>truncated distribution</strong>).</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled" title="Perhitungan Distribusi Terpotong">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -431,7 +672,7 @@ Perhitungan Distribusi Terpotong
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <section id="penjelasan-detail-perhitungan-varian-excess-of-loss-435.71" class="level3 callout-body-container callout-body">
 <h3 class="anchored" data-anchor-id="penjelasan-detail-perhitungan-varian-excess-of-loss-435.71">🧮 Penjelasan Detail Perhitungan Varian Excess of Loss (435.71)</h3>
 <hr>
@@ -562,7 +803,7 @@ z_B = \frac{56 - 56}{21.166} = 0
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Perhitungan, code dan simulasi monte carlo">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -571,7 +812,7 @@ Perhitungan, code dan simulasi monte carlo
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <section id="metode-perhitungan-varian-excess-of-loss-dengan-python" class="level3 callout-body-container callout-body">
 <h3 class="anchored" data-anchor-id="metode-perhitungan-varian-excess-of-loss-dengan-python">📊 Metode Perhitungan Varian Excess of Loss dengan Python</h3>
 <hr>
@@ -776,8 +1017,8 @@ SB^{(3)}_I + SA^{(3)}_R = 0.5S_B + 0.5S_A
 \]</span></p>
 <hr>
 </section>
-<section id="catatan-penting" class="level3">
-<h3 class="anchored" data-anchor-id="catatan-penting">💡 Catatan Penting:</h3>
+<section id="catatan-penting-1" class="level3">
+<h3 class="anchored" data-anchor-id="catatan-penting-1">💡 Catatan Penting:</h3>
 <ul>
 <li>💯 Ini adalah contoh <strong>equal risk sharing</strong> (berbagi risiko secara simetris).</li>
 <li>📉 Total variansi payout <strong>paling rendah</strong> dibanding Kasus 1 dan 2.</li>
@@ -785,8 +1026,8 @@ SB^{(3)}_I + SA^{(3)}_R = 0.5S_B + 0.5S_A
 </ul>
 <hr>
 </section>
-<section id="intuisi-sederhana" class="level3">
-<h3 class="anchored" data-anchor-id="intuisi-sederhana">🧠 Intuisi Sederhana:</h3>
+<section id="intuisi-sederhana-1" class="level3">
+<h3 class="anchored" data-anchor-id="intuisi-sederhana-1">🧠 Intuisi Sederhana:</h3>
 <blockquote class="blockquote">
 <p>Dalam skema ini, tidak ada satu pihak pun yang menanggung lebih banyak. Risiko dibelah dua. Hasilnya? Kedua perusahaan punya <em>payout yang setara</em>, <em>variansi yang seimbang</em>, dan <em>stabilitas yang optimal</em>.</p>
 </blockquote>
@@ -841,12 +1082,92 @@ SB^{(3)}_I + SA^{(3)}_R = 0.5S_B + 0.5S_A
 </tr>
 </tbody>
 </table>
+<hr>
 </section>
-<section id="kesimpulan" class="level3">
-<h3 class="anchored" data-anchor-id="kesimpulan">✅ Kesimpulan</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>🔹 Proporsional 50% terbukti secara numerik sebagai strategi optimal</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>🔹 Variansi total minimum = risiko terdistribusi secara efisien</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>🔹 Bukti konkret untuk teori minimisasi variansi dalam §5.7.5 dan Exercise 5.31</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tldr-perbandingan-total-variansi-payout-dari-tiga-skema-reasuransi" class="level2">
+<h2 class="anchored" data-anchor-id="tldr-perbandingan-total-variansi-payout-dari-tiga-skema-reasuransi">📊 TL;DR Perbandingan Total Variansi Payout dari Tiga Skema Reasuransi</h2>
+<iframe src="https://drive.google.com/file/d/1_bLOwKH4UpFtQeq_ts-Xukxr7ST2qsXD/preview" width="100%" height="470" allow="autoplay" style="border: 0px solid #ccc; margin-top: 20px;">Browser Anda tidak mendukung iframe.
+<a href="https://drive.google.com/file/d/1_bLOwKH4UpFtQeq_ts-Xukxr7ST2qsXD/view?usp=sharing">Download PDF</a>.
+</iframe>
+<section id="tujuan" class="level3">
+<h3 class="anchored" data-anchor-id="tujuan">🧾 Tujuan:</h3>
+<p>Membandingkan <strong>efektivitas tiga jenis pengaturan reasuransi</strong> (Stop-Loss, Proporsional 60%, dan Proporsional 50%) dalam <strong>meminimalkan total variansi</strong> pembayaran klaim dari dua perusahaan asuransi.</p>
+<hr>
+</section>
+<section id="ringkasan-ketiga-skema" class="level3">
+<h3 class="anchored" data-anchor-id="ringkasan-ketiga-skema">⚙️ Ringkasan Ketiga Skema:</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 30%">
+<col style="width: 30%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Skema Reasuransi</th>
+<th>Perusahaan A</th>
+<th>Perusahaan B</th>
+<th>Total Variansi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>🛑 Stop-Loss</td>
+<td>84.35 + 176.90 = <strong>261.25</strong></td>
+<td>131.85 + 42.61 = <strong>174.46</strong></td>
+<td><strong>435.71</strong></td>
+</tr>
+<tr class="even">
+<td>🔄 Proporsional 60%</td>
+<td>0.6²·180 + 0.4²·448 = <strong>136.48</strong></td>
+<td>0.6²·448 + 0.4²·180 = <strong>190.08</strong></td>
+<td><strong>326.56</strong></td>
+</tr>
+<tr class="odd">
+<td>⚖️ Proporsional 50%</td>
+<td>0.5²·180 + 0.5²·448 = <strong>157.00</strong></td>
+<td>0.5²·448 + 0.5²·180 = <strong>157.00</strong></td>
+<td><strong>314.00</strong> ✅</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="analisis" class="level3">
+<h3 class="anchored" data-anchor-id="analisis">📌 Analisis:</h3>
+<ul>
+<li><strong>Kasus 1 – Stop-Loss</strong>:
+<ul>
+<li>Perusahaan menanggung klaim hanya sampai batas tertentu (36 unit untuk A, 56 unit untuk B).</li>
+<li>Efektif membatasi kerugian ekstrim, namun total variansi payout tetap <strong>paling tinggi</strong>.</li>
+<li><strong>Beban risiko tidak seimbang</strong>: A menanggung variansi lebih besar.</li>
+</ul></li>
+<li><strong>Kasus 2 – Proporsional 60%</strong>:
+<ul>
+<li>Kedua perusahaan menanggung 60% dari klaimnya dan 40% dari klaim mitranya.</li>
+<li>Lebih efisien daripada stop-loss.</li>
+<li><strong>Tetap tidak seimbang</strong>, karena perusahaan dengan risiko lebih besar menanggung beban lebih berat.</li>
+</ul></li>
+<li><strong>Kasus 3 – Proporsional 50%</strong>:
+<ul>
+<li>Kedua perusahaan menanggung <strong>setengah dari klaimnya</strong> dan <strong>setengah dari klaim mitra</strong>.</li>
+<li>Total variansi payout <strong>paling kecil dan seimbang</strong> antar dua pihak.</li>
+<li>Ini adalah bentuk <strong>equal risk sharing</strong> yang secara teori dan numerik terbukti paling optimal.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="kesimpulan-strategis" class="level3">
+<h3 class="anchored" data-anchor-id="kesimpulan-strategis">🧠 Kesimpulan Strategis:</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>✔️ Proporsional 50% memberikan efisiensi maksimum</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>✔️ Menyeimbangkan variansi antar perusahaan</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>✔️ Membuktikan hasil Exercise 5.31 bahwa equal sharing adalah optimal</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>✔️ Rekomendasi utama untuk stabilitas dan fairness dalam reasuransi</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>🔹 Proporsional 50% terbukti secara numerik sebagai strategi optimal</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>🔹 Variansi total minimum = risiko terdistribusi secara efisien</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>🔹 Bukti konkret untuk teori minimisasi variansi dalam §5.7.5 dan Exercise 5.31</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
