@@ -1,0 +1,165 @@
+---
+title: "Minimalkan variansi 2 perusahaan"
+format: html
+---
+
+## ✅ EKSTRAKSI ASLI (ENGLISH) — *From the Book*
+
+### 5.7.5 Minimising the sum of variances when two independent risks are shared between two insurers
+
+Consider two insurance companies A and B which are exposed to aggregate claims $S_A$ and $S_B$, respectively, where $S_A$ and $S_B$ are independent random variables. Let us suppose that the two companies share their risks with each other as follows:
+
+- Company A retains $g_1(S_A)$ and reinsures $S_A - g_1(S_A)$ with company B;
+- Company B retains $g_2(S_B)$ and reinsures $S_B - g_2(S_B)$ with company A,
+
+where $g_i(\cdot)$, $i = 1, 2$, are reinsurance functions (so they satisfy $0 \leq g_i(x) \leq x$, $i = 1, 2$). Then the total payouts for company A and company B are $T_A$ and $T_B$, respectively, where:
+
+$$
+T_A = g_1(S_A) + [S_B - g_2(S_B)] \quad \text{and} \quad T_B = g_2(S_B) + [S_A - g_1(S_A)]
+$$
+
+Hence, since $S_A$ and $S_B$ are independent, we have:
+
+$$
+\text{Var}[T_A] = \text{Var}[g_1(S_A)] + \text{Var}[S_B - g_2(S_B)]
+$$
+
+$$
+\text{Var}[T_B] = \text{Var}[g_2(S_B)] + \text{Var}[S_A - g_1(S_A)]
+$$
+
+Suppose the function $g_1(\cdot)$ does not define a proportional reinsurance arrangement. If we now choose:
+
+$$
+\beta_1 = \left\{ \frac{\text{Var}[g_1(S_A)]}{\text{Var}[S_A]} \right\}^{1/2}
+$$
+
+and define $g_1^*(S_A) = \beta_1 S_A$, then $g_1^*(\cdot)$ does define a proportional arrangement and we have:
+
+$$
+\text{Var}[g_1^*(S_A)] = \text{Var}[g_1(S_A)]
+$$
+
+We know that the variance of the reinsurance payout, subject to fixed variance for the direct insurance payout, is minimised by proportional reinsurance (see §5.7.2), hence:
+
+$$
+\text{Var}[S_A - g_1^*(S_A)] \leq \text{Var}[S_A - g_1(S_A)]
+$$
+
+A similar argument holds for $g_2(\cdot)$. Hence $\text{Var}[T_A] + \text{Var}[T_B]$ is minimised by both companies using proportional reinsurance.
+
+In Exercise 5.31 you are asked to show that the optimal arrangement is in fact that in which each company shares its risk equally with the other.
+
+---
+
+### 📘 Exercise 5.31
+
+Consider the situation explored in §5.7.5, in which we seek to minimise the sum of the variances of the payouts when two independent risks are shared between two insurers.
+
+Extend the argument to show that the optimal arrangement is that in which each company shares its risk equally with the other.
+
+
+## 🧠 Minimalkan Variansi Saat Dua Risiko Dibagi ke Dua Perusahaan Asuransi 📉🤝
+
+Bayangkan dua perusahaan asuransi, A dan B, masing-masing menghadapi klaim agregat yang *independen* yakni $S_A$ dan $S_B$. Mereka saling membagi risiko:
+
+- 🏢 A menyimpan sebagian $g_1(S_A)$ dan sisanya $S_A - g_1(S_A)$ diberikan ke B.
+- 🏢 B menyimpan $g_2(S_B)$ dan sisanya $S_B - g_2(S_B)$ dikasih ke A.
+
+Fungsi $g_1(\cdot)$ dan $g_2(\cdot)$ adalah fungsi reasuransi yang menjamin tidak ada nilai negatif: $0 \leq g_i(x) \leq x$.
+
+🧾 Total klaim yang dibayar oleh:
+- A adalah: $T_A = g_1(S_A) + [S_B - g_2(S_B)]$
+- B adalah: $T_B = g_2(S_B) + [S_A - g_1(S_A)]$
+
+Karena $S_A$ dan $S_B$ independen ➡️ maka:
+
+$$
+\text{Var}[T_A] = \text{Var}[g_1(S_A)] + \text{Var}[S_B - g_2(S_B)]
+$$
+
+$$
+\text{Var}[T_B] = \text{Var}[g_2(S_B)] + \text{Var}[S_A - g_1(S_A)]
+$$
+
+📏 Jika kita punya fungsi $g_1$ yang *bukan* proporsional, kita bisa mengubahnya ke bentuk proporsional $g_1^*(S_A) = \beta_1 S_A$ dengan:
+
+$$
+\beta_1 = \left( \frac{\text{Var}[g_1(S_A)]}{\text{Var}[S_A]} \right)^{1/2}
+$$
+
+Ini *tidak* mengubah variansi bagian yang ditahan, tapi *menurunkan* variansi bagian yang direasuransikan! 🌟
+
+Hal yang sama berlaku untuk $g_2$. Maka: ✅ Total variansi $\text{Var}[T_A] + \text{Var}[T_B]$ paling kecil saat dua perusahaan menggunakan reasuransi **proporsional**.
+
+🎯 Dan dalam soal Exercise 5.31 kamu diminta membuktikan bahwa pengaturan optimal adalah ketika **masing-masing perusahaan membagi risikonya secara merata** ke yang lain! 🧩🤯
+
+
+## 🧠✨ Kesimpulan Exercise 5.31
+
+🎯 Variansi total paling kecil saat:
+
+🔸 $g_1(S_A) = 0.5 S_A$  
+🔸 $g_2(S_B) = 0.5 S_B$
+
+Artinya, kedua perusahaan membagi risiko **secara merata (50%-50%)** 💼🤝
+
+🎉 Ini hasil dari meminimalkan:
+$$
+\text{Var}(T_A) + \text{Var}(T_B)
+$$
+
+dengan asumsi $S_A$ dan $S_B$ independen 📊📉
+
+
+## 🧠 Brainstorming Time! ☕️
+
+Mari kita bahas lebih dalam tentang **mengapa meminimalkan jumlah variansi penting**, dan apakah langkah-langkah matematis yang digunakan memang valid dan optimal. Yuk kita telaah bersama! 👇
+
+---
+
+### 🔍 Mengapa penting meminimalkan jumlah variansi?
+
+- ✅ **Stabilitas Finansial**: Variansi rendah artinya risiko fluktuasi pembayaran klaim lebih kecil. Ini sangat penting bagi perusahaan asuransi agar lebih siap menghadapi kejadian ekstrem.
+  
+- ✅ **Efisiensi Modal**: Variansi berhubungan langsung dengan volatilitas kewajiban. Variansi yang kecil mengurangi kebutuhan akan modal cadangan besar (capital reserve).
+
+- ✅ **Manajemen Risiko yang Sehat**: Semakin kecil variansi, semakin bisa perusahaan memprediksi beban klaimnya dan membuat perencanaan keuangan jangka panjang.
+
+- ✅ **Keadilan dalam Pembagian Risiko**: Strategi pembagian risiko yang optimal (seperti 50%-50%) menciptakan simetri dan keadilan dalam kerja sama dua pihak reasuransi.
+
+---
+
+### 🧮 Apakah langkah matematisnya masuk akal?
+
+✔️ YA, sangat masuk akal! Mari kita simpulkan alurnya:
+
+1. **Definisikan payout** tiap perusahaan: klaim yang ditahan + bagian klaim dari perusahaan lain.
+
+2. **Gunakan sifat independensi** antara $S_A$ dan $S_B$ untuk memisahkan variansi secara aljabar.
+
+3. **Gunakan bentuk proporsional** seperti $g_1(S_A) = \alpha S_A$ agar kita bisa menurunkan ekspresi variansi menjadi bentuk fungsi kuadrat.
+
+4. **Minimalkan fungsi kuadrat** untuk mendapatkan nilai optimal (dalam hal ini: $\alpha = \beta = 0.5$).
+
+5. **Simpulkan** bahwa pembagian risiko secara merata adalah solusi optimal karena meminimalkan total variansi.
+
+---
+
+### 💡 Mengapa pembagian 50%-50% adalah yang terbaik?
+
+- 📊 Karena ketika $g_1(S_A) = 0.5 S_A$ dan $g_2(S_B) = 0.5 S_B$, variansi total payout masing-masing perusahaan menjadi *paling kecil*.
+
+- 📐 Ini juga menunjukkan bahwa kerja sama saling menanggung risiko dalam jumlah yang sama adalah bentuk reasuransi yang **paling efisien dan seimbang**.
+
+- 📉 Variansi total yang minimum artinya perusahaan lebih bisa mengendalikan eksposur risiko mereka — lebih sedikit kejutan!
+
+---
+
+### 🎉 Kesimpulan Brainstorming
+
+```markdown
+🔹 Meminimalkan variansi = strategi reasuransi optimal  
+🔹 Proporsionalitas = kunci efisiensi (lebih baik daripada bentuk arbitrer lainnya)  
+🔹 Pembagian risiko 50%-50% terbukti secara matematis sebagai titik minimum total variansi
+

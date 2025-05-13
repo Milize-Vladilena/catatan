@@ -84,6 +84,7 @@ Misalkan sebuah organisme uniseluler dapat berada dalam salah satu dari dua *sta
 - Individu dalam state **B** akan membelah menjadi dua individu baru **A** dengan laju eksponensial sebesar $\beta$.
 
 🧠 **Tentukan**:
+
 - Model **Continuous-Time Markov Chain (CTMC)** yang sesuai.
 - Parameter-parameter model (laju waktu tunggu dan probabilitas transisi).
 
@@ -167,6 +168,7 @@ Misalkan terdapat **dua mesin** yang dirawat oleh **satu orang teknisi**. Detail
 - Hanya **satu teknisi** yang tersedia untuk memperbaiki **satu mesin dalam satu waktu**, dengan **waktu perbaikan** berdistribusi eksponensial dengan rate $\mu$.
 
 🧠 **Tentukan**:
+
 - Definisi state dan model CTMC.
 - Laju waktu tunggu dan probabilitas transisi antar state.
 

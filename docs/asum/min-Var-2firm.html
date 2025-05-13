@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cek Bawah 👇🏼 – Catatan 📝</title>
+<title>Minimalkan variansi 2 perusahaan – Catatan 📝</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -77,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Catatan 📝</span>
     </a>
   </div>
@@ -88,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
@@ -102,15 +131,34 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#ekstraksi-asli-english-from-the-book" id="toc-ekstraksi-asli-english-from-the-book" class="nav-link active" data-scroll-target="#ekstraksi-asli-english-from-the-book">✅ EKSTRAKSI ASLI (ENGLISH) — <em>From the Book</em></a>
+  <ul class="collapse">
+  <li><a href="#minimising-the-sum-of-variances-when-two-independent-risks-are-shared-between-two-insurers" id="toc-minimising-the-sum-of-variances-when-two-independent-risks-are-shared-between-two-insurers" class="nav-link" data-scroll-target="#minimising-the-sum-of-variances-when-two-independent-risks-are-shared-between-two-insurers">5.7.5 Minimising the sum of variances when two independent risks are shared between two insurers</a></li>
+  <li><a href="#exercise-5.31" id="toc-exercise-5.31" class="nav-link" data-scroll-target="#exercise-5.31">📘 Exercise 5.31</a></li>
+  </ul></li>
+  <li><a href="#minimalkan-variansi-saat-dua-risiko-dibagi-ke-dua-perusahaan-asuransi" id="toc-minimalkan-variansi-saat-dua-risiko-dibagi-ke-dua-perusahaan-asuransi" class="nav-link" data-scroll-target="#minimalkan-variansi-saat-dua-risiko-dibagi-ke-dua-perusahaan-asuransi">🧠 Minimalkan Variansi Saat Dua Risiko Dibagi ke Dua Perusahaan Asuransi 📉🤝</a></li>
+  <li><a href="#kesimpulan-exercise-5.31" id="toc-kesimpulan-exercise-5.31" class="nav-link" data-scroll-target="#kesimpulan-exercise-5.31">🧠✨ Kesimpulan Exercise 5.31</a></li>
+  <li><a href="#brainstorming-time" id="toc-brainstorming-time" class="nav-link" data-scroll-target="#brainstorming-time">🧠 Brainstorming Time! ☕️</a>
+  <ul class="collapse">
+  <li><a href="#mengapa-penting-meminimalkan-jumlah-variansi" id="toc-mengapa-penting-meminimalkan-jumlah-variansi" class="nav-link" data-scroll-target="#mengapa-penting-meminimalkan-jumlah-variansi">🔍 Mengapa penting meminimalkan jumlah variansi?</a></li>
+  <li><a href="#apakah-langkah-matematisnya-masuk-akal" id="toc-apakah-langkah-matematisnya-masuk-akal" class="nav-link" data-scroll-target="#apakah-langkah-matematisnya-masuk-akal">🧮 Apakah langkah matematisnya masuk akal?</a></li>
+  <li><a href="#mengapa-pembagian-50-50-adalah-yang-terbaik" id="toc-mengapa-pembagian-50-50-adalah-yang-terbaik" class="nav-link" data-scroll-target="#mengapa-pembagian-50-50-adalah-yang-terbaik">💡 Mengapa pembagian 50%-50% adalah yang terbaik?</a></li>
+  <li><a href="#kesimpulan-brainstorming" id="toc-kesimpulan-brainstorming" class="nav-link" data-scroll-target="#kesimpulan-brainstorming">🎉 Kesimpulan Brainstorming</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Cek Bawah 👇🏼</h1>
+<h1 class="title">Minimalkan variansi 2 perusahaan</h1>
 </div>
 
 
@@ -127,18 +175,127 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="ekstraksi-asli-english-from-the-book" class="level2">
+<h2 class="anchored" data-anchor-id="ekstraksi-asli-english-from-the-book">✅ EKSTRAKSI ASLI (ENGLISH) — <em>From the Book</em></h2>
+<section id="minimising-the-sum-of-variances-when-two-independent-risks-are-shared-between-two-insurers" class="level3">
+<h3 class="anchored" data-anchor-id="minimising-the-sum-of-variances-when-two-independent-risks-are-shared-between-two-insurers">5.7.5 Minimising the sum of variances when two independent risks are shared between two insurers</h3>
+<p>Consider two insurance companies A and B which are exposed to aggregate claims <span class="math inline">\(S_A\)</span> and <span class="math inline">\(S_B\)</span>, respectively, where <span class="math inline">\(S_A\)</span> and <span class="math inline">\(S_B\)</span> are independent random variables. Let us suppose that the two companies share their risks with each other as follows:</p>
 <ul>
-<li><a href="./modstok/rantai-markov-waktu-kontinu.html">Rantai Markov Waktu Kontinu</a>
-<ul>
-<li><a href="./modstok/latihan-ctmc-1.html">latihan 1</a></li>
-</ul></li>
-<li>Asuransi Umum
-<ul>
-<li><a href="./asum/min-Var-2firm.html">Minimalkan Variansi 2 perusahaan</a></li>
-</ul></li>
+<li>Company A retains <span class="math inline">\(g_1(S_A)\)</span> and reinsures <span class="math inline">\(S_A - g_1(S_A)\)</span> with company B;</li>
+<li>Company B retains <span class="math inline">\(g_2(S_B)\)</span> and reinsures <span class="math inline">\(S_B - g_2(S_B)\)</span> with company A,</li>
 </ul>
+<p>where <span class="math inline">\(g_i(\cdot)\)</span>, <span class="math inline">\(i = 1, 2\)</span>, are reinsurance functions (so they satisfy <span class="math inline">\(0 \leq g_i(x) \leq x\)</span>, <span class="math inline">\(i = 1, 2\)</span>). Then the total payouts for company A and company B are <span class="math inline">\(T_A\)</span> and <span class="math inline">\(T_B\)</span>, respectively, where:</p>
+<p><span class="math display">\[
+T_A = g_1(S_A) + [S_B - g_2(S_B)] \quad \text{and} \quad T_B = g_2(S_B) + [S_A - g_1(S_A)]
+\]</span></p>
+<p>Hence, since <span class="math inline">\(S_A\)</span> and <span class="math inline">\(S_B\)</span> are independent, we have:</p>
+<p><span class="math display">\[
+\text{Var}[T_A] = \text{Var}[g_1(S_A)] + \text{Var}[S_B - g_2(S_B)]
+\]</span></p>
+<p><span class="math display">\[
+\text{Var}[T_B] = \text{Var}[g_2(S_B)] + \text{Var}[S_A - g_1(S_A)]
+\]</span></p>
+<p>Suppose the function <span class="math inline">\(g_1(\cdot)\)</span> does not define a proportional reinsurance arrangement. If we now choose:</p>
+<p><span class="math display">\[
+\beta_1 = \left\{ \frac{\text{Var}[g_1(S_A)]}{\text{Var}[S_A]} \right\}^{1/2}
+\]</span></p>
+<p>and define <span class="math inline">\(g_1^*(S_A) = \beta_1 S_A\)</span>, then <span class="math inline">\(g_1^*(\cdot)\)</span> does define a proportional arrangement and we have:</p>
+<p><span class="math display">\[
+\text{Var}[g_1^*(S_A)] = \text{Var}[g_1(S_A)]
+\]</span></p>
+<p>We know that the variance of the reinsurance payout, subject to fixed variance for the direct insurance payout, is minimised by proportional reinsurance (see §5.7.2), hence:</p>
+<p><span class="math display">\[
+\text{Var}[S_A - g_1^*(S_A)] \leq \text{Var}[S_A - g_1(S_A)]
+\]</span></p>
+<p>A similar argument holds for <span class="math inline">\(g_2(\cdot)\)</span>. Hence <span class="math inline">\(\text{Var}[T_A] + \text{Var}[T_B]\)</span> is minimised by both companies using proportional reinsurance.</p>
+<p>In Exercise 5.31 you are asked to show that the optimal arrangement is in fact that in which each company shares its risk equally with the other.</p>
+<hr>
+</section>
+<section id="exercise-5.31" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-5.31">📘 Exercise 5.31</h3>
+<p>Consider the situation explored in §5.7.5, in which we seek to minimise the sum of the variances of the payouts when two independent risks are shared between two insurers.</p>
+<p>Extend the argument to show that the optimal arrangement is that in which each company shares its risk equally with the other.</p>
+</section>
+</section>
+<section id="minimalkan-variansi-saat-dua-risiko-dibagi-ke-dua-perusahaan-asuransi" class="level2">
+<h2 class="anchored" data-anchor-id="minimalkan-variansi-saat-dua-risiko-dibagi-ke-dua-perusahaan-asuransi">🧠 Minimalkan Variansi Saat Dua Risiko Dibagi ke Dua Perusahaan Asuransi 📉🤝</h2>
+<p>Bayangkan dua perusahaan asuransi, A dan B, masing-masing menghadapi klaim agregat yang <em>independen</em> yakni <span class="math inline">\(S_A\)</span> dan <span class="math inline">\(S_B\)</span>. Mereka saling membagi risiko:</p>
+<ul>
+<li>🏢 A menyimpan sebagian <span class="math inline">\(g_1(S_A)\)</span> dan sisanya <span class="math inline">\(S_A - g_1(S_A)\)</span> diberikan ke B.</li>
+<li>🏢 B menyimpan <span class="math inline">\(g_2(S_B)\)</span> dan sisanya <span class="math inline">\(S_B - g_2(S_B)\)</span> dikasih ke A.</li>
+</ul>
+<p>Fungsi <span class="math inline">\(g_1(\cdot)\)</span> dan <span class="math inline">\(g_2(\cdot)\)</span> adalah fungsi reasuransi yang menjamin tidak ada nilai negatif: <span class="math inline">\(0 \leq g_i(x) \leq x\)</span>.</p>
+<p>🧾 Total klaim yang dibayar oleh: - A adalah: <span class="math inline">\(T_A = g_1(S_A) + [S_B - g_2(S_B)]\)</span> - B adalah: <span class="math inline">\(T_B = g_2(S_B) + [S_A - g_1(S_A)]\)</span></p>
+<p>Karena <span class="math inline">\(S_A\)</span> dan <span class="math inline">\(S_B\)</span> independen ➡️ maka:</p>
+<p><span class="math display">\[
+\text{Var}[T_A] = \text{Var}[g_1(S_A)] + \text{Var}[S_B - g_2(S_B)]
+\]</span></p>
+<p><span class="math display">\[
+\text{Var}[T_B] = \text{Var}[g_2(S_B)] + \text{Var}[S_A - g_1(S_A)]
+\]</span></p>
+<p>📏 Jika kita punya fungsi <span class="math inline">\(g_1\)</span> yang <em>bukan</em> proporsional, kita bisa mengubahnya ke bentuk proporsional <span class="math inline">\(g_1^*(S_A) = \beta_1 S_A\)</span> dengan:</p>
+<p><span class="math display">\[
+\beta_1 = \left( \frac{\text{Var}[g_1(S_A)]}{\text{Var}[S_A]} \right)^{1/2}
+\]</span></p>
+<p>Ini <em>tidak</em> mengubah variansi bagian yang ditahan, tapi <em>menurunkan</em> variansi bagian yang direasuransikan! 🌟</p>
+<p>Hal yang sama berlaku untuk <span class="math inline">\(g_2\)</span>. Maka: ✅ Total variansi <span class="math inline">\(\text{Var}[T_A] + \text{Var}[T_B]\)</span> paling kecil saat dua perusahaan menggunakan reasuransi <strong>proporsional</strong>.</p>
+<p>🎯 Dan dalam soal Exercise 5.31 kamu diminta membuktikan bahwa pengaturan optimal adalah ketika <strong>masing-masing perusahaan membagi risikonya secara merata</strong> ke yang lain! 🧩🤯</p>
+</section>
+<section id="kesimpulan-exercise-5.31" class="level2">
+<h2 class="anchored" data-anchor-id="kesimpulan-exercise-5.31">🧠✨ Kesimpulan Exercise 5.31</h2>
+<p>🎯 Variansi total paling kecil saat:</p>
+<p>🔸 <span class="math inline">\(g_1(S_A) = 0.5 S_A\)</span><br>
+🔸 <span class="math inline">\(g_2(S_B) = 0.5 S_B\)</span></p>
+<p>Artinya, kedua perusahaan membagi risiko <strong>secara merata (50%-50%)</strong> 💼🤝</p>
+<p>🎉 Ini hasil dari meminimalkan: <span class="math display">\[
+\text{Var}(T_A) + \text{Var}(T_B)
+\]</span></p>
+<p>dengan asumsi <span class="math inline">\(S_A\)</span> dan <span class="math inline">\(S_B\)</span> independen 📊📉</p>
+</section>
+<section id="brainstorming-time" class="level2">
+<h2 class="anchored" data-anchor-id="brainstorming-time">🧠 Brainstorming Time! ☕️</h2>
+<p>Mari kita bahas lebih dalam tentang <strong>mengapa meminimalkan jumlah variansi penting</strong>, dan apakah langkah-langkah matematis yang digunakan memang valid dan optimal. Yuk kita telaah bersama! 👇</p>
+<hr>
+<section id="mengapa-penting-meminimalkan-jumlah-variansi" class="level3">
+<h3 class="anchored" data-anchor-id="mengapa-penting-meminimalkan-jumlah-variansi">🔍 Mengapa penting meminimalkan jumlah variansi?</h3>
+<ul>
+<li><p>✅ <strong>Stabilitas Finansial</strong>: Variansi rendah artinya risiko fluktuasi pembayaran klaim lebih kecil. Ini sangat penting bagi perusahaan asuransi agar lebih siap menghadapi kejadian ekstrem.</p></li>
+<li><p>✅ <strong>Efisiensi Modal</strong>: Variansi berhubungan langsung dengan volatilitas kewajiban. Variansi yang kecil mengurangi kebutuhan akan modal cadangan besar (capital reserve).</p></li>
+<li><p>✅ <strong>Manajemen Risiko yang Sehat</strong>: Semakin kecil variansi, semakin bisa perusahaan memprediksi beban klaimnya dan membuat perencanaan keuangan jangka panjang.</p></li>
+<li><p>✅ <strong>Keadilan dalam Pembagian Risiko</strong>: Strategi pembagian risiko yang optimal (seperti 50%-50%) menciptakan simetri dan keadilan dalam kerja sama dua pihak reasuransi.</p></li>
+</ul>
+<hr>
+</section>
+<section id="apakah-langkah-matematisnya-masuk-akal" class="level3">
+<h3 class="anchored" data-anchor-id="apakah-langkah-matematisnya-masuk-akal">🧮 Apakah langkah matematisnya masuk akal?</h3>
+<p>✔️ YA, sangat masuk akal! Mari kita simpulkan alurnya:</p>
+<ol type="1">
+<li><p><strong>Definisikan payout</strong> tiap perusahaan: klaim yang ditahan + bagian klaim dari perusahaan lain.</p></li>
+<li><p><strong>Gunakan sifat independensi</strong> antara <span class="math inline">\(S_A\)</span> dan <span class="math inline">\(S_B\)</span> untuk memisahkan variansi secara aljabar.</p></li>
+<li><p><strong>Gunakan bentuk proporsional</strong> seperti <span class="math inline">\(g_1(S_A) = \alpha S_A\)</span> agar kita bisa menurunkan ekspresi variansi menjadi bentuk fungsi kuadrat.</p></li>
+<li><p><strong>Minimalkan fungsi kuadrat</strong> untuk mendapatkan nilai optimal (dalam hal ini: <span class="math inline">\(\alpha = \beta = 0.5\)</span>).</p></li>
+<li><p><strong>Simpulkan</strong> bahwa pembagian risiko secara merata adalah solusi optimal karena meminimalkan total variansi.</p></li>
+</ol>
+<hr>
+</section>
+<section id="mengapa-pembagian-50-50-adalah-yang-terbaik" class="level3">
+<h3 class="anchored" data-anchor-id="mengapa-pembagian-50-50-adalah-yang-terbaik">💡 Mengapa pembagian 50%-50% adalah yang terbaik?</h3>
+<ul>
+<li><p>📊 Karena ketika <span class="math inline">\(g_1(S_A) = 0.5 S_A\)</span> dan <span class="math inline">\(g_2(S_B) = 0.5 S_B\)</span>, variansi total payout masing-masing perusahaan menjadi <em>paling kecil</em>.</p></li>
+<li><p>📐 Ini juga menunjukkan bahwa kerja sama saling menanggung risiko dalam jumlah yang sama adalah bentuk reasuransi yang <strong>paling efisien dan seimbang</strong>.</p></li>
+<li><p>📉 Variansi total yang minimum artinya perusahaan lebih bisa mengendalikan eksposur risiko mereka — lebih sedikit kejutan!</p></li>
+</ul>
+<hr>
+</section>
+<section id="kesimpulan-brainstorming" class="level3">
+<h3 class="anchored" data-anchor-id="kesimpulan-brainstorming">🎉 Kesimpulan Brainstorming</h3>
+<p>```markdown 🔹 Meminimalkan variansi = strategi reasuransi optimal<br>
+🔹 Proporsionalitas = kunci efisiensi (lebih baik daripada bentuk arbitrer lainnya)<br>
+🔹 Pembagian risiko 50%-50% terbukti secara matematis sebagai titik minimum total variansi</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
