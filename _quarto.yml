@@ -13,10 +13,18 @@ website:
       - href: index.qmd
         text: Home
 
+  page-navigation: true
+
 format:
   html:
     theme: cosmo
     toc: true
+
+# Ini dia kuncinya ⬇️
+site:
+  pages:
+    - index.qmd
+    - 404.qmd
 
 
 
