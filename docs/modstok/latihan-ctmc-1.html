@@ -169,13 +169,10 @@ window.Quarto = {
   <li><a href="#soal-4-barbershop-kecil-ctmc-antrian-eksponensial" id="toc-soal-4-barbershop-kecil-ctmc-antrian-eksponensial" class="nav-link" data-scroll-target="#soal-4-barbershop-kecil-ctmc-antrian-eksponensial">💈 Soal 4: Barbershop Kecil – CTMC Antrian Eksponensial</a>
   <ul class="collapse">
   <li><a href="#deskripsi-masalah-3" id="toc-deskripsi-masalah-3" class="nav-link" data-scroll-target="#deskripsi-masalah-3">📄 Deskripsi Masalah</a></li>
-  <li><a href="#definisi-state-2" id="toc-definisi-state-2" class="nav-link" data-scroll-target="#definisi-state-2">🔢 Definisi State</a></li>
-  <li><a href="#diagram-transisi-ctmc" id="toc-diagram-transisi-ctmc" class="nav-link" data-scroll-target="#diagram-transisi-ctmc">🔁 Diagram Transisi (CTMC)</a></li>
-  <li><a href="#matriks-generator-q-2" id="toc-matriks-generator-q-2" class="nav-link" data-scroll-target="#matriks-generator-q-2">📊 Matriks Generator (Q)</a></li>
-  <li><a href="#distribusi-state-stasioner-π" id="toc-distribusi-state-stasioner-π" class="nav-link" data-scroll-target="#distribusi-state-stasioner-π">🔍 Distribusi State Stasioner (π)</a></li>
-  <li><a href="#a-rata-rata-pelanggan-di-barbershop" id="toc-a-rata-rata-pelanggan-di-barbershop" class="nav-link" data-scroll-target="#a-rata-rata-pelanggan-di-barbershop">🧮 (a) Rata-rata Pelanggan di Barbershop</a></li>
-  <li><a href="#b-proporsi-pelanggan-yang-berhasil-masuk" id="toc-b-proporsi-pelanggan-yang-berhasil-masuk" class="nav-link" data-scroll-target="#b-proporsi-pelanggan-yang-berhasil-masuk">🚪 (b) Proporsi Pelanggan yang Berhasil Masuk</a></li>
-  <li><a href="#c-tukang-cukur-bekerja-2-lebih-cepat" id="toc-c-tukang-cukur-bekerja-2-lebih-cepat" class="nav-link" data-scroll-target="#c-tukang-cukur-bekerja-2-lebih-cepat">⚡ (c) Tukang Cukur Bekerja 2× Lebih Cepat</a></li>
+  <li><a href="#step-1-definisi-parameter" id="toc-step-1-definisi-parameter" class="nav-link" data-scroll-target="#step-1-definisi-parameter">🧮 <strong>Step 1: Definisi Parameter</strong></a></li>
+  <li><a href="#step-2-persamaan-keseimbangan" id="toc-step-2-persamaan-keseimbangan" class="nav-link" data-scroll-target="#step-2-persamaan-keseimbangan">📝 <strong>Step 2: Persamaan Keseimbangan</strong></a></li>
+  <li><a href="#step-3-hitung-probabilitas-stasioner" id="toc-step-3-hitung-probabilitas-stasioner" class="nav-link" data-scroll-target="#step-3-hitung-probabilitas-stasioner">🧮 <strong>Step 3: Hitung Probabilitas Stasioner</strong></a></li>
+  <li><a href="#hasil-analisis" id="toc-hasil-analisis" class="nav-link" data-scroll-target="#hasil-analisis">📊 <strong>Hasil Analisis</strong></a></li>
   <li><a href="#kesimpulan-3" id="toc-kesimpulan-3" class="nav-link" data-scroll-target="#kesimpulan-3">✅ Kesimpulan</a></li>
   </ul></li>
   </ul>
@@ -597,6 +594,95 @@ m(2) &amp;= \frac{1}{5\lambda} + \frac{3\lambda}{5\lambda} m(3) + \frac{2\lambda
 </ul>
 <hr>
 </section>
+<section id="step-1-definisi-parameter" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-definisi-parameter">🧮 <strong>Step 1: Definisi Parameter</strong></h3>
+<ul>
+<li><strong>Laju Kedatangan</strong>: <span class="math inline">\(\lambda = 3\)</span>/jam<br>
+</li>
+<li><strong>Laju Pelayanan</strong>: <span class="math inline">\(\mu = 4\)</span>/jam<br>
+</li>
+<li><strong>State Sistem</strong>:
+<ul>
+<li><span class="math inline">\(0\)</span>: Tidak ada pelanggan<br>
+</li>
+<li><span class="math inline">\(1\)</span>: 1 pelanggan (sedang dicukur)<br>
+</li>
+<li><span class="math inline">\(2\)</span>: 2 pelanggan (1 dicukur, 1 antri)</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="step-2-persamaan-keseimbangan" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-persamaan-keseimbangan">📝 <strong>Step 2: Persamaan Keseimbangan</strong></h3>
+<p>Untuk probabilitas stasioner <span class="math inline">\(\pi_0, \pi_1, \pi_2\)</span>:<br>
+1. <strong>Dari state 0</strong>:<br>
+<span class="math display">\[
+   \lambda \pi_0 = \mu \pi_1 \quad \Rightarrow \quad \pi_1 = \frac{3}{4} \pi_0
+   \]</span><br>
+2. <strong>Dari state 1</strong>:<br>
+<span class="math display">\[
+   (\lambda + \mu) \pi_1 = \lambda \pi_0 + \mu \pi_2 \quad \Rightarrow \quad 7\pi_1 = 3\pi_0 + 4\pi_2
+   \]</span><br>
+3. <strong>Dari state 2</strong>:<br>
+<span class="math display">\[
+   \mu \pi_2 = \lambda \pi_1 \quad \Rightarrow \quad \pi_2 = \frac{9}{16} \pi_0
+   \]</span></p>
+<hr>
+</section>
+<section id="step-3-hitung-probabilitas-stasioner" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-hitung-probabilitas-stasioner">🧮 <strong>Step 3: Hitung Probabilitas Stasioner</strong></h3>
+<p>Substitusi ke <span class="math inline">\(\pi_0 + \pi_1 + \pi_2 = 1\)</span>:<br>
+<span class="math display">\[
+\pi_0 \left(1 + \frac{3}{4} + \frac{9}{16}\right) = 1 \quad \Rightarrow \quad \pi_0 = \frac{16}{37}, \quad \pi_1 = \frac{12}{37}, \quad \pi_2 = \frac{9}{37}
+\]</span></p>
+<hr>
+</section>
+<section id="hasil-analisis" class="level3">
+<h3 class="anchored" data-anchor-id="hasil-analisis">📊 <strong>Hasil Analisis</strong></h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 44%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Formula</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Rata-Rata Pelanggan</strong></td>
+<td><span class="math inline">\(0\pi_0 + 1\pi_1 + 2\pi_2\)</span></td>
+<td><span class="math inline">\(\frac{30}{37} \approx 0.81\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Proporsi Pelanggan Masuk</strong></td>
+<td><span class="math inline">\(1 - \pi_2\)</span></td>
+<td><span class="math inline">\(\frac{28}{37} \approx 75.7\%\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Peningkatan Efisiensi ((= 8))</strong></td>
+<td><span class="math inline">\(\pi_2' = \frac{9}{97}\)</span></td>
+<td><span class="math inline">\(\text{Kenaikan } 15\%\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled" title="Cara Lain">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cara Lain
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <section id="definisi-state-2" class="level3">
 <h3 class="anchored" data-anchor-id="definisi-state-2">🔢 Definisi State</h3>
 <p>Kita definisikan <strong>state <span class="math inline">\(i\)</span></strong> sebagai jumlah pelanggan di dalam barbershop (termasuk yang sedang dicukur):</p>
@@ -692,6 +778,10 @@ m(2) &amp;= \frac{1}{5\lambda} + \frac{3\lambda}{5\lambda} m(3) + \frac{2\lambda
 <p>🧮 Tambahan bisnis:</p>
 <p><span class="math display">\[\text{Tambahan proporsi masuk} = \frac{112}{121} - \frac{52}{61} = \approx 0.926 - 0.852 = 0.074\]</span></p>
 <p>Artinya, ada <strong>peningkatan pelanggan masuk sekitar 7.4%</strong> jika tukang cukur bekerja dua kali lebih cepat.</p>
+</section>
+</div>
+</div>
+</div>
 <hr>
 </section>
 <section id="kesimpulan-3" class="level3">

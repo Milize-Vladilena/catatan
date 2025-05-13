@@ -399,6 +399,52 @@ Sebuah barbershop kecil hanya memiliki **satu tukang cukur** dan **kapasitas mak
 
 ---
 
+### 🧮 **Step 1: Definisi Parameter**
+- **Laju Kedatangan**: $\lambda = 3$/jam  
+- **Laju Pelayanan**: $\mu = 4$/jam  
+- **State Sistem**:  
+  - $0$: Tidak ada pelanggan  
+  - $1$: 1 pelanggan (sedang dicukur)  
+  - $2$: 2 pelanggan (1 dicukur, 1 antri)  
+
+---
+
+### 📝 **Step 2: Persamaan Keseimbangan**
+Untuk probabilitas stasioner $\pi_0, \pi_1, \pi_2$:  
+1. **Dari state 0**:  
+   $$
+   \lambda \pi_0 = \mu \pi_1 \quad \Rightarrow \quad \pi_1 = \frac{3}{4} \pi_0
+   $$  
+2. **Dari state 1**:  
+   $$
+   (\lambda + \mu) \pi_1 = \lambda \pi_0 + \mu \pi_2 \quad \Rightarrow \quad 7\pi_1 = 3\pi_0 + 4\pi_2
+   $$  
+3. **Dari state 2**:  
+   $$
+   \mu \pi_2 = \lambda \pi_1 \quad \Rightarrow \quad \pi_2 = \frac{9}{16} \pi_0
+   $$  
+
+---
+
+### 🧮 **Step 3: Hitung Probabilitas Stasioner**  
+Substitusi ke $\pi_0 + \pi_1 + \pi_2 = 1$:  
+$$
+\pi_0 \left(1 + \frac{3}{4} + \frac{9}{16}\right) = 1 \quad \Rightarrow \quad \pi_0 = \frac{16}{37}, \quad \pi_1 = \frac{12}{37}, \quad \pi_2 = \frac{9}{37}
+$$
+
+---
+
+### 📊 **Hasil Analisis**
+| Parameter         | Formula                      | Nilai           |
+|--------------------|------------------------------|-----------------|
+| **Rata-Rata Pelanggan** | $0\pi_0 + 1\pi_1 + 2\pi_2$ | $\frac{30}{37} \approx 0.81$ |
+| **Proporsi Pelanggan Masuk** | $1 - \pi_2$          | $\frac{28}{37} \approx 75.7\%$ |
+| **Peningkatan Efisiensi (\(\mu = 8\))** | $\pi_2' = \frac{9}{97}$ | $\text{Kenaikan } 15\%$ |
+
+---
+
+:::{.callout-note title="Cara Lain" collapse=true}
+
 ### 🔢 Definisi State
 
 Kita definisikan **state $i$** sebagai jumlah pelanggan di dalam barbershop (termasuk yang sedang dicukur):
@@ -502,6 +548,8 @@ $$\pi_2 = \frac{9}{64} \cdot \frac{64}{121} = \frac{9}{121}
 $$\text{Tambahan proporsi masuk} = \frac{112}{121} - \frac{52}{61} = \approx 0.926 - 0.852 = 0.074$$
 
 Artinya, ada **peningkatan pelanggan masuk sekitar 7.4%** jika tukang cukur bekerja dua kali lebih cepat.
+
+:::
 
 ---
 

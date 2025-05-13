@@ -148,6 +148,7 @@ $$
 
 #### **Paradoks Reduksi Risiko**  
 Meskipun $\text{Var}[g_1^*] = \text{Var}[g_1]$, risiko **yang dialihkan** ke reasuradur menjadi lebih stabil karena:
+
 1. **Eliminasi Ketidakpastian Non-Linear**: Bentuk proporsional menghilangkan komponen stokastik tambahan pada $g_1(S_A)$.  
 2. **Prediktabilitas**: Hubungan linear $g_1^* = \beta_1 S_A$ memudahkan proyeksi klaim.  
 
@@ -155,6 +156,7 @@ Meskipun $\text{Var}[g_1^*] = \text{Var}[g_1]$, risiko **yang dialihkan** ke rea
 
 ### **4. Contoh Numerik**  
 Misalkan:
+
 - $\text{Var}[S_A] = 200$  
 - $\text{Var}[g_1(S_A)] = 80$  
 
@@ -175,20 +177,19 @@ $$
 - Solusi: Gunakan metode **piecewise linear adjustment** atau **simulasi Monte Carlo**.  
 
 ### **Catatan Aktuarial**  
-Dalam praktik, kesamaan ini **hanya berlaku jika**:  
+Dalam praktik, kesamaan ini **hanya berlaku jika**: 
+
 1. Portofolio memenuhi asumsi homogenitas risiko  
 2. Tidak ada parameter eksternal (e.g., inflasi) yang memengaruhi $g_1(S_A)$  
 3. Distribusi $S_A$ stabil dalam waktu (stationary)  
 
 ---
 
-```markdown
 # 🧩 **Simpulan Utama**  
 Kesamaan $\text{Var}[g_1^*] = \text{Var}[g_1]$ terjadi karena:  
 1. $\beta_1$ **dihitung secara eksplisit** untuk memenuhi syarat ini  
 2. Transformasi proporsional **menjaga skala risiko** meskipun mengubah struktur alih risiko  
 3. Merupakan solusi optimal dalam kerangka **mean-variance tradeoff**  
-```
 
 :::
 
