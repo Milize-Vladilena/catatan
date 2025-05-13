@@ -1,0 +1,15 @@
+---
+title: "😵‍💫 404: Halaman Nggak Ketemu"
+format: html
+---
+
+# 😵‍💫 Waduh, nyasar!
+
+Website yang kalian cari, kok **nggak nemu ya?**  
+Mungkin dia lagi **ngopi dulu** ☕ atau lagi **jalan-jalan di dunia maya** 🛸
+
+Coba cek lagi alamatnya, atau balik ke [beranda](index.qmd) biar nggak makin nyasar.
+
+---
+
+> _"Kalau jodoh pasti ketemu, tapi kalau URL salah ya tetep 404."_ 😅
