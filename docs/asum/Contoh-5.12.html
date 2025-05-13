@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Minimalkan variansi 2 perusahaan – Catatan 📝</title>
+<title>Contoh-5.12 – Catatan 📝</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -38,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-3790baeb23ec48fe6a2a71a48d01fb7e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -136,19 +170,29 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#ekstraksi-asli-english-from-the-book" id="toc-ekstraksi-asli-english-from-the-book" class="nav-link active" data-scroll-target="#ekstraksi-asli-english-from-the-book">✅ EKSTRAKSI ASLI (ENGLISH) — <em>From the Book</em></a>
+  <li><a href="#example-5.12-from-the-book" id="toc-example-5.12-from-the-book" class="nav-link active" data-scroll-target="#example-5.12-from-the-book">📘 Example 5.12 from the Book</a></li>
+  <li><a href="#contoh-5.12-perbandingan-reasuransi-antar-dua-perusahaan" id="toc-contoh-5.12-perbandingan-reasuransi-antar-dua-perusahaan" class="nav-link" data-scroll-target="#contoh-5.12-perbandingan-reasuransi-antar-dua-perusahaan">🎓 Contoh 5.12 — Perbandingan Reasuransi Antar Dua Perusahaan 🏢🏢</a>
   <ul class="collapse">
-  <li><a href="#minimising-the-sum-of-variances-when-two-independent-risks-are-shared-between-two-insurers" id="toc-minimising-the-sum-of-variances-when-two-independent-risks-are-shared-between-two-insurers" class="nav-link" data-scroll-target="#minimising-the-sum-of-variances-when-two-independent-risks-are-shared-between-two-insurers">5.7.5 Minimising the sum of variances when two independent risks are shared between two insurers</a></li>
-  <li><a href="#exercise-5.31" id="toc-exercise-5.31" class="nav-link" data-scroll-target="#exercise-5.31">📘 Exercise 5.31</a></li>
+  <li><a href="#kasus-1-stop-loss-excess-of-loss" id="toc-kasus-1-stop-loss-excess-of-loss" class="nav-link" data-scroll-target="#kasus-1-stop-loss-excess-of-loss">📌 Kasus 1: Stop Loss (Excess of Loss)</a></li>
+  <li><a href="#kasus-2-reasuransi-proporsional-retain-60" id="toc-kasus-2-reasuransi-proporsional-retain-60" class="nav-link" data-scroll-target="#kasus-2-reasuransi-proporsional-retain-60">🔄 Kasus 2: Reasuransi Proporsional (Retain 60%)</a></li>
+  <li><a href="#kasus-3-reasuransi-proporsional-retain-50-50" id="toc-kasus-3-reasuransi-proporsional-retain-50-50" class="nav-link" data-scroll-target="#kasus-3-reasuransi-proporsional-retain-50-50">⚖️ Kasus 3: Reasuransi Proporsional (Retain 50%-50%)</a></li>
+  <li><a href="#tabel-ringkasan" id="toc-tabel-ringkasan" class="nav-link" data-scroll-target="#tabel-ringkasan">📊 Tabel Ringkasan</a></li>
   </ul></li>
-  <li><a href="#minimalkan-variansi-saat-dua-risiko-dibagi-ke-dua-perusahaan-asuransi" id="toc-minimalkan-variansi-saat-dua-risiko-dibagi-ke-dua-perusahaan-asuransi" class="nav-link" data-scroll-target="#minimalkan-variansi-saat-dua-risiko-dibagi-ke-dua-perusahaan-asuransi">🧠 Minimalkan Variansi Saat Dua Risiko Dibagi ke Dua Perusahaan Asuransi 📉🤝</a></li>
-  <li><a href="#kesimpulan-exercise-5.31" id="toc-kesimpulan-exercise-5.31" class="nav-link" data-scroll-target="#kesimpulan-exercise-5.31">🧠✨ Kesimpulan Exercise 5.31</a></li>
-  <li><a href="#brainstorming-time" id="toc-brainstorming-time" class="nav-link" data-scroll-target="#brainstorming-time">🧠 Brainstorming Time! ☕️</a>
+  <li><a href="#brainstorming-apa-pelajaran-dari-contoh-5.12" id="toc-brainstorming-apa-pelajaran-dari-contoh-5.12" class="nav-link" data-scroll-target="#brainstorming-apa-pelajaran-dari-contoh-5.12">🧠 Brainstorming — Apa Pelajaran dari Contoh 5.12?</a>
   <ul class="collapse">
-  <li><a href="#mengapa-penting-meminimalkan-jumlah-variansi" id="toc-mengapa-penting-meminimalkan-jumlah-variansi" class="nav-link" data-scroll-target="#mengapa-penting-meminimalkan-jumlah-variansi">🔍 Mengapa penting meminimalkan jumlah variansi?</a></li>
-  <li><a href="#apakah-langkah-matematisnya-masuk-akal" id="toc-apakah-langkah-matematisnya-masuk-akal" class="nav-link" data-scroll-target="#apakah-langkah-matematisnya-masuk-akal">🧮 Apakah langkah matematisnya masuk akal?</a></li>
-  <li><a href="#mengapa-pembagian-50-50-adalah-yang-terbaik" id="toc-mengapa-pembagian-50-50-adalah-yang-terbaik" class="nav-link" data-scroll-target="#mengapa-pembagian-50-50-adalah-yang-terbaik">💡 Mengapa pembagian 50%-50% adalah yang terbaik?</a></li>
-  <li><a href="#kesimpulan-brainstorming" id="toc-kesimpulan-brainstorming" class="nav-link" data-scroll-target="#kesimpulan-brainstorming">🎉 Kesimpulan Brainstorming</a></li>
+  <li><a href="#mengapa-contoh-ini-penting" id="toc-mengapa-contoh-ini-penting" class="nav-link" data-scroll-target="#mengapa-contoh-ini-penting">💭 Mengapa contoh ini penting?</a></li>
+  <li><a href="#apa-insight-utamanya" id="toc-apa-insight-utamanya" class="nav-link" data-scroll-target="#apa-insight-utamanya">🧮 Apa insight utamanya?</a></li>
+  <li><a href="#apa-implikasi-praktisnya" id="toc-apa-implikasi-praktisnya" class="nav-link" data-scroll-target="#apa-implikasi-praktisnya">🎯 Apa implikasi praktisnya?</a></li>
+  </ul></li>
+  <li><a href="#penjelasan-matematis-contoh-5.12" id="toc-penjelasan-matematis-contoh-5.12" class="nav-link" data-scroll-target="#penjelasan-matematis-contoh-5.12">🏢 <strong>Penjelasan Matematis Contoh 5.12</strong></a>
+  <ul class="collapse">
+  <li><a href="#definisi-model-klaim" id="toc-definisi-model-klaim" class="nav-link" data-scroll-target="#definisi-model-klaim">📦 <strong>Definisi Model Klaim</strong></a></li>
+  <li><a href="#kasus-1-excess-of-loss" id="toc-kasus-1-excess-of-loss" class="nav-link" data-scroll-target="#kasus-1-excess-of-loss">📉 <strong>Kasus 1: Excess of Loss</strong></a></li>
+  <li><a href="#kasus-2-reasuransi-proporsional-60" id="toc-kasus-2-reasuransi-proporsional-60" class="nav-link" data-scroll-target="#kasus-2-reasuransi-proporsional-60">🔄 <strong>Kasus 2: Reasuransi Proporsional 60%</strong></a></li>
+  <li><a href="#kasus-3-reasuransi-proporsional-50" id="toc-kasus-3-reasuransi-proporsional-50" class="nav-link" data-scroll-target="#kasus-3-reasuransi-proporsional-50">⚖️ <strong>Kasus 3: Reasuransi Proporsional 50%</strong></a></li>
+  <li><a href="#teorema-kunci" id="toc-teorema-kunci" class="nav-link" data-scroll-target="#teorema-kunci">📜 <strong>Teorema Kunci</strong></a></li>
+  <li><a href="#tabel-ringkasan-hasil" id="toc-tabel-ringkasan-hasil" class="nav-link" data-scroll-target="#tabel-ringkasan-hasil">📊 <strong>Tabel Ringkasan Hasil</strong></a></li>
+  <li><a href="#kesimpulan" id="toc-kesimpulan" class="nav-link" data-scroll-target="#kesimpulan">✅ Kesimpulan</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -158,7 +202,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Minimalkan variansi 2 perusahaan</h1>
+<h1 class="title">Contoh-5.12</h1>
 </div>
 
 
@@ -175,126 +219,293 @@ window.Quarto = {
 </header>
 
 
-<section id="ekstraksi-asli-english-from-the-book" class="level2">
-<h2 class="anchored" data-anchor-id="ekstraksi-asli-english-from-the-book">✅ EKSTRAKSI ASLI (ENGLISH) — <em>From the Book</em></h2>
-<section id="minimising-the-sum-of-variances-when-two-independent-risks-are-shared-between-two-insurers" class="level3">
-<h3 class="anchored" data-anchor-id="minimising-the-sum-of-variances-when-two-independent-risks-are-shared-between-two-insurers">5.7.5 Minimising the sum of variances when two independent risks are shared between two insurers</h3>
-<p>Consider two insurance companies A and B which are exposed to aggregate claims <span class="math inline">\(S_A\)</span> and <span class="math inline">\(S_B\)</span>, respectively, where <span class="math inline">\(S_A\)</span> and <span class="math inline">\(S_B\)</span> are independent random variables. Let us suppose that the two companies share their risks with each other as follows:</p>
+<section id="example-5.12-from-the-book" class="level3">
+<h3 class="anchored" data-anchor-id="example-5.12-from-the-book">📘 Example 5.12 from the Book</h3>
+<p>Consider two insurance companies, A and B. Company A issues one-year term assurances to a large group of independent lives aged 30 – the sum assured in each case is £600,000 and the number of deaths has a Poi(5) distribution. Company B issues one-year term assurances to a different and independent large group of independent lives aged 40 – the sum assured in each case is £800,000 and the number of deaths has a Poi(7) distribution. Each company reinsures with the other. We consider three cases below which will illustrate the result of §5.7.5.</p>
+<p>Let <span class="math inline">\(S_A\)</span> and <span class="math inline">\(S_B\)</span> denote the aggregate claims for companies A and B respectively, in units of £100,000, so that <span class="math inline">\(S_A \sim CP(5, F_{X_A})\)</span>, where <span class="math inline">\(X_A = 6\)</span> and <span class="math inline">\(S_B \sim CP(7, F_{X_B})\)</span>, where <span class="math inline">\(X_B = 8\)</span>. The means and variances are:</p>
 <ul>
-<li>Company A retains <span class="math inline">\(g_1(S_A)\)</span> and reinsures <span class="math inline">\(S_A - g_1(S_A)\)</span> with company B;</li>
-<li>Company B retains <span class="math inline">\(g_2(S_B)\)</span> and reinsures <span class="math inline">\(S_B - g_2(S_B)\)</span> with company A,</li>
+<li><span class="math inline">\(E[S_A] = 5 \times 6 = 30\)</span>, <span class="math inline">\(\text{Var}(S_A) = 5 \times 6^2 = 180\)</span></li>
+<li><span class="math inline">\(E[S_B] = 7 \times 8 = 56\)</span>, <span class="math inline">\(\text{Var}(S_B) = 7 \times 8^2 = 448\)</span></li>
 </ul>
-<p>where <span class="math inline">\(g_i(\cdot)\)</span>, <span class="math inline">\(i = 1, 2\)</span>, are reinsurance functions (so they satisfy <span class="math inline">\(0 \leq g_i(x) \leq x\)</span>, <span class="math inline">\(i = 1, 2\)</span>). Then the total payouts for company A and company B are <span class="math inline">\(T_A\)</span> and <span class="math inline">\(T_B\)</span>, respectively, where:</p>
-<p><span class="math display">\[
-T_A = g_1(S_A) + [S_B - g_2(S_B)]
-\]</span></p>
-<p><span class="math display">\[
-T_B = g_2(S_B) + [S_A - g_1(S_A)]
-\]</span></p>
-<p>Hence, since <span class="math inline">\(S_A\)</span> and <span class="math inline">\(S_B\)</span> are independent, we have:</p>
-<p><span class="math display">\[
-\text{Var}[T_A] = \text{Var}[g_1(S_A)] + \text{Var}[S_B - g_2(S_B)]
-\]</span></p>
-<p><span class="math display">\[
-\text{Var}[T_B] = \text{Var}[g_2(S_B)] + \text{Var}[S_A - g_1(S_A)]
-\]</span></p>
-<p>Suppose the function <span class="math inline">\(g_1(\cdot)\)</span> does not define a proportional reinsurance arrangement. If we now choose:</p>
-<p><span class="math display">\[
-\beta_1 = \left\{ \frac{\text{Var}[g_1(S_A)]}{\text{Var}[S_A]} \right\}^{1/2}
-\]</span></p>
-<p>and define <span class="math inline">\(g_1^*(S_A) = \beta_1 S_A\)</span>, then <span class="math inline">\(g_1^*(\cdot)\)</span> does define a proportional arrangement and we have:</p>
-<p><span class="math display">\[
-\text{Var}[g_1^*(S_A)] = \text{Var}[g_1(S_A)]
-\]</span></p>
-<p>We know that the variance of the reinsurance payout, subject to fixed variance for the direct insurance payout, is minimised by proportional reinsurance (see §5.7.2), hence:</p>
-<p><span class="math display">\[
-\text{Var}[S_A - g_1^*(S_A)] \leq \text{Var}[S_A - g_1(S_A)]
-\]</span></p>
-<p>A similar argument holds for <span class="math inline">\(g_2(\cdot)\)</span>. Hence <span class="math inline">\(\text{Var}[T_A] + \text{Var}[T_B]\)</span> is minimised by both companies using proportional reinsurance.</p>
-<p>In Exercise 5.31 you are asked to show that the optimal arrangement is in fact that in which each company shares its risk equally with the other.</p>
-<hr>
-</section>
-<section id="exercise-5.31" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-5.31">📘 Exercise 5.31</h3>
-<p>Consider the situation explored in §5.7.5, in which we seek to minimise the sum of the variances of the payouts when two independent risks are shared between two insurers.</p>
-<p>Extend the argument to show that the optimal arrangement is that in which each company shares its risk equally with the other.</p>
-</section>
-</section>
-<section id="minimalkan-variansi-saat-dua-risiko-dibagi-ke-dua-perusahaan-asuransi" class="level2">
-<h2 class="anchored" data-anchor-id="minimalkan-variansi-saat-dua-risiko-dibagi-ke-dua-perusahaan-asuransi">🧠 Minimalkan Variansi Saat Dua Risiko Dibagi ke Dua Perusahaan Asuransi 📉🤝</h2>
-<p>Bayangkan dua perusahaan asuransi, A dan B, masing-masing menghadapi klaim agregat yang <em>independen</em> yakni <span class="math inline">\(S_A\)</span> dan <span class="math inline">\(S_B\)</span>. Mereka saling membagi risiko:</p>
+<section id="case-1-excess-of-loss-arrangement" class="level4">
+<h4 class="anchored" data-anchor-id="case-1-excess-of-loss-arrangement">Case 1 – Excess of loss arrangement:</h4>
 <ul>
-<li>🏢 A menyimpan sebagian <span class="math inline">\(g_1(S_A)\)</span> dan sisanya <span class="math inline">\(S_A - g_1(S_A)\)</span> diberikan ke B.</li>
-<li>🏢 B menyimpan <span class="math inline">\(g_2(S_B)\)</span> dan sisanya <span class="math inline">\(S_B - g_2(S_B)\)</span> dikasih ke A.</li>
+<li>A retains first 36 units (= £3.6m), B retains first 56 units (= £5.6m).</li>
+<li>Sum of variances of payout: 435.71</li>
 </ul>
-<p>Fungsi <span class="math inline">\(g_1(\cdot)\)</span> dan <span class="math inline">\(g_2(\cdot)\)</span> adalah fungsi reasuransi yang menjamin tidak ada nilai negatif: <span class="math inline">\(0 \leq g_i(x) \leq x\)</span>.</p>
-<p>🧾 Total klaim yang dibayar oleh: - A adalah: <span class="math inline">\(T_A = g_1(S_A) + [S_B - g_2(S_B)]\)</span> - B adalah: <span class="math inline">\(T_B = g_2(S_B) + [S_A - g_1(S_A)]\)</span></p>
-<p>Karena <span class="math inline">\(S_A\)</span> dan <span class="math inline">\(S_B\)</span> independen ➡️ maka:</p>
-<p><span class="math display">\[
-\text{Var}[T_A] = \text{Var}[g_1(S_A)] + \text{Var}[S_B - g_2(S_B)]
-\]</span></p>
-<p><span class="math display">\[
-\text{Var}[T_B] = \text{Var}[g_2(S_B)] + \text{Var}[S_A - g_1(S_A)]
-\]</span></p>
-<p>📏 Jika kita punya fungsi <span class="math inline">\(g_1\)</span> yang <em>bukan</em> proporsional, kita bisa mengubahnya ke bentuk proporsional <span class="math inline">\(g_1^*(S_A) = \beta_1 S_A\)</span> dengan:</p>
-<p><span class="math display">\[
-\beta_1 = \left( \frac{\text{Var}[g_1(S_A)]}{\text{Var}[S_A]} \right)^{1/2}
-\]</span></p>
-<p>Ini <em>tidak</em> mengubah variansi bagian yang ditahan, tapi <em>menurunkan</em> variansi bagian yang direasuransikan! 🌟</p>
-<p>Hal yang sama berlaku untuk <span class="math inline">\(g_2\)</span>. Maka: ✅ Total variansi <span class="math inline">\(\text{Var}[T_A] + \text{Var}[T_B]\)</span> paling kecil saat dua perusahaan menggunakan reasuransi <strong>proporsional</strong>.</p>
-<p>🎯 Dan dalam soal Exercise 5.31 kamu diminta membuktikan bahwa pengaturan optimal adalah ketika <strong>masing-masing perusahaan membagi risikonya secara merata</strong> ke yang lain! 🧩🤯</p>
 </section>
-<section id="kesimpulan-exercise-5.31" class="level2">
-<h2 class="anchored" data-anchor-id="kesimpulan-exercise-5.31">🧠✨ Kesimpulan Exercise 5.31</h2>
-<p>🎯 Variansi total paling kecil saat:</p>
-<p>🔸 <span class="math inline">\(g_1(S_A) = 0.5 S_A\)</span><br>
-🔸 <span class="math inline">\(g_2(S_B) = 0.5 S_B\)</span></p>
-<p>Artinya, kedua perusahaan membagi risiko <strong>secara merata (50%-50%)</strong> 💼🤝</p>
-<p>🎉 Ini hasil dari meminimalkan: <span class="math display">\[
-\text{Var}(T_A) + \text{Var}(T_B)
-\]</span></p>
-<p>dengan asumsi <span class="math inline">\(S_A\)</span> dan <span class="math inline">\(S_B\)</span> independen 📊📉</p>
-</section>
-<section id="brainstorming-time" class="level2">
-<h2 class="anchored" data-anchor-id="brainstorming-time">🧠 Brainstorming Time! ☕️</h2>
-<p>Mari kita bahas lebih dalam tentang <strong>mengapa meminimalkan jumlah variansi penting</strong>, dan apakah langkah-langkah matematis yang digunakan memang valid dan optimal. Yuk kita telaah bersama! 👇</p>
-<hr>
-<section id="mengapa-penting-meminimalkan-jumlah-variansi" class="level3">
-<h3 class="anchored" data-anchor-id="mengapa-penting-meminimalkan-jumlah-variansi">🔍 Mengapa penting meminimalkan jumlah variansi?</h3>
+<section id="case-2-proportional-reinsurance-60-retained" class="level4">
+<h4 class="anchored" data-anchor-id="case-2-proportional-reinsurance-60-retained">Case 2 – Proportional reinsurance (60% retained):</h4>
 <ul>
-<li><p>✅ <strong>Stabilitas Finansial</strong>: Variansi rendah artinya risiko fluktuasi pembayaran klaim lebih kecil. Ini sangat penting bagi perusahaan asuransi agar lebih siap menghadapi kejadian ekstrem.</p></li>
-<li><p>✅ <strong>Efisiensi Modal</strong>: Variansi berhubungan langsung dengan volatilitas kewajiban. Variansi yang kecil mengurangi kebutuhan akan modal cadangan besar (capital reserve).</p></li>
-<li><p>✅ <strong>Manajemen Risiko yang Sehat</strong>: Semakin kecil variansi, semakin bisa perusahaan memprediksi beban klaimnya dan membuat perencanaan keuangan jangka panjang.</p></li>
-<li><p>✅ <strong>Keadilan dalam Pembagian Risiko</strong>: Strategi pembagian risiko yang optimal (seperti 50%-50%) menciptakan simetri dan keadilan dalam kerja sama dua pihak reasuransi.</p></li>
+<li>A retains 60% of <span class="math inline">\(S_A\)</span>, B retains 60% of <span class="math inline">\(S_B\)</span></li>
+<li>Sum of variances of payout: 326.56</li>
+</ul>
+</section>
+<section id="case-3-proportional-reinsurance-50-50" class="level4">
+<h4 class="anchored" data-anchor-id="case-3-proportional-reinsurance-50-50">Case 3 – Proportional reinsurance (50%-50%):</h4>
+<ul>
+<li>A and B each retain 50% of their aggregate claims</li>
+<li>Sum of variances of payout: 314.00</li>
+</ul>
+<p>📊 Summary (Total payout variance):</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Arrangement</th>
+<th>A + B Variance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>No reinsurance</td>
+<td>628.00</td>
+</tr>
+<tr class="even">
+<td>Stop loss (Case 1)</td>
+<td>435.71</td>
+</tr>
+<tr class="odd">
+<td>Proportional 60% (Case 2)</td>
+<td>326.56</td>
+</tr>
+<tr class="even">
+<td>Proportional 50% (Case 3)</td>
+<td><strong>314.00</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="contoh-5.12-perbandingan-reasuransi-antar-dua-perusahaan" class="level2">
+<h2 class="anchored" data-anchor-id="contoh-5.12-perbandingan-reasuransi-antar-dua-perusahaan">🎓 Contoh 5.12 — Perbandingan Reasuransi Antar Dua Perusahaan 🏢🏢</h2>
+<p>Dua perusahaan asuransi, A dan B, memiliki portofolio asuransi jiwa berjangka satu tahun kepada dua kelompok usia yang berbeda dan independen:</p>
+<ul>
+<li>🧑‍⚕️ <strong>Perusahaan A</strong> menjamin hidup usia 30 tahun, masing-masing dengan nilai pertanggungan £600.000. Jumlah kematian mengikuti distribusi Poisson(5).</li>
+<li>👨‍🦳 <strong>Perusahaan B</strong> menjamin hidup usia 40 tahun, dengan nilai pertanggungan £800.000. Jumlah kematian mengikuti Poisson(7).</li>
+<li>⚖️ Kedua perusahaan <strong>saling mereasuransikan</strong> risikonya!</li>
+</ul>
+<p>📦 Dalam satuan £100.000:</p>
+<ul>
+<li><span class="math inline">\(S_A \sim CP(5, X_A = 6) \Rightarrow E = 30, \text{Var} = 180\)</span></li>
+<li><span class="math inline">\(S_B \sim CP(7, X_B = 8) \Rightarrow E = 56, \text{Var} = 448\)</span></li>
+</ul>
+<hr>
+<section id="kasus-1-stop-loss-excess-of-loss" class="level3">
+<h3 class="anchored" data-anchor-id="kasus-1-stop-loss-excess-of-loss">📌 Kasus 1: Stop Loss (Excess of Loss)</h3>
+<ul>
+<li>A menanggung klaim hingga 36 unit (£3.6 juta)</li>
+<li>B menanggung klaim hingga 56 unit (£5.6 juta)</li>
+<li>💥 Total variansi payout: <strong>435.71</strong></li>
 </ul>
 <hr>
 </section>
-<section id="apakah-langkah-matematisnya-masuk-akal" class="level3">
-<h3 class="anchored" data-anchor-id="apakah-langkah-matematisnya-masuk-akal">🧮 Apakah langkah matematisnya masuk akal?</h3>
-<p>✔️ YA, sangat masuk akal! Mari kita simpulkan alurnya:</p>
+<section id="kasus-2-reasuransi-proporsional-retain-60" class="level3">
+<h3 class="anchored" data-anchor-id="kasus-2-reasuransi-proporsional-retain-60">🔄 Kasus 2: Reasuransi Proporsional (Retain 60%)</h3>
+<ul>
+<li>A dan B menyimpan 60% klaimnya masing-masing</li>
+<li>A → 0.6 * <span class="math inline">\(S_A\)</span>, B → 0.6 * <span class="math inline">\(S_B\)</span></li>
+<li>📉 Total variansi payout: <strong>326.56</strong></li>
+</ul>
+<hr>
+</section>
+<section id="kasus-3-reasuransi-proporsional-retain-50-50" class="level3">
+<h3 class="anchored" data-anchor-id="kasus-3-reasuransi-proporsional-retain-50-50">⚖️ Kasus 3: Reasuransi Proporsional (Retain 50%-50%)</h3>
+<ul>
+<li>A dan B menyimpan 50% dan mereasuransikan 50%</li>
+<li>Ini mencerminkan <em>equal risk sharing</em></li>
+<li>🏆 Total variansi payout: <strong>314.00</strong> ✅</li>
+</ul>
+<hr>
+</section>
+<section id="tabel-ringkasan" class="level3">
+<h3 class="anchored" data-anchor-id="tabel-ringkasan">📊 Tabel Ringkasan</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Jenis Reasuransi</th>
+<th>Total Variansi A + B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tanpa Reasuransi</td>
+<td>628.00</td>
+</tr>
+<tr class="even">
+<td>Stop Loss (Kasus 1)</td>
+<td>435.71</td>
+</tr>
+<tr class="odd">
+<td>Proporsional 60% (Kasus 2)</td>
+<td>326.56</td>
+</tr>
+<tr class="even">
+<td>Proporsional 50% (Kasus 3)</td>
+<td><strong>314.00</strong> 🥇</td>
+</tr>
+</tbody>
+</table>
+<p>💡 Terlihat bahwa <strong>proporsional 50%</strong> memberikan hasil paling optimal dalam meminimalkan variansi total pembayaran. Ini mendukung hasil teoritis dari <strong>Exercise 5.31</strong> sebelumnya! 💯</p>
+</section>
+</section>
+<section id="brainstorming-apa-pelajaran-dari-contoh-5.12" class="level2">
+<h2 class="anchored" data-anchor-id="brainstorming-apa-pelajaran-dari-contoh-5.12">🧠 Brainstorming — Apa Pelajaran dari Contoh 5.12?</h2>
+<section id="mengapa-contoh-ini-penting" class="level3">
+<h3 class="anchored" data-anchor-id="mengapa-contoh-ini-penting">💭 Mengapa contoh ini penting?</h3>
+<ul>
+<li>🧾 Ini <strong>simulasi realistis</strong> dari dua perusahaan dengan profil risiko berbeda, menunjukkan bagaimana strategi reasuransi bisa berdampak besar terhadap kestabilan keuangan.</li>
+<li>🔍 Memberikan <strong>validasi numerik</strong> atas teori bahwa “proporsionalitas dan simetri” adalah pendekatan terbaik untuk berbagi risiko.</li>
+</ul>
+<hr>
+</section>
+<section id="apa-insight-utamanya" class="level3">
+<h3 class="anchored" data-anchor-id="apa-insight-utamanya">🧮 Apa insight utamanya?</h3>
+<ul>
+<li>Tanpa reasuransi, variansi gabungan sangat besar (628).</li>
+<li>Reasuransi dengan model stop-loss <strong>memang membantu</strong>, tapi masih jauh dari optimal.</li>
+<li>Reasuransi proporsional <strong>lebih efisien</strong>, dan:
+<ul>
+<li>🔸 Saat retensi = 60%: variansi turun drastis.</li>
+<li>🔸 Saat retensi = 50%: variansi <strong>minimum</strong> tercapai.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="apa-implikasi-praktisnya" class="level3">
+<h3 class="anchored" data-anchor-id="apa-implikasi-praktisnya">🎯 Apa implikasi praktisnya?</h3>
+<ul>
+<li>📉 <em>Minimalkan variansi total pembayaran</em> berarti perusahaan bisa lebih aman terhadap fluktuasi ekstrem.</li>
+<li>⚖️ <em>Equal sharing</em> = pembagian risiko yang adil dan optimal.</li>
+<li>🧠 Perusahaan bisa menyusun kebijakan reasuransi berdasarkan perhitungan varian dan ekspektasi, bukan hanya intuisi atau tradisi.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="penjelasan-matematis-contoh-5.12" class="level2">
+<h2 class="anchored" data-anchor-id="penjelasan-matematis-contoh-5.12">🏢 <strong>Penjelasan Matematis Contoh 5.12</strong></h2>
+<p><em>Analisis Reasuransi untuk Minimisasi Varian Total</em></p>
+<section id="definisi-model-klaim" class="level3">
+<h3 class="anchored" data-anchor-id="definisi-model-klaim">📦 <strong>Definisi Model Klaim</strong></h3>
+<ul>
+<li><strong>Perusahaan A</strong>:<br>
+<span class="math display">\[
+S_A \sim CP(5, X_A=6), \quad \text{Var}(S_A) = 5 \times 6^2 = 180
+\]</span><br>
+</li>
+<li><strong>Perusahaan B</strong>:<br>
+<span class="math display">\[
+S_B \sim CP(7, X_B=8), \quad \text{Var}(S_B) = 7 \times 8^2 = 448
+\]</span><br>
+<strong>Total Varian Tanpa Reasuransi</strong>:<br>
+<span class="math display">\[
+\text{Var}(S_A + S_B) = 180 + 448 = 628
+\]</span></li>
+</ul>
+<hr>
+</section>
+<section id="kasus-1-excess-of-loss" class="level3">
+<h3 class="anchored" data-anchor-id="kasus-1-excess-of-loss">📉 <strong>Kasus 1: Excess of Loss</strong></h3>
+<ul>
+<li><strong>Retensi</strong>:
+<ul>
+<li>A: <span class="math inline">\(\min(S_A, 36)\)</span><br>
+</li>
+<li>B: <span class="math inline">\(\min(S_B, 56)\)</span><br>
+</li>
+</ul></li>
+<li><strong>Varian Total</strong>:<br>
+<span class="math display">\[
+\text{Var}(\min(S_A, 36)) + \text{Var}(\min(S_B, 56)) = 435.71
+\]</span><br>
+<em>Catatan</em>: Perhitungan menggunakan distribusi terpotong (<strong>truncated distribution</strong>).</li>
+</ul>
+<hr>
+</section>
+<section id="kasus-2-reasuransi-proporsional-60" class="level3">
+<h3 class="anchored" data-anchor-id="kasus-2-reasuransi-proporsional-60">🔄 <strong>Kasus 2: Reasuransi Proporsional 60%</strong></h3>
+<ul>
+<li><strong>Klaim Ditahan</strong>:<br>
+<span class="math display">\[
+\text{A: } 0.6S_A + 0.4S_B, \quad \text{B: } 0.6S_B + 0.4S_A
+\]</span><br>
+</li>
+<li><strong>Varian Total</strong>:<br>
+<span class="math display">\[
+(0.6^2 \times 180 + 0.4^2 \times 448) + (0.6^2 \times 448 + 0.4^2 \times 180) = 326.56
+\]</span></li>
+</ul>
+<hr>
+</section>
+<section id="kasus-3-reasuransi-proporsional-50" class="level3">
+<h3 class="anchored" data-anchor-id="kasus-3-reasuransi-proporsional-50">⚖️ <strong>Kasus 3: Reasuransi Proporsional 50%</strong></h3>
+<ul>
+<li><strong>Klaim Ditahan</strong>:<br>
+<span class="math display">\[
+\text{A dan B: } 0.5S_A + 0.5S_B
+\]</span><br>
+</li>
+<li><strong>Varian Total</strong>:<br>
+<span class="math display">\[
+2 \times \left(0.5^2 \times 180 + 0.5^2 \times 448\right) = 314.00
+\]</span><br>
+<em>Insight</em>: <strong>Simetri 50%</strong> → Risk pooling optimal dengan memanfaatkan independensi <span class="math inline">\(S_A\)</span> dan <span class="math inline">\(S_B\)</span>.</li>
+</ul>
+<hr>
+</section>
+<section id="teorema-kunci" class="level3">
+<h3 class="anchored" data-anchor-id="teorema-kunci">📜 <strong>Teorema Kunci</strong></h3>
 <ol type="1">
-<li><p><strong>Definisikan payout</strong> tiap perusahaan: klaim yang ditahan + bagian klaim dari perusahaan lain.</p></li>
-<li><p><strong>Gunakan sifat independensi</strong> antara <span class="math inline">\(S_A\)</span> dan <span class="math inline">\(S_B\)</span> untuk memisahkan variansi secara aljabar.</p></li>
-<li><p><strong>Gunakan bentuk proporsional</strong> seperti <span class="math inline">\(g_1(S_A) = \alpha S_A\)</span> agar kita bisa menurunkan ekspresi variansi menjadi bentuk fungsi kuadrat.</p></li>
-<li><p><strong>Minimalkan fungsi kuadrat</strong> untuk mendapatkan nilai optimal (dalam hal ini: <span class="math inline">\(\alpha = \beta = 0.5\)</span>).</p></li>
-<li><p><strong>Simpulkan</strong> bahwa pembagian risiko secara merata adalah solusi optimal karena meminimalkan total variansi.</p></li>
+<li><strong>Varian Kombinasi Linier</strong>:<br>
+<span class="math display">\[
+\text{Var}(aX + bY) = a^2\text{Var}(X) + b^2\text{Var}(Y) \quad (\text{jika } X \text{ dan } Y \text{ independen})
+\]</span><br>
+</li>
+<li><strong>Optimalitas Proporsional 50%</strong>:<br>
+<span class="math display">\[
+\min_{a} \left[ \text{Var}(aX + (1-a)Y) + \text{Var}((1-a)X + aY) \right] \quad \Rightarrow \quad a = 0.5
+\]</span></li>
 </ol>
 <hr>
 </section>
-<section id="mengapa-pembagian-50-50-adalah-yang-terbaik" class="level3">
-<h3 class="anchored" data-anchor-id="mengapa-pembagian-50-50-adalah-yang-terbaik">💡 Mengapa pembagian 50%-50% adalah yang terbaik?</h3>
-<ul>
-<li><p>📊 Karena ketika <span class="math inline">\(g_1(S_A) = 0.5 S_A\)</span> dan <span class="math inline">\(g_2(S_B) = 0.5 S_B\)</span>, variansi total payout masing-masing perusahaan menjadi <em>paling kecil</em>.</p></li>
-<li><p>📐 Ini juga menunjukkan bahwa kerja sama saling menanggung risiko dalam jumlah yang sama adalah bentuk reasuransi yang <strong>paling efisien dan seimbang</strong>.</p></li>
-<li><p>📉 Variansi total yang minimum artinya perusahaan lebih bisa mengendalikan eksposur risiko mereka — lebih sedikit kejutan!</p></li>
-</ul>
-<hr>
+<section id="tabel-ringkasan-hasil" class="level3">
+<h3 class="anchored" data-anchor-id="tabel-ringkasan-hasil">📊 <strong>Tabel Ringkasan Hasil</strong></h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Jenis Reasuransi</th>
+<th>Total Varian</th>
+<th>Efisiensi vs Tanpa Reasuransi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Tanpa Reasuransi</strong></td>
+<td>628.00</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td><strong>Excess of Loss</strong></td>
+<td>435.71</td>
+<td>▼ 30.7%</td>
+</tr>
+<tr class="odd">
+<td><strong>Proporsional 60%</strong></td>
+<td>326.56</td>
+<td>▼ 48.0%</td>
+</tr>
+<tr class="even">
+<td><strong>Proporsional 50%</strong></td>
+<td>314.00</td>
+<td>▼ <strong>50.0%</strong> 🏆</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="kesimpulan-brainstorming" class="level3">
-<h3 class="anchored" data-anchor-id="kesimpulan-brainstorming">🎉 Kesimpulan Brainstorming</h3>
-<p>```markdown 🔹 Meminimalkan variansi = strategi reasuransi optimal<br>
-🔹 Proporsionalitas = kunci efisiensi (lebih baik daripada bentuk arbitrer lainnya)<br>
-🔹 Pembagian risiko 50%-50% terbukti secara matematis sebagai titik minimum total variansi</p>
+<section id="kesimpulan" class="level3">
+<h3 class="anchored" data-anchor-id="kesimpulan">✅ Kesimpulan</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>🔹 Proporsional 50% terbukti secara numerik sebagai strategi optimal</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>🔹 Variansi total minimum = risiko terdistribusi secara efisien</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>🔹 Bukti konkret untuk teori minimisasi variansi dalam §5.7.5 dan Exercise 5.31</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

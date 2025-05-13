@@ -8,3 +8,4 @@ format: html
   
 - Asuransi Umum
     - [Minimalkan Variansi 2 perusahaan](asum/min-Var-2firm.qmd)
+    - [Contoh 5.12](asum/Contoh-5.12.qmd)

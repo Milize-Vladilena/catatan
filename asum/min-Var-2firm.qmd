@@ -15,7 +15,11 @@ Consider two insurance companies A and B which are exposed to aggregate claims $
 where $g_i(\cdot)$, $i = 1, 2$, are reinsurance functions (so they satisfy $0 \leq g_i(x) \leq x$, $i = 1, 2$). Then the total payouts for company A and company B are $T_A$ and $T_B$, respectively, where:
 
 $$
-T_A = g_1(S_A) + [S_B - g_2(S_B)] \quad \text{and} \quad T_B = g_2(S_B) + [S_A - g_1(S_A)]
+T_A = g_1(S_A) + [S_B - g_2(S_B)]
+$$
+
+$$
+T_B = g_2(S_B) + [S_A - g_1(S_A)]
 $$
 
 Hence, since $S_A$ and $S_B$ are independent, we have:
