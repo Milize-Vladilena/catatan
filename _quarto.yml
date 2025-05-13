@@ -8,23 +8,16 @@ execute:
 website:
   title: "Catatan 📝"
   navbar:
+    page-navigation: true
     search: true
     left:
       - href: index.qmd
         text: Home
 
-  page-navigation: true
-
 format:
   html:
     theme: cosmo
     toc: true
-
-# Ini dia kuncinya ⬇️
-site:
-  pages:
-    - index.qmd
-    - 404.qmd
 
 
 
