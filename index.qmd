@@ -1,7 +1,7 @@
 ---
-title: "index"
+title: "Cek Bawah 👇🏼"
 format: html
 ---
 
-- [Rantai Markov Waktu Kontinu](rantai-markov-waktu-kontinu.qmd)
-  - [latihan 1](latihan-ctmc-1.qmd)
+- [Rantai Markov Waktu Kontinu](modstok/rantai-markov-waktu-kontinu.qmd)
+  - [latihan 1](modstok/latihan-ctmc-1.qmd)

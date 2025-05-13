@@ -1,9 +1,7 @@
 ---
-title: "latihan-CTMC-1"
+title: "📝 CTMC"
 format: html
 ---
-
-## 📝 Tugas 3 – Model Stokastik I (CTMC)
 
 Program Studi: S1 Statistika / S1 Aktuaria  
 Mata Kuliah: Model Stokastik I  
@@ -14,6 +12,7 @@ Semester: ATA 2024/2025
 ### 🎯 Capaian Pembelajaran
 
 Mahasiswa mampu:
+
 - Mengklasifikasikan berbagai permasalahan dalam ilmu data, kesehatan, dan industri ke dalam model stokastik.
 - Menentukan parameter dan perilaku jangka panjang dari **rantai Markov waktu kontinu (CTMC)**.
 - Menerapkan CTMC pada fenomena atau kasus nyata.
@@ -114,13 +113,11 @@ Walaupun B membelah menjadi dua A, untuk tujuan model ini kita anggap transisiny
 
 ### 📊 Matriks Generator (Q)
 
-\[
-Q =
+$$Q =
 \begin{bmatrix}
 -\alpha & \alpha \\
 \beta & -\beta
-\end{bmatrix}
-\]
+\end{bmatrix}$$
 
 - Baris pertama: Transisi dari A ke B
 - Baris kedua: Transisi dari B ke A
@@ -142,9 +139,7 @@ Waktu tunggu untuk berpindah dari suatu state mengikuti distribusi eksponensial.
 
 Dalam CTMC, probabilitas transisi dari state $i$ ke $j$ setelah waktu tunggu adalah:
 
-\[
-P_{ij} = \frac{q_{ij}}{-q_{ii}}
-\]
+$$ P_{ij} = \frac{q_{ij}}{-q_{ii}} $$
 
 Untuk model ini:
 
@@ -158,6 +153,7 @@ Artinya, transisi bersifat **deterministik** setelah waktu tunggu eksponensialny
 ### ✅ Kesimpulan
 
 - **Model CTMC** terdiri dari dua state (A dan B) dengan transisi bolak-balik.
+
 - Laju waktu tunggu tergantung dari parameter $\alpha$ dan $\beta$.
 - Probabilitas transisi dari A ke B dan B ke A adalah **1**, karena tidak ada alternatif transisi lain.
 
@@ -225,15 +221,13 @@ Asumsikan:
 
 Maka estimasi matriks $Q$ bisa berbentuk:
 
-\[
-Q =
+$$Q =
 \begin{bmatrix}
 -2\lambda & 2\lambda & 0 & 0 \\
 0 & -\mu & \mu & 0 \\
 \lambda & 0 & -(\lambda + \mu) & \lambda \\
 0 & \mu & 0 & -\mu \\
-\end{bmatrix}
-\]
+\end{bmatrix}$$
 
 ---
 
@@ -252,9 +246,7 @@ Contoh:
 
 Probabilitas dari state $i$ ke $j$ adalah:
 
-\[
-P_{ij} = \frac{q_{ij}}{-q_{ii}}
-\]
+$$P_{ij} = \frac{q_{ij}}{-q_{ii}}$$
 
 Contoh:
 
@@ -285,6 +277,7 @@ Diberikan sebuah proses **kelahiran-kematian (birth-death process)** dengan:
 - **Death rate**: $\mu_i = i\mu$, untuk $i \geq 0$
 
 🧠 **Tentukan**:
+
 - (a) Nilai harapan waktu untuk berpindah dari **state 2 ke 5**
 - (b) Variansi dari waktu tersebut
 
@@ -295,6 +288,7 @@ Diberikan sebuah proses **kelahiran-kematian (birth-death process)** dengan:
 Proses kelahiran-kematian ini adalah **CTMC dengan state numerik tak hingga** $i = 0, 1, 2, \dots$
 
 Dengan:
+
 - Transisi ke atas: $i \to i+1$ dengan laju $\lambda_i = (i+1)\lambda$
 - Transisi ke bawah: $i \to i-1$ dengan laju $\mu_i = i\mu$
 
@@ -308,9 +302,7 @@ Gunakan pendekatan rekursif dengan sistem persamaan:
 
 Untuk $i \neq 5$:
 
-\[
-m(i) = \frac{1}{\lambda_i + \mu_i} + \frac{\lambda_i}{\lambda_i + \mu_i} m(i+1) + \frac{\mu_i}{\lambda_i + \mu_i} m(i-1)
-\]
+$$m(i) = \frac{1}{\lambda_i + \mu_i} + \frac{\lambda_i}{\lambda_i + \mu_i} m(i+1) + \frac{\mu_i}{\lambda_i + \mu_i} m(i-1)$$
 
 Dengan $m(5) = 0$ (karena target sudah tercapai).
 
@@ -327,45 +319,33 @@ Karena diminta dari **state 2 ke 5**, kita bentuk sistem persamaan untuk $m(2), 
 
 2. Bentuk sistem:
 
-\[
-\begin{aligned}
+$$\begin{aligned}
 m(4) &= \frac{1}{9\lambda} + \frac{5\lambda}{9\lambda} m(5) + \frac{4\lambda}{9\lambda} m(3) \\
      &= \frac{1}{9\lambda} + 0 + \frac{4}{9} m(3) \\
 m(3) &= \frac{1}{7\lambda} + \frac{4\lambda}{7\lambda} m(4) + \frac{3\lambda}{7\lambda} m(2) \\
      &= \frac{1}{7\lambda} + \frac{4}{7} m(4) + \frac{3}{7} m(2) \\
 m(2) &= \frac{1}{5\lambda} + \frac{3\lambda}{5\lambda} m(3) + \frac{2\lambda}{5\lambda} m(1)
-\end{aligned}
-\]
+\end{aligned}$$
 
 Namun karena kita hanya diminta menghitung waktu dari $2 \to 5$, kita bisa selesaikan **secara bertahap mundur** dengan substitusi ke belakang:
 
-\[
-m(4) = \frac{1}{9\lambda}
-\]
+$$m(4) = \frac{1}{9\lambda}$$
 
-\[
-m(3) = \frac{1}{7\lambda} + \frac{4}{7} m(4) = \frac{1}{7\lambda} + \frac{4}{7} \cdot \frac{1}{9\lambda}
-= \frac{1}{7\lambda} + \frac{4}{63\lambda} = \frac{9 + 4}{63\lambda} = \frac{13}{63\lambda}
-\]
+$$m(3) = \frac{1}{7\lambda} + \frac{4}{7} m(4) = \frac{1}{7\lambda} + \frac{4}{7} \cdot \frac{1}{9\lambda}
+= \frac{1}{7\lambda} + \frac{4}{63\lambda} = \frac{9 + 4}{63\lambda} = \frac{13}{63\lambda}$$
 
-\[
-m(2) = \frac{1}{5\lambda} + \frac{3}{5} m(3) + \frac{2}{5} m(1)
-\]
+$$m(2) = \frac{1}{5\lambda} + \frac{3}{5} m(3) + \frac{2}{5} m(1)$$
 
 TAPI kita tidak tahu $m(1)$ karena $m(2)$ adalah titik awal kita. Maka kita **batasi** hanya pada langkah-langkah menuju 5 **tanpa kemunduran**, yaitu **hanya jalur 2 → 3 → 4 → 5** (asumsi tidak pernah turun, *transient path approximation*).
 
 Maka pendekatannya:
 
-\[
-\mathbb{E}[T_{2 \to 3}] = \frac{1}{\lambda_2} = \frac{1}{3\lambda}, \quad
+$$\mathbb{E}[T_{2 \to 3}] = \frac{1}{\lambda_2} = \frac{1}{3\lambda}, \quad
 \mathbb{E}[T_{3 \to 4}] = \frac{1}{\lambda_3} = \frac{1}{4\lambda}, \quad
-\mathbb{E}[T_{4 \to 5}] = \frac{1}{\lambda_4} = \frac{1}{5\lambda}
-\]
+\mathbb{E}[T_{4 \to 5}] = \frac{1}{\lambda_4} = \frac{1}{5\lambda}$$
 
-\[
-\Rightarrow \mathbb{E}[T_{2 \to 5}] = \frac{1}{3\lambda} + \frac{1}{4\lambda} + \frac{1}{5\lambda}
-= \frac{20 + 15 + 12}{60\lambda} = \frac{47}{60\lambda}
-\]
+$$\Rightarrow \mathbb{E}[T_{2 \to 5}] = \frac{1}{3\lambda} + \frac{1}{4\lambda} + \frac{1}{5\lambda}
+= \frac{20 + 15 + 12}{60\lambda} = \frac{47}{60\lambda}$$
 
 ---
 
@@ -373,36 +353,28 @@ Maka pendekatannya:
 
 Karena waktu antar transisi adalah **independen**, variansi total adalah **jumlah variansi per langkah**:
 
-\[
-\text{Var}(T_{2 \to 5}) = \text{Var}(T_{2 \to 3}) + \text{Var}(T_{3 \to 4}) + \text{Var}(T_{4 \to 5})
-\]
+$$\text{Var}(T_{2 \to 5}) = \text{Var}(T_{2 \to 3}) + \text{Var}(T_{3 \to 4}) + \text{Var}(T_{4 \to 5})$$
 
 Untuk peubah acak eksponensial dengan rate $\lambda$, variansinya adalah $\frac{1}{\lambda^2}$. Maka:
 
-\[
-\text{Var}(T_{2 \to 3}) = \frac{1}{(3\lambda)^2}, \quad
+$$\text{Var}(T_{2 \to 3}) = \frac{1}{(3\lambda)^2}, \quad
 \text{Var}(T_{3 \to 4}) = \frac{1}{(4\lambda)^2}, \quad
-\text{Var}(T_{4 \to 5}) = \frac{1}{(5\lambda)^2}
-\]
+\text{Var}(T_{4 \to 5}) = \frac{1}{(5\lambda)^2}$$
 
-\[
-\Rightarrow \text{Var}(T_{2 \to 5}) = \frac{1}{9\lambda^2} + \frac{1}{16\lambda^2} + \frac{1}{25\lambda^2}
-= \frac{400 + 225 + 144}{3600\lambda^2} = \frac{769}{3600\lambda^2}
-\]
+$$\Rightarrow \text{Var}(T_{2 \to 5}) = \frac{1}{9\lambda^2} + \frac{1}{16\lambda^2} + \frac{1}{25\lambda^2}
+= \frac{400 + 225 + 144}{3600\lambda^2} = \frac{769}{3600\lambda^2}$$
 
 ---
 
 ### ✅ Kesimpulan
 
 - 💡 **Ekspektasi waktu** dari state 2 ke 5:
-  \[
-  \mathbb{E}[T_{2 \to 5}] = \frac{47}{60\lambda}
-  \]
+  
+  $$\mathbb{E}[T_{2 \to 5}] = \frac{47}{60\lambda}$$
 
 - 📊 **Variansi waktu** dari state 2 ke 5:
-  \[
-  \text{Var}(T_{2 \to 5}) = \frac{769}{3600\lambda^2}
-  \]
+  
+  $$\text{Var}(T_{2 \to 5}) = \frac{769}{3600\lambda^2}$$
 
 Catatan: Perhitungan ini menggunakan pendekatan *hanya jalur naik* (tanpa kemunduran), cocok untuk pendekatan eksak bila transisi ke bawah tidak signifikan atau jika soal tidak menyertakan $\mu$ sebagai besar.
 
@@ -418,6 +390,7 @@ Sebuah barbershop kecil hanya memiliki **satu tukang cukur** dan **kapasitas mak
 - Tidak ada ruang tunggu tambahan — pelanggan yang datang saat barbershop penuh akan pergi.
 
 🧠 **Tentukan**:
+
 - (a) Jumlah rata-rata pelanggan dalam barbershop
 - (b) Proporsi pelanggan potensial yang berhasil masuk
 - (c) Tambahan bisnis jika tukang cukur bekerja 2× lebih cepat
@@ -453,14 +426,12 @@ Transisi:
 
 ### 📊 Matriks Generator (Q)
 
-\[
-Q =
+$$Q =
 \begin{bmatrix}
 -3 & 3 & 0 \\
 4 & -7 & 3 \\
 0 & 4 & -4
-\end{bmatrix}
-\]
+\end{bmatrix}$$
 
 Baris $i$ mewakili laju keluar dari state $i$, dan kolom mewakili tujuan transisi.
 
@@ -470,37 +441,29 @@ Baris $i$ mewakili laju keluar dari state $i$, dan kolom mewakili tujuan transis
 
 Kita gunakan keseimbangan global untuk mencari probabilitas stasioner $\pi_0$, $\pi_1$, $\pi_2$.
 
-\[
-\begin{aligned}
+$$\begin{aligned}
 \pi_1 &= \frac{\lambda}{\mu} \pi_0 = \frac{3}{4} \pi_0 \\
 \pi_2 &= \frac{\lambda}{\mu} \pi_1 = \frac{3}{4} \cdot \frac{3}{4} \pi_0 = \left( \frac{3}{4} \right)^2 \pi_0 = \frac{9}{16} \pi_0
-\end{aligned}
-\]
+\end{aligned}$$
 
 Gunakan kondisi total probabilitas:
 
-\[
-\pi_0 + \pi_1 + \pi_2 = 1
+$$\pi_0 + \pi_1 + \pi_2 = 1
 \Rightarrow \pi_0 + \frac{3}{4} \pi_0 + \frac{9}{16} \pi_0 = 1
 \Rightarrow \pi_0 \left(1 + \frac{3}{4} + \frac{9}{16} \right) = 1
 \Rightarrow \pi_0 \cdot \frac{61}{16} = 1
-\Rightarrow \pi_0 = \frac{16}{61}
-\]
+\Rightarrow \pi_0 = \frac{16}{61}$$
 
 Sehingga:
 
-\[
-\pi_1 = \frac{3}{4} \cdot \frac{16}{61} = \frac{48}{61}, \quad
-\pi_2 = \frac{9}{16} \cdot \frac{16}{61} = \frac{9}{61}
-\]
+$$\pi_1 = \frac{3}{4} \cdot \frac{16}{61} = \frac{48}{61}, \quad
+\pi_2 = \frac{9}{16} \cdot \frac{16}{61} = \frac{9}{61}$$
 
 ---
 
 ### 🧮 (a) Rata-rata Pelanggan di Barbershop
 
-\[
-\mathbb{E}[N] = 0 \cdot \pi_0 + 1 \cdot \pi_1 + 2 \cdot \pi_2 = 0 + \frac{48}{61} + 2 \cdot \frac{9}{61} = \frac{48 + 18}{61} = \frac{66}{61} \approx 1.082
-\]
+$$\mathbb{E}[N] = 0 \cdot \pi_0 + 1 \cdot \pi_1 + 2 \cdot \pi_2 = 0 + \frac{48}{61} + 2 \cdot \frac{9}{61} = \frac{48 + 18}{61} = \frac{66}{61} \approx 1.082$$
 
 ---
 
@@ -508,9 +471,7 @@ Sehingga:
 
 Pelanggan hanya ditolak saat state = 2. Jadi proporsi yang berhasil masuk:
 
-\[
-1 - \pi_2 = 1 - \frac{9}{61} = \frac{52}{61} \approx 0.852
-\]
+$$1 - \pi_2 = 1 - \frac{9}{61} = \frac{52}{61} \approx 0.852$$
 
 Artinya, sekitar **85.2%** pelanggan berhasil masuk ke barbershop.
 
@@ -520,33 +481,23 @@ Artinya, sekitar **85.2%** pelanggan berhasil masuk ke barbershop.
 
 Jika $\mu = 8$ (bukan 4):
 
-\[
-\rho = \frac{\lambda}{\mu} = \frac{3}{8}
-\]
+$$\rho = \frac{\lambda}{\mu} = \frac{3}{8}$$
 
 Hitung ulang distribusi stasioner:
 
-\[
-\pi_1 = \frac{3}{8} \pi_0, \quad
-\pi_2 = \left( \frac{3}{8} \right)^2 \pi_0 = \frac{9}{64} \pi_0
-\]
+$$\pi_1 = \frac{3}{8} \pi_0, \quad
+\pi_2 = \left( \frac{3}{8} \right)^2 \pi_0 = \frac{9}{64} \pi_0$$
 
-\[
-\pi_0 + \pi_1 + \pi_2 = \pi_0 \left(1 + \frac{3}{8} + \frac{9}{64} \right)
+$$\pi_0 + \pi_1 + \pi_2 = \pi_0 \left(1 + \frac{3}{8} + \frac{9}{64} \right)
 = \pi_0 \cdot \frac{121}{64} = 1
-\Rightarrow \pi_0 = \frac{64}{121}
-\]
+\Rightarrow \pi_0 = \frac{64}{121}$$
 
-\[
-\pi_2 = \frac{9}{64} \cdot \frac{64}{121} = \frac{9}{121}
-\Rightarrow \text{Proporsi masuk} = 1 - \frac{9}{121} = \frac{112}{121} \approx 0.926
-\]
+$$\pi_2 = \frac{9}{64} \cdot \frac{64}{121} = \frac{9}{121}
+\Rightarrow \text{Proporsi masuk} = 1 - \frac{9}{121} = \frac{112}{121} \approx 0.926$$
 
 🧮 Tambahan bisnis:
 
-\[
-\text{Tambahan proporsi masuk} = \frac{112}{121} - \frac{52}{61} = \approx 0.926 - 0.852 = 0.074
-\]
+$$\text{Tambahan proporsi masuk} = \frac{112}{121} - \frac{52}{61} = \approx 0.926 - 0.852 = 0.074$$
 
 Artinya, ada **peningkatan pelanggan masuk sekitar 7.4%** jika tukang cukur bekerja dua kali lebih cepat.
 

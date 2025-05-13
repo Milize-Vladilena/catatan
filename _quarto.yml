@@ -6,7 +6,7 @@ execute:
   freeze: auto
 
 website:
-  title: "Lab Praktikum Departemen Matematika FMIPA UI"
+  title: "Catatan 📝"
   navbar:
     search: true
     left:
