@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Minimalkan variansi 2 perusahaan – Catatan 📝</title>
+<title>kesamaan-variansi – Catatan 📝</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -170,167 +136,131 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#ekstraksi-asli-english-from-the-book" id="toc-ekstraksi-asli-english-from-the-book" class="nav-link active" data-scroll-target="#ekstraksi-asli-english-from-the-book">✅ EKSTRAKSI ASLI (ENGLISH) — <em>From the Book</em></a>
+  <li><a href="#analisis-kesamaan-variansi-mengapa-textvarg_1s_a-textvarg_1s_a" id="toc-analisis-kesamaan-variansi-mengapa-textvarg_1s_a-textvarg_1s_a" class="nav-link active" data-scroll-target="#analisis-kesamaan-variansi-mengapa-textvarg_1s_a-textvarg_1s_a">📊 <strong>Analisis Kesamaan Variansi: Mengapa <span class="math inline">\(\text{Var}[g_1^*(S_A)] = \text{Var}[g_1(S_A)]\)</span>?</strong></a>
   <ul class="collapse">
-  <li><a href="#minimising-the-sum-of-variances-when-two-independent-risks-are-shared-between-two-insurers" id="toc-minimising-the-sum-of-variances-when-two-independent-risks-are-shared-between-two-insurers" class="nav-link" data-scroll-target="#minimising-the-sum-of-variances-when-two-independent-risks-are-shared-between-two-insurers">5.7.5 Minimising the sum of variances when two independent risks are shared between two insurers</a></li>
-  <li><a href="#exercise-5.31" id="toc-exercise-5.31" class="nav-link" data-scroll-target="#exercise-5.31">📘 Exercise 5.31</a></li>
+  <li><a href="#konteks-matematis" id="toc-konteks-matematis" class="nav-link" data-scroll-target="#konteks-matematis"><strong>1. Konteks Matematis</strong></a></li>
+  <li><a href="#derivasi-kunci" id="toc-derivasi-kunci" class="nav-link" data-scroll-target="#derivasi-kunci"><strong>2. Derivasi Kunci</strong></a>
+  <ul class="collapse">
+  <li><a href="#langkah-1-ekspansi-syarat-pertama" id="toc-langkah-1-ekspansi-syarat-pertama" class="nav-link" data-scroll-target="#langkah-1-ekspansi-syarat-pertama"><strong>Langkah 1: Ekspansi Syarat Pertama</strong></a></li>
+  <li><a href="#langkah-2-substitusi-syarat-kedua" id="toc-langkah-2-substitusi-syarat-kedua" class="nav-link" data-scroll-target="#langkah-2-substitusi-syarat-kedua"><strong>Langkah 2: Substitusi Syarat Kedua</strong></a></li>
+  <li><a href="#langkah-3-bukti-kesamaan" id="toc-langkah-3-bukti-kesamaan" class="nav-link" data-scroll-target="#langkah-3-bukti-kesamaan"><strong>Langkah 3: Bukti Kesamaan</strong></a></li>
   </ul></li>
-  <li><a href="#minimalkan-variansi-saat-dua-risiko-dibagi-ke-dua-perusahaan-asuransi" id="toc-minimalkan-variansi-saat-dua-risiko-dibagi-ke-dua-perusahaan-asuransi" class="nav-link" data-scroll-target="#minimalkan-variansi-saat-dua-risiko-dibagi-ke-dua-perusahaan-asuransi">🧠 Minimalkan Variansi Saat Dua Risiko Dibagi ke Dua Perusahaan Asuransi 📉🤝</a></li>
-  <li><a href="#kesimpulan-exercise-5.31" id="toc-kesimpulan-exercise-5.31" class="nav-link" data-scroll-target="#kesimpulan-exercise-5.31">🧠✨ Kesimpulan Exercise 5.31</a></li>
-  <li><a href="#brainstorming-time" id="toc-brainstorming-time" class="nav-link" data-scroll-target="#brainstorming-time">🧠 Brainstorming Time! ☕️</a>
+  <li><a href="#interpretasi-praktis" id="toc-interpretasi-praktis" class="nav-link" data-scroll-target="#interpretasi-praktis"><strong>3. Interpretasi Praktis</strong></a>
   <ul class="collapse">
-  <li><a href="#mengapa-penting-meminimalkan-jumlah-variansi" id="toc-mengapa-penting-meminimalkan-jumlah-variansi" class="nav-link" data-scroll-target="#mengapa-penting-meminimalkan-jumlah-variansi">🔍 Mengapa penting meminimalkan jumlah variansi?</a></li>
-  <li><a href="#apakah-langkah-matematisnya-masuk-akal" id="toc-apakah-langkah-matematisnya-masuk-akal" class="nav-link" data-scroll-target="#apakah-langkah-matematisnya-masuk-akal">🧮 Apakah langkah matematisnya masuk akal?</a></li>
-  <li><a href="#mengapa-pembagian-50-50-adalah-yang-terbaik" id="toc-mengapa-pembagian-50-50-adalah-yang-terbaik" class="nav-link" data-scroll-target="#mengapa-pembagian-50-50-adalah-yang-terbaik">💡 Mengapa pembagian 50%-50% adalah yang terbaik?</a></li>
-  <li><a href="#kesimpulan-brainstorming" id="toc-kesimpulan-brainstorming" class="nav-link" data-scroll-target="#kesimpulan-brainstorming">🎉 Kesimpulan Brainstorming</a></li>
+  <li><a href="#mekanisme-enforced-equality" id="toc-mekanisme-enforced-equality" class="nav-link" data-scroll-target="#mekanisme-enforced-equality"><strong>Mekanisme “Enforced Equality”</strong></a></li>
+  <li><a href="#paradoks-reduksi-risiko" id="toc-paradoks-reduksi-risiko" class="nav-link" data-scroll-target="#paradoks-reduksi-risiko"><strong>Paradoks Reduksi Risiko</strong></a></li>
+  </ul></li>
+  <li><a href="#contoh-numerik" id="toc-contoh-numerik" class="nav-link" data-scroll-target="#contoh-numerik"><strong>4. Contoh Numerik</strong></a></li>
+  <li><a href="#batasan-dan-realitas" id="toc-batasan-dan-realitas" class="nav-link" data-scroll-target="#batasan-dan-realitas"><strong>5. Batasan dan Realitas</strong></a>
+  <ul class="collapse">
+  <li><a href="#ketika-kesamaan-tidak-terjadi" id="toc-ketika-kesamaan-tidak-terjadi" class="nav-link" data-scroll-target="#ketika-kesamaan-tidak-terjadi"><strong>Ketika Kesamaan Tidak Terjadi</strong></a></li>
+  <li><a href="#catatan-aktuarial" id="toc-catatan-aktuarial" class="nav-link" data-scroll-target="#catatan-aktuarial"><strong>Catatan Aktuarial</strong></a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Minimalkan variansi 2 perusahaan</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="ekstraksi-asli-english-from-the-book" class="level2">
-<h2 class="anchored" data-anchor-id="ekstraksi-asli-english-from-the-book">✅ EKSTRAKSI ASLI (ENGLISH) — <em>From the Book</em></h2>
-<section id="minimising-the-sum-of-variances-when-two-independent-risks-are-shared-between-two-insurers" class="level3">
-<h3 class="anchored" data-anchor-id="minimising-the-sum-of-variances-when-two-independent-risks-are-shared-between-two-insurers">5.7.5 Minimising the sum of variances when two independent risks are shared between two insurers</h3>
-<p>Consider two insurance companies A and B which are exposed to aggregate claims <span class="math inline">\(S_A\)</span> and <span class="math inline">\(S_B\)</span>, respectively, where <span class="math inline">\(S_A\)</span> and <span class="math inline">\(S_B\)</span> are independent random variables. Let us suppose that the two companies share their risks with each other as follows:</p>
-<ul>
-<li>Company A retains <span class="math inline">\(g_1(S_A)\)</span> and reinsures <span class="math inline">\(S_A - g_1(S_A)\)</span> with company B;</li>
-<li>Company B retains <span class="math inline">\(g_2(S_B)\)</span> and reinsures <span class="math inline">\(S_B - g_2(S_B)\)</span> with company A,</li>
-</ul>
-<p>where <span class="math inline">\(g_i(\cdot)\)</span>, <span class="math inline">\(i = 1, 2\)</span>, are reinsurance functions (so they satisfy <span class="math inline">\(0 \leq g_i(x) \leq x\)</span>, <span class="math inline">\(i = 1, 2\)</span>). Then the total payouts for company A and company B are <span class="math inline">\(T_A\)</span> and <span class="math inline">\(T_B\)</span>, respectively, where:</p>
-<p><span class="math display">\[
-T_A = g_1(S_A) + [S_B - g_2(S_B)]
-\]</span></p>
-<p><span class="math display">\[
-T_B = g_2(S_B) + [S_A - g_1(S_A)]
-\]</span></p>
-<p>Hence, since <span class="math inline">\(S_A\)</span> and <span class="math inline">\(S_B\)</span> are independent, we have:</p>
-<p><span class="math display">\[
-\text{Var}[T_A] = \text{Var}[g_1(S_A)] + \text{Var}[S_B - g_2(S_B)]
-\]</span></p>
-<p><span class="math display">\[
-\text{Var}[T_B] = \text{Var}[g_2(S_B)] + \text{Var}[S_A - g_1(S_A)]
-\]</span></p>
-<p>Suppose the function <span class="math inline">\(g_1(\cdot)\)</span> does not define a proportional reinsurance arrangement. If we now choose:</p>
-<p><span class="math display">\[
-\beta_1 = \left\{ \frac{\text{Var}[g_1(S_A)]}{\text{Var}[S_A]} \right\}^{1/2}
-\]</span></p>
-<p>and define <span class="math inline">\(g_1^*(S_A) = \beta_1 S_A\)</span>, then <span class="math inline">\(g_1^*(\cdot)\)</span> does define a proportional arrangement and we have:</p>
-<p><span class="math display">\[
-\text{Var}[g_1^*(S_A)] = \text{Var}[g_1(S_A)]
-\]</span></p>
-<p>We know that the variance of the reinsurance payout, subject to fixed variance for the direct insurance payout, is minimised by proportional reinsurance (see §5.7.2), hence:</p>
-<p><span class="math display">\[
-\text{Var}[S_A - g_1^*(S_A)] \leq \text{Var}[S_A - g_1(S_A)]
-\]</span></p>
-<p>A similar argument holds for <span class="math inline">\(g_2(\cdot)\)</span>. Hence <span class="math inline">\(\text{Var}[T_A] + \text{Var}[T_B]\)</span> is minimised by both companies using proportional reinsurance.</p>
-<p>In Exercise 5.31 you are asked to show that the optimal arrangement is in fact that in which each company shares its risk equally with the other.</p>
-<hr>
-</section>
-<section id="exercise-5.31" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-5.31">📘 Exercise 5.31</h3>
-<p>Consider the situation explored in §5.7.5, in which we seek to minimise the sum of the variances of the payouts when two independent risks are shared between two insurers.</p>
-<p>Extend the argument to show that the optimal arrangement is that in which each company shares its risk equally with the other.</p>
-</section>
-</section>
-<section id="minimalkan-variansi-saat-dua-risiko-dibagi-ke-dua-perusahaan-asuransi" class="level2">
-<h2 class="anchored" data-anchor-id="minimalkan-variansi-saat-dua-risiko-dibagi-ke-dua-perusahaan-asuransi">🧠 Minimalkan Variansi Saat Dua Risiko Dibagi ke Dua Perusahaan Asuransi 📉🤝</h2>
-<p>Bayangkan dua perusahaan asuransi, A dan B, masing-masing menghadapi klaim agregat yang <em>independen</em> yakni <span class="math inline">\(S_A\)</span> dan <span class="math inline">\(S_B\)</span>. Mereka saling membagi risiko:</p>
-<ul>
-<li>🏢 A menyimpan sebagian <span class="math inline">\(g_1(S_A)\)</span> dan sisanya <span class="math inline">\(S_A - g_1(S_A)\)</span> diberikan ke B.</li>
-<li>🏢 B menyimpan <span class="math inline">\(g_2(S_B)\)</span> dan sisanya <span class="math inline">\(S_B - g_2(S_B)\)</span> dikasih ke A.</li>
-</ul>
-<p>Fungsi <span class="math inline">\(g_1(\cdot)\)</span> dan <span class="math inline">\(g_2(\cdot)\)</span> adalah fungsi reasuransi yang menjamin tidak ada nilai negatif: <span class="math inline">\(0 \leq g_i(x) \leq x\)</span>.</p>
-<p>🧾 Total klaim yang dibayar oleh: - A adalah: <span class="math inline">\(T_A = g_1(S_A) + [S_B - g_2(S_B)]\)</span> - B adalah: <span class="math inline">\(T_B = g_2(S_B) + [S_A - g_1(S_A)]\)</span></p>
-<p>Karena <span class="math inline">\(S_A\)</span> dan <span class="math inline">\(S_B\)</span> independen ➡️ maka:</p>
-<p><span class="math display">\[
-\text{Var}[T_A] = \text{Var}[g_1(S_A)] + \text{Var}[S_B - g_2(S_B)]
-\]</span></p>
-<p><span class="math display">\[
-\text{Var}[T_B] = \text{Var}[g_2(S_B)] + \text{Var}[S_A - g_1(S_A)]
-\]</span></p>
-<p>📏 Jika kita punya fungsi <span class="math inline">\(g_1\)</span> yang <em>bukan</em> proporsional, kita bisa mengubahnya ke bentuk proporsional <span class="math inline">\(g_1^*(S_A) = \beta_1 S_A\)</span> dengan:</p>
-<p><span class="math display">\[
-\beta_1 = \left( \frac{\text{Var}[g_1(S_A)]}{\text{Var}[S_A]} \right)^{1/2}
-\]</span></p>
-<p>Ini <em>tidak</em> mengubah variansi bagian yang ditahan, tapi <em>menurunkan</em> <a href="../asum/kesamaan-variansi.html">variansi bagian</a> yang direasuransikan! 🌟</p>
-<p>Hal yang sama berlaku untuk <span class="math inline">\(g_2\)</span>. Maka: ✅ Total variansi <span class="math inline">\(\text{Var}[T_A] + \text{Var}[T_B]\)</span> paling kecil saat dua perusahaan menggunakan reasuransi <strong>proporsional</strong>.</p>
-<p>🎯 Dan dalam soal Exercise 5.31 kamu diminta membuktikan bahwa pengaturan optimal adalah ketika <strong>masing-masing perusahaan membagi risikonya secara merata</strong> ke yang lain! 🧩🤯</p>
-</section>
-<section id="kesimpulan-exercise-5.31" class="level2">
-<h2 class="anchored" data-anchor-id="kesimpulan-exercise-5.31">🧠✨ Kesimpulan Exercise 5.31</h2>
-<p>🎯 Variansi total paling kecil saat:</p>
-<p>🔸 <span class="math inline">\(g_1(S_A) = 0.5 S_A\)</span><br>
-🔸 <span class="math inline">\(g_2(S_B) = 0.5 S_B\)</span></p>
-<p>Artinya, kedua perusahaan membagi risiko <strong>secara merata (50%-50%)</strong> 💼🤝</p>
-<p>🎉 Ini hasil dari meminimalkan: <span class="math display">\[
-\text{Var}(T_A) + \text{Var}(T_B)
-\]</span></p>
-<p>dengan asumsi <span class="math inline">\(S_A\)</span> dan <span class="math inline">\(S_B\)</span> independen 📊📉</p>
-</section>
-<section id="brainstorming-time" class="level2">
-<h2 class="anchored" data-anchor-id="brainstorming-time">🧠 Brainstorming Time! ☕️</h2>
-<p>Mari kita bahas lebih dalam tentang <strong>mengapa meminimalkan jumlah variansi penting</strong>, dan apakah langkah-langkah matematis yang digunakan memang valid dan optimal. Yuk kita telaah bersama! 👇</p>
-<hr>
-<section id="mengapa-penting-meminimalkan-jumlah-variansi" class="level3">
-<h3 class="anchored" data-anchor-id="mengapa-penting-meminimalkan-jumlah-variansi">🔍 Mengapa penting meminimalkan jumlah variansi?</h3>
-<ul>
-<li><p>✅ <strong>Stabilitas Finansial</strong>: Variansi rendah artinya risiko fluktuasi pembayaran klaim lebih kecil. Ini sangat penting bagi perusahaan asuransi agar lebih siap menghadapi kejadian ekstrem.</p></li>
-<li><p>✅ <strong>Efisiensi Modal</strong>: Variansi berhubungan langsung dengan volatilitas kewajiban. Variansi yang kecil mengurangi kebutuhan akan modal cadangan besar (capital reserve).</p></li>
-<li><p>✅ <strong>Manajemen Risiko yang Sehat</strong>: Semakin kecil variansi, semakin bisa perusahaan memprediksi beban klaimnya dan membuat perencanaan keuangan jangka panjang.</p></li>
-<li><p>✅ <strong>Keadilan dalam Pembagian Risiko</strong>: Strategi pembagian risiko yang optimal (seperti 50%-50%) menciptakan simetri dan keadilan dalam kerja sama dua pihak reasuransi.</p></li>
-</ul>
-<hr>
-</section>
-<section id="apakah-langkah-matematisnya-masuk-akal" class="level3">
-<h3 class="anchored" data-anchor-id="apakah-langkah-matematisnya-masuk-akal">🧮 Apakah langkah matematisnya masuk akal?</h3>
-<p>✔️ YA, sangat masuk akal! Mari kita simpulkan alurnya:</p>
+<section id="analisis-kesamaan-variansi-mengapa-textvarg_1s_a-textvarg_1s_a" class="level1">
+<h1>📊 <strong>Analisis Kesamaan Variansi: Mengapa <span class="math inline">\(\text{Var}[g_1^*(S_A)] = \text{Var}[g_1(S_A)]\)</span>?</strong></h1>
+<section id="konteks-matematis" class="level2">
+<h2 class="anchored" data-anchor-id="konteks-matematis"><strong>1. Konteks Matematis</strong></h2>
+<p>Transformasi fungsi reasuransi non-proporsional <span class="math inline">\(g_1(S_A)\)</span> ke bentuk proporsional <span class="math inline">\(g_1^*(S_A) = \beta_1 S_A\)</span> dilakukan dengan <strong>dua syarat kritis</strong>:</p>
 <ol type="1">
-<li><p><strong>Definisikan payout</strong> tiap perusahaan: klaim yang ditahan + bagian klaim dari perusahaan lain.</p></li>
-<li><p><strong>Gunakan sifat independensi</strong> antara <span class="math inline">\(S_A\)</span> dan <span class="math inline">\(S_B\)</span> untuk memisahkan variansi secara aljabar.</p></li>
-<li><p><strong>Gunakan bentuk proporsional</strong> seperti <span class="math inline">\(g_1(S_A) = \alpha S_A\)</span> agar kita bisa menurunkan ekspresi variansi menjadi bentuk fungsi kuadrat.</p></li>
-<li><p><strong>Minimalkan fungsi kuadrat</strong> untuk mendapatkan nilai optimal (dalam hal ini: <span class="math inline">\(\alpha = \beta = 0.5\)</span>).</p></li>
-<li><p><strong>Simpulkan</strong> bahwa pembagian risiko secara merata adalah solusi optimal karena meminimalkan total variansi.</p></li>
+<li><strong>Mempertahankan Variansi Risiko yang Ditahan</strong>: <span class="math display">\[
+\text{Var}[S_A - g_1(S_A)] = \text{Var}[S_A - g_1^*(S_A)]
+\]</span></li>
+<li><strong>Memenuhi Kesamaan Variansi Reasuransi</strong>: <span class="math display">\[
+\text{Var}[g_1^*(S_A)] = \text{Var}[g_1(S_A)]
+\]</span></li>
 </ol>
 <hr>
 </section>
-<section id="mengapa-pembagian-50-50-adalah-yang-terbaik" class="level3">
-<h3 class="anchored" data-anchor-id="mengapa-pembagian-50-50-adalah-yang-terbaik">💡 Mengapa pembagian 50%-50% adalah yang terbaik?</h3>
-<ul>
-<li><p>📊 Karena ketika <span class="math inline">\(g_1(S_A) = 0.5 S_A\)</span> dan <span class="math inline">\(g_2(S_B) = 0.5 S_B\)</span>, variansi total payout masing-masing perusahaan menjadi <em>paling kecil</em>.</p></li>
-<li><p>📐 Ini juga menunjukkan bahwa kerja sama saling menanggung risiko dalam jumlah yang sama adalah bentuk reasuransi yang <strong>paling efisien dan seimbang</strong>.</p></li>
-<li><p>📉 Variansi total yang minimum artinya perusahaan lebih bisa mengendalikan eksposur risiko mereka — lebih sedikit kejutan!</p></li>
-</ul>
+<section id="derivasi-kunci" class="level2">
+<h2 class="anchored" data-anchor-id="derivasi-kunci"><strong>2. Derivasi Kunci</strong></h2>
+<section id="langkah-1-ekspansi-syarat-pertama" class="level3">
+<h3 class="anchored" data-anchor-id="langkah-1-ekspansi-syarat-pertama"><strong>Langkah 1: Ekspansi Syarat Pertama</strong></h3>
+<p>Dari syarat pertama: <span class="math display">\[
+\text{Var}[S_A - g_1(S_A)] = \text{Var}[S_A (1 - \beta_1)]
+\]</span> Ekspansi kedua sisi: <span class="math display">\[
+\text{Var}[S_A] + \text{Var}[g_1(S_A)] - 2\text{Cov}(S_A, g_1(S_A)) = (1-\beta_1)^2 \text{Var}[S_A]
+\]</span></p>
+</section>
+<section id="langkah-2-substitusi-syarat-kedua" class="level3">
+<h3 class="anchored" data-anchor-id="langkah-2-substitusi-syarat-kedua"><strong>Langkah 2: Substitusi Syarat Kedua</strong></h3>
+<p>Dari syarat kedua <span class="math inline">\(\text{Var}[g_1^*] = \text{Var}[g_1]\)</span>, substitusi <span class="math inline">\(g_1^* = \beta_1 S_A\)</span>: <span class="math display">\[
+\beta_1^2 \text{Var}[S_A] = \text{Var}[g_1(S_A)]
+\]</span> Sehingga: <span class="math display">\[
+\beta_1 = \sqrt{\frac{\text{Var}[g_1(S_A)]}{\text{Var}[S_A]}}
+\]</span></p>
+</section>
+<section id="langkah-3-bukti-kesamaan" class="level3">
+<h3 class="anchored" data-anchor-id="langkah-3-bukti-kesamaan"><strong>Langkah 3: Bukti Kesamaan</strong></h3>
+<p>Substitusi <span class="math inline">\(\beta_1\)</span> ke definisi <span class="math inline">\(g_1^*\)</span>: <span class="math display">\[
+\text{Var}[g_1^*(S_A)] = \text{Var}\left[\sqrt{\frac{\text{Var}[g_1]}{\text{Var}[S_A]}} S_A \right] = \frac{\text{Var}[g_1]}{\text{Var}[S_A]} \cdot \text{Var}[S_A] = \text{Var}[g_1(S_A)]
+\]</span></p>
 <hr>
 </section>
-<section id="kesimpulan-brainstorming" class="level3">
-<h3 class="anchored" data-anchor-id="kesimpulan-brainstorming">🎉 Kesimpulan Brainstorming</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>🔹 Meminimalkan variansi = strategi reasuransi optimal  </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>🔹 Proporsionalitas = kunci efisiensi (lebih baik daripada bentuk arbitrer lainnya)  </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>🔹 Pembagian risiko 50%-50% terbukti secara matematis sebagai titik minimum total variansi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="interpretasi-praktis" class="level2">
+<h2 class="anchored" data-anchor-id="interpretasi-praktis"><strong>3. Interpretasi Praktis</strong></h2>
+<section id="mekanisme-enforced-equality" class="level3">
+<h3 class="anchored" data-anchor-id="mekanisme-enforced-equality"><strong>Mekanisme “Enforced Equality”</strong></h3>
+<ul>
+<li><span class="math inline">\(\beta_1\)</span> <strong>didesain khusus</strong> agar variansi reasuransi tetap sama.<br>
+</li>
+<li>Ini adalah hasil matematis <strong>deterministik</strong>, bukan kebetulan.</li>
+</ul>
+</section>
+<section id="paradoks-reduksi-risiko" class="level3">
+<h3 class="anchored" data-anchor-id="paradoks-reduksi-risiko"><strong>Paradoks Reduksi Risiko</strong></h3>
+<p>Meskipun <span class="math inline">\(\text{Var}[g_1^*] = \text{Var}[g_1]\)</span>, risiko <strong>yang dialihkan</strong> ke reasuradur menjadi lebih stabil karena: 1. <strong>Eliminasi Ketidakpastian Non-Linear</strong>: Bentuk proporsional menghilangkan komponen stokastik tambahan pada <span class="math inline">\(g_1(S_A)\)</span>.<br>
+2. <strong>Prediktabilitas</strong>: Hubungan linear <span class="math inline">\(g_1^* = \beta_1 S_A\)</span> memudahkan proyeksi klaim.</p>
+<hr>
+</section>
+</section>
+<section id="contoh-numerik" class="level2">
+<h2 class="anchored" data-anchor-id="contoh-numerik"><strong>4. Contoh Numerik</strong></h2>
+<p>Misalkan: - <span class="math inline">\(\text{Var}[S_A] = 200\)</span><br>
+- <span class="math inline">\(\text{Var}[g_1(S_A)] = 80\)</span></p>
+<p>Maka: <span class="math display">\[
+\beta_1 = \sqrt{\frac{80}{200}} = 0.632
+\]</span> <strong>Hasil</strong>:<br>
+<span class="math display">\[
+\text{Var}[g_1^*] = (0.632)^2 \times 200 = 80 \quad (\text{Sama persis!})
+\]</span></p>
+<hr>
+</section>
+<section id="batasan-dan-realitas" class="level2">
+<h2 class="anchored" data-anchor-id="batasan-dan-realitas"><strong>5. Batasan dan Realitas</strong></h2>
+<section id="ketika-kesamaan-tidak-terjadi" class="level3">
+<h3 class="anchored" data-anchor-id="ketika-kesamaan-tidak-terjadi"><strong>Ketika Kesamaan Tidak Terjadi</strong></h3>
+<ul>
+<li>Jika <span class="math inline">\(g_1(S_A)\)</span> <strong>sangat non-linear</strong> (e.g., fungsi tangga), aproksimasi proporsional mungkin <strong>gagal mempertahankan variansi</strong>.<br>
+</li>
+<li>Solusi: Gunakan metode <strong>piecewise linear adjustment</strong> atau <strong>simulasi Monte Carlo</strong>.</li>
+</ul>
+</section>
+<section id="catatan-aktuarial" class="level3">
+<h3 class="anchored" data-anchor-id="catatan-aktuarial"><strong>Catatan Aktuarial</strong></h3>
+<p>Dalam praktik, kesamaan ini <strong>hanya berlaku jika</strong>:<br>
+1. Portofolio memenuhi asumsi homogenitas risiko<br>
+2. Tidak ada parameter eksternal (e.g., inflasi) yang memengaruhi <span class="math inline">\(g_1(S_A)\)</span><br>
+3. Distribusi <span class="math inline">\(S_A\)</span> stabil dalam waktu (stationary)</p>
+<hr>
+<p>```markdown # 🧩 <strong>Simpulan Utama</strong><br>
+Kesamaan <span class="math inline">\(\text{Var}[g_1^*] = \text{Var}[g_1]\)</span> terjadi karena:<br>
+1. <span class="math inline">\(\beta_1\)</span> <strong>dihitung secara eksplisit</strong> untuk memenuhi syarat ini<br>
+2. Transformasi proporsional <strong>menjaga skala risiko</strong> meskipun mengubah struktur alih risiko<br>
+3. Merupakan solusi optimal dalam kerangka <strong>mean-variance tradeoff</strong></p>
 
 
+</section>
 </section>
 </section>
 

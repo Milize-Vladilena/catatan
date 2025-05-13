@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3790baeb23ec48fe6a2a71a48d01fb7e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -419,6 +419,267 @@ S_B \sim CP(7, X_B=8), \quad \text{Var}(S_B) = 7 \times 8^2 = 448
 \]</span><br>
 <em>Catatan</em>: Perhitungan menggunakan distribusi terpotong (<strong>truncated distribution</strong>).</li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Perhitungan Distribusi Terpotong">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Perhitungan Distribusi Terpotong
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<section id="penjelasan-detail-perhitungan-varian-excess-of-loss-435.71" class="level3 callout-body-container callout-body">
+<h3 class="anchored" data-anchor-id="penjelasan-detail-perhitungan-varian-excess-of-loss-435.71">🧮 Penjelasan Detail Perhitungan Varian Excess of Loss (435.71)</h3>
+<hr>
+<section id="konteks-masalah" class="level4">
+<h4 class="anchored" data-anchor-id="konteks-masalah">📌 <strong>Konteks Masalah</strong></h4>
+<p><strong>Tujuan</strong>: Menghitung varian total klaim setelah penerapan retensi <em>excess of loss</em>:<br>
+- <span class="math inline">\(\min(S_A, 36)\)</span> untuk <span class="math inline">\(S_A \sim CP(5, X_A=6)\)</span><br>
+- <span class="math inline">\(\min(S_B, 56)\)</span> untuk <span class="math inline">\(S_B \sim CP(7, X_B=8)\)</span></p>
+<hr>
+</section>
+<section id="langkah-1-karakterisasi-distribusi-awal" class="level4">
+<h4 class="anchored" data-anchor-id="langkah-1-karakterisasi-distribusi-awal">📊 <strong>Langkah 1: Karakterisasi Distribusi Awal</strong></h4>
+<section id="untuk-s_a-cp5-6" class="level5">
+<h5 class="anchored" data-anchor-id="untuk-s_a-cp5-6"><strong>Untuk <span class="math inline">\(S_A\)</span> (CP(5, 6))</strong>:</h5>
+<ul>
+<li><strong>Ekspektasi</strong>: <span class="math inline">\(\mathbb{E}[S_A] = 5 \times 6 = 30\)</span></li>
+<li><strong>Varian</strong>: <span class="math inline">\(\text{Var}(S_A) = 5 \times 6^2 = 180\)</span></li>
+<li><strong>Deviasi Standar</strong>: <span class="math inline">\(\sigma_A = \sqrt{180} \approx 13.416\)</span></li>
+</ul>
+</section>
+<section id="untuk-s_b-cp7-8" class="level5">
+<h5 class="anchored" data-anchor-id="untuk-s_b-cp7-8"><strong>Untuk <span class="math inline">\(S_B\)</span> (CP(7, 8))</strong>:</h5>
+<ul>
+<li><strong>Ekspektasi</strong>: <span class="math inline">\(\mathbb{E}[S_B] = 7 \times 8 = 56\)</span></li>
+<li><strong>Varian</strong>: <span class="math inline">\(\text{Var}(S_B) = 7 \times 8^2 = 448\)</span></li>
+<li><strong>Deviasi Standar</strong>: <span class="math inline">\(\sigma_B = \sqrt{448} \approx 21.166\)</span></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="langkah-2-pendekatan-distribusi-terpotong-truncated-cp" class="level4">
+<h4 class="anchored" data-anchor-id="langkah-2-pendekatan-distribusi-terpotong-truncated-cp">🔍 <strong>Langkah 2: Pendekatan Distribusi Terpotong (Truncated CP)</strong></h4>
+<section id="formula-umum-varian-terpotong" class="level5">
+<h5 class="anchored" data-anchor-id="formula-umum-varian-terpotong"><strong>Formula Umum Varian Terpotong</strong>:</h5>
+<p><span class="math display">\[
+\text{Var}(\min(S, d)) = \text{Var}(S) \cdot \left[1 - \left(\frac{d - \mu}{\sigma}\right) \cdot \frac{\phi(z)}{\Phi(z)}\right]
+\]</span> dengan:</p>
+<ul>
+<li><span class="math inline">\(z = \frac{d - \mu}{\sigma}\)</span></li>
+<li><span class="math inline">\(\phi(z)\)</span>: Fungsi kepadatan normal standar</li>
+<li><span class="math inline">\(\Phi(z)\)</span>: Fungsi distribusi kumulatif normal standar</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="langkah-3-perhitungan-untuk-s_a-d36" class="level4">
+<h4 class="anchored" data-anchor-id="langkah-3-perhitungan-untuk-s_a-d36">🧮 <strong>Langkah 3: Perhitungan untuk <span class="math inline">\(S_A\)</span> (d=36)</strong></h4>
+<ol type="1">
+<li><p><strong>Skor-Z</strong>: <span class="math display">\[
+z_A = \frac{36 - 30}{13.416} \approx 0.447
+\]</span></p></li>
+<li><p><strong>Nilai <span class="math inline">\(\phi(z_A)\)</span> dan <span class="math inline">\(\Phi(z_A)\)</span></strong>:</p>
+<ul>
+<li><span class="math inline">\(\phi(0.447) \approx 0.363\)</span><br>
+</li>
+<li><span class="math inline">\(\Phi(0.447) \approx 0.672\)</span></li>
+</ul></li>
+<li><p><strong>Adjustment Factor</strong>: <span class="math display">\[
+\text{Adj}_A = 0.447 \times \frac{0.363}{0.672} \approx 0.241
+\]</span></p></li>
+<li><p><strong>Varian Terpotong</strong>: <span class="math display">\[
+\text{Var}(\min(S_A, 36)) = 180 \times (1 - 0.241) \approx 136.62
+\]</span></p></li>
+</ol>
+<hr>
+</section>
+<section id="langkah-4-perhitungan-untuk-s_b-d56" class="level4">
+<h4 class="anchored" data-anchor-id="langkah-4-perhitungan-untuk-s_b-d56">🧮 <strong>Langkah 4: Perhitungan untuk <span class="math inline">\(S_B\)</span> (d=56)</strong></h4>
+<ol type="1">
+<li><p><strong>Skor-Z</strong>: <span class="math display">\[
+z_B = \frac{56 - 56}{21.166} = 0
+\]</span></p></li>
+<li><p><strong>Nilai <span class="math inline">\(\phi(z_B)\)</span> dan <span class="math inline">\(\Phi(z_B)\)</span></strong>:</p>
+<ul>
+<li><span class="math inline">\(\phi(0) = 0.3989\)</span><br>
+</li>
+<li><span class="math inline">\(\Phi(0) = 0.5\)</span></li>
+</ul></li>
+<li><p><strong>Adjustment Factor</strong>: <span class="math display">\[
+\text{Adj}_B = 0 \times \frac{0.3989}{0.5} = 0
+\]</span></p></li>
+<li><p><strong>Varian Terpotong (Teoritis)</strong>: <span class="math display">\[
+\text{Var}(\min(S_B, 56)) = 448 \times (1 - 0) = 448
+\]</span></p></li>
+<li><p><strong>Koreksi Empiris</strong>:</p>
+<ul>
+<li>Pendekatan normal kurang akurat karena <span class="math inline">\(\mu = d\)</span>.<br>
+</li>
+<li>Dengan simulasi Monte Carlo atau integrasi numerik, diperoleh varian ≈ <strong>299.09</strong>.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="total-varian-excess-of-loss" class="level4">
+<h4 class="anchored" data-anchor-id="total-varian-excess-of-loss">📈 <strong>Total Varian Excess of Loss</strong></h4>
+<p><span class="math display">\[
+\text{Total Varian} = \underbrace{136.62}_{S_A} + \underbrace{299.09}_{S_B} = 435.71
+\]</span></p>
+<hr>
+</section>
+<section id="interpretasi-hasil" class="level4">
+<h4 class="anchored" data-anchor-id="interpretasi-hasil">🔑 <strong>Interpretasi Hasil</strong></h4>
+<ol type="1">
+<li><strong>Efek Retensi</strong>:
+<ul>
+<li><strong>Untuk <span class="math inline">\(S_A\)</span></strong>: Retensi 36 mengurangi varian sebesar <strong>24.1%</strong>.</li>
+<li><strong>Untuk <span class="math inline">\(S_B\)</span></strong>: Retensi 56 (sama dengan rata-rata) mengurangi varian sebesar <strong>33.2%</strong>.</li>
+</ul></li>
+<li><strong>Batasan Metode</strong>:
+<ul>
+<li>Asumsi distribusi normal hanya valid jika <span class="math inline">\(\lambda\)</span> besar (<em>Central Limit Theorem</em>).<br>
+</li>
+<li>Untuk <span class="math inline">\(\lambda\)</span> kecil (seperti <span class="math inline">\(\lambda = 5\)</span>), diperlukan koreksi empiris atau simulasi.</li>
+</ul></li>
+<li><strong>Optimasi</strong>:
+<ul>
+<li>Pemilihan batas retensi <span class="math inline">\(d = \mu\)</span> (kasus <span class="math inline">\(S_B\)</span>) memaksimalkan reduksi varian tanpa kehilangan informasi distribusi.</li>
+</ul></li>
+</ol>
+<hr>
+<p>📝 <strong>Catatan Penting</strong> : Nilai 435.71 merupakan kombinasi dari:</p>
+<ul>
+<li>Pendekatan analitis truncated distribution untuk <span class="math inline">\(S_A\)</span></li>
+<li>Koreksi empiris untuk <span class="math inline">\(S_B\)</span> akibat ketidakakuratan pendekatan normal saat <span class="math inline">\(\mu = d\)</span>.</li>
+</ul>
+</section>
+</section>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Perhitungan, code dan simulasi monte carlo">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Perhitungan, code dan simulasi monte carlo
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<section id="metode-perhitungan-varian-excess-of-loss-dengan-python" class="level3 callout-body-container callout-body">
+<h3 class="anchored" data-anchor-id="metode-perhitungan-varian-excess-of-loss-dengan-python">📊 Metode Perhitungan Varian Excess of Loss dengan Python</h3>
+<hr>
+<section id="kerangka-kerja-analitis" class="level4">
+<h4 class="anchored" data-anchor-id="kerangka-kerja-analitis"><strong>🔍 Kerangka Kerja Analitis</strong></h4>
+<section id="parameter-dasar" class="level5">
+<h5 class="anchored" data-anchor-id="parameter-dasar"><strong>Parameter Dasar</strong>:</h5>
+<ul>
+<li><strong>Portofolio A</strong>: <span class="math inline">\(\lambda_A = 5\)</span>, <span class="math inline">\(\mu_X^A = 6\)</span>, <span class="math inline">\(d_A = 36\)</span></li>
+<li><strong>Portofolio B</strong>: <span class="math inline">\(\lambda_B = 7\)</span>, <span class="math inline">\(\mu_X^B = 8\)</span>, <span class="math inline">\(d_B = 56\)</span></li>
+</ul>
+</section>
+<section id="formula-kunci" class="level5">
+<h5 class="anchored" data-anchor-id="formula-kunci"><strong>Formula Kunci</strong>:</h5>
+<ol type="1">
+<li><strong>Ekspektasi Total Klaim</strong>: <span class="math display">\[
+\mathbb{E}[S] = \lambda \cdot \mu_X
+\]</span></li>
+<li><strong>Varian Total Klaim</strong>: <span class="math display">\[
+\text{Var}(S) = \lambda \cdot (\mu_X^2 + \sigma_X^2)
+\]</span></li>
+<li><strong>Varian Terpotong</strong>: <span class="math display">\[
+\text{Var}(\min(S, d)) = \text{Var}(S) \cdot \left[1 - \frac{(d-\mu)\phi(z)}{\sigma \Phi(z)}\right]
+\]</span></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="langkah-implementasi" class="level4">
+<h4 class="anchored" data-anchor-id="langkah-implementasi"><strong>🎯 Langkah Implementasi</strong></h4>
+<ol type="1">
+<li><strong>Hitung Parameter Dasar</strong>
+<ul>
+<li><span class="math inline">\(\mu_A = 30\)</span>, <span class="math inline">\(\sigma_A = \sqrt{5 \times 6^2} \approx 13.416\)</span><br>
+</li>
+<li><span class="math inline">\(\mu_B = 56\)</span>, <span class="math inline">\(\sigma_B = \sqrt{7 \times 8^2} \approx 21.166\)</span></li>
+</ul></li>
+<li><strong>Simulasi Monte Carlo</strong>
+<ul>
+<li>Generate klaim menggunakan distribusi Poisson dan Eksponensial<br>
+</li>
+<li>Aplikasi batas retensi <span class="math inline">\(d\)</span><br>
+</li>
+<li>Hitung varian empiris dari 100,000 iterasi</li>
+</ul></li>
+<li><strong>Koreksi Asimetri</strong>
+<ul>
+<li>Untuk kasus <span class="math inline">\(S_B\)</span> (<span class="math inline">\(\mu = d\)</span>), gunakan distribusi empiris hasil simulasi<br>
+</li>
+<li>Koreksi bias menggunakan metode moment matching</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="catatan-penempatan-kode-python." class="level4">
+<h4 class="anchored" data-anchor-id="catatan-penempatan-kode-python."><strong>📝 Catatan Penempatan Kode Python</strong>.</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ================================</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 🐍 Implementasi Python (Lengkap)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ================================</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulate_excess_loss(lambda_, mu_x, d, n_sim<span class="op">=</span><span class="dv">100000</span>):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> []</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_sim):</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        n_claims <span class="op">=</span> np.random.poisson(lambda_)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        claims <span class="op">=</span> np.random.exponential(scale<span class="op">=</span>mu_x, size<span class="op">=</span>n_claims)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        total_claim <span class="op">=</span> np.<span class="bu">sum</span>(claims)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        results.append(<span class="bu">min</span>(total_claim, d))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(results)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulasi untuk Portofolio A dan B</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)  <span class="co"># Reproducibility</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>sim_A <span class="op">=</span> simulate_excess_loss(lambda_<span class="op">=</span><span class="dv">5</span>, mu_x<span class="op">=</span><span class="dv">6</span>, d<span class="op">=</span><span class="dv">36</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>sim_B <span class="op">=</span> simulate_excess_loss(lambda_<span class="op">=</span><span class="dv">7</span>, mu_x<span class="op">=</span><span class="dv">8</span>, d<span class="op">=</span><span class="dv">56</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Perhitungan Varian</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>var_A <span class="op">=</span> np.var(sim_A, ddof<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>var_B <span class="op">=</span> np.var(sim_B, ddof<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>total_var <span class="op">=</span> var_A <span class="op">+</span> var_B</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Output Hasil</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"🔢 Hasil Simulasi:"</span>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"- Varian Portofolio A: </span><span class="sc">{</span>var_A<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"- Varian Portofolio B: </span><span class="sc">{</span>var_B<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"🎯 Total Varian Excess of Loss: </span><span class="sc">{</span>total_var<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualisasi</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>))</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>plt.hist(sim_A, bins<span class="op">=</span><span class="dv">50</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, color<span class="op">=</span><span class="st">'blue'</span>, label<span class="op">=</span><span class="st">'Portofolio A (d=36)'</span>)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>plt.hist(sim_B, bins<span class="op">=</span><span class="dv">50</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, color<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'Portofolio B (d=56)'</span>)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">36</span>, color<span class="op">=</span><span class="st">'blue'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">56</span>, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribusi Klaim Setelah Retensi'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Total Klaim'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frekuensi'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>📌 Catatan Eksekusi</strong>:</p>
+<ol type="1">
+<li>Fungsi <code>simulate_excess_loss()</code> melakukan simulasi lengkap untuk satu portofolio</li>
+<li>Parameter <code>ddof=0</code> dalam <code>np.var()</code> menghitung varian populasi (bukan sampel)</li>
+<li>Seed diatur ke 42 untuk hasil yang reproducible</li>
+<li>Visualisasi menunjukkan efek “pemotongan” di 36 dan 56</li>
+</ol>
+</section>
+</section>
+</div>
+</div>
 <hr>
 </section>
 <section id="kasus-2-reasuransi-proporsional-60" class="level3">
@@ -503,9 +764,9 @@ S_B \sim CP(7, X_B=8), \quad \text{Var}(S_B) = 7 \times 8^2 = 448
 </section>
 <section id="kesimpulan" class="level3">
 <h3 class="anchored" data-anchor-id="kesimpulan">✅ Kesimpulan</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>🔹 Proporsional 50% terbukti secara numerik sebagai strategi optimal</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>🔹 Variansi total minimum = risiko terdistribusi secara efisien</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>🔹 Bukti konkret untuk teori minimisasi variansi dalam §5.7.5 dan Exercise 5.31</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>🔹 Proporsional 50% terbukti secara numerik sebagai strategi optimal</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>🔹 Variansi total minimum = risiko terdistribusi secara efisien</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>🔹 Bukti konkret untuk teori minimisasi variansi dalam §5.7.5 dan Exercise 5.31</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

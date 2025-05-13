@@ -92,7 +92,7 @@ $$
 \beta_1 = \left( \frac{\text{Var}[g_1(S_A)]}{\text{Var}[S_A]} \right)^{1/2}
 $$
 
-Ini *tidak* mengubah variansi bagian yang ditahan, tapi *menurunkan* variansi bagian yang direasuransikan! 🌟
+Ini *tidak* mengubah variansi bagian yang ditahan, tapi *menurunkan* [variansi bagian](kesamaan-variansi.qmd) yang direasuransikan! 🌟
 
 Hal yang sama berlaku untuk $g_2$. Maka: ✅ Total variansi $\text{Var}[T_A] + \text{Var}[T_B]$ paling kecil saat dua perusahaan menggunakan reasuransi **proporsional**.
 
@@ -166,4 +166,4 @@ Mari kita bahas lebih dalam tentang **mengapa meminimalkan jumlah variansi penti
 🔹 Meminimalkan variansi = strategi reasuransi optimal  
 🔹 Proporsionalitas = kunci efisiensi (lebih baik daripada bentuk arbitrer lainnya)  
 🔹 Pembagian risiko 50%-50% terbukti secara matematis sebagai titik minimum total variansi
-
+```
