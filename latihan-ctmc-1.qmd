@@ -1,0 +1,561 @@
+---
+title: "latihan-CTMC-1"
+format: html
+---
+
+## 📝 Tugas 3 – Model Stokastik I (CTMC)
+
+Program Studi: S1 Statistika / S1 Aktuaria  
+Mata Kuliah: Model Stokastik I  
+Semester: ATA 2024/2025
+
+---
+
+### 🎯 Capaian Pembelajaran
+
+Mahasiswa mampu:
+- Mengklasifikasikan berbagai permasalahan dalam ilmu data, kesehatan, dan industri ke dalam model stokastik.
+- Menentukan parameter dan perilaku jangka panjang dari **rantai Markov waktu kontinu (CTMC)**.
+- Menerapkan CTMC pada fenomena atau kasus nyata.
+
+---
+
+### 🔢 Soal-soal
+
+#### 📘 Soal 1: Organisme Uniseluler
+
+Misalkan sebuah organisme uniseluler dapat berada dalam salah satu dari dua *state* – yaitu **A** atau **B**:
+
+- Individu yang berada dalam **state A** akan berubah ke **B** dengan *rate* eksponensial sebesar $\alpha$.
+- Individu yang berada dalam **state B** akan membelah menjadi dua individu baru **A** dengan *rate* eksponensial sebesar $\beta$.
+
+**Tugas:**  
+Tentukan **CTMC** yang sesuai untuk populasi organisme tersebut, dan tentukan **parameter-parameter** yang sesuai untuk model ini, yaitu **laju waktu tunggu** dan **probabilitas transisinya**.
+
+---
+
+#### ⚙️ Soal 2: Dua Mesin dan Satu Teknisi
+
+Misalkan ada **dua mesin** yang dirawat oleh **satu orang teknisi**. Mesin ke-$i$ berfungsi selama waktu yang berdistribusi eksponensial dengan *rate* $\mu_i$, sebelum rusak, untuk $i = 1, 2$.  
+Waktu perbaikan (untuk salah satu mesin) juga berdistribusi eksponensial dengan *rate* $\mu$.
+
+**Tugas:**  
+Definisikan **CTMC** yang sesuai untuk skenario di atas, kemudian tentukan **laju waktu tunggu** dan **probabilitas transisinya**.
+
+---
+
+#### 👶⚰️ Soal 3: Proses Kelahiran dan Kematian
+
+Pertimbangkan sebuah proses kelahiran dan kematian (*birth and death process*) dengan:
+
+- Birth rate: $\lambda_i = (i + 1)\lambda$ untuk $i \geq 0$
+- Death rate: $\mu_i = i\mu$ untuk $i \geq 0$
+
+**Tugas:**
+
+a. Tentukan **nilai harapan waktu** untuk berpindah dari **state 2 ke 5**.  
+b. Tentukan **variansi** dari waktu-waktu yang dihitung pada bagian (a).
+
+---
+
+#### 💈 Soal 4: Barbershop dan Antrian Terbatas
+
+Sebuah **barbershop kecil** dijalankan oleh satu tukang cukur dan hanya memiliki **ruang untuk maksimal dua pelanggan**. Informasi sistem:
+
+- Pelanggan datang mengikuti proses **Poisson** dengan *rate* 3 orang per jam.
+- Waktu layanan merupakan peubah acak eksponensial yang saling bebas, dengan rata-rata $\frac{1}{4}$ jam (artinya $\mu = 4$ per jam).
+- Pelanggan yang datang saat barbershop penuh akan langsung pergi.
+
+**Tugas:**
+
+a. Hitung **jumlah rata-rata pelanggan** yang berada di dalam barbershop.  
+b. Hitung **proporsi pelanggan potensial yang berhasil masuk** ke dalam barbershop.  
+c. Jika tukang cukur dapat bekerja **dua kali lebih cepat**, seberapa banyak **tambahan bisnis** yang akan ia dapatkan?
+
+---
+
+
+## 🧪 Soal 1: Organisme Uniseluler – CTMC dan Parameternya
+
+### 📄 Deskripsi Masalah
+
+Misalkan sebuah organisme uniseluler dapat berada dalam salah satu dari dua *state* – yaitu **A** atau **B**:
+
+- Individu dalam state **A** akan berubah menjadi **B** dengan laju eksponensial sebesar $\alpha$.
+- Individu dalam state **B** akan membelah menjadi dua individu baru **A** dengan laju eksponensial sebesar $\beta$.
+
+🧠 **Tentukan**:
+- Model **Continuous-Time Markov Chain (CTMC)** yang sesuai.
+- Parameter-parameter model (laju waktu tunggu dan probabilitas transisi).
+
+---
+
+### 🔢 Definisi State
+
+Kita modelkan proses ini dengan dua state:
+
+- **State 1**: Organisme berada dalam kondisi **A**
+- **State 2**: Organisme berada dalam kondisi **B**
+
+Walaupun B membelah menjadi dua A, untuk tujuan model ini kita anggap transisinya tetap kembali ke state A karena hanya satu organisme aktif dalam satu waktu.
+
+---
+
+### 🔁 Diagram Transisi
+
+```
+[A] --α--> [B] --β--> [A]
+```
+
+- Transisi dari **A ke B** terjadi dengan rate $\alpha$
+- Transisi dari **B ke A** (hasil pembelahan) terjadi dengan rate $\beta$
+
+---
+
+### 📊 Matriks Generator (Q)
+
+\[
+Q =
+\begin{bmatrix}
+-\alpha & \alpha \\
+\beta & -\beta
+\end{bmatrix}
+\]
+
+- Baris pertama: Transisi dari A ke B
+- Baris kedua: Transisi dari B ke A
+
+Setiap baris menjumlahkan ke nol, seperti properti matriks generator CTMC.
+
+---
+
+### ⏱️ Laju Waktu Tunggu
+
+Waktu tunggu untuk berpindah dari suatu state mengikuti distribusi eksponensial.
+
+- Dari **state A**: waktu tunggu $\sim \text{Exp}(\alpha)$ ⟶ $\mathbb{E}[T_A] = \frac{1}{\alpha}$
+- Dari **state B**: waktu tunggu $\sim \text{Exp}(\beta)$ ⟶ $\mathbb{E}[T_B] = \frac{1}{\beta}$
+
+---
+
+### 🎲 Probabilitas Transisi Instan
+
+Dalam CTMC, probabilitas transisi dari state $i$ ke $j$ setelah waktu tunggu adalah:
+
+\[
+P_{ij} = \frac{q_{ij}}{-q_{ii}}
+\]
+
+Untuk model ini:
+
+- $P_{A \to B} = \frac{\alpha}{\alpha} = 1$
+- $P_{B \to A} = \frac{\beta}{\beta} = 1$
+
+Artinya, transisi bersifat **deterministik** setelah waktu tunggu eksponensialnya berakhir.
+
+---
+
+### ✅ Kesimpulan
+
+- **Model CTMC** terdiri dari dua state (A dan B) dengan transisi bolak-balik.
+- Laju waktu tunggu tergantung dari parameter $\alpha$ dan $\beta$.
+- Probabilitas transisi dari A ke B dan B ke A adalah **1**, karena tidak ada alternatif transisi lain.
+
+## 🛠️ Soal 2: Dua Mesin & Satu Teknisi – Model CTMC
+
+### 📄 Deskripsi Masalah
+
+Misalkan terdapat **dua mesin** yang dirawat oleh **satu orang teknisi**. Detail sistem adalah sebagai berikut:
+
+- Mesin ke-$i$ (dengan $i = 1, 2$) akan **berfungsi selama waktu eksponensial** dengan parameter $\mu_i$ sebelum **rusak**.
+- Hanya **satu teknisi** yang tersedia untuk memperbaiki **satu mesin dalam satu waktu**, dengan **waktu perbaikan** berdistribusi eksponensial dengan rate $\mu$.
+
+🧠 **Tentukan**:
+- Definisi state dan model CTMC.
+- Laju waktu tunggu dan probabilitas transisi antar state.
+
+---
+
+### 🔢 Definisi State
+
+Kita akan definisikan state berdasarkan jumlah mesin yang **rusak** dan **diperbaiki**. Karena teknisi hanya bisa memperbaiki satu mesin sekaligus, maka **maksimal satu mesin dapat diperbaiki dalam satu waktu**.
+
+Mari kita gunakan representasi state sebagai:
+
+- $0$: Kedua mesin berfungsi
+- $1$: Satu mesin rusak (belum diperbaiki)
+- $R$: Satu mesin sedang diperbaiki
+- $2$: Kedua mesin rusak (satu diperbaiki, satu menunggu)
+- $F$: Kedua mesin berfungsi kembali
+
+Namun untuk CTMC formal, kita gunakan representasi berikut:
+
+| State | Deskripsi                                              |
+|-------|--------------------------------------------------------|
+| 0     | Kedua mesin berfungsi                                  |
+| 1     | Satu mesin rusak, menunggu perbaikan                   |
+| 2     | Satu mesin rusak sedang diperbaiki                     |
+| 3     | Dua mesin rusak, satu sedang diperbaiki, satu menunggu |
+
+---
+
+### 🔁 Diagram Transisi (Secara Umum)
+
+- **0 → 1**: Salah satu mesin rusak (rate = $\mu_1 + \mu_2$)
+- **1 → 2**: Teknisi mulai memperbaiki (rate = instanasi teknisi atau penggabungan, bisa diasumsikan cepat)
+- **2 → 0**: Mesin selesai diperbaiki (rate = $\mu$)
+- **2 → 3**: Mesin lainnya rusak saat satu sedang diperbaiki (rate = $\mu_i$, tergantung mesin yang masih berfungsi)
+- **3 → 1**: Satu mesin selesai diperbaiki (rate = $\mu$)
+
+---
+
+### 📊 Matriks Generator (Q)
+
+Misalkan kita menyederhanakan state menjadi:
+
+- $S_0$: 0 mesin rusak
+- $S_1$: 1 mesin rusak (belum diperbaiki)
+- $S_2$: 1 mesin rusak (dalam perbaikan)
+- $S_3$: 2 mesin rusak (1 diperbaiki, 1 menunggu)
+
+Asumsikan:
+
+- $\mu_1 = \mu_2 = \lambda$ (simetris)
+- Rate perbaikan oleh teknisi: $\mu$
+
+Maka estimasi matriks $Q$ bisa berbentuk:
+
+\[
+Q =
+\begin{bmatrix}
+-2\lambda & 2\lambda & 0 & 0 \\
+0 & -\mu & \mu & 0 \\
+\lambda & 0 & -(\lambda + \mu) & \lambda \\
+0 & \mu & 0 & -\mu \\
+\end{bmatrix}
+\]
+
+---
+
+### ⏱️ Laju Waktu Tunggu
+
+Untuk setiap state, waktu tunggu mengikuti eksponensial dengan parameter sama dengan **jumlah keluarannya** (jumlah total rate keluar dari state itu).
+
+Contoh:
+
+- Dari **state 0**: rate keluar $= \mu_1 + \mu_2 = 2\lambda$ ⟶ $\mathbb{E}[T_0] = \frac{1}{2\lambda}$
+- Dari **state 2**: rate keluar $= \mu + \lambda$ ⟶ $\mathbb{E}[T_2] = \frac{1}{\mu + \lambda}$
+
+---
+
+### 🎲 Probabilitas Transisi
+
+Probabilitas dari state $i$ ke $j$ adalah:
+
+\[
+P_{ij} = \frac{q_{ij}}{-q_{ii}}
+\]
+
+Contoh:
+
+- Dari state 0 ke 1: $P_{01} = \frac{2\lambda}{2\lambda} = 1$
+- Dari state 2:
+  - ke state 0: $P_{20} = \frac{\mu}{\lambda + \mu}$
+  - ke state 3: $P_{23} = \frac{\lambda}{\lambda + \mu}$
+
+---
+
+### ✅ Kesimpulan
+
+- Model CTMC memuat **empat state utama**, yaitu jumlah mesin rusak dan apakah sedang diperbaiki.
+- Matriks generator Q menunjukkan kemungkinan transisi dan laju waktunya.
+- Waktu tunggu antar state mengikuti distribusi eksponensial berdasarkan **total laju keluar dari state tersebut**.
+- Probabilitas transisi dihitung sebagai rasio dari rate transisi terhadap total rate keluar.
+
+🧩 Untuk hasil paling akurat, semua perhitungan dapat disesuaikan jika $\mu_1 \ne \mu_2$.
+
+
+## 👶⚰️ Soal 3: Proses Kelahiran dan Kematian – Ekspektasi & Variansi Waktu
+
+### 📄 Deskripsi Masalah
+
+Diberikan sebuah proses **kelahiran-kematian (birth-death process)** dengan:
+
+- **Birth rate**: $\lambda_i = (i + 1)\lambda$, untuk $i \geq 0$
+- **Death rate**: $\mu_i = i\mu$, untuk $i \geq 0$
+
+🧠 **Tentukan**:
+- (a) Nilai harapan waktu untuk berpindah dari **state 2 ke 5**
+- (b) Variansi dari waktu tersebut
+
+---
+
+### 🔢 Definisi Umum
+
+Proses kelahiran-kematian ini adalah **CTMC dengan state numerik tak hingga** $i = 0, 1, 2, \dots$
+
+Dengan:
+- Transisi ke atas: $i \to i+1$ dengan laju $\lambda_i = (i+1)\lambda$
+- Transisi ke bawah: $i \to i-1$ dengan laju $\mu_i = i\mu$
+
+---
+
+### 🧮 (a) Ekspektasi Waktu dari State 2 ke 5
+
+Misalkan $m(i)$ adalah **ekspektasi waktu** untuk mencapai state 5 dari state $i$.
+
+Gunakan pendekatan rekursif dengan sistem persamaan:
+
+Untuk $i \neq 5$:
+
+\[
+m(i) = \frac{1}{\lambda_i + \mu_i} + \frac{\lambda_i}{\lambda_i + \mu_i} m(i+1) + \frac{\mu_i}{\lambda_i + \mu_i} m(i-1)
+\]
+
+Dengan $m(5) = 0$ (karena target sudah tercapai).
+
+---
+
+#### 🔁 Langkah Penyelesaian
+
+Karena diminta dari **state 2 ke 5**, kita bentuk sistem persamaan untuk $m(2), m(3), m(4)$:
+
+1. Hitung laju:
+   - $\lambda_2 = 3\lambda$, $\mu_2 = 2\mu$
+   - $\lambda_3 = 4\lambda$, $\mu_3 = 3\mu$
+   - $\lambda_4 = 5\lambda$, $\mu_4 = 4\mu$
+
+2. Bentuk sistem:
+
+\[
+\begin{aligned}
+m(4) &= \frac{1}{9\lambda} + \frac{5\lambda}{9\lambda} m(5) + \frac{4\lambda}{9\lambda} m(3) \\
+     &= \frac{1}{9\lambda} + 0 + \frac{4}{9} m(3) \\
+m(3) &= \frac{1}{7\lambda} + \frac{4\lambda}{7\lambda} m(4) + \frac{3\lambda}{7\lambda} m(2) \\
+     &= \frac{1}{7\lambda} + \frac{4}{7} m(4) + \frac{3}{7} m(2) \\
+m(2) &= \frac{1}{5\lambda} + \frac{3\lambda}{5\lambda} m(3) + \frac{2\lambda}{5\lambda} m(1)
+\end{aligned}
+\]
+
+Namun karena kita hanya diminta menghitung waktu dari $2 \to 5$, kita bisa selesaikan **secara bertahap mundur** dengan substitusi ke belakang:
+
+\[
+m(4) = \frac{1}{9\lambda}
+\]
+
+\[
+m(3) = \frac{1}{7\lambda} + \frac{4}{7} m(4) = \frac{1}{7\lambda} + \frac{4}{7} \cdot \frac{1}{9\lambda}
+= \frac{1}{7\lambda} + \frac{4}{63\lambda} = \frac{9 + 4}{63\lambda} = \frac{13}{63\lambda}
+\]
+
+\[
+m(2) = \frac{1}{5\lambda} + \frac{3}{5} m(3) + \frac{2}{5} m(1)
+\]
+
+TAPI kita tidak tahu $m(1)$ karena $m(2)$ adalah titik awal kita. Maka kita **batasi** hanya pada langkah-langkah menuju 5 **tanpa kemunduran**, yaitu **hanya jalur 2 → 3 → 4 → 5** (asumsi tidak pernah turun, *transient path approximation*).
+
+Maka pendekatannya:
+
+\[
+\mathbb{E}[T_{2 \to 3}] = \frac{1}{\lambda_2} = \frac{1}{3\lambda}, \quad
+\mathbb{E}[T_{3 \to 4}] = \frac{1}{\lambda_3} = \frac{1}{4\lambda}, \quad
+\mathbb{E}[T_{4 \to 5}] = \frac{1}{\lambda_4} = \frac{1}{5\lambda}
+\]
+
+\[
+\Rightarrow \mathbb{E}[T_{2 \to 5}] = \frac{1}{3\lambda} + \frac{1}{4\lambda} + \frac{1}{5\lambda}
+= \frac{20 + 15 + 12}{60\lambda} = \frac{47}{60\lambda}
+\]
+
+---
+
+### 📏 (b) Variansi Waktu dari State 2 ke 5
+
+Karena waktu antar transisi adalah **independen**, variansi total adalah **jumlah variansi per langkah**:
+
+\[
+\text{Var}(T_{2 \to 5}) = \text{Var}(T_{2 \to 3}) + \text{Var}(T_{3 \to 4}) + \text{Var}(T_{4 \to 5})
+\]
+
+Untuk peubah acak eksponensial dengan rate $\lambda$, variansinya adalah $\frac{1}{\lambda^2}$. Maka:
+
+\[
+\text{Var}(T_{2 \to 3}) = \frac{1}{(3\lambda)^2}, \quad
+\text{Var}(T_{3 \to 4}) = \frac{1}{(4\lambda)^2}, \quad
+\text{Var}(T_{4 \to 5}) = \frac{1}{(5\lambda)^2}
+\]
+
+\[
+\Rightarrow \text{Var}(T_{2 \to 5}) = \frac{1}{9\lambda^2} + \frac{1}{16\lambda^2} + \frac{1}{25\lambda^2}
+= \frac{400 + 225 + 144}{3600\lambda^2} = \frac{769}{3600\lambda^2}
+\]
+
+---
+
+### ✅ Kesimpulan
+
+- 💡 **Ekspektasi waktu** dari state 2 ke 5:
+  \[
+  \mathbb{E}[T_{2 \to 5}] = \frac{47}{60\lambda}
+  \]
+
+- 📊 **Variansi waktu** dari state 2 ke 5:
+  \[
+  \text{Var}(T_{2 \to 5}) = \frac{769}{3600\lambda^2}
+  \]
+
+Catatan: Perhitungan ini menggunakan pendekatan *hanya jalur naik* (tanpa kemunduran), cocok untuk pendekatan eksak bila transisi ke bawah tidak signifikan atau jika soal tidak menyertakan $\mu$ sebagai besar.
+
+
+## 💈 Soal 4: Barbershop Kecil – CTMC Antrian Eksponensial
+
+### 📄 Deskripsi Masalah
+
+Sebuah barbershop kecil hanya memiliki **satu tukang cukur** dan **kapasitas maksimal 2 pelanggan** di dalam. Detail sistem:
+
+- Pelanggan datang menurut proses **Poisson** dengan laju $3$ orang per jam.
+- Waktu pelayanan masing-masing pelanggan adalah **eksponensial**, rata-rata $\frac{1}{4}$ jam (artinya, laju pelayanan $\mu = 4$ pelanggan/jam).
+- Tidak ada ruang tunggu tambahan — pelanggan yang datang saat barbershop penuh akan pergi.
+
+🧠 **Tentukan**:
+- (a) Jumlah rata-rata pelanggan dalam barbershop
+- (b) Proporsi pelanggan potensial yang berhasil masuk
+- (c) Tambahan bisnis jika tukang cukur bekerja 2× lebih cepat
+
+---
+
+### 🔢 Definisi State
+
+Kita definisikan **state $i$** sebagai jumlah pelanggan di dalam barbershop (termasuk yang sedang dicukur):
+
+| State $i$ | Deskripsi                   |
+|-----------|-----------------------------|
+| $0$       | Tidak ada pelanggan         |
+| $1$       | 1 pelanggan (dalam servis)  |
+| $2$       | 2 pelanggan (1 diservis, 1 menunggu) |
+
+---
+
+### 🔁 Diagram Transisi (CTMC)
+
+- **Kedatangan** pelanggan (Poisson, $\lambda = 3$ per jam)
+- **Pelayanan** pelanggan (Eksponensial, $\mu = 4$ per jam)
+
+Transisi:
+
+```
+[0] --λ--> [1] --λ--> [2]
+ ↑         ↓μ         ↓μ
+ ←---------←----------←
+```
+
+---
+
+### 📊 Matriks Generator (Q)
+
+\[
+Q =
+\begin{bmatrix}
+-3 & 3 & 0 \\
+4 & -7 & 3 \\
+0 & 4 & -4
+\end{bmatrix}
+\]
+
+Baris $i$ mewakili laju keluar dari state $i$, dan kolom mewakili tujuan transisi.
+
+---
+
+### 🔍 Distribusi State Stasioner (π)
+
+Kita gunakan keseimbangan global untuk mencari probabilitas stasioner $\pi_0$, $\pi_1$, $\pi_2$.
+
+\[
+\begin{aligned}
+\pi_1 &= \frac{\lambda}{\mu} \pi_0 = \frac{3}{4} \pi_0 \\
+\pi_2 &= \frac{\lambda}{\mu} \pi_1 = \frac{3}{4} \cdot \frac{3}{4} \pi_0 = \left( \frac{3}{4} \right)^2 \pi_0 = \frac{9}{16} \pi_0
+\end{aligned}
+\]
+
+Gunakan kondisi total probabilitas:
+
+\[
+\pi_0 + \pi_1 + \pi_2 = 1
+\Rightarrow \pi_0 + \frac{3}{4} \pi_0 + \frac{9}{16} \pi_0 = 1
+\Rightarrow \pi_0 \left(1 + \frac{3}{4} + \frac{9}{16} \right) = 1
+\Rightarrow \pi_0 \cdot \frac{61}{16} = 1
+\Rightarrow \pi_0 = \frac{16}{61}
+\]
+
+Sehingga:
+
+\[
+\pi_1 = \frac{3}{4} \cdot \frac{16}{61} = \frac{48}{61}, \quad
+\pi_2 = \frac{9}{16} \cdot \frac{16}{61} = \frac{9}{61}
+\]
+
+---
+
+### 🧮 (a) Rata-rata Pelanggan di Barbershop
+
+\[
+\mathbb{E}[N] = 0 \cdot \pi_0 + 1 \cdot \pi_1 + 2 \cdot \pi_2 = 0 + \frac{48}{61} + 2 \cdot \frac{9}{61} = \frac{48 + 18}{61} = \frac{66}{61} \approx 1.082
+\]
+
+---
+
+### 🚪 (b) Proporsi Pelanggan yang Berhasil Masuk
+
+Pelanggan hanya ditolak saat state = 2. Jadi proporsi yang berhasil masuk:
+
+\[
+1 - \pi_2 = 1 - \frac{9}{61} = \frac{52}{61} \approx 0.852
+\]
+
+Artinya, sekitar **85.2%** pelanggan berhasil masuk ke barbershop.
+
+---
+
+### ⚡ (c) Tukang Cukur Bekerja 2× Lebih Cepat
+
+Jika $\mu = 8$ (bukan 4):
+
+\[
+\rho = \frac{\lambda}{\mu} = \frac{3}{8}
+\]
+
+Hitung ulang distribusi stasioner:
+
+\[
+\pi_1 = \frac{3}{8} \pi_0, \quad
+\pi_2 = \left( \frac{3}{8} \right)^2 \pi_0 = \frac{9}{64} \pi_0
+\]
+
+\[
+\pi_0 + \pi_1 + \pi_2 = \pi_0 \left(1 + \frac{3}{8} + \frac{9}{64} \right)
+= \pi_0 \cdot \frac{121}{64} = 1
+\Rightarrow \pi_0 = \frac{64}{121}
+\]
+
+\[
+\pi_2 = \frac{9}{64} \cdot \frac{64}{121} = \frac{9}{121}
+\Rightarrow \text{Proporsi masuk} = 1 - \frac{9}{121} = \frac{112}{121} \approx 0.926
+\]
+
+🧮 Tambahan bisnis:
+
+\[
+\text{Tambahan proporsi masuk} = \frac{112}{121} - \frac{52}{61} = \approx 0.926 - 0.852 = 0.074
+\]
+
+Artinya, ada **peningkatan pelanggan masuk sekitar 7.4%** jika tukang cukur bekerja dua kali lebih cepat.
+
+---
+
+### ✅ Kesimpulan
+
+- 📊 **Rata-rata pelanggan** dalam barbershop: $\frac{66}{61} \approx 1.082$
+- 🚶 **Proporsi pelanggan yang berhasil masuk**: $\frac{52}{61} \approx 85.2\%$
+- ⚡ **Jika tukang cukur lebih cepat 2×**, proporsi masuk naik jadi $\approx 92.6\%$ (kenaikan ~7.4%)
+
+

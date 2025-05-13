@@ -1,0 +1,17 @@
+---
+title: "rantai-markov-waktu-kontinu"
+format: html
+---
+
+Diskrit v.s. Kontinu
+
+Waktu diskrit: Kejadian terjadi pada titik waktu yang diketahui.
+
+Waktu kontinu: Kejadian terjadi pada titik sembarang waktu.
+
+---
+
+Ruang keadaan kontinu ini tetap diskrit meskipun ruang parameter nya kontinu.
+
+---
+

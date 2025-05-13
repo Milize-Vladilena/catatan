@@ -1,0 +1,22 @@
+project:
+  type: website
+  output-dir: docs
+
+execute:
+  freeze: auto
+
+website:
+  title: "Lab Praktikum Departemen Matematika FMIPA UI"
+  navbar:
+    search: true
+    left:
+      - href: index.qmd
+        text: Home
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+
+
+
