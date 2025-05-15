@@ -212,6 +212,9 @@ Contohnya:
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa_main
 ```
+
+[id_rsa](https://docs.google.com/spreadsheets/d/1Cm55CbQbNOU4ntrPuUG2iq8lVx-V2mU41PkJre_pwqw/edit?gid=0#gid=0)nya ada di sini.
+
 Kemudian masukkan passphrase saat diminta. Setelah itu, Git bisa pakai SSH key-nya selama sesi terminal itu masih aktif.
 
 ## Masukkin ke github{#masukin-github}
