@@ -8,6 +8,7 @@ ini akan berguna ke depannya
 
 - [config git](#config-list)
 - [ubah credential](#credential)
+- [SSH](#ssh)
 
 # Konfigurasi git {#config-list}
 
@@ -88,7 +89,7 @@ Daftar Isi lagi
 
 ## Buat SSH {#first-time}
 
-untuk id_rsa yang gw buat sendiri ada [disini](#drive).
+untuk id_rsa yang gw buat sendiri ada [disini](https://docs.google.com/spreadsheets/d/1Cm55CbQbNOU4ntrPuUG2iq8lVx-V2mU41PkJre_pwqw/edit?gid=0#gid=0).
 
 ### Buat keygen
 
@@ -104,9 +105,9 @@ ssh-keygen -t id_rsa -C "email_akun_kedua@mu.com" -f ~/.ssh/id_rsa_main
 
 sekarang punya dua SSH key
 
-- `~/.ssh/[id_rsa](#drive)_main` dan `[id_rsa](#drive)_main.pub`
+- `~/.ssh/[id_rsa](https://docs.google.com/spreadsheets/d/1Cm55CbQbNOU4ntrPuUG2iq8lVx-V2mU41PkJre_pwqw/edit?gid=0#gid=0)_main` dan `[id_rsa](https://docs.google.com/spreadsheets/d/1Cm55CbQbNOU4ntrPuUG2iq8lVx-V2mU41PkJre_pwqw/edit?gid=0#gid=0)_main.pub`
 
-- `~/.ssh/[id_rsa](#drive)_alt` dan `[id_rsa](#drive)_alt.pub`
+- `~/.ssh/[id_rsa](https://docs.google.com/spreadsheets/d/1Cm55CbQbNOU4ntrPuUG2iq8lVx-V2mU41PkJre_pwqw/edit?gid=0#gid=0)_alt` dan `[id_rsa](https://docs.google.com/spreadsheets/d/1Cm55CbQbNOU4ntrPuUG2iq8lVx-V2mU41PkJre_pwqw/edit?gid=0#gid=0)_alt.pub`
 
 ### add public key
 
@@ -178,7 +179,7 @@ ssh -T git@github-alt
 ```
 
 kalau sukes akan muncul
-```
+```markdown
 Hi username! You've successfully authenticated...
 ```
 
@@ -235,7 +236,7 @@ cat ~/.ssh/id_rsa_main.pub
 
 Salin hasilnya (mulai dari `ssh-rsa` ...) dan:
 
-Masuk ke akun GitHub pertama (sesuai [id_rsa](#drive)_main)
+Masuk ke akun GitHub pertama (sesuai [id_rsa](https://docs.google.com/spreadsheets/d/1Cm55CbQbNOU4ntrPuUG2iq8lVx-V2mU41PkJre_pwqw/edit?gid=0#gid=0)_main)
 
 Buka: GitHub → Settings → **SSH and GPG Keys** → **New SSH key**
 
