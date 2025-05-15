@@ -1,23 +1,22 @@
 project:
   type: website
-  output-dir: .
+  output-dir: docs
 
 execute:
   freeze: auto
 
 website:
   title: "Catatan 📝"
+  page-navigation: true
+  back-to-top-navigation: true
   navbar:
-    page-navigation: true
     search: true
-    left:
-      - href: index.qmd
-        text: Home
+
 
 format:
   html:
-    theme: lux
+    theme:
+      light: cosmo
+      dark : cyborg
+    respect-user-color-scheme: true
     toc: true
-
-
-

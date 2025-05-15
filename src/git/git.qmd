@@ -1,0 +1,387 @@
+---
+title: Git
+---
+
+ini akan berguna ke depannya
+
+**Daftar isi**
+
+- [config git](#config-list)
+- [ubah credential](#credential)
+
+# Konfigurasi git {#config-list}
+
+```{.markdown filename="git"}
+git config --list
+```
+
+ganti identitas lokal
+```{.markdown filename="git"}
+git config user.name "NamaGitHubKamu"
+git config user.email "email@kamu.com"
+```
+
+ganti identitas global
+```{.markdown filename="git"}
+git config --global user.name "NamaGitHubBaru"
+git config --global user.email "email@baru.com"
+```
+
+# Ganti Credential GitHub di Komputer {#credential}
+Langkah-langkahnya:
+
+1. Hapus Credential Lama
+Kalau kamu pakai Windows:
+
+- Buka Credential Manager (Pencarian Windows > ketik "Credential Manager")
+
+- Masuk ke Windows Credentials
+
+- Cari entri seperti:
+
+    ```{.arduino filename="arduinos"}
+    git:https://github.com
+    ```
+
+- Hapus entri itu (klik, lalu Remove)
+
+Ini akan menghapus cache login akun lama.
+
+2. Git Akan Tanya Ulang Akun
+Setelah kamu hapus credential, coba push lagi:
+
+```{.bash filename="bash"}
+git push origin main
+```
+
+Maka Git akan minta login lagi (username + token). Kali ini, kamu masukkan akun GitHub kedua (yang ingin kamu pakai).
+
+::: {.callout-note}
+⚠️ Perlu kamu pakai Personal Access Token (PAT), bukan password biasa. Buat token di sini kalau belum punya.
+:::
+
+3. (Opsional) Simpan Credential Baru
+Kalau kamu tidak ingin login ulang setiap push, jalankan ini:
+
+```{.bash filename="bash"}
+git config --global credential.helper cache
+```
+Atau, untuk jangka panjang:
+```{.bash filename="bash"}
+git config --global credential.helper store
+```
+::: {.callout-tip}
+🚀 Tips: Pakai SSH untuk Ganti Akun Lebih Mudah
+Kalau kamu sering switch akun, lebih baik pakai SSH dengan `~/.ssh/`config, karena lebih fleksibel untuk multi-akun.
+:::
+
+# SSH {#ssh}
+
+Daftar Isi lagi
+
+- [Daftar pertama kali](#first-time)
+- [Cek SSH nyambung atau nggak](#cek-ssh)
+- [Passphrase](#passphrase)
+- [simpan otomatis](#tips-simpan-otomatis)
+- [pasang SSH ke github](#masukkin-ke-github)
+- [lupa alias ssh](#lupa-alias-ssh)
+
+## Buat SSH {#first-time}
+
+untuk id_rsa yang gw buat sendiri ada [disini](#drive).
+
+### Buat keygen
+
+akun pertama
+```{.bash filename='bash'}
+ssh-keygen -t id_rsa -C "email_akun_pertama@mu.com" -f ~/.ssh/id_rsa_main
+```
+
+akun kedua
+```{.bash filename='bash'}
+ssh-keygen -t id_rsa -C "email_akun_kedua@mu.com" -f ~/.ssh/id_rsa_main
+```
+
+sekarang punya dua SSH key
+
+- `~/.ssh/[id_rsa](#drive)_main` dan `[id_rsa](#drive)_main.pub`
+
+- `~/.ssh/[id_rsa](#drive)_alt` dan `[id_rsa](#drive)_alt.pub`
+
+### add public key
+
+> ✅ Ambil public key-nya:
+```{.bash filename="bash"}
+cat ~/.ssh/id_rsa_main.pub
+```
+Salin hasilnya dan **tambahkan ke akun GitHub pertama**:
+
+Buka GitHub → Settings → **SSH and GPG Keys** → New SSH key → Paste.
+
+Lalu untuk akun kedua:
+
+```{.bash filename="bash"}
+cat ~/.ssh/id_rsa_alt.pub
+```
+
+Salin dan tambahkan ke akun GitHub kedua dengan cara yang sama.
+
+### buat confignya  di `~/.ssh/config`
+
+```{.bash filename="bash"}
+nano ~/.ssh/config
+```
+
+Lalu isi dengan ini:
+
+```{.bash filename="bash"}
+# Akun utama
+Host github-main
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa_main
+  IdentitiesOnly yes
+
+# Akun kedua
+Host github-alt
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa_alt
+  IdentitiesOnly yes
+```
+
+Simpan (`Ctrl + O`, `Enter`, `Ctrl + X`).
+
+### Kloning dengan host custom
+
+- Gunakan akun utama:
+
+```{.bash filename="bash"}
+git clone git@github-main:username-utama/nama-repo.git
+```
+
+- Gunakan akun kedua:
+```{.bash filename="bash"}
+git clone git@github-alt:username-kedua/nama-repo.git
+```
+
+## Cek SSH {#cek-ssh}
+
+Cek koneksi ke akun utama:
+```{.bash filename="bash"}
+ssh -T git@github-main
+```
+
+Cek koneksi ke akun kedua:
+```{.bash filename="bash"}
+ssh -T git@github-alt
+```
+
+kalau sukes akan muncul
+```
+Hi username! You've successfully authenticated...
+```
+
+untuk setiap repo, set user github yang tepat.
+
+```{.bash filename="bash"}
+git config user.name "Nama Akun"
+git config user.email "emailmu@kamu.com"
+```
+
+## Passphrase{#passphrase}
+
+**Passphrase adalah semacam kata sandi tambahan** yang digunakan untuk **mengunci kunci privat SSH-mu** (`id_rsa`, misalnya). Jadi kalau kamu **menambahkan passphrase saat buat SSH key**, kamu harus memasukkannya setiap kali SSH key digunakan (misalnya saat push/pull Git).
+
+> Saat buat SSH key dan muncul pertanyaan:
+
+```{.markdown filename="nginx"}
+Enter passphrase (empty for no passphrase):
+```
+
+Kamu bisa langsung tekan **Enter** untuk **tidak memakai passphrase**.
+
+## Tips simpan otomatis{#simpan-SSH-otomatis}
+
+Kalau kamu pakai **passphrase tapi nggak mau ketik** terus, kamu bisa pakai **ssh-agent** supaya passphrase hanya perlu dimasukkan sekali per sesi.
+
+Contohnya:
+
+```{.markdown filename="bash"}
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa_main
+```
+Kemudian masukkan passphrase saat diminta. Setelah itu, Git bisa pakai SSH key-nya selama sesi terminal itu masih aktif.
+
+## Masukkin ke github{#masukin-github}
+
+1. 🔍 Pastikan file SSH key yang dimaksud memang ada
+Cek dulu apakah file private key `~/.ssh/id_rsa_main` benar-benar ada:
+
+```{.bash filename="bash"}
+ls ~/.ssh/id_rsa_main
+```
+
+Kalau tidak ada, berarti SSH key-nya belum dibuat atau salah nama.
+
+Kalau ada, lanjut.
+
+2. 📤 Tambahkan Public Key ke GitHub
+Ambil isi **public key** kamu:
+
+```{.mardown filename="bash"}
+cat ~/.ssh/id_rsa_main.pub
+```
+
+Salin hasilnya (mulai dari `ssh-rsa` ...) dan:
+
+Masuk ke akun GitHub pertama (sesuai [id_rsa](#drive)_main)
+
+Buka: GitHub → Settings → **SSH and GPG Keys** → **New SSH key**
+
+Beri nama misal `Laptop - SSH`
+
+Paste public key tadi → **Save**
+
+::: {.callout-caution}
+⚠️ Jangan sampai tertukar dengan akun GitHub kedua, karena SSH key ini hanya akan dikenali oleh akun GitHub tempat kamu mendaftarkannya.
+:::
+
+3. 🔁 Uji Lagi
+Setelah menambahkan key ke akun GitHub, coba lagi:
+
+```{.bash filename="bash"}
+ssh -T git@github-main
+```
+
+Kalau sukses, akan muncul:
+
+```{.vbnet filename="vbnet"}
+Hi <username>! You've successfully authenticated, but GitHub does not provide shell access.
+```
+Itu artinya koneksi SSH berhasil dan GitHub kenal kamu. 🎉
+
+Kalau kamu juga mau koneksi ke akun kedua (git@github-alt), ulangi proses di atas tapi dengan key id_ed25519_alt.pub dan tambahkan ke akun GitHub kedua.
+
+Lalu, cek url remote
+
+```{.bash filename="bash"}
+git remote -v
+```
+Kemungkinan hasilnya seperti:
+
+```{.bash filename="bash"}
+origin  git@github.com:username/repo.git (fetch)
+origin  git@github.com:username/repo.git (push)
+```
+
+Kita akan ubah itu agar pakai alias host yang benar dari `~/.ssh/config`.
+
+### Ganti dengan Host Alias (misalnya `github-main` atau `github-alt`){#alias}
+
+Misalnya kamu pakai SSH key `id_rsa_alt` untuk akun kedua, dan di `~/.ssh/config` kamu punya host:
+
+```{.ssh filename="ssh"}
+Host github-alt
+```
+
+Maka kamu jalankan ini:
+```{.ssh filename="ssh"}
+git remote set-url origin git@github-alt:username-kedua/nama-repo.git
+```
+
+**gantilah:**
+
+`github-alt` → sesuai alias yang kamu tulis di `~/.ssh/config`
+
+`username-kedua` → username GitHub akun kedua
+
+`nama-repo.git` → nama repo yang sedang kamu kerjakan
+
+---
+
+lalu bisa push deh
+
+```{.bash filename='bash'}
+git push
+```
+
+## lupa alias ssh {#lupa-ssh}
+
+tinggal
+```{.bash filename="bash"}
+nano ~/.ssh/config
+```
+
+atau pakai `cat` buat hanya lihat isinya:
+```{.bash filename="bash"}
+cat ~/.ssh/config
+```
+
+akan tertampil
+
+```{.bash filename='bash'}
+Host github-main
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa_main
+
+Host github-alt
+  ...
+```
+
+Alias adalah bagian setelah `Host`, misalnya: `github-main`, `github-alt`, dll. Ini yang kamu pakai nanti seperti `git@github-main`:....
+
+---
+
+### Kalau Punya Akun Ketiga, Alias-nya Apa?
+
+Kamu bebas memberi alias apapun, tidak harus `github-alt`.
+
+Misalnya kamu ingin tambah akun ketiga, kamu bisa tambahkan blok baru seperti ini:
+
+```{.bash filename="bash"}
+Host github-third
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519_third
+  IdentitiesOnly yes
+```
+
+Lalu saat kloning atau set remote:
+
+```{.bash filename='bash'}
+git clone git@github-third:username-ketiga/nama-repo.git
+```
+
+> Yang penting:
+
+- Alias `github-third` harus cocok dengan yang kamu tulis di file `~/.ssh/config`
+
+- Gunakan ssh-keygen lagi untuk buat SSH key baru, contoh:
+
+```{.bash filename="bash"}
+ssh-keygen -t ed25519 -C "email-akun-ketiga@example.com" -f ~/.ssh/id_rsa_third
+```
+
+
+### Bisa Nggak Username Git (di `git config`) Beda dengan Username GitHub?
+✅ BISA, dan ini sering dilakukan.
+
+Misalnya:
+
+```{.bash filename="bash"}
+git config user.name "Mr. Robot"
+git config user.email "robot@example.com"
+```
+
+Itu hanya digunakan untuk mencatat siapa yang melakukan commit.
+
+> Tapi hati-hati: kalau kamu push ke GitHub, dan email `robot@example.com` **tidak terdaftar di akun GitHub**, maka commit-mu **tidak akan muncul sebagai milik akun GitHub kamu**, alias tidak ada foto profil atau identitasnya.
+
+::: {.callout-tip}
+Untuk setiap akun GitHub, daftarkan email yang kamu pakai untuk commit di sini:
+https://github.com/settings/emails
+:::
+
+Dengan begitu, meskipun `user.name` kamu bebas, GitHub akan tetap mengenali commit kamu sebagai milik akun tersebut asal email-nya cocok.
