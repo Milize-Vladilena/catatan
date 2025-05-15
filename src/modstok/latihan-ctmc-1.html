@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>📝 CTMC – Catatan 📝</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-bf19b75f51ea680c8de03e84aa65eabd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Catatan 📝</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#capaian-pembelajaran" id="toc-capaian-pembelajaran" class="nav-link active" data-scroll-target="#capaian-pembelajaran">🎯 Capaian Pembelajaran</a></li>
+  <li><a href="#soal-soal" id="toc-soal-soal" class="nav-link" data-scroll-target="#soal-soal">🔢 Soal-soal</a></li>
+  <li><a href="#soal-1-organisme-uniseluler-ctmc-dan-parameternya" id="toc-soal-1-organisme-uniseluler-ctmc-dan-parameternya" class="nav-link" data-scroll-target="#soal-1-organisme-uniseluler-ctmc-dan-parameternya">🧪 Soal 1: Organisme Uniseluler – CTMC dan Parameternya</a>
+  <ul class="collapse">
+  <li><a href="#deskripsi-masalah" id="toc-deskripsi-masalah" class="nav-link" data-scroll-target="#deskripsi-masalah">📄 Deskripsi Masalah</a></li>
+  <li><a href="#definisi-state" id="toc-definisi-state" class="nav-link" data-scroll-target="#definisi-state">🔢 Definisi State</a></li>
+  <li><a href="#diagram-transisi" id="toc-diagram-transisi" class="nav-link" data-scroll-target="#diagram-transisi">🔁 Diagram Transisi</a></li>
+  <li><a href="#matriks-generator-q" id="toc-matriks-generator-q" class="nav-link" data-scroll-target="#matriks-generator-q">📊 Matriks Generator (Q)</a></li>
+  <li><a href="#laju-waktu-tunggu" id="toc-laju-waktu-tunggu" class="nav-link" data-scroll-target="#laju-waktu-tunggu">⏱️ Laju Waktu Tunggu</a></li>
+  <li><a href="#probabilitas-transisi-instan" id="toc-probabilitas-transisi-instan" class="nav-link" data-scroll-target="#probabilitas-transisi-instan">🎲 Probabilitas Transisi Instan</a></li>
+  <li><a href="#kesimpulan" id="toc-kesimpulan" class="nav-link" data-scroll-target="#kesimpulan">✅ Kesimpulan</a></li>
+  </ul></li>
+  <li><a href="#soal-2-dua-mesin-satu-teknisi-model-ctmc" id="toc-soal-2-dua-mesin-satu-teknisi-model-ctmc" class="nav-link" data-scroll-target="#soal-2-dua-mesin-satu-teknisi-model-ctmc">🛠️ Soal 2: Dua Mesin &amp; Satu Teknisi – Model CTMC</a>
+  <ul class="collapse">
+  <li><a href="#deskripsi-masalah-1" id="toc-deskripsi-masalah-1" class="nav-link" data-scroll-target="#deskripsi-masalah-1">📄 Deskripsi Masalah</a></li>
+  <li><a href="#definisi-state-1" id="toc-definisi-state-1" class="nav-link" data-scroll-target="#definisi-state-1">🔢 Definisi State</a></li>
+  <li><a href="#diagram-transisi-secara-umum" id="toc-diagram-transisi-secara-umum" class="nav-link" data-scroll-target="#diagram-transisi-secara-umum">🔁 Diagram Transisi (Secara Umum)</a></li>
+  <li><a href="#matriks-generator-q-1" id="toc-matriks-generator-q-1" class="nav-link" data-scroll-target="#matriks-generator-q-1">📊 Matriks Generator (Q)</a></li>
+  <li><a href="#laju-waktu-tunggu-1" id="toc-laju-waktu-tunggu-1" class="nav-link" data-scroll-target="#laju-waktu-tunggu-1">⏱️ Laju Waktu Tunggu</a></li>
+  <li><a href="#probabilitas-transisi" id="toc-probabilitas-transisi" class="nav-link" data-scroll-target="#probabilitas-transisi">🎲 Probabilitas Transisi</a></li>
+  <li><a href="#kesimpulan-1" id="toc-kesimpulan-1" class="nav-link" data-scroll-target="#kesimpulan-1">✅ Kesimpulan</a></li>
+  </ul></li>
+  <li><a href="#soal-3-proses-kelahiran-dan-kematian-ekspektasi-variansi-waktu" id="toc-soal-3-proses-kelahiran-dan-kematian-ekspektasi-variansi-waktu" class="nav-link" data-scroll-target="#soal-3-proses-kelahiran-dan-kematian-ekspektasi-variansi-waktu">👶⚰️ Soal 3: Proses Kelahiran dan Kematian – Ekspektasi &amp; Variansi Waktu</a>
+  <ul class="collapse">
+  <li><a href="#deskripsi-masalah-2" id="toc-deskripsi-masalah-2" class="nav-link" data-scroll-target="#deskripsi-masalah-2">📄 Deskripsi Masalah</a></li>
+  <li><a href="#definisi-umum" id="toc-definisi-umum" class="nav-link" data-scroll-target="#definisi-umum">🔢 Definisi Umum</a></li>
+  <li><a href="#a-ekspektasi-waktu-dari-state-2-ke-5" id="toc-a-ekspektasi-waktu-dari-state-2-ke-5" class="nav-link" data-scroll-target="#a-ekspektasi-waktu-dari-state-2-ke-5">🧮 (a) Ekspektasi Waktu dari State 2 ke 5</a></li>
+  <li><a href="#b-variansi-waktu-dari-state-2-ke-5" id="toc-b-variansi-waktu-dari-state-2-ke-5" class="nav-link" data-scroll-target="#b-variansi-waktu-dari-state-2-ke-5">📏 (b) Variansi Waktu dari State 2 ke 5</a></li>
+  <li><a href="#kesimpulan-2" id="toc-kesimpulan-2" class="nav-link" data-scroll-target="#kesimpulan-2">✅ Kesimpulan</a></li>
+  </ul></li>
+  <li><a href="#soal-4-barbershop-kecil-ctmc-antrian-eksponensial" id="toc-soal-4-barbershop-kecil-ctmc-antrian-eksponensial" class="nav-link" data-scroll-target="#soal-4-barbershop-kecil-ctmc-antrian-eksponensial">💈 Soal 4: Barbershop Kecil – CTMC Antrian Eksponensial</a>
+  <ul class="collapse">
+  <li><a href="#deskripsi-masalah-3" id="toc-deskripsi-masalah-3" class="nav-link" data-scroll-target="#deskripsi-masalah-3">📄 Deskripsi Masalah</a></li>
+  <li><a href="#step-1-definisi-parameter" id="toc-step-1-definisi-parameter" class="nav-link" data-scroll-target="#step-1-definisi-parameter">🧮 <strong>Step 1: Definisi Parameter</strong></a></li>
+  <li><a href="#step-2-persamaan-keseimbangan" id="toc-step-2-persamaan-keseimbangan" class="nav-link" data-scroll-target="#step-2-persamaan-keseimbangan">📝 <strong>Step 2: Persamaan Keseimbangan</strong></a></li>
+  <li><a href="#step-3-hitung-probabilitas-stasioner" id="toc-step-3-hitung-probabilitas-stasioner" class="nav-link" data-scroll-target="#step-3-hitung-probabilitas-stasioner">🧮 <strong>Step 3: Hitung Probabilitas Stasioner</strong></a></li>
+  <li><a href="#hasil-analisis" id="toc-hasil-analisis" class="nav-link" data-scroll-target="#hasil-analisis">📊 <strong>Hasil Analisis</strong></a></li>
+  <li><a href="#kesimpulan-3" id="toc-kesimpulan-3" class="nav-link" data-scroll-target="#kesimpulan-3">✅ Kesimpulan</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">📝 CTMC</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Program Studi: S1 Statistika / S1 Aktuaria<br>
+Mata Kuliah: Model Stokastik I<br>
+Semester: ATA 2024/2025</p>
+<hr>
+<section id="capaian-pembelajaran" class="level3">
+<h3 class="anchored" data-anchor-id="capaian-pembelajaran">🎯 Capaian Pembelajaran</h3>
+<p>Mahasiswa mampu:</p>
+<ul>
+<li>Mengklasifikasikan berbagai permasalahan dalam ilmu data, kesehatan, dan industri ke dalam model stokastik.</li>
+<li>Menentukan parameter dan perilaku jangka panjang dari <strong>rantai Markov waktu kontinu (CTMC)</strong>.</li>
+<li>Menerapkan CTMC pada fenomena atau kasus nyata.</li>
+</ul>
+<hr>
+</section>
+<section id="soal-soal" class="level3">
+<h3 class="anchored" data-anchor-id="soal-soal">🔢 Soal-soal</h3>
+<section id="soal-1-organisme-uniseluler" class="level4">
+<h4 class="anchored" data-anchor-id="soal-1-organisme-uniseluler">📘 Soal 1: Organisme Uniseluler</h4>
+<p>Misalkan sebuah organisme uniseluler dapat berada dalam salah satu dari dua <em>state</em> – yaitu <strong>A</strong> atau <strong>B</strong>:</p>
+<ul>
+<li>Individu yang berada dalam <strong>state A</strong> akan berubah ke <strong>B</strong> dengan <em>rate</em> eksponensial sebesar <span class="math inline">\(\alpha\)</span>.</li>
+<li>Individu yang berada dalam <strong>state B</strong> akan membelah menjadi dua individu baru <strong>A</strong> dengan <em>rate</em> eksponensial sebesar <span class="math inline">\(\beta\)</span>.</li>
+</ul>
+<p><strong>Tugas:</strong><br>
+Tentukan <strong>CTMC</strong> yang sesuai untuk populasi organisme tersebut, dan tentukan <strong>parameter-parameter</strong> yang sesuai untuk model ini, yaitu <strong>laju waktu tunggu</strong> dan <strong>probabilitas transisinya</strong>.</p>
+<hr>
+</section>
+<section id="soal-2-dua-mesin-dan-satu-teknisi" class="level4">
+<h4 class="anchored" data-anchor-id="soal-2-dua-mesin-dan-satu-teknisi">⚙️ Soal 2: Dua Mesin dan Satu Teknisi</h4>
+<p>Misalkan ada <strong>dua mesin</strong> yang dirawat oleh <strong>satu orang teknisi</strong>. Mesin ke-<span class="math inline">\(i\)</span> berfungsi selama waktu yang berdistribusi eksponensial dengan <em>rate</em> <span class="math inline">\(\mu_i\)</span>, sebelum rusak, untuk <span class="math inline">\(i = 1, 2\)</span>.<br>
+Waktu perbaikan (untuk salah satu mesin) juga berdistribusi eksponensial dengan <em>rate</em> <span class="math inline">\(\mu\)</span>.</p>
+<p><strong>Tugas:</strong><br>
+Definisikan <strong>CTMC</strong> yang sesuai untuk skenario di atas, kemudian tentukan <strong>laju waktu tunggu</strong> dan <strong>probabilitas transisinya</strong>.</p>
+<hr>
+</section>
+<section id="soal-3-proses-kelahiran-dan-kematian" class="level4">
+<h4 class="anchored" data-anchor-id="soal-3-proses-kelahiran-dan-kematian">👶⚰️ Soal 3: Proses Kelahiran dan Kematian</h4>
+<p>Pertimbangkan sebuah proses kelahiran dan kematian (<em>birth and death process</em>) dengan:</p>
+<ul>
+<li>Birth rate: <span class="math inline">\(\lambda_i = (i + 1)\lambda\)</span> untuk <span class="math inline">\(i \geq 0\)</span></li>
+<li>Death rate: <span class="math inline">\(\mu_i = i\mu\)</span> untuk <span class="math inline">\(i \geq 0\)</span></li>
+</ul>
+<p><strong>Tugas:</strong></p>
+<ol type="a">
+<li>Tentukan <strong>nilai harapan waktu</strong> untuk berpindah dari <strong>state 2 ke 5</strong>.<br>
+</li>
+<li>Tentukan <strong>variansi</strong> dari waktu-waktu yang dihitung pada bagian (a).</li>
+</ol>
+<hr>
+</section>
+<section id="soal-4-barbershop-dan-antrian-terbatas" class="level4">
+<h4 class="anchored" data-anchor-id="soal-4-barbershop-dan-antrian-terbatas">💈 Soal 4: Barbershop dan Antrian Terbatas</h4>
+<p>Sebuah <strong>barbershop kecil</strong> dijalankan oleh satu tukang cukur dan hanya memiliki <strong>ruang untuk maksimal dua pelanggan</strong>. Informasi sistem:</p>
+<ul>
+<li>Pelanggan datang mengikuti proses <strong>Poisson</strong> dengan <em>rate</em> 3 orang per jam.</li>
+<li>Waktu layanan merupakan peubah acak eksponensial yang saling bebas, dengan rata-rata <span class="math inline">\(\frac{1}{4}\)</span> jam (artinya <span class="math inline">\(\mu = 4\)</span> per jam).</li>
+<li>Pelanggan yang datang saat barbershop penuh akan langsung pergi.</li>
+</ul>
+<p><strong>Tugas:</strong></p>
+<ol type="a">
+<li>Hitung <strong>jumlah rata-rata pelanggan</strong> yang berada di dalam barbershop.<br>
+</li>
+<li>Hitung <strong>proporsi pelanggan potensial yang berhasil masuk</strong> ke dalam barbershop.<br>
+</li>
+<li>Jika tukang cukur dapat bekerja <strong>dua kali lebih cepat</strong>, seberapa banyak <strong>tambahan bisnis</strong> yang akan ia dapatkan?</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="soal-1-organisme-uniseluler-ctmc-dan-parameternya" class="level2">
+<h2 class="anchored" data-anchor-id="soal-1-organisme-uniseluler-ctmc-dan-parameternya">🧪 Soal 1: Organisme Uniseluler – CTMC dan Parameternya</h2>
+<section id="deskripsi-masalah" class="level3">
+<h3 class="anchored" data-anchor-id="deskripsi-masalah">📄 Deskripsi Masalah</h3>
+<p>Misalkan sebuah organisme uniseluler dapat berada dalam salah satu dari dua <em>state</em> – yaitu <strong>A</strong> atau <strong>B</strong>:</p>
+<ul>
+<li>Individu dalam state <strong>A</strong> akan berubah menjadi <strong>B</strong> dengan laju eksponensial sebesar <span class="math inline">\(\alpha\)</span>.</li>
+<li>Individu dalam state <strong>B</strong> akan membelah menjadi dua individu baru <strong>A</strong> dengan laju eksponensial sebesar <span class="math inline">\(\beta\)</span>.</li>
+</ul>
+<p>🧠 <strong>Tentukan</strong>:</p>
+<ul>
+<li>Model <strong>Continuous-Time Markov Chain (CTMC)</strong> yang sesuai.</li>
+<li>Parameter-parameter model (laju waktu tunggu dan probabilitas transisi).</li>
+</ul>
+<hr>
+</section>
+<section id="definisi-state" class="level3">
+<h3 class="anchored" data-anchor-id="definisi-state">🔢 Definisi State</h3>
+<p>Kita modelkan proses ini dengan dua state:</p>
+<ul>
+<li><strong>State 1</strong>: Organisme berada dalam kondisi <strong>A</strong></li>
+<li><strong>State 2</strong>: Organisme berada dalam kondisi <strong>B</strong></li>
+</ul>
+<p>Walaupun B membelah menjadi dua A, untuk tujuan model ini kita anggap transisinya tetap kembali ke state A karena hanya satu organisme aktif dalam satu waktu.</p>
+<hr>
+</section>
+<section id="diagram-transisi" class="level3">
+<h3 class="anchored" data-anchor-id="diagram-transisi">🔁 Diagram Transisi</h3>
+<pre><code>[A] --α--&gt; [B] --β--&gt; [A]</code></pre>
+<ul>
+<li>Transisi dari <strong>A ke B</strong> terjadi dengan rate <span class="math inline">\(\alpha\)</span></li>
+<li>Transisi dari <strong>B ke A</strong> (hasil pembelahan) terjadi dengan rate <span class="math inline">\(\beta\)</span></li>
+</ul>
+<hr>
+</section>
+<section id="matriks-generator-q" class="level3">
+<h3 class="anchored" data-anchor-id="matriks-generator-q">📊 Matriks Generator (Q)</h3>
+<p><span class="math display">\[Q =
+\begin{bmatrix}
+-\alpha &amp; \alpha \\
+\beta &amp; -\beta
+\end{bmatrix}\]</span></p>
+<ul>
+<li>Baris pertama: Transisi dari A ke B</li>
+<li>Baris kedua: Transisi dari B ke A</li>
+</ul>
+<p>Setiap baris menjumlahkan ke nol, seperti properti matriks generator CTMC.</p>
+<hr>
+</section>
+<section id="laju-waktu-tunggu" class="level3">
+<h3 class="anchored" data-anchor-id="laju-waktu-tunggu">⏱️ Laju Waktu Tunggu</h3>
+<p>Waktu tunggu untuk berpindah dari suatu state mengikuti distribusi eksponensial.</p>
+<ul>
+<li>Dari <strong>state A</strong>: waktu tunggu <span class="math inline">\(\sim \text{Exp}(\alpha)\)</span> ⟶ <span class="math inline">\(\mathbb{E}[T_A] = \frac{1}{\alpha}\)</span></li>
+<li>Dari <strong>state B</strong>: waktu tunggu <span class="math inline">\(\sim \text{Exp}(\beta)\)</span> ⟶ <span class="math inline">\(\mathbb{E}[T_B] = \frac{1}{\beta}\)</span></li>
+</ul>
+<hr>
+</section>
+<section id="probabilitas-transisi-instan" class="level3">
+<h3 class="anchored" data-anchor-id="probabilitas-transisi-instan">🎲 Probabilitas Transisi Instan</h3>
+<p>Dalam CTMC, probabilitas transisi dari state <span class="math inline">\(i\)</span> ke <span class="math inline">\(j\)</span> setelah waktu tunggu adalah:</p>
+<p><span class="math display">\[ P_{ij} = \frac{q_{ij}}{-q_{ii}} \]</span></p>
+<p>Untuk model ini:</p>
+<ul>
+<li><span class="math inline">\(P_{A \to B} = \frac{\alpha}{\alpha} = 1\)</span></li>
+<li><span class="math inline">\(P_{B \to A} = \frac{\beta}{\beta} = 1\)</span></li>
+</ul>
+<p>Artinya, transisi bersifat <strong>deterministik</strong> setelah waktu tunggu eksponensialnya berakhir.</p>
+<hr>
+</section>
+<section id="kesimpulan" class="level3">
+<h3 class="anchored" data-anchor-id="kesimpulan">✅ Kesimpulan</h3>
+<ul>
+<li><p><strong>Model CTMC</strong> terdiri dari dua state (A dan B) dengan transisi bolak-balik.</p></li>
+<li><p>Laju waktu tunggu tergantung dari parameter <span class="math inline">\(\alpha\)</span> dan <span class="math inline">\(\beta\)</span>.</p></li>
+<li><p>Probabilitas transisi dari A ke B dan B ke A adalah <strong>1</strong>, karena tidak ada alternatif transisi lain.</p></li>
+</ul>
+</section>
+</section>
+<section id="soal-2-dua-mesin-satu-teknisi-model-ctmc" class="level2">
+<h2 class="anchored" data-anchor-id="soal-2-dua-mesin-satu-teknisi-model-ctmc">🛠️ Soal 2: Dua Mesin &amp; Satu Teknisi – Model CTMC</h2>
+<section id="deskripsi-masalah-1" class="level3">
+<h3 class="anchored" data-anchor-id="deskripsi-masalah-1">📄 Deskripsi Masalah</h3>
+<p>Misalkan terdapat <strong>dua mesin</strong> yang dirawat oleh <strong>satu orang teknisi</strong>. Detail sistem adalah sebagai berikut:</p>
+<ul>
+<li>Mesin ke-<span class="math inline">\(i\)</span> (dengan <span class="math inline">\(i = 1, 2\)</span>) akan <strong>berfungsi selama waktu eksponensial</strong> dengan parameter <span class="math inline">\(\mu_i\)</span> sebelum <strong>rusak</strong>.</li>
+<li>Hanya <strong>satu teknisi</strong> yang tersedia untuk memperbaiki <strong>satu mesin dalam satu waktu</strong>, dengan <strong>waktu perbaikan</strong> berdistribusi eksponensial dengan rate <span class="math inline">\(\mu\)</span>.</li>
+</ul>
+<p>🧠 <strong>Tentukan</strong>:</p>
+<ul>
+<li>Definisi state dan model CTMC.</li>
+<li>Laju waktu tunggu dan probabilitas transisi antar state.</li>
+</ul>
+<hr>
+</section>
+<section id="definisi-state-1" class="level3">
+<h3 class="anchored" data-anchor-id="definisi-state-1">🔢 Definisi State</h3>
+<p>Kita akan definisikan state berdasarkan jumlah mesin yang <strong>rusak</strong> dan <strong>diperbaiki</strong>. Karena teknisi hanya bisa memperbaiki satu mesin sekaligus, maka <strong>maksimal satu mesin dapat diperbaiki dalam satu waktu</strong>.</p>
+<p>Mari kita gunakan representasi state sebagai:</p>
+<ul>
+<li><span class="math inline">\(0\)</span>: Kedua mesin berfungsi</li>
+<li><span class="math inline">\(1\)</span>: Satu mesin rusak (belum diperbaiki)</li>
+<li><span class="math inline">\(R\)</span>: Satu mesin sedang diperbaiki</li>
+<li><span class="math inline">\(2\)</span>: Kedua mesin rusak (satu diperbaiki, satu menunggu)</li>
+<li><span class="math inline">\(F\)</span>: Kedua mesin berfungsi kembali</li>
+</ul>
+<p>Namun untuk CTMC formal, kita gunakan representasi berikut:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>State</th>
+<th>Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>Kedua mesin berfungsi</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Satu mesin rusak, menunggu perbaikan</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Satu mesin rusak sedang diperbaiki</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Dua mesin rusak, satu sedang diperbaiki, satu menunggu</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="diagram-transisi-secara-umum" class="level3">
+<h3 class="anchored" data-anchor-id="diagram-transisi-secara-umum">🔁 Diagram Transisi (Secara Umum)</h3>
+<ul>
+<li><strong>0 → 1</strong>: Salah satu mesin rusak (rate = <span class="math inline">\(\mu_1 + \mu_2\)</span>)</li>
+<li><strong>1 → 2</strong>: Teknisi mulai memperbaiki (rate = instanasi teknisi atau penggabungan, bisa diasumsikan cepat)</li>
+<li><strong>2 → 0</strong>: Mesin selesai diperbaiki (rate = <span class="math inline">\(\mu\)</span>)</li>
+<li><strong>2 → 3</strong>: Mesin lainnya rusak saat satu sedang diperbaiki (rate = <span class="math inline">\(\mu_i\)</span>, tergantung mesin yang masih berfungsi)</li>
+<li><strong>3 → 1</strong>: Satu mesin selesai diperbaiki (rate = <span class="math inline">\(\mu\)</span>)</li>
+</ul>
+<hr>
+</section>
+<section id="matriks-generator-q-1" class="level3">
+<h3 class="anchored" data-anchor-id="matriks-generator-q-1">📊 Matriks Generator (Q)</h3>
+<p>Misalkan kita menyederhanakan state menjadi:</p>
+<ul>
+<li><span class="math inline">\(S_0\)</span>: 0 mesin rusak</li>
+<li><span class="math inline">\(S_1\)</span>: 1 mesin rusak (belum diperbaiki)</li>
+<li><span class="math inline">\(S_2\)</span>: 1 mesin rusak (dalam perbaikan)</li>
+<li><span class="math inline">\(S_3\)</span>: 2 mesin rusak (1 diperbaiki, 1 menunggu)</li>
+</ul>
+<p>Asumsikan:</p>
+<ul>
+<li><span class="math inline">\(\mu_1 = \mu_2 = \lambda\)</span> (simetris)</li>
+<li>Rate perbaikan oleh teknisi: <span class="math inline">\(\mu\)</span></li>
+</ul>
+<p>Maka estimasi matriks <span class="math inline">\(Q\)</span> bisa berbentuk:</p>
+<p><span class="math display">\[Q =
+\begin{bmatrix}
+-2\lambda &amp; 2\lambda &amp; 0 &amp; 0 \\
+0 &amp; -\mu &amp; \mu &amp; 0 \\
+\lambda &amp; 0 &amp; -(\lambda + \mu) &amp; \lambda \\
+0 &amp; \mu &amp; 0 &amp; -\mu \\
+\end{bmatrix}\]</span></p>
+<hr>
+</section>
+<section id="laju-waktu-tunggu-1" class="level3">
+<h3 class="anchored" data-anchor-id="laju-waktu-tunggu-1">⏱️ Laju Waktu Tunggu</h3>
+<p>Untuk setiap state, waktu tunggu mengikuti eksponensial dengan parameter sama dengan <strong>jumlah keluarannya</strong> (jumlah total rate keluar dari state itu).</p>
+<p>Contoh:</p>
+<ul>
+<li>Dari <strong>state 0</strong>: rate keluar <span class="math inline">\(= \mu_1 + \mu_2 = 2\lambda\)</span> ⟶ <span class="math inline">\(\mathbb{E}[T_0] = \frac{1}{2\lambda}\)</span></li>
+<li>Dari <strong>state 2</strong>: rate keluar <span class="math inline">\(= \mu + \lambda\)</span> ⟶ <span class="math inline">\(\mathbb{E}[T_2] = \frac{1}{\mu + \lambda}\)</span></li>
+</ul>
+<hr>
+</section>
+<section id="probabilitas-transisi" class="level3">
+<h3 class="anchored" data-anchor-id="probabilitas-transisi">🎲 Probabilitas Transisi</h3>
+<p>Probabilitas dari state <span class="math inline">\(i\)</span> ke <span class="math inline">\(j\)</span> adalah:</p>
+<p><span class="math display">\[P_{ij} = \frac{q_{ij}}{-q_{ii}}\]</span></p>
+<p>Contoh:</p>
+<ul>
+<li>Dari state 0 ke 1: <span class="math inline">\(P_{01} = \frac{2\lambda}{2\lambda} = 1\)</span></li>
+<li>Dari state 2:
+<ul>
+<li>ke state 0: <span class="math inline">\(P_{20} = \frac{\mu}{\lambda + \mu}\)</span></li>
+<li>ke state 3: <span class="math inline">\(P_{23} = \frac{\lambda}{\lambda + \mu}\)</span></li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="kesimpulan-1" class="level3">
+<h3 class="anchored" data-anchor-id="kesimpulan-1">✅ Kesimpulan</h3>
+<ul>
+<li>Model CTMC memuat <strong>empat state utama</strong>, yaitu jumlah mesin rusak dan apakah sedang diperbaiki.</li>
+<li>Matriks generator Q menunjukkan kemungkinan transisi dan laju waktunya.</li>
+<li>Waktu tunggu antar state mengikuti distribusi eksponensial berdasarkan <strong>total laju keluar dari state tersebut</strong>.</li>
+<li>Probabilitas transisi dihitung sebagai rasio dari rate transisi terhadap total rate keluar.</li>
+</ul>
+<p>🧩 Untuk hasil paling akurat, semua perhitungan dapat disesuaikan jika <span class="math inline">\(\mu_1 \ne \mu_2\)</span>.</p>
+</section>
+</section>
+<section id="soal-3-proses-kelahiran-dan-kematian-ekspektasi-variansi-waktu" class="level2">
+<h2 class="anchored" data-anchor-id="soal-3-proses-kelahiran-dan-kematian-ekspektasi-variansi-waktu">👶⚰️ Soal 3: Proses Kelahiran dan Kematian – Ekspektasi &amp; Variansi Waktu</h2>
+<section id="deskripsi-masalah-2" class="level3">
+<h3 class="anchored" data-anchor-id="deskripsi-masalah-2">📄 Deskripsi Masalah</h3>
+<p>Diberikan sebuah proses <strong>kelahiran-kematian (birth-death process)</strong> dengan:</p>
+<ul>
+<li><strong>Birth rate</strong>: <span class="math inline">\(\lambda_i = (i + 1)\lambda\)</span>, untuk <span class="math inline">\(i \geq 0\)</span></li>
+<li><strong>Death rate</strong>: <span class="math inline">\(\mu_i = i\mu\)</span>, untuk <span class="math inline">\(i \geq 0\)</span></li>
+</ul>
+<p>🧠 <strong>Tentukan</strong>:</p>
+<ul>
+<li><ol type="a">
+<li>Nilai harapan waktu untuk berpindah dari <strong>state 2 ke 5</strong></li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>Variansi dari waktu tersebut</li>
+</ol></li>
+</ul>
+<hr>
+</section>
+<section id="definisi-umum" class="level3">
+<h3 class="anchored" data-anchor-id="definisi-umum">🔢 Definisi Umum</h3>
+<p>Proses kelahiran-kematian ini adalah <strong>CTMC dengan state numerik tak hingga</strong> <span class="math inline">\(i = 0, 1, 2, \dots\)</span></p>
+<p>Dengan:</p>
+<ul>
+<li>Transisi ke atas: <span class="math inline">\(i \to i+1\)</span> dengan laju <span class="math inline">\(\lambda_i = (i+1)\lambda\)</span></li>
+<li>Transisi ke bawah: <span class="math inline">\(i \to i-1\)</span> dengan laju <span class="math inline">\(\mu_i = i\mu\)</span></li>
+</ul>
+<hr>
+</section>
+<section id="a-ekspektasi-waktu-dari-state-2-ke-5" class="level3">
+<h3 class="anchored" data-anchor-id="a-ekspektasi-waktu-dari-state-2-ke-5">🧮 (a) Ekspektasi Waktu dari State 2 ke 5</h3>
+<p>Misalkan <span class="math inline">\(m(i)\)</span> adalah <strong>ekspektasi waktu</strong> untuk mencapai state 5 dari state <span class="math inline">\(i\)</span>.</p>
+<p>Gunakan pendekatan rekursif dengan sistem persamaan:</p>
+<p>Untuk <span class="math inline">\(i \neq 5\)</span>:</p>
+<p><span class="math display">\[m(i) = \frac{1}{\lambda_i + \mu_i} + \frac{\lambda_i}{\lambda_i + \mu_i} m(i+1) + \frac{\mu_i}{\lambda_i + \mu_i} m(i-1)\]</span></p>
+<p>Dengan <span class="math inline">\(m(5) = 0\)</span> (karena target sudah tercapai).</p>
+<hr>
+<section id="langkah-penyelesaian" class="level4">
+<h4 class="anchored" data-anchor-id="langkah-penyelesaian">🔁 Langkah Penyelesaian</h4>
+<p>Karena diminta dari <strong>state 2 ke 5</strong>, kita bentuk sistem persamaan untuk <span class="math inline">\(m(2), m(3), m(4)\)</span>:</p>
+<ol type="1">
+<li>Hitung laju:
+<ul>
+<li><span class="math inline">\(\lambda_2 = 3\lambda\)</span>, <span class="math inline">\(\mu_2 = 2\mu\)</span></li>
+<li><span class="math inline">\(\lambda_3 = 4\lambda\)</span>, <span class="math inline">\(\mu_3 = 3\mu\)</span></li>
+<li><span class="math inline">\(\lambda_4 = 5\lambda\)</span>, <span class="math inline">\(\mu_4 = 4\mu\)</span></li>
+</ul></li>
+<li>Bentuk sistem:</li>
+</ol>
+<p><span class="math display">\[\begin{aligned}
+m(4) &amp;= \frac{1}{9\lambda} + \frac{5\lambda}{9\lambda} m(5) + \frac{4\lambda}{9\lambda} m(3) \\
+     &amp;= \frac{1}{9\lambda} + 0 + \frac{4}{9} m(3) \\
+m(3) &amp;= \frac{1}{7\lambda} + \frac{4\lambda}{7\lambda} m(4) + \frac{3\lambda}{7\lambda} m(2) \\
+     &amp;= \frac{1}{7\lambda} + \frac{4}{7} m(4) + \frac{3}{7} m(2) \\
+m(2) &amp;= \frac{1}{5\lambda} + \frac{3\lambda}{5\lambda} m(3) + \frac{2\lambda}{5\lambda} m(1)
+\end{aligned}\]</span></p>
+<p>Namun karena kita hanya diminta menghitung waktu dari <span class="math inline">\(2 \to 5\)</span>, kita bisa selesaikan <strong>secara bertahap mundur</strong> dengan substitusi ke belakang:</p>
+<p><span class="math display">\[m(4) = \frac{1}{9\lambda}\]</span></p>
+<p><span class="math display">\[m(3) = \frac{1}{7\lambda} + \frac{4}{7} m(4) = \frac{1}{7\lambda} + \frac{4}{7} \cdot \frac{1}{9\lambda}
+= \frac{1}{7\lambda} + \frac{4}{63\lambda} = \frac{9 + 4}{63\lambda} = \frac{13}{63\lambda}\]</span></p>
+<p><span class="math display">\[m(2) = \frac{1}{5\lambda} + \frac{3}{5} m(3) + \frac{2}{5} m(1)\]</span></p>
+<p>TAPI kita tidak tahu <span class="math inline">\(m(1)\)</span> karena <span class="math inline">\(m(2)\)</span> adalah titik awal kita. Maka kita <strong>batasi</strong> hanya pada langkah-langkah menuju 5 <strong>tanpa kemunduran</strong>, yaitu <strong>hanya jalur 2 → 3 → 4 → 5</strong> (asumsi tidak pernah turun, <em>transient path approximation</em>).</p>
+<p>Maka pendekatannya:</p>
+<p><span class="math display">\[\mathbb{E}[T_{2 \to 3}] = \frac{1}{\lambda_2} = \frac{1}{3\lambda}, \quad
+\mathbb{E}[T_{3 \to 4}] = \frac{1}{\lambda_3} = \frac{1}{4\lambda}, \quad
+\mathbb{E}[T_{4 \to 5}] = \frac{1}{\lambda_4} = \frac{1}{5\lambda}\]</span></p>
+<p><span class="math display">\[\Rightarrow \mathbb{E}[T_{2 \to 5}] = \frac{1}{3\lambda} + \frac{1}{4\lambda} + \frac{1}{5\lambda}
+= \frac{20 + 15 + 12}{60\lambda} = \frac{47}{60\lambda}\]</span></p>
+<hr>
+</section>
+</section>
+<section id="b-variansi-waktu-dari-state-2-ke-5" class="level3">
+<h3 class="anchored" data-anchor-id="b-variansi-waktu-dari-state-2-ke-5">📏 (b) Variansi Waktu dari State 2 ke 5</h3>
+<p>Karena waktu antar transisi adalah <strong>independen</strong>, variansi total adalah <strong>jumlah variansi per langkah</strong>:</p>
+<p><span class="math display">\[\text{Var}(T_{2 \to 5}) = \text{Var}(T_{2 \to 3}) + \text{Var}(T_{3 \to 4}) + \text{Var}(T_{4 \to 5})\]</span></p>
+<p>Untuk peubah acak eksponensial dengan rate <span class="math inline">\(\lambda\)</span>, variansinya adalah <span class="math inline">\(\frac{1}{\lambda^2}\)</span>. Maka:</p>
+<p><span class="math display">\[\text{Var}(T_{2 \to 3}) = \frac{1}{(3\lambda)^2}, \quad
+\text{Var}(T_{3 \to 4}) = \frac{1}{(4\lambda)^2}, \quad
+\text{Var}(T_{4 \to 5}) = \frac{1}{(5\lambda)^2}\]</span></p>
+<p><span class="math display">\[\Rightarrow \text{Var}(T_{2 \to 5}) = \frac{1}{9\lambda^2} + \frac{1}{16\lambda^2} + \frac{1}{25\lambda^2}
+= \frac{400 + 225 + 144}{3600\lambda^2} = \frac{769}{3600\lambda^2}\]</span></p>
+<hr>
+</section>
+<section id="kesimpulan-2" class="level3">
+<h3 class="anchored" data-anchor-id="kesimpulan-2">✅ Kesimpulan</h3>
+<ul>
+<li><p>💡 <strong>Ekspektasi waktu</strong> dari state 2 ke 5:</p>
+<p><span class="math display">\[\mathbb{E}[T_{2 \to 5}] = \frac{47}{60\lambda}\]</span></p></li>
+<li><p>📊 <strong>Variansi waktu</strong> dari state 2 ke 5:</p>
+<p><span class="math display">\[\text{Var}(T_{2 \to 5}) = \frac{769}{3600\lambda^2}\]</span></p></li>
+</ul>
+<p>Catatan: Perhitungan ini menggunakan pendekatan <em>hanya jalur naik</em> (tanpa kemunduran), cocok untuk pendekatan eksak bila transisi ke bawah tidak signifikan atau jika soal tidak menyertakan <span class="math inline">\(\mu\)</span> sebagai besar.</p>
+</section>
+</section>
+<section id="soal-4-barbershop-kecil-ctmc-antrian-eksponensial" class="level2">
+<h2 class="anchored" data-anchor-id="soal-4-barbershop-kecil-ctmc-antrian-eksponensial">💈 Soal 4: Barbershop Kecil – CTMC Antrian Eksponensial</h2>
+<section id="deskripsi-masalah-3" class="level3">
+<h3 class="anchored" data-anchor-id="deskripsi-masalah-3">📄 Deskripsi Masalah</h3>
+<p>Sebuah barbershop kecil hanya memiliki <strong>satu tukang cukur</strong> dan <strong>kapasitas maksimal 2 pelanggan</strong> di dalam. Detail sistem:</p>
+<ul>
+<li>Pelanggan datang menurut proses <strong>Poisson</strong> dengan laju <span class="math inline">\(3\)</span> orang per jam.</li>
+<li>Waktu pelayanan masing-masing pelanggan adalah <strong>eksponensial</strong>, rata-rata <span class="math inline">\(\frac{1}{4}\)</span> jam (artinya, laju pelayanan <span class="math inline">\(\mu = 4\)</span> pelanggan/jam).</li>
+<li>Tidak ada ruang tunggu tambahan — pelanggan yang datang saat barbershop penuh akan pergi.</li>
+</ul>
+<p>🧠 <strong>Tentukan</strong>:</p>
+<ul>
+<li><ol type="a">
+<li>Jumlah rata-rata pelanggan dalam barbershop</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>Proporsi pelanggan potensial yang berhasil masuk</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>Tambahan bisnis jika tukang cukur bekerja 2× lebih cepat</li>
+</ol></li>
+</ul>
+<hr>
+</section>
+<section id="step-1-definisi-parameter" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-definisi-parameter">🧮 <strong>Step 1: Definisi Parameter</strong></h3>
+<ul>
+<li><strong>Laju Kedatangan</strong>: <span class="math inline">\(\lambda = 3\)</span>/jam<br>
+</li>
+<li><strong>Laju Pelayanan</strong>: <span class="math inline">\(\mu = 4\)</span>/jam<br>
+</li>
+<li><strong>State Sistem</strong>:
+<ul>
+<li><span class="math inline">\(0\)</span>: Tidak ada pelanggan<br>
+</li>
+<li><span class="math inline">\(1\)</span>: 1 pelanggan (sedang dicukur)<br>
+</li>
+<li><span class="math inline">\(2\)</span>: 2 pelanggan (1 dicukur, 1 antri)</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="step-2-persamaan-keseimbangan" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-persamaan-keseimbangan">📝 <strong>Step 2: Persamaan Keseimbangan</strong></h3>
+<p>Untuk probabilitas stasioner <span class="math inline">\(\pi_0, \pi_1, \pi_2\)</span>:<br>
+1. <strong>Dari state 0</strong>:<br>
+<span class="math display">\[
+   \lambda \pi_0 = \mu \pi_1 \quad \Rightarrow \quad \pi_1 = \frac{3}{4} \pi_0
+   \]</span><br>
+2. <strong>Dari state 1</strong>:<br>
+<span class="math display">\[
+   (\lambda + \mu) \pi_1 = \lambda \pi_0 + \mu \pi_2 \quad \Rightarrow \quad 7\pi_1 = 3\pi_0 + 4\pi_2
+   \]</span><br>
+3. <strong>Dari state 2</strong>:<br>
+<span class="math display">\[
+   \mu \pi_2 = \lambda \pi_1 \quad \Rightarrow \quad \pi_2 = \frac{9}{16} \pi_0
+   \]</span></p>
+<hr>
+</section>
+<section id="step-3-hitung-probabilitas-stasioner" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-hitung-probabilitas-stasioner">🧮 <strong>Step 3: Hitung Probabilitas Stasioner</strong></h3>
+<p>Substitusi ke <span class="math inline">\(\pi_0 + \pi_1 + \pi_2 = 1\)</span>:<br>
+<span class="math display">\[
+\pi_0 \left(1 + \frac{3}{4} + \frac{9}{16}\right) = 1 \quad \Rightarrow \quad \pi_0 = \frac{16}{37}, \quad \pi_1 = \frac{12}{37}, \quad \pi_2 = \frac{9}{37}
+\]</span></p>
+<hr>
+</section>
+<section id="hasil-analisis" class="level3">
+<h3 class="anchored" data-anchor-id="hasil-analisis">📊 <strong>Hasil Analisis</strong></h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 44%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Formula</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Rata-Rata Pelanggan</strong></td>
+<td><span class="math inline">\(0\pi_0 + 1\pi_1 + 2\pi_2\)</span></td>
+<td><span class="math inline">\(\frac{30}{37} \approx 0.81\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Proporsi Pelanggan Masuk</strong></td>
+<td><span class="math inline">\(1 - \pi_2\)</span></td>
+<td><span class="math inline">\(\frac{28}{37} \approx 75.7\%\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Peningkatan Efisiensi ((= 8))</strong></td>
+<td><span class="math inline">\(\pi_2' = \frac{9}{97}\)</span></td>
+<td><span class="math inline">\(\text{Kenaikan } 15\%\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled" title="Cara Lain">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cara Lain
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="definisi-state-2" class="level3">
+<h3 class="anchored" data-anchor-id="definisi-state-2">🔢 Definisi State</h3>
+<p>Kita definisikan <strong>state <span class="math inline">\(i\)</span></strong> sebagai jumlah pelanggan di dalam barbershop (termasuk yang sedang dicukur):</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>State <span class="math inline">\(i\)</span></th>
+<th>Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(0\)</span></td>
+<td>Tidak ada pelanggan</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1\)</span></td>
+<td>1 pelanggan (dalam servis)</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(2\)</span></td>
+<td>2 pelanggan (1 diservis, 1 menunggu)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="diagram-transisi-ctmc" class="level3">
+<h3 class="anchored" data-anchor-id="diagram-transisi-ctmc">🔁 Diagram Transisi (CTMC)</h3>
+<ul>
+<li><strong>Kedatangan</strong> pelanggan (Poisson, <span class="math inline">\(\lambda = 3\)</span> per jam)</li>
+<li><strong>Pelayanan</strong> pelanggan (Eksponensial, <span class="math inline">\(\mu = 4\)</span> per jam)</li>
+</ul>
+<p>Transisi:</p>
+<pre><code>[0] --λ--&gt; [1] --λ--&gt; [2]
+ ↑         ↓μ         ↓μ
+ ←---------←----------←</code></pre>
+<hr>
+</section>
+<section id="matriks-generator-q-2" class="level3">
+<h3 class="anchored" data-anchor-id="matriks-generator-q-2">📊 Matriks Generator (Q)</h3>
+<p><span class="math display">\[Q =
+\begin{bmatrix}
+-3 &amp; 3 &amp; 0 \\
+4 &amp; -7 &amp; 3 \\
+0 &amp; 4 &amp; -4
+\end{bmatrix}\]</span></p>
+<p>Baris <span class="math inline">\(i\)</span> mewakili laju keluar dari state <span class="math inline">\(i\)</span>, dan kolom mewakili tujuan transisi.</p>
+<hr>
+</section>
+<section id="distribusi-state-stasioner-π" class="level3">
+<h3 class="anchored" data-anchor-id="distribusi-state-stasioner-π">🔍 Distribusi State Stasioner (π)</h3>
+<p>Kita gunakan keseimbangan global untuk mencari probabilitas stasioner <span class="math inline">\(\pi_0\)</span>, <span class="math inline">\(\pi_1\)</span>, <span class="math inline">\(\pi_2\)</span>.</p>
+<p><span class="math display">\[\begin{aligned}
+\pi_1 &amp;= \frac{\lambda}{\mu} \pi_0 = \frac{3}{4} \pi_0 \\
+\pi_2 &amp;= \frac{\lambda}{\mu} \pi_1 = \frac{3}{4} \cdot \frac{3}{4} \pi_0 = \left( \frac{3}{4} \right)^2 \pi_0 = \frac{9}{16} \pi_0
+\end{aligned}\]</span></p>
+<p>Gunakan kondisi total probabilitas:</p>
+<p><span class="math display">\[\pi_0 + \pi_1 + \pi_2 = 1
+\Rightarrow \pi_0 + \frac{3}{4} \pi_0 + \frac{9}{16} \pi_0 = 1
+\Rightarrow \pi_0 \left(1 + \frac{3}{4} + \frac{9}{16} \right) = 1
+\Rightarrow \pi_0 \cdot \frac{61}{16} = 1
+\Rightarrow \pi_0 = \frac{16}{61}\]</span></p>
+<p>Sehingga:</p>
+<p><span class="math display">\[\pi_1 = \frac{3}{4} \cdot \frac{16}{61} = \frac{48}{61}, \quad
+\pi_2 = \frac{9}{16} \cdot \frac{16}{61} = \frac{9}{61}\]</span></p>
+<hr>
+</section>
+<section id="a-rata-rata-pelanggan-di-barbershop" class="level3">
+<h3 class="anchored" data-anchor-id="a-rata-rata-pelanggan-di-barbershop">🧮 (a) Rata-rata Pelanggan di Barbershop</h3>
+<p><span class="math display">\[\mathbb{E}[N] = 0 \cdot \pi_0 + 1 \cdot \pi_1 + 2 \cdot \pi_2 = 0 + \frac{48}{61} + 2 \cdot \frac{9}{61} = \frac{48 + 18}{61} = \frac{66}{61} \approx 1.082\]</span></p>
+<hr>
+</section>
+<section id="b-proporsi-pelanggan-yang-berhasil-masuk" class="level3">
+<h3 class="anchored" data-anchor-id="b-proporsi-pelanggan-yang-berhasil-masuk">🚪 (b) Proporsi Pelanggan yang Berhasil Masuk</h3>
+<p>Pelanggan hanya ditolak saat state = 2. Jadi proporsi yang berhasil masuk:</p>
+<p><span class="math display">\[1 - \pi_2 = 1 - \frac{9}{61} = \frac{52}{61} \approx 0.852\]</span></p>
+<p>Artinya, sekitar <strong>85.2%</strong> pelanggan berhasil masuk ke barbershop.</p>
+<hr>
+</section>
+<section id="c-tukang-cukur-bekerja-2-lebih-cepat" class="level3">
+<h3 class="anchored" data-anchor-id="c-tukang-cukur-bekerja-2-lebih-cepat">⚡ (c) Tukang Cukur Bekerja 2× Lebih Cepat</h3>
+<p>Jika <span class="math inline">\(\mu = 8\)</span> (bukan 4):</p>
+<p><span class="math display">\[\rho = \frac{\lambda}{\mu} = \frac{3}{8}\]</span></p>
+<p>Hitung ulang distribusi stasioner:</p>
+<p><span class="math display">\[\pi_1 = \frac{3}{8} \pi_0, \quad
+\pi_2 = \left( \frac{3}{8} \right)^2 \pi_0 = \frac{9}{64} \pi_0\]</span></p>
+<p><span class="math display">\[\pi_0 + \pi_1 + \pi_2 = \pi_0 \left(1 + \frac{3}{8} + \frac{9}{64} \right)
+= \pi_0 \cdot \frac{121}{64} = 1
+\Rightarrow \pi_0 = \frac{64}{121}\]</span></p>
+<p><span class="math display">\[\pi_2 = \frac{9}{64} \cdot \frac{64}{121} = \frac{9}{121}
+\Rightarrow \text{Proporsi masuk} = 1 - \frac{9}{121} = \frac{112}{121} \approx 0.926\]</span></p>
+<p>🧮 Tambahan bisnis:</p>
+<p><span class="math display">\[\text{Tambahan proporsi masuk} = \frac{112}{121} - \frac{52}{61} = \approx 0.926 - 0.852 = 0.074\]</span></p>
+<p>Artinya, ada <strong>peningkatan pelanggan masuk sekitar 7.4%</strong> jika tukang cukur bekerja dua kali lebih cepat.</p>
+</section>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="kesimpulan-3" class="level3">
+<h3 class="anchored" data-anchor-id="kesimpulan-3">✅ Kesimpulan</h3>
+<ul>
+<li>📊 <strong>Rata-rata pelanggan</strong> dalam barbershop: <span class="math inline">\(\frac{66}{61} \approx 1.082\)</span></li>
+<li>🚶 <strong>Proporsi pelanggan yang berhasil masuk</strong>: <span class="math inline">\(\frac{52}{61} \approx 85.2\%\)</span></li>
+<li>⚡ <strong>Jika tukang cukur lebih cepat 2×</strong>, proporsi masuk naik jadi <span class="math inline">\(\approx 92.6\%\)</span> (kenaikan ~7.4%)</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

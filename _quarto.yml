@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: docs
+  output-dir: .
 
 execute:
   freeze: auto
@@ -16,7 +16,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: lux
     toc: true
 
 
