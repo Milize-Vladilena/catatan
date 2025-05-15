@@ -187,6 +187,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><a href="#config-list">config git</a></li>
 <li><a href="#credential">ubah credential</a></li>
+<li><a href="#ssh">SSH</a></li>
 </ul>
 <section id="config-list" class="level1">
 <h1>Konfigurasi git</h1>
@@ -298,7 +299,7 @@ Tip
 </ul>
 <section id="first-time" class="level2">
 <h2 class="anchored" data-anchor-id="first-time">Buat SSH</h2>
-<p>untuk id_rsa yang gw buat sendiri ada <a href="#drive">disini</a>.</p>
+<p>untuk id_rsa yang gw buat sendiri ada <a href="https://docs.google.com/spreadsheets/d/1Cm55CbQbNOU4ntrPuUG2iq8lVx-V2mU41PkJre_pwqw/edit?gid=0#gid=0">disini</a>.</p>
 <section id="buat-keygen" class="level3">
 <h3 class="anchored" data-anchor-id="buat-keygen">Buat keygen</h3>
 <p>akun pertama</p>
@@ -317,8 +318,8 @@ Tip
 </div>
 <p>sekarang punya dua SSH key</p>
 <ul>
-<li><p><code>~/.ssh/[id_rsa](#drive)_main</code> dan <code>[id_rsa](#drive)_main.pub</code></p></li>
-<li><p><code>~/.ssh/[id_rsa](#drive)_alt</code> dan <code>[id_rsa](#drive)_alt.pub</code></p></li>
+<li><p><code>~/.ssh/[id_rsa](https://docs.google.com/spreadsheets/d/1Cm55CbQbNOU4ntrPuUG2iq8lVx-V2mU41PkJre_pwqw/edit?gid=0#gid=0)_main</code> dan <code>[id_rsa](https://docs.google.com/spreadsheets/d/1Cm55CbQbNOU4ntrPuUG2iq8lVx-V2mU41PkJre_pwqw/edit?gid=0#gid=0)_main.pub</code></p></li>
+<li><p><code>~/.ssh/[id_rsa](https://docs.google.com/spreadsheets/d/1Cm55CbQbNOU4ntrPuUG2iq8lVx-V2mU41PkJre_pwqw/edit?gid=0#gid=0)_alt</code> dan <code>[id_rsa](https://docs.google.com/spreadsheets/d/1Cm55CbQbNOU4ntrPuUG2iq8lVx-V2mU41PkJre_pwqw/edit?gid=0#gid=0)_alt.pub</code></p></li>
 </ul>
 </section>
 <section id="add-public-key" class="level3">
@@ -411,7 +412,7 @@ Tip
 <div class="sourceCode" id="cb17" data-filename="bash"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github-alt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>kalau sukes akan muncul</p>
-<pre><code>Hi username! You've successfully authenticated...</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>Hi username! You've successfully authenticated...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>untuk setiap repo, set user github yang tepat.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -446,6 +447,7 @@ Tip
 <div class="sourceCode" id="cb21" data-filename="bash"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>eval "$(ssh-agent -s)"</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>ssh-add ~/.ssh/id_rsa_main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><a href="https://docs.google.com/spreadsheets/d/1Cm55CbQbNOU4ntrPuUG2iq8lVx-V2mU41PkJre_pwqw/edit?gid=0#gid=0">id_rsa</a>nya ada di sini.</p>
 <p>Kemudian masukkan passphrase saat diminta. Setelah itu, Git bisa pakai SSH key-nya selama sesi terminal itu masih aktif.</p>
 </section>
 <section id="masukin-github" class="level2">
@@ -471,7 +473,7 @@ Tip
 <pre class="mardown" data-filename="bash"><code>cat ~/.ssh/id_rsa_main.pub</code></pre>
 </div>
 <p>Salin hasilnya (mulai dari <code>ssh-rsa</code> …) dan:</p>
-<p>Masuk ke akun GitHub pertama (sesuai <a href="#drive">id_rsa</a>_main)</p>
+<p>Masuk ke akun GitHub pertama (sesuai <a href="https://docs.google.com/spreadsheets/d/1Cm55CbQbNOU4ntrPuUG2iq8lVx-V2mU41PkJre_pwqw/edit?gid=0#gid=0">id_rsa</a>_main)</p>
 <p>Buka: GitHub → Settings → <strong>SSH and GPG Keys</strong> → <strong>New SSH key</strong></p>
 <p>Beri nama misal <code>Laptop - SSH</code></p>
 <p>Paste public key tadi → <strong>Save</strong></p>
