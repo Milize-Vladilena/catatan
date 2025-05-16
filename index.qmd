@@ -1,6 +1,16 @@
 ---
 title: "Cek Bawah 👇🏼"
 format: html
+listing:
+  contents: src
+  sort: "date desc"
+  type: default
+  fields: [date, title, subtitle, author, description, reading-time]
+  categories: true
+  sort-ui: true
+  filter-ui: true
+page-layout: full
+title-block-banner: true
 ---
 
 - [Rantai Markov Waktu Kontinu](src/modstok/rantai-markov-waktu-kontinu.qmd)
@@ -12,3 +22,8 @@ format: html
 
 - Git
   - [git](src/git/git.qmd)
+
+- Metpar
+  - [Sarima](src/metpar/sarima.qmd)
+
+---

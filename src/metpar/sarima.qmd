@@ -1,0 +1,209 @@
+---
+title: Sarima
+date: May 16 2025
+category: metpar
+---
+
+Disini mau belajar model sarima. Detailnya bisa lihat di samping 👉🏼
+
+pdf nya ada di bawah 👇🏼
+
+```{=html}
+<iframe
+  src="https://drive.google.com/file/d/1Kq3sbdj4HtETxW4FnnTS5pxuYANPtaLv/preview"
+  width="100%"
+  height="600"
+  allow="autoplay"
+  style="border: 1px solid #ccc; margin-top: 20px;"
+>Browser Anda tidak mendukung iframe.
+<a href="https://drive.google.com/file/d/1Kq3sbdj4HtETxW4FnnTS5pxuYANPtaLv/view?usp=sharing">Download PDF</a>.
+</iframe>
+```
+
+# Bahasa gw sendiri
+## Review Model Gabungan Autoregressif dan moving average
+
+Dalam analisis deret waktu, model yang menggabungkan komponen autoregressive (AR) dan moving average (MA) dikenal sebagai model **ARMA** dengan orde $(p, q)$, yang didefinisikan sebagai berikut:
+
+$$
+Y_t = \phi_1 Y_{t-1} + \phi_2 Y_{t-2} + \phi_3 Y_{t-3} + \dots + \phi_p Y_{t-p} + e_t - \theta_1 e_{t-1} - \theta_2 e_{t-2} - \dots - \theta_q e_{t-q}
+$$
+
+di mana:
+
+- $Y_t$ adalah nilai deret waktu pada waktu ke-$t$,
+- $e_t$ adalah white noise (kesalahan acak),
+- $\phi_1, \dots, \phi_p$ adalah parameter AR,
+- $\theta_1, \dots, \theta_q$ adalah parameter MA.
+
+Model ini disebut sebagai **ARMA(p, q)**.
+
+---
+
+## Model ARMA(1,1)
+
+Sebagai contoh khusus, kita tinjau model ARMA dengan orde $p = 1$ dan $q = 1$, yaitu:
+
+$$
+Y_t = \phi_1 Y_{t-1} + e_t - \theta_1 e_{t-1}
+$$
+
+Untuk menurunkan (derive) persamaan Yule-Walker yang digunakan untuk mengestimasi parameter AR dalam model ARMA, kita dapat memulai dengan mengambil ekspektasi dari hasil perkalian silang antara $e_t$ dan $Y_t$:
+
+$$
+\begin{aligned}
+E(e_t Y_t) &= E\left[e_t \left(\phi_1 Y_{t-1} + e_t - \theta_1 e_{t-1} \right) \right] \\
+&= \phi_1 E(e_t Y_{t-1}) + E(e_t^2) - \theta_1 E(e_t e_{t-1})
+\end{aligned}
+$$
+
+Dengan asumsi bahwa $e_t$ adalah white noise, maka:
+
+- $E(e_t Y_{t-1}) = 0$, karena $e_t$ tidak berkorelasi dengan masa lalu.
+- $E(e_t^2) = \sigma_e^2$, yaitu varians dari error.
+- $E(e_t e_{t-1}) = 0$, karena white noise tidak berkorelasi dengan lag-nya sendiri.
+
+Sehingga diperoleh:
+
+$$
+E(e_t Y_t) = \sigma_e^2
+$$
+
+Langkah selanjutnya adalah menurunkan persamaan untuk autokovarians dan autokorelasi menggunakan bentuk ekspektasi ini dan sifat stasioneritas.
+
+---
+
+## Catatan Tambahan
+
+- Untuk model **ARMA** yang bersifat stasioner, perlu dipastikan bahwa akar dari karakteristik polinomial AR berada di luar lingkaran satuan.
+- Estimasi parameter biasanya dilakukan melalui metode **Maximum Likelihood Estimation (MLE)** atau **metode momen**, seperti persamaan Yule-Walker untuk komponen AR.
+
+---
+
+## Penurunan Autokovarians dan Autokorelasi untuk ARMA(1,1)
+
+Dari model:
+
+$$
+Y_t = \phi_1 Y_{t-1} + e_t - \theta_1 e_{t-1}
+$$
+
+Asumsikan bahwa prosesnya **stasioner**, maka kita dapat menurunkan autokovarians dan autokorelasi menggunakan sifat ekspektasi dan definisi berikut:
+
+Misalkan:
+
+- $\gamma(h) = \text{Cov}(Y_t, Y_{t-h})$: autokovarians lag-$h$
+- $\rho(h) = \text{Corr}(Y_t, Y_{t-h}) = \frac{\gamma(h)}{\gamma(0)}$: autokorelasi lag-$h$
+
+---
+
+### Autokovarians Lag 0
+
+$$
+\gamma(0) = \text{Var}(Y_t)
+$$
+
+Gunakan model ARMA(1,1):
+
+$$
+Y_t = \phi_1 Y_{t-1} + e_t - \theta_1 e_{t-1}
+$$
+
+Kita cari variansnya:
+
+$$
+\begin{aligned}
+\gamma(0) &= \text{Var}(Y_t) \\
+&= \text{Var}(\phi_1 Y_{t-1} + e_t - \theta_1 e_{t-1}) \\
+&= \phi_1^2 \text{Var}(Y_{t-1}) + \text{Var}(e_t) + \theta_1^2 \text{Var}(e_{t-1}) \\
+&\quad + 2\phi_1 \text{Cov}(Y_{t-1}, e_t) - 2\phi_1 \theta_1 \text{Cov}(Y_{t-1}, e_{t-1}) - 2\theta_1 \text{Cov}(e_t, e_{t-1})
+\end{aligned}
+$$
+
+Gunakan sifat white noise:
+
+- $\text{Var}(e_t) = \sigma_e^2$
+- $\text{Cov}(e_t, e_{t-1}) = 0$
+- $\text{Cov}(Y_{t-1}, e_t) = 0$
+- $\text{Cov}(Y_{t-1}, e_{t-1}) = \sigma_e^2$ (karena $Y_{t-1}$ mengandung $e_{t-1}$)
+
+Sehingga:
+
+$$
+\begin{aligned}
+\gamma(0) &= \phi_1^2 \gamma(0) + \sigma_e^2 + \theta_1^2 \sigma_e^2 - 2\phi_1 \theta_1 \sigma_e^2 \\
+&= \phi_1^2 \gamma(0) + \sigma_e^2(1 + \theta_1^2 - 2\phi_1 \theta_1)
+\end{aligned}
+$$
+
+Pindahkan $\phi_1^2 \gamma(0)$ ke sisi kiri:
+
+$$
+\gamma(0)(1 - \phi_1^2) = \sigma_e^2(1 + \theta_1^2 - 2\phi_1 \theta_1)
+$$
+
+Sehingga:
+
+$$
+\gamma(0) = \frac{\sigma_e^2 (1 + \theta_1^2 - 2\phi_1 \theta_1)}{1 - \phi_1^2}
+$$
+
+---
+
+### Autokovarians Lag 1
+
+Gunakan definisi:
+
+$$
+\gamma(1) = E[(Y_t - \mu)(Y_{t-1} - \mu)] = E[Y_t Y_{t-1}] \quad \text{(karena } \mu = 0)
+$$
+
+Gunakan model:
+
+$$
+Y_t = \phi_1 Y_{t-1} + e_t - \theta_1 e_{t-1}
+$$
+
+Maka:
+
+$$
+\begin{aligned}
+\gamma(1) &= E[(\phi_1 Y_{t-1} + e_t - \theta_1 e_{t-1}) Y_{t-1}] \\
+&= \phi_1 E[Y_{t-1}^2] + E[e_t Y_{t-1}] - \theta_1 E[e_{t-1} Y_{t-1}]
+\end{aligned}
+$$
+
+Dengan:
+
+- $E[Y_{t-1}^2] = \gamma(0)$
+- $E[e_t Y_{t-1}] = 0$
+- $E[e_{t-1} Y_{t-1}] = \sigma_e^2$
+
+Maka:
+
+$$
+\gamma(1) = \phi_1 \gamma(0) - \theta_1 \sigma_e^2
+$$
+
+---
+
+### Autokorelasi Lag 1
+
+Gunakan definisi:
+
+$$
+\rho(1) = \frac{\gamma(1)}{\gamma(0)} = \phi_1 - \theta_1 \frac{\sigma_e^2}{\gamma(0)}
+$$
+
+Dengan nilai $\gamma(0)$ yang telah diperoleh sebelumnya, kita bisa hitung eksplisit.
+
+---
+
+Kalau kamu mau, kita bisa lanjut ke:
+
+- Autokovarians lag $h$ secara umum,
+- Plot ACF/PACF dari ARMA(1,1),
+- Atau masuk ke ARIMA dengan differencing.
+
+Tinggal bilang saja!
+

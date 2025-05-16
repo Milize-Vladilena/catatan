@@ -1,6 +1,6 @@
 ---
 title: "📝 CTMC"
-format: html
+date: May 12 2025
 ---
 
 Program Studi: S1 Statistika / S1 Aktuaria  

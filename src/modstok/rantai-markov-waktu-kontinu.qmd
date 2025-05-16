@@ -1,6 +1,6 @@
 ---
 title: "rantai-markov-waktu-kontinu"
-format: html
+date: May 11 2025
 ---
 
 Diskrit v.s. Kontinu

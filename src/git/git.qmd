@@ -1,5 +1,6 @@
 ---
 title: Git
+date: May 13 2025
 ---
 
 ini akan berguna ke depannya
