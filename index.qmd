@@ -5,7 +5,7 @@ listing:
   contents: src
   sort: "date desc"
   type: default
-  fields: [date, title, subtitle, author, description, reading-time, category]
+  fields: [date, title, subtitle, author, description, reading-time, categories]
   categories: true
   sort-ui: true
   filter-ui: true
@@ -25,5 +25,8 @@ title-block-banner: true
 
 - Metpar
   - [Sarima](src/metpar/sarima.qmd)
+
+
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Favatarfiles.alphacoders.com%2F326%2F326127.png&f=1&nofb=1&ipt=765d28fd40e17c20c5f0561a2cf74b693ce45a0f46bf2fde86bbb677a6a3e934){width="20%"}
 
 ---

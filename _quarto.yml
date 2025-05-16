@@ -12,6 +12,8 @@ website:
   navbar:
     search: true
 
+lightbox: true
+
 
 format:
   html:
