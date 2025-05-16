@@ -5,7 +5,7 @@ listing:
   contents: src
   sort: "date desc"
   type: default
-  fields: [date, title, subtitle, author, description, reading-time]
+  fields: [date, title, subtitle, author, description, reading-time, category]
   categories: true
   sort-ui: true
   filter-ui: true
