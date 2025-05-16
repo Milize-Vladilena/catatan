@@ -1,7 +1,7 @@
 ---
 title: Sarima
 date: May 16 2025
-category: metpar
+categories: [metpar, kuliah]
 ---
 
 Disini mau belajar model sarima. Detailnya bisa lihat di samping 👉🏼

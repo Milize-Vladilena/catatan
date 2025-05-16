@@ -1,6 +1,7 @@
 ---
 title: "rantai-markov-waktu-kontinu"
 date: May 11 2025
+categories: [modstok, kuliah]
 ---
 
 Diskrit v.s. Kontinu

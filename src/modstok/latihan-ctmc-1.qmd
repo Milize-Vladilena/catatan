@@ -1,6 +1,7 @@
 ---
 title: "📝 CTMC"
 date: May 12 2025
+categories: [modstok, kuliah]
 ---
 
 Program Studi: S1 Statistika / S1 Aktuaria  

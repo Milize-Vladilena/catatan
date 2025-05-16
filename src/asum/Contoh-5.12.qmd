@@ -1,6 +1,7 @@
 ---
 title: "Contoh-5.12"
 date: May 15 2025
+categories: [asum, kuliah]
 ---
 
 ### 📘 Example 5.12 from the Book

@@ -1,6 +1,7 @@
 ---
 title: Git
 date: May 13 2025
+categories: [coding, self-learning]
 ---
 
 ini akan berguna ke depannya
