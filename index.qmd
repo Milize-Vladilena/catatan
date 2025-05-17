@@ -61,13 +61,13 @@ Dibangun dengan ❤️ + ☕ + 🎧 `#NoCodeJustVibes`</small>
 
 [🎮 Main Game](javascript:void(0)) // soon, sementara link dummy
 
-### 🎯 Target Bulan ini
+### 😊 Mood Meter
+Hari Ini: `🌤️`  
+Minggu Ini: `🌧️ -> 🌈`
+
+## 🎯 Target Bulan ini
 - [ ] ▫️ Modstok  
 - [ ] ▫️ Metpar  
 - [ ] ▫️ Machine Learning
 
-## 😊 Mood Meter
-Hari Ini: `🌤️`  
-Minggu Ini: `🌧️ -> 🌈`
-
-## Post 📫
+## 📫 Post 
