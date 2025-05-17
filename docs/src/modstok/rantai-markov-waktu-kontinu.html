@@ -176,7 +176,8 @@ Bahasa Inggrisnya
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<section id="the-transition-probability-function-p_ijt" class="level2 callout-body-container callout-body">
+<div class="callout-body-container callout-body">
+<section id="the-transition-probability-function-p_ijt" class="level2">
 <h2 class="anchored" data-anchor-id="the-transition-probability-function-p_ijt">6.4 The Transition Probability Function <span class="math inline">\(P_{ij}(t)\)</span></h2>
 <p>Let<br>
 <span class="math display">\[P_{ij}(t) = \mathbb{P}\{X(t + s) = j \mid X(s) = i\}\]</span><br>
@@ -370,7 +371,579 @@ P_{ij}(h + t) - P_{ij}(t) = \sum_{k \ne i} P_{ik}(h) P_{kj}(t) - [1 - P_{ii}(h)]
 \]</span></p>
 <p>It turns out that this interchange can indeed be justified, and hence…</p>
 </section>
+<section id="theorem-6.1-kolmogorovs-backward-equations" class="level3">
+<h3 class="anchored" data-anchor-id="theorem-6.1-kolmogorovs-backward-equations">Theorem 6.1 (Kolmogorov’s Backward Equations)</h3>
+<p>For all states <span class="math inline">\(i, j\)</span>, and times <span class="math inline">\(t \geq 0\)</span>, <span class="math display">\[
+\frac{d}{dt} P_{ij}(t) = \sum_{k \ne i} q_{ik} P_{kj}(t) - \nu_i P_{ij}(t)
+\]</span></p>
+<hr>
 </section>
+<section id="example-6.10" class="level3">
+<h3 class="anchored" data-anchor-id="example-6.10">Example 6.10</h3>
+<p><strong>The backward equations for the pure birth process become:</strong> <span class="math display">\[
+\frac{d}{dt} P_{ij}(t) = \lambda_i P_{i+1,j}(t) - \lambda_i P_{ij}(t)
+\]</span></p>
+<p><strong>The backward equations for the birth and death process become:</strong></p>
+<p>For <span class="math inline">\(i = 0\)</span>: <span class="math display">\[
+\frac{d}{dt} P_{0j}(t) = \lambda_0 [P_{1j}(t) - P_{0j}(t)]
+\]</span></p>
+<p>For <span class="math inline">\(i &gt; 0\)</span>: <span class="math display">\[
+\frac{d}{dt} P_{ij}(t) = \lambda_i P_{i+1,j}(t) + \mu_i P_{i-1,j}(t) - (\lambda_i + \mu_i) P_{ij}(t) \tag{6.9}
+\]</span></p>
+<hr>
+</section>
+<section id="example-6.11-a-continuous-time-markov-chain-consisting-of-two-states" class="level3">
+<h3 class="anchored" data-anchor-id="example-6.11-a-continuous-time-markov-chain-consisting-of-two-states">Example 6.11 (A Continuous-Time Markov Chain Consisting of Two States)</h3>
+<p>Consider a machine that works for an exponential amount of time with mean <span class="math inline">\(1/\lambda\)</span> before breaking down; and suppose that it takes an exponential amount of time with mean <span class="math inline">\(1/\mu\)</span> to repair the machine.</p>
+<p>Let state 0 = “working”, and state 1 = “under repair”.</p>
+<p><strong>Parameters:</strong> - <span class="math inline">\(\lambda_0 = \lambda\)</span>, <span class="math inline">\(\mu_1 = \mu\)</span> - <span class="math inline">\(\lambda_i = 0\)</span> for <span class="math inline">\(i \ne 0\)</span>, <span class="math inline">\(\mu_i = 0\)</span> for <span class="math inline">\(i \ne 1\)</span></p>
+<p>From the backward equations: - Equation (6.10): <span class="math display">\[
+  \frac{d}{dt} P_{00}(t) = \lambda [P_{10}(t) - P_{00}(t)]
+  \]</span> - Equation (6.11): <span class="math display">\[
+  \frac{d}{dt} P_{10}(t) = \mu P_{00}(t) - \mu P_{10}(t)
+  \]</span></p>
+<p>Multiply (6.10) by <span class="math inline">\(\mu\)</span>, and (6.11) by <span class="math inline">\(\lambda\)</span>, then add: <span class="math display">\[
+\mu \frac{d}{dt} P_{00}(t) + \lambda \frac{d}{dt} P_{10}(t) = 0
+\]</span></p>
+<p>Integrating: <span class="math display">\[
+\mu P_{00}(t) + \lambda P_{10}(t) = \mu \tag{6.12}
+\]</span></p>
+<p>From this, <span class="math display">\[
+\lambda P_{10}(t) = \mu[1 - P_{00}(t)]
+\]</span></p>
+<p>Substitute into (6.10): <span class="math display">\[
+\frac{d}{dt} P_{00}(t) = \mu[1 - P_{00}(t)] - \lambda P_{00}(t) = \mu - (\mu + \lambda) P_{00}(t)
+\]</span></p>
+<p>Let <span class="math inline">\(h(t) = P_{00}(t) - \frac{\mu}{\mu + \lambda}\)</span>, then: <span class="math display">\[
+h'(t) = -(\mu + \lambda) h(t) \Rightarrow h(t) = K e^{-(\mu + \lambda)t}
+\]</span></p>
+<p>Use initial condition <span class="math inline">\(P_{00}(0) = 1\)</span>: <span class="math display">\[
+P_{00}(t) = \frac{\lambda}{\mu + \lambda} e^{-(\mu + \lambda)t} + \frac{\mu}{\mu + \lambda}
+\]</span></p>
+<p>From (6.12), we also get: <span class="math display">\[
+P_{10}(t) = \frac{\mu}{\mu + \lambda} \left(1 - e^{-(\mu + \lambda)t} \right)
+\]</span></p>
+<p>Thus, the probability that the machine is working at time <span class="math inline">\(t = 10\)</span> is: <span class="math display">\[
+P_{00}(10) = \frac{\lambda}{\mu + \lambda} e^{-10(\mu + \lambda)} + \frac{\mu}{\mu + \lambda}
+\]</span></p>
+<hr>
+</section>
+<section id="kolmogorovs-forward-equations" class="level3">
+<h3 class="anchored" data-anchor-id="kolmogorovs-forward-equations">Kolmogorov’s Forward Equations</h3>
+<p>From the Chapman–Kolmogorov equations: <span class="math display">\[
+P_{ij}(t + h) - P_{ij}(t) = \sum_{k \ne j} P_{ik}(t) P_{kj}(h) - [1 - P_{jj}(h)] P_{ij}(t)
+\]</span></p>
+<p>Divide by <span class="math inline">\(h\)</span> and take the limit: <span class="math display">\[
+\frac{d}{dt} P_{ij}(t) = \sum_{k \ne j} q_{kj} P_{ik}(t) - \nu_j P_{ij}(t)
+\]</span></p>
+<p>This leads to the next theorem.</p>
+<hr>
+</section>
+<section id="theorem-6.2-kolmogorovs-forward-equations" class="level3">
+<h3 class="anchored" data-anchor-id="theorem-6.2-kolmogorovs-forward-equations">Theorem 6.2 (Kolmogorov’s Forward Equations)</h3>
+<p>Under suitable regularity conditions, <span class="math display">\[
+\frac{d}{dt} P_{ij}(t) = \sum_{k \ne j} q_{kj} P_{ik}(t) - \nu_j P_{ij}(t) \tag{6.13}
+\]</span></p>
+<hr>
+<p>We now solve the forward equations for the <strong>pure birth process</strong>. For this case, (6.13) becomes: <span class="math display">\[
+\frac{d}{dt} P_{ij}(t) = \lambda_{j-1} P_{i,j-1}(t) - \lambda_j P_{ij}(t)
+\]</span></p>
+<p>Since <span class="math inline">\(P_{ij}(t) = 0\)</span> when <span class="math inline">\(j &lt; i\)</span>, we can write: <span class="math display">\[
+\frac{d}{dt} P_{ii}(t) = -\lambda_i P_{ii}(t) \\
+\frac{d}{dt} P_{ij}(t) = \lambda_{j-1} P_{i,j-1}(t) - \lambda_j P_{ij}(t), \quad j \ge i+1 \tag{6.14}
+\]</span></p>
+<hr>
+</section>
+<section id="proposition-6.4" class="level3">
+<h3 class="anchored" data-anchor-id="proposition-6.4">Proposition 6.4</h3>
+<p>For a pure birth process: <span class="math display">\[
+P_{ii}(t) = e^{-\lambda_i t}, \quad i \ge 0
+\]</span> <span class="math display">\[
+P_{ij}(t) = \lambda_{j-1} e^{-\lambda_j t} \int_0^t e^{\lambda_j s} P_{i,j-1}(s) \, ds, \quad j \ge i + 1
+\]</span></p>
+<p><strong>Proof sketch:</strong> Integrate both sides of (6.14) using the integrating factor <span class="math inline">\(e^{\lambda_j t}\)</span> and initial condition <span class="math inline">\(P_{ij}(0) = 0\)</span>.</p>
+<hr>
+</section>
+<section id="example-6.12-forward-equations-for-birth-and-death-process" class="level3">
+<h3 class="anchored" data-anchor-id="example-6.12-forward-equations-for-birth-and-death-process">Example 6.12 (Forward Equations for Birth and Death Process)</h3>
+<p>Using Eq. (6.13), for the birth-death process we get:</p>
+<p>For <span class="math inline">\(j = 0\)</span>: <span class="math display">\[
+\frac{d}{dt} P_{i0}(t) = \mu_1 P_{i1}(t) - \lambda_0 P_{i0}(t) \tag{6.15}
+\]</span></p>
+<p>For <span class="math inline">\(j \ge 1\)</span>: <span class="math display">\[
+\frac{d}{dt} P_{ij}(t) = \lambda_{j-1} P_{i,j-1}(t) + \mu_{j+1} P_{i,j+1}(t) - (\lambda_j + \mu_j) P_{ij}(t) \tag{6.16}
+\]</span></p>
+</section>
+</section>
+<section id="limiting-probabilities" class="level2">
+<h2 class="anchored" data-anchor-id="limiting-probabilities">6.5 Limiting Probabilities</h2>
+<p>In analogy with a basic result in discrete-time Markov chains, the probability that a continuous-time Markov chain will be in state <span class="math inline">\(j\)</span> at time <span class="math inline">\(t\)</span> often converges to a limiting value that is independent of the initial state. That is, if we call this value <span class="math inline">\(P_j\)</span>, then <span class="math display">\[
+P_j \equiv \lim_{t \to \infty} P_{ij}(t)
+\]</span> where we assume the limit exists and is independent of the initial state <span class="math inline">\(i\)</span>.</p>
+<p>To derive a set of equations for the <span class="math inline">\(P_j\)</span>, consider the forward equations: <span class="math display">\[
+\frac{d}{dt} P_{ij}(t) = \sum_{k \ne j} q_{kj} P_{ik}(t) - \nu_j P_{ij}(t) \tag{6.17}
+\]</span></p>
+<p>Letting <span class="math inline">\(t \to \infty\)</span> and assuming we can interchange the limit and summation: <span class="math display">\[
+\lim_{t \to \infty} \frac{d}{dt} P_{ij}(t) = \sum_{k \ne j} q_{kj} P_k - \nu_j P_j
+\]</span></p>
+<p>But since <span class="math inline">\(P_{ij}(t)\)</span> is a bounded function, its derivative must converge to 0: <span class="math display">\[
+0 = \sum_{k \ne j} q_{kj} P_k - \nu_j P_j
+\]</span></p>
+<p>That is, <span class="math display">\[
+\nu_j P_j = \sum_{k \ne j} q_{kj} P_k, \quad \text{for all states } j \tag{6.18}
+\]</span></p>
+<p>Along with the normalization condition: <span class="math display">\[
+\sum_j P_j = 1 \tag{6.19}
+\]</span></p>
+<p>This system can be used to solve for the limiting probabilities.</p>
+<hr>
+<p><strong>Remarks:</strong></p>
+<ol type="i">
+<li>We have assumed that the limiting probabilities <span class="math inline">\(P_j\)</span> exist. A sufficient condition is:</li>
+</ol>
+<ul>
+<li><ol type="a">
+<li>All states communicate (i.e., from any state <span class="math inline">\(i\)</span> there’s positive probability of reaching any <span class="math inline">\(j\)</span>).</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>The chain is positive recurrent (the mean return time to any state is finite).</li>
+</ol></li>
+</ul>
+<p>If (a) and (b) hold, then <span class="math inline">\(P_j\)</span> exists, satisfies (6.18) and (6.19), and <span class="math inline">\(P_j\)</span> also represents the long-run proportion of time spent in state <span class="math inline">\(j\)</span>.</p>
+<ol start="2" type="i">
+<li>Eq. (6.18) has a <strong>balance equation</strong> interpretation:<br>
+In the long run, the rate at which transitions <strong>enter</strong> state <span class="math inline">\(j\)</span> equals the rate at which transitions <strong>leave</strong> state <span class="math inline">\(j\)</span>:</li>
+</ol>
+<ul>
+<li>Rate leaving state <span class="math inline">\(j\)</span>: <span class="math inline">\(\nu_j P_j\)</span></li>
+<li>Rate entering from <span class="math inline">\(k\)</span>: <span class="math inline">\(q_{kj} P_k\)</span> Thus: <span class="math display">\[
+\sum_{k \ne j} q_{kj} P_k = \nu_j P_j
+\]</span></li>
+</ul>
+<hr>
+<section id="limiting-probabilities-for-a-birth-and-death-process" class="level3">
+<h3 class="anchored" data-anchor-id="limiting-probabilities-for-a-birth-and-death-process">Limiting Probabilities for a Birth and Death Process</h3>
+<p>From (6.18), or by balancing rate in = rate out, we obtain:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>State</th>
+<th>Leave rate = Enter rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td><span class="math inline">\(\lambda_0 P_0 = \mu_1 P_1\)</span></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td><span class="math inline">\((\lambda_1 + \mu_1) P_1 = \mu_2 P_2 + \lambda_0 P_0\)</span></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td><span class="math inline">\((\lambda_2 + \mu_2) P_2 = \mu_3 P_3 + \lambda_1 P_1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Adding each equation to the previous yields: <span class="math display">\[
+\lambda_0 P_0 = \mu_1 P_1 \\
+\lambda_1 P_1 = \mu_2 P_2 \\
+\lambda_2 P_2 = \mu_3 P_3 \\
+\vdots
+\]</span></p>
+<p>Solving recursively in terms of <span class="math inline">\(P_0\)</span>: <span class="math display">\[
+P_1 = \frac{\lambda_0}{\mu_1} P_0 \\
+P_2 = \frac{\lambda_1}{\mu_2} P_1 = \frac{\lambda_1 \lambda_0}{\mu_2 \mu_1} P_0 \\
+\cdots \\
+P_n = \frac{\lambda_0 \lambda_1 \cdots \lambda_{n-1}}{\mu_1 \mu_2 \cdots \mu_n} P_0
+\]</span></p>
+<p>Using normalization <span class="math inline">\(\sum_{n=0}^\infty P_n = 1\)</span>: <span class="math display">\[
+P_0 = \left( 1 + \sum_{n=1}^\infty \frac{\lambda_0 \lambda_1 \cdots \lambda_{n-1}}{\mu_1 \mu_2 \cdots \mu_n} \right)^{-1}
+\]</span></p>
+<p>So: <span class="math display">\[
+P_n = \frac{\lambda_0 \cdots \lambda_{n-1}}{\mu_1 \cdots \mu_n} P_0, \quad n \ge 1 \tag{6.20}
+\]</span></p>
+<p><strong>Existence condition:</strong><br>
+The limiting probabilities exist if: <span class="math display">\[
+\sum_{n=1}^\infty \frac{\lambda_0 \cdots \lambda_{n-1}}{\mu_1 \cdots \mu_n} &lt; \infty \tag{6.21}
+\]</span></p>
+<hr>
+</section>
+<section id="examples" class="level3">
+<h3 class="anchored" data-anchor-id="examples">Examples:</h3>
+<p><strong>Multiserver Exponential Queue (Example 6.6):</strong></p>
+<p>Condition (6.21) reduces to: <span class="math display">\[
+\sum_{n=s+1}^\infty \frac{\lambda^n}{(s\mu)^n} &lt; \infty
+\quad \Rightarrow \quad \lambda &lt; s\mu
+\]</span></p>
+<hr>
+<p><strong>Linear Growth Model with Immigration (Example 6.4):</strong></p>
+<p>Condition (6.21) becomes: <span class="math display">\[
+\sum_{n=1}^\infty \frac{\theta(\theta + \lambda) \cdots (\theta + (n - 1)\lambda)}{n! \mu^n}
+\]</span></p>
+<p>Apply ratio test: <span class="math display">\[
+\lim_{n \to \infty} \frac{\theta + n\lambda}{(n + 1)\mu} = \frac{\lambda}{\mu} &lt; 1
+\quad \Rightarrow \text{Converges if } \lambda &lt; \mu
+\]</span></p>
+<hr>
+</section>
+<section id="example-6.13-machine-repair-model" class="level3">
+<h3 class="anchored" data-anchor-id="example-6.13-machine-repair-model">Example 6.13 (Machine Repair Model)</h3>
+<ul>
+<li><span class="math inline">\(M\)</span> machines, one repairman</li>
+<li>Time to fail: <span class="math inline">\(\text{Exp}(1/\lambda)\)</span>, repair time: <span class="math inline">\(\text{Exp}(1/\mu)\)</span></li>
+<li>Let state <span class="math inline">\(n\)</span> be the number of failed machines</li>
+</ul>
+<p>Parameters: - <span class="math inline">\(\mu_n = \mu\)</span>, <span class="math inline">\(n \ge 1\)</span> - <span class="math inline">\(\lambda_n = (M - n)\lambda\)</span>, <span class="math inline">\(n \le M\)</span>; <span class="math inline">\(\lambda_n = 0\)</span> otherwise</p>
+<p>From (6.20): - <span class="math inline">\(P_0 = \left(1 + \sum_{n=1}^M \frac{(M\lambda)(M-1)\lambda \cdots (M - n + 1)\lambda}{\mu^n} \right)^{-1}\)</span> - Simplifies to: <span class="math display">\[
+  P_0 = \left(1 + \sum_{n=1}^M \frac{(\lambda/\mu)^n M!}{(M - n)!} \right)^{-1}
+  \]</span> <span class="math display">\[
+  P_n = \frac{(\lambda/\mu)^n M!}{(M - n)!} \cdot P_0, \quad n = 0, \dots, M
+  \]</span></p>
+<p><strong>Average number of machines not in use:</strong> <span class="math display">\[
+\sum_{n=0}^M n P_n = \frac{\sum_{n=0}^M n (\lambda/\mu)^n M! / (M - n)!}{1 + \sum_{n=1}^M (\lambda/\mu)^n M! / (M - n)!} \tag{6.22}
+\]</span></p>
+<p><strong>Proportion of time a given machine is working:</strong> <span class="math display">\[
+1 - \frac{1}{M} \sum_{n=0}^M n P_n
+\]</span></p>
+<hr>
+</section>
+<section id="example-6.14-the-mm1-queue" class="level3">
+<h3 class="anchored" data-anchor-id="example-6.14-the-mm1-queue">Example 6.14 (The M/M/1 Queue)</h3>
+<ul>
+<li><span class="math inline">\(\lambda_n = \lambda\)</span>, <span class="math inline">\(\mu_n = \mu\)</span></li>
+<li>From (6.20): <span class="math display">\[
+P_n = \frac{(\lambda/\mu)^n}{1 + \sum_{k=1}^\infty (\lambda/\mu)^k} = (\lambda/\mu)^n (1 - \lambda/\mu), \quad n \ge 0
+\]</span></li>
+<li>Valid only if <span class="math inline">\(\lambda &lt; \mu\)</span>.</li>
+</ul>
+<hr>
+</section>
+<section id="example-6.15-shoe-shine-shop" class="level3">
+<h3 class="anchored" data-anchor-id="example-6.15-shoe-shine-shop">Example 6.15 (Shoe Shine Shop)</h3>
+<ul>
+<li>3 states: 0, 1, 2 (number of customers)</li>
+<li>Transitions: 2 → 0 possible, not birth-death</li>
+<li>Use balance equations:</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>State</th>
+<th>Leave rate = Enter rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td><span class="math inline">\(\lambda P_0 = \mu_2 P_2\)</span></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td><span class="math inline">\(\mu_1 P_1 = \lambda P_0\)</span></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td><span class="math inline">\(\mu_2 P_2 = \mu_1 P_1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Solve: - <span class="math inline">\(P_1 = \frac{\lambda}{\mu_1} P_0\)</span>, <span class="math inline">\(P_2 = \frac{\lambda}{\mu_2} P_0\)</span></p>
+<p>Normalize: <span class="math display">\[
+P_0 = \frac{\mu_1 \mu_2}{\mu_1 \mu_2 + \lambda (\mu_1 + \mu_2)}
+\]</span></p>
+<p>So: <span class="math display">\[
+P_1 = \frac{\lambda \mu_2}{\mu_1 \mu_2 + \lambda (\mu_1 + \mu_2)}, \quad
+P_2 = \frac{\lambda \mu_1}{\mu_1 \mu_2 + \lambda (\mu_1 + \mu_2)}
+\]</span></p>
+<hr>
+</section>
+<section id="example-6.16-preemptive-repair-with-n-components" class="level3">
+<h3 class="anchored" data-anchor-id="example-6.16-preemptive-repair-with-n-components">Example 6.16 (Preemptive Repair with n Components)</h3>
+<ul>
+<li><span class="math inline">\(n\)</span> components, one repairman</li>
+<li>Each component <span class="math inline">\(i\)</span> fails with rate <span class="math inline">\(\lambda_i\)</span>, repaired with rate <span class="math inline">\(\mu_i\)</span></li>
+<li>Most recent failure is repaired first (preemption allowed)</li>
+<li>State: ordered list of failed components</li>
+</ul>
+<p>Number of states: <span class="math display">\[
+\sum_{k=0}^n \binom{n}{k} k! = n! \sum_{i=0}^n \frac{1}{i!}
+\]</span></p>
+<p>Let <span class="math inline">\(P(i_1, ..., i_k)\)</span> be the steady-state probability of state <span class="math inline">\((i_1, ..., i_k)\)</span>.</p>
+<p>Balance equations: - Exit rate from <span class="math inline">\((i_1, ..., i_k)\)</span>: <span class="math display">\[
+  \mu_{i_1} + \sum_{\substack{i \ne i_j \\ j=1..k}} \lambda_i
+  \]</span> - Entry: - From <span class="math inline">\((i_2, ..., i_k)\)</span> if <span class="math inline">\(i_1\)</span> fails - From <span class="math inline">\((i, i_1, ..., i_k)\)</span> if <span class="math inline">\(i\)</span> (not in list) is repaired</p>
+<p>Let <span class="math display">\[
+P(i_1, ..., i_k) = \frac{\lambda_{i_1} \cdots \lambda_{i_k}}{\mu_{i_1} \cdots \mu_{i_k}} P(\varnothing) \tag{6.24}
+\]</span></p>
+<p>Normalization: <span class="math display">\[
+P(\varnothing) = \left[ 1 + \sum_{i_1,...,i_k} \frac{\lambda_{i_1} \cdots \lambda_{i_k}}{\mu_{i_1} \cdots \mu_{i_k}} \right]^{-1}
+\]</span></p>
+<p><strong>Example with <span class="math inline">\(n = 2\)</span></strong>: states: <span class="math inline">\(\varnothing\)</span>, 1, 2, 12, 21</p>
+<ul>
+<li><span class="math inline">\(P(1) = \frac{\lambda_1}{\mu_1} P(\varnothing)\)</span></li>
+<li><span class="math inline">\(P(2) = \frac{\lambda_2}{\mu_2} P(\varnothing)\)</span></li>
+<li><span class="math inline">\(P(1,2) = P(2,1) = \frac{\lambda_1 \lambda_2}{\mu_1 \mu_2} P(\varnothing)\)</span></li>
+<li>Normalize: <span class="math display">\[
+P(\varnothing) = \left[ 1 + \frac{\lambda_1}{\mu_1} + \frac{\lambda_2}{\mu_2} + 2 \cdot \frac{\lambda_1 \lambda_2}{\mu_1 \mu_2} \right]^{-1}
+\]</span></li>
+</ul>
+<p><strong>Observation</strong>: given the set of failed components, all orderings are equally likely.</p>
+<hr>
+<p>When the limiting probabilities exist, we say the chain is <strong>ergodic</strong>. The <span class="math inline">\(P_j\)</span> are also called <strong>stationary probabilities</strong>, because if the chain starts in state <span class="math inline">\(j\)</span> with probability <span class="math inline">\(P_j\)</span>, then: <span class="math display">\[
+\mathbb{P}(X(t) = j) = P_j, \quad \text{for all } t
+\]</span></p>
+<p><strong>Verification:</strong> Assume initial state distributed as <span class="math inline">\(\{P_j\}\)</span>: <span class="math display">\[
+\mathbb{P}(X(t) = j) = \sum_k P_{kj}(t) P_k = \lim_{s \to \infty} \sum_k P_{kj}(t) P_{ik}(s) = \lim_{s \to \infty} P_{ij}(t + s) = P_j
+\]</span> (by Chapman–Kolmogorov and limit properties)</p>
+</section>
+</section>
+<section id="time-reversibility" class="level2">
+<h2 class="anchored" data-anchor-id="time-reversibility">6.6 Time Reversibility</h2>
+<p>Consider a continuous-time Markov chain that is <strong>ergodic</strong>, and let <span class="math inline">\(P_i\)</span> denote its limiting probabilities. If we ignore the time spent in each state and just look at the <strong>sequence of states visited</strong>, it forms a discrete-time Markov chain (called the <strong>embedded chain</strong>) with transition probabilities <span class="math inline">\(P_{ij}\)</span>. Let <span class="math inline">\(\pi_i\)</span> be the limiting probabilities of this embedded chain, satisfying:</p>
+<p><span class="math display">\[
+\pi_i = \sum_j \pi_j P_{ji}, \quad \sum_i \pi_i = 1
+\]</span></p>
+<p>Since <span class="math inline">\(\pi_i\)</span> is the proportion of <strong>transitions</strong> into state <span class="math inline">\(i\)</span>, and <span class="math inline">\(1/\nu_i\)</span> is the mean time spent in state <span class="math inline">\(i\)</span> per visit, it’s intuitive that <span class="math inline">\(P_i\)</span>, the proportion of <strong>time</strong> in state <span class="math inline">\(i\)</span>, is:</p>
+<p><span class="math display">\[
+P_i = \frac{\pi_i / \nu_i}{\sum_j \pi_j / \nu_j} \tag{6.25}
+\]</span></p>
+<p>This is confirmed via the balance equation: <span class="math display">\[
+\nu_i P_i = \sum_{j \ne i} P_j q_{ji} = \sum_j P_j \nu_j P_{ji}
+\]</span></p>
+<p>Suppose the chain is observed in <strong>steady state</strong>, and we <strong>reverse</strong> time from some time <span class="math inline">\(T\)</span>. The reversed process is also a continuous-time Markov chain, with: - Sojourn times in each state still exponential with rate <span class="math inline">\(\nu_i\)</span> - Transition probabilities: <span class="math display">\[
+Q_{ij} = \frac{\pi_j P_{ji}}{\pi_i}
+\]</span></p>
+<p>Thus, the reversed process has same rates and is <strong>time reversible</strong> if: <span class="math display">\[
+\pi_i P_{ij} = \pi_j P_{ji}, \quad \forall i, j
+\]</span></p>
+<p>Given: <span class="math display">\[
+P_i = \frac{\pi_i / \nu_i}{\sum_j \pi_j / \nu_j}
+\]</span></p>
+<p>This condition becomes: <span class="math display">\[
+P_i q_{ij} = P_j q_{ji} \tag{6.26}
+\]</span></p>
+<p><strong>Interpretation</strong>:<br>
+In time-reversible chains, the <strong>rate</strong> of direct transitions from <span class="math inline">\(i\)</span> to <span class="math inline">\(j\)</span> equals the rate from <span class="math inline">\(j\)</span> to <span class="math inline">\(i\)</span>.</p>
+<hr>
+<section id="proposition-6.5" class="level3">
+<h3 class="anchored" data-anchor-id="proposition-6.5">Proposition 6.5</h3>
+<p><strong>An ergodic birth and death process is time reversible.</strong></p>
+<p><strong>Proof sketch</strong>: In any interval, the number of transitions from <span class="math inline">\(i\)</span> to <span class="math inline">\(i+1\)</span> differs by at most 1 from transitions from <span class="math inline">\(i+1\)</span> to <span class="math inline">\(i\)</span>. Hence, over long time, their rates must be equal.</p>
+<hr>
+</section>
+<section id="corollary-6.6" class="level3">
+<h3 class="anchored" data-anchor-id="corollary-6.6">Corollary 6.6</h3>
+<p><strong>In an M/M/s queue with <span class="math inline">\(\lambda &lt; s\mu\)</span>, the departure process is a Poisson process with rate <span class="math inline">\(\lambda\)</span> (in steady state).</strong></p>
+<p><strong>Reason</strong>: The process is time reversible. In forward time, arrivals are Poisson. So in reverse, “arrivals” are actually departures in forward time ⇒ Poisson.</p>
+<hr>
+</section>
+<section id="example-6.17-queue-occupancy-interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="example-6.17-queue-occupancy-interpretation">Example 6.17 (Queue Occupancy Interpretation)</h3>
+<p>Let C be a customer in an <strong>M/M/1</strong> queue with arrival rate <span class="math inline">\(\lambda\)</span> and service rate <span class="math inline">\(\mu\)</span> (<span class="math inline">\(\lambda &lt; \mu\)</span>). Given that C spends time <span class="math inline">\(t\)</span> in the system, what’s the distribution of the number of others present at their arrival?</p>
+<p><strong>Solution</strong>:<br>
+By reversibility, number of departures in <span class="math inline">\((s, s+t)\)</span> is equal in distribution to number of <strong>arrivals</strong> in that interval in the reversed process. Thus, this number is <strong>Poisson(<span class="math inline">\(\lambda t\)</span>)</strong>.</p>
+</section>
+<section id="proposition-6.7" class="level3">
+<h3 class="anchored" data-anchor-id="proposition-6.7">Proposition 6.7</h3>
+<p>Suppose that an ergodic continuous-time Markov chain has transition rates <span class="math inline">\(q_{ij}\)</span> and limiting probabilities <span class="math inline">\(P_i\)</span>. If <span class="math display">\[
+P_i q_{ij} = P_j q_{ji} \quad \text{for all } i, j \tag{6.27}
+\]</span> then the process is <strong>time reversible</strong>.</p>
+<p><strong>Proof sketch</strong>:<br>
+From this condition, it’s easy to verify that the reversed process has the same dynamics as the forward process. Specifically, the reversed transition rates <span class="math inline">\(q_{ij}^*\)</span> become: <span class="math display">\[
+q_{ij}^* = \frac{P_j q_{ji}}{P_i} = q_{ij}
+\]</span> Thus, the reversed process has the same generator matrix <span class="math inline">\(Q\)</span>, hence same law.</p>
+<hr>
+</section>
+<section id="example-6.18-two-server-queue" class="level3">
+<h3 class="anchored" data-anchor-id="example-6.18-two-server-queue">Example 6.18 (Two-Server Queue)</h3>
+<p>A two-server queue has a maximum of three customers. Arrivals follow a Poisson process with rate <span class="math inline">\(\lambda\)</span> and service is exponential with rate <span class="math inline">\(\mu\)</span> per server.</p>
+<p>States: 0, 1, 2, 3 (number of customers)</p>
+<p>Transition diagram: - <span class="math inline">\(0 \xrightarrow{\lambda} 1\)</span> - <span class="math inline">\(1 \xrightarrow{\lambda} 2\)</span>, <span class="math inline">\(1 \xrightarrow{\mu} 0\)</span> - <span class="math inline">\(2 \xrightarrow{\lambda} 3\)</span>, <span class="math inline">\(2 \xrightarrow{2\mu} 1\)</span> - <span class="math inline">\(3 \xrightarrow{2\mu} 2\)</span></p>
+<p>Let’s check time reversibility: - Solve for stationary probabilities: <span class="math display">\[
+  P_1 = \frac{\lambda}{\mu} P_0,\quad
+  P_2 = \frac{\lambda}{2\mu} P_1 = \frac{\lambda^2}{2\mu^2} P_0,\quad
+  P_3 = \frac{\lambda}{2\mu} P_2 = \frac{\lambda^3}{4\mu^3} P_0
+  \]</span></p>
+<p>Normalization: <span class="math display">\[
+P_0 = \left(1 + \frac{\lambda}{\mu} + \frac{\lambda^2}{2\mu^2} + \frac{\lambda^3}{4\mu^3}\right)^{-1}
+\]</span></p>
+<p>Now check detailed balance: <span class="math display">\[
+P_0 \cdot \lambda = P_1 \cdot \mu \quad \text{✓} \\
+P_1 \cdot \lambda = P_2 \cdot 2\mu \quad \text{✓} \\
+P_2 \cdot \lambda = P_3 \cdot 2\mu \quad \text{✓}
+\]</span></p>
+<p>Thus, the process is <strong>time reversible</strong>.</p>
+<hr>
+</section>
+<section id="example-6.19-jackson-network" class="level3">
+<h3 class="anchored" data-anchor-id="example-6.19-jackson-network">Example 6.19 (Jackson Network)</h3>
+<p>Let a network consist of <span class="math inline">\(n\)</span> service stations. Customers: - arrive from outside to station <span class="math inline">\(i\)</span> at rate <span class="math inline">\(r_i\)</span>, - get served (service rate <span class="math inline">\(\mu_i\)</span>), - then with probability <span class="math inline">\(P_{ij}\)</span> go to station <span class="math inline">\(j\)</span>, or - with probability <span class="math inline">\(1 - \sum_j P_{ij}\)</span> leave the system.</p>
+<p>Let <span class="math inline">\(\lambda_i\)</span> be the <strong>total arrival rate</strong> to station <span class="math inline">\(i\)</span> (external + internal). Then: <span class="math display">\[
+\lambda_i = r_i + \sum_{j=1}^n \lambda_j P_{ji}
+\]</span></p>
+<p>This is a system of <strong>traffic equations</strong>. Once solved, define the <strong>utilization</strong> of station <span class="math inline">\(i\)</span>: <span class="math display">\[
+\rho_i = \frac{\lambda_i}{\mu_i}
+\]</span></p>
+<p>If all <span class="math inline">\(\rho_i &lt; 1\)</span>, then in steady state the queue at station <span class="math inline">\(i\)</span> behaves like an M/M/1 queue.</p>
+<p>The network has <strong>product-form solution</strong>: <span class="math display">\[
+P(n_1, ..., n_n) = \prod_{i=1}^n (1 - \rho_i) \rho_i^{n_i}
+\]</span></p>
+<p>This process is <strong>not</strong> time reversible in general (because the routing matrix <span class="math inline">\(P_{ij}\)</span> may not be symmetric), but the <strong>stationary distribution</strong> still exists and has a nice form.</p>
+<hr>
+</section>
+<section id="summary-time-reversibility" class="level3">
+<h3 class="anchored" data-anchor-id="summary-time-reversibility">Summary: Time Reversibility</h3>
+<ul>
+<li>A continuous-time Markov chain is <strong>time reversible</strong> if: <span class="math display">\[
+P_i q_{ij} = P_j q_{ji}, \quad \text{for all } i, j
+\]</span></li>
+<li>Time-reversible chains have a particularly simple form of the <strong>balance equations</strong></li>
+<li>Common reversible examples:
+<ul>
+<li>Birth–death processes</li>
+<li>M/M/s queues</li>
+<li>Some queueing networks with symmetric routing</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="applications-of-continuous-time-markov-chains" class="level2">
+<h2 class="anchored" data-anchor-id="applications-of-continuous-time-markov-chains">6.7 Applications of Continuous-Time Markov Chains</h2>
+<p>We now consider some practical applications of the theory of continuous-time Markov chains.</p>
+<hr>
+<section id="example-6.20-switching-between-two-machines" class="level3">
+<h3 class="anchored" data-anchor-id="example-6.20-switching-between-two-machines">Example 6.20 (Switching Between Two Machines)</h3>
+<p>A factory has two machines, A and B. Only one is operated at a time. When A is operating, it breaks down at rate <span class="math inline">\(\lambda_1\)</span>, and when B is operating, it breaks down at rate <span class="math inline">\(\lambda_2\)</span>. When a machine breaks, the other is repaired and operation switches to that one. The time to repair is negligible.</p>
+<p><strong>State description</strong>:<br>
+Let the state be the currently running machine: state 1 = A, state 2 = B.</p>
+<p><strong>Transition rates</strong>: - From state 1 to 2: <span class="math inline">\(\lambda_1\)</span> - From state 2 to 1: <span class="math inline">\(\lambda_2\)</span></p>
+<p>This forms a two-state continuous-time Markov chain.</p>
+<p><strong>Limiting probabilities</strong>: - Let <span class="math inline">\(P_1\)</span> and <span class="math inline">\(P_2\)</span> be the steady-state probabilities.</p>
+<p>From balance: <span class="math display">\[
+\lambda_1 P_1 = \lambda_2 P_2
+\]</span></p>
+<p>With <span class="math inline">\(P_1 + P_2 = 1\)</span>: <span class="math display">\[
+P_1 = \frac{\lambda_2}{\lambda_1 + \lambda_2}, \quad P_2 = \frac{\lambda_1}{\lambda_1 + \lambda_2}
+\]</span></p>
+<p>So the <strong>long-run proportion of time</strong> that machine A is operating is <span class="math inline">\(P_1\)</span>.</p>
+<hr>
+</section>
+<section id="example-6.21-system-availability" class="level3">
+<h3 class="anchored" data-anchor-id="example-6.21-system-availability">Example 6.21 (System Availability)</h3>
+<p>A two-unit system operates as long as <strong>at least one unit is operational</strong>.<br>
+Each unit: - fails with rate <span class="math inline">\(\lambda\)</span> - is repaired with rate <span class="math inline">\(\mu\)</span></p>
+<p>If both are operational, the failure of either results in a transition to one unit working. If only one is working and it fails, system is down.</p>
+<p><strong>States</strong>: - 2: both working<br>
+- 1: one working<br>
+- 0: both failed</p>
+<p><strong>Transitions</strong>: - <span class="math inline">\(2 \to 1\)</span> with rate <span class="math inline">\(2\lambda\)</span> - <span class="math inline">\(1 \to 0\)</span> with rate <span class="math inline">\(\lambda\)</span> - <span class="math inline">\(1 \to 2\)</span> with rate <span class="math inline">\(\mu\)</span> - <span class="math inline">\(0 \to 1\)</span> with rate <span class="math inline">\(\mu\)</span></p>
+<p><strong>Balance equations</strong>: Let <span class="math inline">\(P_0\)</span>, <span class="math inline">\(P_1\)</span>, <span class="math inline">\(P_2\)</span> be steady-state probabilities.</p>
+<p>From flow balance: - <span class="math inline">\(\lambda P_1 = \mu P_0\)</span> - <span class="math inline">\(2\lambda P_2 = \mu P_1\)</span> - <span class="math inline">\(P_0 + P_1 + P_2 = 1\)</span></p>
+<p>Solve: 1. <span class="math inline">\(P_0 = \frac{\lambda}{\mu} P_1\)</span> 2. <span class="math inline">\(P_2 = \frac{\mu}{2\lambda} P_1\)</span></p>
+<p>Substitute into normalization: <span class="math display">\[
+\frac{\lambda}{\mu} P_1 + P_1 + \frac{\mu}{2\lambda} P_1 = 1 \Rightarrow P_1 \left( \frac{\lambda}{\mu} + 1 + \frac{\mu}{2\lambda} \right) = 1
+\]</span></p>
+<p>Solve for <span class="math inline">\(P_1\)</span>, then: <span class="math display">\[
+P_{\text{up}} = P_1 + P_2 = 1 - P_0
+\]</span></p>
+<p>This gives <strong>long-run availability</strong> of the system.</p>
+<hr>
+</section>
+<section id="example-6.22-computer-virus-spread" class="level3">
+<h3 class="anchored" data-anchor-id="example-6.22-computer-virus-spread">Example 6.22 (Computer Virus Spread)</h3>
+<p>A network of <span class="math inline">\(n\)</span> computers. Any infected computer can infect any uninfected one at rate <span class="math inline">\(\lambda\)</span>, and any infected computer gets cleaned at rate <span class="math inline">\(\mu\)</span>.</p>
+<p>Let <span class="math inline">\(X(t)\)</span> be the number of infected computers at time <span class="math inline">\(t\)</span>. Then <span class="math inline">\(\{X(t)\}\)</span> is a <strong>birth–death process</strong> on states <span class="math inline">\(0\)</span> to <span class="math inline">\(n\)</span>, with:</p>
+<ul>
+<li><span class="math inline">\(\lambda_i = \lambda i (n - i)\)</span>: <span class="math inline">\(i\)</span> infected can infect <span class="math inline">\((n - i)\)</span> others</li>
+<li><span class="math inline">\(\mu_i = \mu i\)</span>: each infected gets cleaned</li>
+</ul>
+<p><strong>Goal</strong>: find the <strong>expected time to infection extinction</strong> starting from <span class="math inline">\(i\)</span> infected computers.</p>
+<p>Let <span class="math inline">\(m_i = \mathbb{E}[\text{time until absorption at 0} \mid X(0) = i]\)</span></p>
+<p>Recursion: <span class="math display">\[
+m_0 = 0 \\
+m_i = \frac{1}{\lambda_i + \mu_i} + \frac{\lambda_i}{\lambda_i + \mu_i} m_{i+1} + \frac{\mu_i}{\lambda_i + \mu_i} m_{i-1}, \quad i = 1, \dots, n-1 \\
+m_n = \frac{1}{\mu_n} + m_{n-1}
+\]</span></p>
+<p>This is a standard way to compute <strong>expected hitting times</strong> in birth–death processes.</p>
+<hr>
+</section>
+<section id="application-notes" class="level3">
+<h3 class="anchored" data-anchor-id="application-notes">Application Notes</h3>
+<p>The above examples illustrate: - Modeling with CTMCs by carefully defining <strong>states</strong> and <strong>transition rates</strong> - Using <strong>limiting probabilities</strong> for long-run behavior - Using <strong>first-step analysis</strong> and recurrence relations to solve for expectations - Relevance to systems reliability, networking, queueing, and more</p>
+</section>
+</section>
+<section id="applications-of-continuous-time-markov-chains-1" class="level2">
+<h2 class="anchored" data-anchor-id="applications-of-continuous-time-markov-chains-1">6.7 Applications of Continuous-Time Markov Chains</h2>
+<p>We now consider some practical applications of the theory of continuous-time Markov chains.</p>
+<hr>
+<section id="example-6.20-switching-between-two-machines-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-6.20-switching-between-two-machines-1">Example 6.20 (Switching Between Two Machines)</h3>
+<p>A factory has two machines, A and B. Only one is operated at a time. When A is operating, it breaks down at rate <span class="math inline">\(\lambda_1\)</span>, and when B is operating, it breaks down at rate <span class="math inline">\(\lambda_2\)</span>. When a machine breaks, the other is repaired and operation switches to that one. The time to repair is negligible.</p>
+<p><strong>State description</strong>:<br>
+Let the state be the currently running machine: state 1 = A, state 2 = B.</p>
+<p><strong>Transition rates</strong>: - From state 1 to 2: <span class="math inline">\(\lambda_1\)</span> - From state 2 to 1: <span class="math inline">\(\lambda_2\)</span></p>
+<p>This forms a two-state continuous-time Markov chain.</p>
+<p><strong>Limiting probabilities</strong>: - Let <span class="math inline">\(P_1\)</span> and <span class="math inline">\(P_2\)</span> be the steady-state probabilities.</p>
+<p>From balance: <span class="math display">\[
+\lambda_1 P_1 = \lambda_2 P_2
+\]</span></p>
+<p>With <span class="math inline">\(P_1 + P_2 = 1\)</span>: <span class="math display">\[
+P_1 = \frac{\lambda_2}{\lambda_1 + \lambda_2}, \quad P_2 = \frac{\lambda_1}{\lambda_1 + \lambda_2}
+\]</span></p>
+<p>So the <strong>long-run proportion of time</strong> that machine A is operating is <span class="math inline">\(P_1\)</span>.</p>
+<hr>
+</section>
+<section id="example-6.21-system-availability-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-6.21-system-availability-1">Example 6.21 (System Availability)</h3>
+<p>A two-unit system operates as long as <strong>at least one unit is operational</strong>.<br>
+Each unit: - fails with rate <span class="math inline">\(\lambda\)</span> - is repaired with rate <span class="math inline">\(\mu\)</span></p>
+<p>If both are operational, the failure of either results in a transition to one unit working. If only one is working and it fails, system is down.</p>
+<p><strong>States</strong>: - 2: both working<br>
+- 1: one working<br>
+- 0: both failed</p>
+<p><strong>Transitions</strong>: - <span class="math inline">\(2 \to 1\)</span> with rate <span class="math inline">\(2\lambda\)</span> - <span class="math inline">\(1 \to 0\)</span> with rate <span class="math inline">\(\lambda\)</span> - <span class="math inline">\(1 \to 2\)</span> with rate <span class="math inline">\(\mu\)</span> - <span class="math inline">\(0 \to 1\)</span> with rate <span class="math inline">\(\mu\)</span></p>
+<p><strong>Balance equations</strong>: Let <span class="math inline">\(P_0\)</span>, <span class="math inline">\(P_1\)</span>, <span class="math inline">\(P_2\)</span> be steady-state probabilities.</p>
+<p>From flow balance: - <span class="math inline">\(\lambda P_1 = \mu P_0\)</span> - <span class="math inline">\(2\lambda P_2 = \mu P_1\)</span> - <span class="math inline">\(P_0 + P_1 + P_2 = 1\)</span></p>
+<p>Solve: 1. <span class="math inline">\(P_0 = \frac{\lambda}{\mu} P_1\)</span> 2. <span class="math inline">\(P_2 = \frac{\mu}{2\lambda} P_1\)</span></p>
+<p>Substitute into normalization: <span class="math display">\[
+\frac{\lambda}{\mu} P_1 + P_1 + \frac{\mu}{2\lambda} P_1 = 1 \Rightarrow P_1 \left( \frac{\lambda}{\mu} + 1 + \frac{\mu}{2\lambda} \right) = 1
+\]</span></p>
+<p>Solve for <span class="math inline">\(P_1\)</span>, then: <span class="math display">\[
+P_{\text{up}} = P_1 + P_2 = 1 - P_0
+\]</span></p>
+<p>This gives <strong>long-run availability</strong> of the system.</p>
+<hr>
+</section>
+<section id="example-6.22-computer-virus-spread-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-6.22-computer-virus-spread-1">Example 6.22 (Computer Virus Spread)</h3>
+<p>A network of <span class="math inline">\(n\)</span> computers. Any infected computer can infect any uninfected one at rate <span class="math inline">\(\lambda\)</span>, and any infected computer gets cleaned at rate <span class="math inline">\(\mu\)</span>.</p>
+<p>Let <span class="math inline">\(X(t)\)</span> be the number of infected computers at time <span class="math inline">\(t\)</span>. Then <span class="math inline">\(\{X(t)\}\)</span> is a <strong>birth–death process</strong> on states <span class="math inline">\(0\)</span> to <span class="math inline">\(n\)</span>, with:</p>
+<ul>
+<li><span class="math inline">\(\lambda_i = \lambda i (n - i)\)</span>: <span class="math inline">\(i\)</span> infected can infect <span class="math inline">\((n - i)\)</span> others</li>
+<li><span class="math inline">\(\mu_i = \mu i\)</span>: each infected gets cleaned</li>
+</ul>
+<p><strong>Goal</strong>: find the <strong>expected time to infection extinction</strong> starting from <span class="math inline">\(i\)</span> infected computers.</p>
+<p>Let <span class="math inline">\(m_i = \mathbb{E}[\text{time until absorption at 0} \mid X(0) = i]\)</span></p>
+<p>Recursion: <span class="math display">\[
+m_0 = 0 \\
+m_i = \frac{1}{\lambda_i + \mu_i} + \frac{\lambda_i}{\lambda_i + \mu_i} m_{i+1} + \frac{\mu_i}{\lambda_i + \mu_i} m_{i-1}, \quad i = 1, \dots, n-1 \\
+m_n = \frac{1}{\mu_n} + m_{n-1}
+\]</span></p>
+<p>This is a standard way to compute <strong>expected hitting times</strong> in birth–death processes.</p>
+<hr>
+</section>
+<section id="application-notes-1" class="level3">
+<h3 class="anchored" data-anchor-id="application-notes-1">Application Notes</h3>
+<p>The above examples illustrate: - Modeling with CTMCs by carefully defining <strong>states</strong> and <strong>transition rates</strong> - Using <strong>limiting probabilities</strong> for long-run behavior - Using <strong>first-step analysis</strong> and recurrence relations to solve for expectations - Relevance to systems reliability, networking, queueing, and more</p>
+</section>
+</section>
+</div>
 </div>
 </div>
 
