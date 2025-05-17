@@ -27,5 +27,5 @@ Dilarang melakukan:
 - ❌ Distribusi ulang konten personal
 
 ```text
-© 2025 - Vladilena-Milize. All rights reserved.
+© 2025 - Milize-Vladilena. All rights reserved.
 ```
