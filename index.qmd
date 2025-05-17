@@ -17,12 +17,7 @@ title-block-banner: true
 ---
 
 # 🌸 Selamat Datang di Dunia Pikiranku!  
-`🐧✍️` **Tempat dimana kalkulus bertemu kopi, dan kode bercerita**  
-
----
-
-## 🚀 Navigasi Cepat  
-
+🐧✍️ **Tempat dimana kalkulus bertemu kopi, dan kode bercerita**  
 [📖 Jurnal Harian](/journal) | [📚 Materi Belajar](/study) | [🎧 Soundtrack Hidup](/playlist)
 
 
@@ -44,14 +39,35 @@ title-block-banner: true
 - Leaf nodes = varian rasa?"
 ```
 
----
+### Koleksi Spesial
 
-```html
-<details>
-  <summary>🎧 Now Playing...</summary>
-  <iframe width="100%" height="20" scrolling="no" frameborder="no" 
-    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/12345"></iframe>
-</details>
-```
+| **Bagian**          | **Konten Unggulan**                                   | **Mood** |
+|---------------------|-------------------------------------------------------|----------|
+| 📸 Potret Keseharian | ![Foto papan tulis penuh equation](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F26%2Ff9%2Fb6%2F26f9b63125e34c79c089a5b3dab67d4f.jpg&f=1&nofb=1&ipt=f24f506ff8ffce13689f79c64a22836f778b7ff1c42c26d7c4ec3e05ddb2f6f5){width="24%"}                     | 🤯        |
+| 🎵 Playlist Andalan  | Still Standing by Anno Domini Beats | 🎧        |
+| 📚 Buku Pojokan      | Nanti di susun ya, sekarang masih berantakan 🥴                 | 📖        |
 
----
+
+### 🎯 Progress Belajar
+
+``{ "Matematika": 75, "Programming": 90, "Aktuari": 60 }``
+
+<small>✨ Terakhir di-update: 2025-05-17
+
+Dibangun dengan ❤️ + ☕ + 🎧 `#NoCodeJustVibes`</small>
+
+
+### Fitur Khusus: **Interactive Elements** menggunakan pseudo-syntax:
+
+[🎮 Main Game](javascript:void(0)) // soon, sementara link dummy
+
+### 🎯 Target Bulan ini
+- [ ] ▫️ Modstok  
+- [ ] ▫️ Metpar  
+- [ ] ▫️ Machine Learning
+
+## 😊 Mood Meter
+Hari Ini: `🌤️`  
+Minggu Ini: `🌧️ -> 🌈`
+
+## Post 📫
