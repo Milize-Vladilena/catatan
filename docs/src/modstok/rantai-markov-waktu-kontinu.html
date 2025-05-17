@@ -960,13 +960,53 @@ m_n = \frac{1}{\mu_n} + m_{n-1}
 </div>
 <section id="fungsi-probabilitas-transisi" class="level2">
 <h2 class="anchored" data-anchor-id="fungsi-probabilitas-transisi">6.4 Fungsi Probabilitas Transisi</h2>
-<p>Misalkan <span class="math display">\[P_{ij}(t) = \mathbb{P}\{X(t + s) = j \mid X(s) = i\}\]</span> denotasikan probabilitas bahwa process ada di keadaan <span class="math inline">\(i\)</span> akan berada di keadaan <span class="math inline">\(j\)</span> setelah <span class="math inline">\(t\)</span> waktu. Kuantitas ini yang sering disebut probabilitas transisi dari rantai markov waktu kontinu.</p>
-<p>Kita dapat secara eksplisit menentukan <span class="math inline">\(P_{ij}(t)\)</span> dalam proses kasus kelahiran murni yang memiliki rate kelahiran <em>distinct</em>. Untuk sebuah proses, misal <span class="math inline">\(X_k\)</span> dinotasikan lama waktu <strong>proses</strong> menghabiskan di keadaan <span class="math inline">\(k\)</span> sebelum berpindah ke keadaan <span class="math inline">\(k+1\)</span>, <span class="math inline">\(k&gt;=1\)</span>. Asumskan <strong>proses</strong> ada di keadaan <span class="math inline">\(i\)</span> dan misalkan <span class="math inline">\(j&gt; i\)</span>. Maka, ketika <span class="math inline">\(X_i\)</span> adalah lama waktu yang dihabiskan di keadaan <span class="math inline">\(i\)</span> sebelum bergerak ke keadaan <span class="math inline">\(i+1\)</span>, dan <span class="math inline">\(X_{i+1}\)</span> adalah lama waktu yang dihabiskan di keadaan <span class="math inline">\(i+1\)</span> sebelum bergerak ke keadaan <span class="math inline">\(i+2\)</span>, dan seterusnya, mengikuti <span class="math display">\[sum_{k=i}^{j-1} X_k = X_i + X_{i+1} + X_{i+2} + \cdots + X_{j-1}\]</span> adalah lama waktu yang dibutuhkan sebelum <strong>proses</strong> masuk ke keadaan <span class="math inline">\(j\)</span>. Sekarang, jika <strong>proses</strong> belum masuk ke keadaan <span class="math inline">\(j\)</span> pada waktu <span class="math inline">\(t\)</span>, maka itu sama aja bilang keadaan <span class="math inline">\(t\)</span> lebih kecil dari <span class="math inline">\(j\)</span>, dan sebaliknya. Atau kalo secara matematis ditulisnya <span class="math display">\[X(t)&lt;j \iff X_i + \cdots + X_{j-1} &gt; t\]</span>. Oleh karenanya, untuk <span class="math inline">\(i&lt;j\)</span> proses kelahiran murni, kita punya <span class="math display">\[
+<p>Misalkan <span class="math display">\[P_{ij}(t) = \mathbb{P}\{X(t + s) = j \mid X(s) = i\}\]</span> denotasikan probabilitas bahwa <strong>proses</strong> ada di keadaan <span class="math inline">\(i\)</span> akan berada di keadaan <span class="math inline">\(j\)</span> setelah <span class="math inline">\(t\)</span> waktu. Kuantitas ini yang sering disebut probabilitas transisi dari rantai markov waktu kontinu.</p>
+<p>Kita dapat secara eksplisit menentukan <span class="math inline">\(P_{ij}(t)\)</span> dalam proses kasus kelahiran murni yang memiliki rate kelahiran <em>distinct</em>. Untuk sebuah proses, misal <span class="math inline">\(X_k\)</span> dinotasikan lama waktu <strong>proses</strong> menghabiskan di keadaan <span class="math inline">\(k\)</span> sebelum berpindah ke keadaan <span class="math inline">\(k+1\)</span>, <span class="math inline">\(k \geq 1\)</span>. Asumsikan <strong>proses</strong> ada di keadaan <span class="math inline">\(i\)</span> dan misalkan <span class="math inline">\(j&gt; i\)</span>. Maka, ketika <span class="math inline">\(X_i\)</span> adalah lama waktu yang dihabiskan di keadaan <span class="math inline">\(i\)</span> sebelum bergerak ke keadaan <span class="math inline">\(i+1\)</span>, dan <span class="math inline">\(X_{i+1}\)</span> adalah lama waktu yang dihabiskan di keadaan <span class="math inline">\(i+1\)</span> sebelum bergerak ke keadaan <span class="math inline">\(i+2\)</span>, dan seterusnya, mengikuti <span class="math display">\[\sum_{k=i}^{j-1} X_k = X_i + X_{i+1} + X_{i+2} + \cdots + X_{j-1}\]</span> adalah lama waktu yang dibutuhkan sebelum <strong>proses</strong> masuk ke keadaan <span class="math inline">\(j\)</span>. Sekarang, jika <strong>proses</strong> belum masuk ke keadaan <span class="math inline">\(j\)</span> pada waktu <span class="math inline">\(t\)</span>, maka itu sama aja bilang keadaan <span class="math inline">\(t\)</span> lebih kecil dari <span class="math inline">\(j\)</span>, dan sebaliknya. Atau kalo secara matematis ditulisnya. <span class="math display">\[X(t)&lt;j \iff X_i + \cdots + X_{j-1} &gt; t\]</span> Oleh karenanya, untuk <span class="math inline">\(i&lt;j\)</span> proses kelahiran murni, kita punya <span class="math display">\[
 \begin{align*}
 \mathbb{P}\{X(t) &lt; j \mid X(0) = i\} &amp;= \mathbb{P}\left\{ \sum_{k=i}^{j-1} X_k &gt; t \right\} \\
 &amp;= \mathbb{P}\left\{ X_i + X_{i+1} + X_{i+2} + \cdots + X_{j-1} &gt; t\right\}
 \end{align*}
 \]</span></p>
+<p>Akan tetapi, sebab <span class="math inline">\(X_i, \ldots,X_{j-1}\)</span> adalah variabel acak eksponensial dengan masing-masing ratesnya <span class="math inline">\(\lambda_i, \ldots, \lambda_{j-1}\)</span>, kita dapat peroleh dari <strong>Konvolusi Variabel Acak Eksponensial</strong> yang mana fungsi distribusi ekor dari <span class="math inline">\(\sum_{k=i}^{j-1} X_k\)</span>, itu <span class="math display">\[
+\mathbb{P}\{X(t) &lt; j \mid X(0) = i\} = \sum_{k=i}^{j-1} e^{-\lambda_k t} \prod_{\substack{r=i \\ r \ne k}}^{j-1} \frac{\lambda_r}{\lambda_r - \lambda_k}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="lupa fungsi distribusi ekor dari konvolusi eksponensial">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+lupa fungsi distribusi ekor dari konvolusi eksponensial
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<section id="konvolusi-dari-variabel-acak-eksponensial" class="level3 callout-body-container callout-body">
+<h3 class="anchored" data-anchor-id="konvolusi-dari-variabel-acak-eksponensial">5.2.4 Konvolusi dari variabel acak eksponensial</h3>
+<p>Misal <span class="math inline">\(X_i, i = 1, \ldots, n\)</span>, adalah variabel acak eksponensial independen dengan rates masing-masing <span class="math inline">\(\lambda_i, i = 1, \ldots , n\)</span> dan asumsikan <span class="math inline">\(\lambda_i \neq \lambda_j\)</span> untuk <span class="math inline">\(i \neq j\)</span>. Variabel acak <span class="math inline">\(\sum_{i=1}^n X_i\)</span> dikatakan variabel acak <em>hypoeksponensial</em>.</p>
+<p>Untuk hitung fungsi padatan probabilitas, pertama mulai pada kasus <span class="math inline">\(n=2\)</span>. Sekarang,</p>
+<p><span class="math display">\[
+\begin{align*}
+f_{X_1+X_2} &amp;= \int_0^t f_{X_1}(s) f_{X_2}(t-s)ds \\
+&amp;= \int_0^t \lambda_1e^{-\lambda_1s}\lambda_2e^{-\lambda_2(t-s)} ds \\
+&amp;= \lambda_1 \lambda_2 e^{-\lambda_2t} \int_0^t e^{-(\lambda_1 - \lambda_2)s} ds \\
+&amp;= \frac{\lambda_1}{\lambda_1 -\lambda_2} \lambda_2 e^{-\lambda_2t}(1-e^{-(\lambda_1 - \lambda_2)t}) \\
+&amp;= \frac{\lambda_1}{\lambda_2 - \lambda_1} \lambda_2 e^{-\lambda_2 t} + \frac{\lambda_2}{\lambda_2 - \lambda_1} \lambda_1 e^{\lambda_1t}
+\end{align*}
+\]</span></p>
+<p>dengan cara yang sama untuk <span class="math inline">\(n=3\)</span>, yakni <span class="math display">\[
+\begin{align*}
+f_{X_1+X_2+X_3} &amp;= \int_0^t f_{X_1}(s) f_{X_2}(s) f_{X_3}(t-s)ds \\
+&amp;= \int_0^t \lambda_1e^{-\lambda_1s}\lambda_2e^{-\lambda_2s}\lambda_3e^{-\lambda_3(t-s)} ds \\
+&amp;= \lambda_1 \lambda_2 \lambda_3 e^{-\lambda_3t} \int_0^t e^{-(\lambda_1 + \lambda_2 - \lambda_3)s} ds \\
+&amp;= \frac{\lambda_1 \lambda_2}{\lambda_1 + \lambda_2 - \lambda_3} \lambda_3 e^{-\lambda_3t}(1-e^{-(\lambda_1 + \lambda_2 - \lambda_3)t}) \\
+&amp;= \frac{\lambda_1}{\lambda_2 - \lambda_1} \lambda_2 e^{-\lambda_2 t} + \frac{\lambda_2}{\lambda_2 - \lambda_1} \lambda_1 e^{\lambda_1t} \\
+&amp;= \frac{\lambda_2}{\lambda_2 - \lambda_1} \lambda_1 e^{-\lambda_1 t} + \frac{\lambda_1}{\lambda_2 - \lambda_1} \lambda_2 e^{\lambda_2t}
+\end{align*}
+\]</span></p>
+</section>
+</div>
+</div>
 
 
 </section>
