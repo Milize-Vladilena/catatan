@@ -124,8 +124,14 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#fungsi-probabilitas-transisi" id="toc-fungsi-probabilitas-transisi" class="nav-link active" data-scroll-target="#fungsi-probabilitas-transisi">6.4 Fungsi Probabilitas Transisi</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -940,14 +946,30 @@ m_n = \frac{1}{\mu_n} + m_{n-1}
 </section>
 <section id="application-notes-1" class="level3">
 <h3 class="anchored" data-anchor-id="application-notes-1">Application Notes</h3>
-<p>The above examples illustrate: - Modeling with CTMCs by carefully defining <strong>states</strong> and <strong>transition rates</strong> - Using <strong>limiting probabilities</strong> for long-run behavior - Using <strong>first-step analysis</strong> and recurrence relations to solve for expectations - Relevance to systems reliability, networking, queueing, and more</p>
+<p>The above examples illustrate:</p>
+<ul>
+<li>Modeling with CTMCs by carefully defining <strong>states</strong> and <strong>transition rates</strong></li>
+<li>Using <strong>limiting probabilities</strong> for long-run behavior</li>
+<li>Using <strong>first-step analysis</strong> and recurrence relations to solve for expectations</li>
+<li>Relevance to systems reliability, networking, queueing, and more</li>
+</ul>
 </section>
 </section>
 </div>
 </div>
 </div>
+<section id="fungsi-probabilitas-transisi" class="level2">
+<h2 class="anchored" data-anchor-id="fungsi-probabilitas-transisi">6.4 Fungsi Probabilitas Transisi</h2>
+<p>Misalkan <span class="math display">\[P_{ij}(t) = \mathbb{P}\{X(t + s) = j \mid X(s) = i\}\]</span> denotasikan probabilitas bahwa process ada di keadaan <span class="math inline">\(i\)</span> akan berada di keadaan <span class="math inline">\(j\)</span> setelah <span class="math inline">\(t\)</span> waktu. Kuantitas ini yang sering disebut probabilitas transisi dari rantai markov waktu kontinu.</p>
+<p>Kita dapat secara eksplisit menentukan <span class="math inline">\(P_{ij}(t)\)</span> dalam proses kasus kelahiran murni yang memiliki rate kelahiran <em>distinct</em>. Untuk sebuah proses, misal <span class="math inline">\(X_k\)</span> dinotasikan lama waktu <strong>proses</strong> menghabiskan di keadaan <span class="math inline">\(k\)</span> sebelum berpindah ke keadaan <span class="math inline">\(k+1\)</span>, <span class="math inline">\(k&gt;=1\)</span>. Asumskan <strong>proses</strong> ada di keadaan <span class="math inline">\(i\)</span> dan misalkan <span class="math inline">\(j&gt; i\)</span>. Maka, ketika <span class="math inline">\(X_i\)</span> adalah lama waktu yang dihabiskan di keadaan <span class="math inline">\(i\)</span> sebelum bergerak ke keadaan <span class="math inline">\(i+1\)</span>, dan <span class="math inline">\(X_{i+1}\)</span> adalah lama waktu yang dihabiskan di keadaan <span class="math inline">\(i+1\)</span> sebelum bergerak ke keadaan <span class="math inline">\(i+2\)</span>, dan seterusnya, mengikuti <span class="math display">\[sum_{k=i}^{j-1} X_k = X_i + X_{i+1} + X_{i+2} + \cdots + X_{j-1}\]</span> adalah lama waktu yang dibutuhkan sebelum <strong>proses</strong> masuk ke keadaan <span class="math inline">\(j\)</span>. Sekarang, jika <strong>proses</strong> belum masuk ke keadaan <span class="math inline">\(j\)</span> pada waktu <span class="math inline">\(t\)</span>, maka itu sama aja bilang keadaan <span class="math inline">\(t\)</span> lebih kecil dari <span class="math inline">\(j\)</span>, dan sebaliknya. Atau kalo secara matematis ditulisnya <span class="math display">\[X(t)&lt;j \iff X_i + \cdots + X_{j-1} &gt; t\]</span>. Oleh karenanya, untuk <span class="math inline">\(i&lt;j\)</span> proses kelahiran murni, kita punya <span class="math display">\[
+\begin{align*}
+\mathbb{P}\{X(t) &lt; j \mid X(0) = i\} &amp;= \mathbb{P}\left\{ \sum_{k=i}^{j-1} X_k &gt; t \right\} \\
+&amp;= \mathbb{P}\left\{ X_i + X_{i+1} + X_{i+2} + \cdots + X_{j-1} &gt; t\right\}
+\end{align*}
+\]</span></p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

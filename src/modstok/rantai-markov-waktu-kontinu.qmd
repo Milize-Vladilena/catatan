@@ -18,6 +18,8 @@ Ruang keadaan kontinu ini tetap diskrit meskipun ruang parameter nya kontinu.
 
 ::: {.callout-note title="Bahasa Inggrisnya" collapse="true"}
 
-{{< include rantai-markov-waktu-kontinu/__fungsi-probabilitas-transisi.md >}}
+{{< include rantai-markov-waktu-kontinu/__fungsi-probabilitas-transisi-en.md >}}
 
 :::
+
+{{< include rantai-markov-waktu-kontinu/__fungsi-probabilitas-transisi.md >}}
