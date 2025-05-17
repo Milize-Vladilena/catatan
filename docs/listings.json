@@ -2,12 +2,12 @@
   {
     "listing": "/index.html",
     "items": [
+      "/src/modstok/rantai-markov-waktu-kontinu.html",
       "/src/metpar/sarima.html",
       "/src/asum/Contoh-5.12.html",
       "/src/asum/min-Var-2firm.html",
       "/src/git/git.html",
-      "/src/modstok/latihan-ctmc-1.html",
-      "/src/modstok/rantai-markov-waktu-kontinu.html"
+      "/src/modstok/latihan-ctmc-1.html"
     ]
   }
 ]

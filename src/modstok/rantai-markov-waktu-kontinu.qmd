@@ -1,6 +1,6 @@
 ---
-title: "rantai-markov-waktu-kontinu"
-date: May 11 2025
+title: "rantai markov waktu kontinu"
+date: May 17 2025
 categories: [modstok, kuliah]
 ---
 
@@ -16,3 +16,8 @@ Ruang keadaan kontinu ini tetap diskrit meskipun ruang parameter nya kontinu.
 
 ---
 
+::: {.callout-note title="Bahasa Inggrisnya" collapse="true"}
+
+{{< include rantai-markov-waktu-kontinu/__fungsi-probabilitas-transisi.md >}}
+
+:::

@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-05-11">
+<meta name="dcterms.date" content="2025-05-17">
 
-<title>rantai-markov-waktu-kontinu – Catatan 📝</title>
+<title>rantai markov waktu kontinu – Catatan 📝</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -103,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">rantai-markov-waktu-kontinu</h1>
+<h1 class="title">rantai markov waktu kontinu</h1>
   <div class="quarto-categories">
     <div class="quarto-category">modstok</div>
     <div class="quarto-category">kuliah</div>
@@ -118,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 11, 2025</p>
+      <p class="date">May 17, 2025</p>
     </div>
   </div>
   
@@ -136,6 +165,214 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <p>Ruang keadaan kontinu ini tetap diskrit meskipun ruang parameter nya kontinu.</p>
 <hr>
+<div class="callout callout-style-default callout-note callout-titled" title="Bahasa Inggrisnya">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Bahasa Inggrisnya
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<section id="the-transition-probability-function-p_ijt" class="level2 callout-body-container callout-body">
+<h2 class="anchored" data-anchor-id="the-transition-probability-function-p_ijt">6.4 The Transition Probability Function <span class="math inline">\(P_{ij}(t)\)</span></h2>
+<p>Let<br>
+<span class="math display">\[P_{ij}(t) = \mathbb{P}\{X(t + s) = j \mid X(s) = i\}\]</span><br>
+denote the probability that a process presently in state <span class="math inline">\(i\)</span> will be in state <span class="math inline">\(j\)</span> a time <span class="math inline">\(t\)</span> later. These quantities are often called the transition probabilities of the continuous-time Markov chain.</p>
+<p>We can explicitly determine <span class="math inline">\(P_{ij}(t)\)</span> in the case of a pure birth process having distinct birth rates. For such a process, let <span class="math inline">\(X_k\)</span> denote the time the process spends in state <span class="math inline">\(k\)</span> before making a transition into state <span class="math inline">\(k+1\)</span>, <span class="math inline">\(k \geq 1\)</span>. Suppose that the process is presently in state <span class="math inline">\(i\)</span>, and let <span class="math inline">\(j &gt; i\)</span>. Then, as <span class="math inline">\(X_i\)</span> is the time it spends in state <span class="math inline">\(i\)</span> before moving to state <span class="math inline">\(i+1\)</span>, and <span class="math inline">\(X_{i+1}\)</span> is the time it then spends in state <span class="math inline">\(i+1\)</span> before moving to state <span class="math inline">\(i+2\)</span>, and so on, it follows that<br>
+<span class="math display">\[\sum_{k=i}^{j-1} X_k\]</span><br>
+is the time it takes until the process enters state <span class="math inline">\(j\)</span>. Now, if the process has not yet entered state <span class="math inline">\(j\)</span> by time <span class="math inline">\(t\)</span>, then its state at time <span class="math inline">\(t\)</span> is smaller than <span class="math inline">\(j\)</span>, and vice versa. That is,<br>
+<span class="math display">\[X(t) &lt; j \iff X_i + \cdots + X_{j-1} &gt; t\]</span></p>
+<p>Therefore, for <span class="math inline">\(i &lt; j\)</span>, we have for a pure birth process that<br>
+<span class="math display">\[
+\mathbb{P}\{X(t) &lt; j \mid X(0) = i\} = \mathbb{P}\left\{ \sum_{k=i}^{j-1} X_k &gt; t \right\}
+\]</span></p>
+<p>However, since <span class="math inline">\(X_i, \ldots, X_{j-1}\)</span> are independent exponential random variables with respective rates <span class="math inline">\(\lambda_i, \ldots, \lambda_{j-1}\)</span>, we obtain from the preceding and Eq. (5.9), which gives the tail distribution function of <span class="math inline">\(\sum_{k=i}^{j-1} X_k\)</span>, that<br>
+<span class="math display">\[
+\mathbb{P}\{X(t) &lt; j \mid X(0) = i\} = \sum_{k=i}^{j-1} e^{-\lambda_k t} \prod_{\substack{r=i \\ r \ne k}}^{j-1} \frac{\lambda_r}{\lambda_r - \lambda_k}
+\]</span></p>
+<p>Replacing <span class="math inline">\(j\)</span> by <span class="math inline">\(j+1\)</span> in the preceding gives<br>
+<span class="math display">\[
+\mathbb{P}\{X(t) &lt; j+1 \mid X(0) = i\} = \sum_{k=i}^{j} e^{-\lambda_k t} \prod_{\substack{r=i \\ r \ne k}}^{j} \frac{\lambda_r}{\lambda_r - \lambda_k}
+\]</span></p>
+<p>Since<br>
+<span class="math display">\[
+\mathbb{P}\{X(t) = j \mid X(0) = i\} = \mathbb{P}\{X(t) &lt; j+1 \mid X(0) = i\} - \mathbb{P}\{X(t) &lt; j \mid X(0) = i\}
+\]</span><br>
+and since <span class="math inline">\(P_{ii}(t) = \mathbb{P}\{X_i &gt; t\} = e^{-\lambda_i t}\)</span>, we have shown the following.</p>
+<section id="proposition-6.1" class="level3">
+<h3 class="anchored" data-anchor-id="proposition-6.1">Proposition 6.1</h3>
+<p>For a pure birth process having <span class="math inline">\(\lambda_i \ne \lambda_j\)</span> when <span class="math inline">\(i \ne j\)</span>:</p>
+<p><span class="math display">\[
+P_{ij}(t) = \sum_{k=i}^{j} e^{-\lambda_k t} \prod_{\substack{r=i \\ r \ne k}}^{j} \frac{\lambda_r}{\lambda_r - \lambda_k} - \sum_{k=i}^{j-1} e^{-\lambda_k t} \prod_{\substack{r=i \\ r \ne k}}^{j-1} \frac{\lambda_r}{\lambda_r - \lambda_k}, \quad i &lt; j
+\]</span></p>
+<p><span class="math display">\[
+P_{ii}(t) = e^{-\lambda_i t}
+\]</span></p>
+</section>
+<section id="example-6.8" class="level3">
+<h3 class="anchored" data-anchor-id="example-6.8">Example 6.8</h3>
+<p>Consider the <strong>Yule process</strong>, which is a pure birth process in which each individual in the population independently gives birth at rate <span class="math inline">\(\lambda\)</span>, and so <span class="math inline">\(\lambda_n = n\lambda\)</span>, <span class="math inline">\(n \geq 1\)</span>. Letting <span class="math inline">\(i = 1\)</span>, we obtain from Proposition 6.1:</p>
+<p><span class="math display">\[
+P_{1j}(t) = \sum_{k=1}^{j} e^{-k\lambda t} \prod_{\substack{r=1 \\ r \ne k}}^{j} \frac{r}{r - k} - \sum_{k=1}^{j-1} e^{-k\lambda t} \prod_{\substack{r=1 \\ r \ne k}}^{j-1} \frac{r}{r - k}
+\]</span></p>
+<p>This simplifies to:<br>
+<span class="math display">\[
+P_{1j}(t) = e^{-j\lambda t} \prod_{r=1}^{j-1} \frac{r}{r - j} + \sum_{k=1}^{j-1} e^{-k\lambda t} \left( \prod_{\substack{r=1 \\ r \ne k}}^{j} \frac{r}{r - k} - \prod_{\substack{r=1 \\ r \ne k}}^{j-1} \frac{r}{r - k} \right)
+\]</span></p>
+<p>We can further simplify using:<br>
+<span class="math display">\[
+\frac{k}{j-k} \prod_{\substack{r=1 \\ r \ne k}}^{j-1} \frac{r}{r - k} = \frac{(j-1)!}{(1-k)(2-k)\cdots(k-1-k)(j-k)!} = (-1)^{k-1} \binom{j-1}{k-1}
+\]</span></p>
+<p>Hence:<br>
+<span class="math display">\[
+P_{1j}(t) = \sum_{k=1}^{j} \binom{j-1}{k-1} e^{-k\lambda t} (-1)^{k-1}
+\]</span></p>
+<p>Letting <span class="math inline">\(i = j - k\)</span>, and simplifying the index:<br>
+<span class="math display">\[
+P_{1j}(t) = e^{-\lambda t} \sum_{i=0}^{j-1} \binom{j-1}{i} e^{-i\lambda t} (-1)^i = e^{-\lambda t} (1 - e^{-\lambda t})^{j-1}
+\]</span></p>
+<p>Thus, starting with a single individual, the population size at time <span class="math inline">\(t\)</span> has a <strong>geometric distribution</strong> with mean <span class="math inline">\(e^{\lambda t}\)</span>. If the population starts with <span class="math inline">\(i\)</span> individuals, then we can regard each of these individuals as starting her own independent Yule process, and so the population at time <span class="math inline">\(t\)</span> will be the sum of <span class="math inline">\(i\)</span> independent and identically distributed geometric random variables with parameter <span class="math inline">\(e^{-\lambda t}\)</span>.</p>
+<p>Hence, the population size at time <span class="math inline">\(t\)</span> has a <strong>negative binomial distribution</strong> with parameters <span class="math inline">\(i\)</span> and <span class="math inline">\(e^{-\lambda t}\)</span>, so:</p>
+<p><span class="math display">\[
+P_{ij}(t) = \binom{j-1}{i-1} e^{-i\lambda t} (1 - e^{-\lambda t})^{j-i}, \quad j \ge i \ge 1
+\]</span></p>
+</section>
+<section id="example-6.9" class="level3">
+<h3 class="anchored" data-anchor-id="example-6.9">Example 6.9</h3>
+<p>An urn initially contains one type 1 and one type 2 ball. At each stage, a ball is chosen from the urn, with the chosen ball being equally likely to be any of the balls in the urn. If a type <span class="math inline">\(i\)</span> ball is chosen, then an experiment that is successful with probability <span class="math inline">\(p_i\)</span> is performed; if it is successful then the ball chosen along with a new type <span class="math inline">\(i\)</span> ball are put in the urn, and if it is unsuccessful then only the ball chosen is put in the urn, <span class="math inline">\(i = 1, 2\)</span>. We then move to the next stage.</p>
+<p>We are interested in determining the mean numbers of type 1 and type 2 balls in the urn after <span class="math inline">\(n\)</span> stages.</p>
+<p><strong>Solution:</strong><br>
+To determine the mean numbers, for <span class="math inline">\(i = 1,2\)</span>, let <span class="math inline">\(m_i(j,k:r)\)</span> denote the mean number of type <span class="math inline">\(i\)</span> balls in the urn after the <span class="math inline">\(n\)</span> stages have elapsed, given that there are currently <span class="math inline">\(j\)</span> type 1 and <span class="math inline">\(k\)</span> type 2 balls in the urn, with a total of <span class="math inline">\(r\)</span> additional stages remaining. Also, let</p>
+<p><span class="math display">\[
+m(j,k:r) = (m_1(j,k:r), m_2(j,k:r))
+\]</span></p>
+<p>We need to determine <span class="math inline">\(m(1,1:n)\)</span>. To start, we derive recursive equations for <span class="math inline">\(m(j,k:r)\)</span> by conditioning on the first ball chosen and whether the resulting experiment is successful. This yields:</p>
+<p><span class="math display">\[
+m(j,k:r) = \frac{j}{j+k} [p_1 m(j+1,k:r-1) +
+q_1 m(j,k:r-1)] +
+\frac{k}{j+k} [p_2 m(j,k+1:r-1) +
+q_2 m(j,k:r-1)]
+\]</span></p>
+<p>where <span class="math inline">\(q_i = 1 - p_i\)</span>, <span class="math inline">\(i = 1,2\)</span>.</p>
+<p>Using the base case: <span class="math display">\[
+m(j,k:0) = (j, k)
+\]</span></p>
+<p>we can use the recursion to determine the values of <span class="math inline">\(m(j,k:r)\)</span> for <span class="math inline">\(r = 1\)</span>, then <span class="math inline">\(r = 2\)</span>, and so on, up to <span class="math inline">\(r = n\)</span>.</p>
+<hr>
+<p>We can also derive an <strong>approximation</strong> for the mean numbers of type 1 and type 2 balls in the urn after <span class="math inline">\(n\)</span> stages by using a <em>Poissonization</em> trick.</p>
+<p>Imagine that each ball in the urn, independently of the others, “lights up” at times distributed as a Poisson process with rate <span class="math inline">\(\lambda = 1\)</span>. Suppose that each time a type <span class="math inline">\(i\)</span> ball lights up, we conduct the experiment that is successful with probability <span class="math inline">\(p_i\)</span>, and add a new type <span class="math inline">\(i\)</span> ball to the urn if it is successful.</p>
+<p>Each time a ball lights up, say that a new stage has begun. For an urn with <span class="math inline">\(j\)</span> type 1 and <span class="math inline">\(k\)</span> type 2 balls, the next ball to light up will be of type 1 with probability <span class="math inline">\(\frac{j}{j+k}\)</span>. Thus, the numbers of type 1 and type 2 balls in the urn after successive stages are distributed exactly as in the original model.</p>
+<p>Whenever there are <span class="math inline">\(j\)</span> type 1 balls, the time until the next type 1 ball lights up is the minimum of <span class="math inline">\(j\)</span> independent exponential random variables with rate 1, which is exponential with rate <span class="math inline">\(j\)</span>. Since with probability <span class="math inline">\(p_1\)</span> this results in a new type 1 ball being added, the time until the next type 1 ball is added is exponential with rate <span class="math inline">\(jp_1\)</span>.</p>
+<p>Therefore, the number of type 1 balls in the urn over time is a <strong>Yule process</strong> with birth parameters: <span class="math display">\[
+\lambda_1(j) = jp_1,\quad j \ge 1
+\]</span></p>
+<p>Similarly, for type 2: <span class="math display">\[
+\lambda_2(j) = jp_2,\quad j \ge 1
+\]</span></p>
+<p>These two Yule processes are independent.</p>
+<p>Let <span class="math inline">\(N_i(t)\)</span> be the number of type <span class="math inline">\(i\)</span> balls in the urn at time <span class="math inline">\(t\)</span>. Then: <span class="math display">\[
+N_i(t) \sim \text{Geometric}(1 - e^{-p_i t}) \Rightarrow \mathbb{E}[N_i(t)] = e^{p_i t},\quad i = 1,2
+\]</span></p>
+<p>Let <span class="math inline">\(L_i(t)\)</span> be the number of times that a type <span class="math inline">\(i\)</span> ball has lit up by time <span class="math inline">\(t\)</span>. Then: <span class="math display">\[
+\mathbb{E}[N_i(t)] = p_i \mathbb{E}[L_i(t)] + 1 \Rightarrow \mathbb{E}[L_i(t)] = \frac{e^{p_i t} - 1}{p_i},\quad i = 1,2
+\]</span></p>
+<p>Hence, the expected number of stages that have passed by time <span class="math inline">\(t\)</span> is: <span class="math display">\[
+\mathbb{E}[L_1(t) + L_2(t)] = \frac{e^{p_1 t} - 1}{p_1} + \frac{e^{p_2 t} - 1}{p_2}
+\]</span></p>
+<p>Let <span class="math inline">\(t_n\)</span> be the value of <span class="math inline">\(t\)</span> that makes the above equal <span class="math inline">\(n\)</span>, i.e., <span class="math inline">\(t_n\)</span> solves: <span class="math display">\[
+\frac{e^{p_1 t_n} - 1}{p_1} + \frac{e^{p_2 t_n} - 1}{p_2} = n
+\]</span></p>
+<p>Then we can approximate the expected number of type <span class="math inline">\(i\)</span> balls in the urn after <span class="math inline">\(n\)</span> stages by: <span class="math display">\[
+\mathbb{E}[N_i(t_n)] = e^{p_i t_n},\quad i = 1,2
+\]</span></p>
+<hr>
+<p><strong>Remarks:</strong></p>
+<ol type="i">
+<li><p>That <span class="math inline">\(\mathbb{E}[N_i(t)] = p_i \mathbb{E}[L_i(t)] + 1\)</span> is not immediate. The number of light ups affects the probability of success (e.g., larger <span class="math inline">\(L_i(t)\)</span> makes success more likely). So in general, <span class="math display">\[
+\mathbb{E}[N_i(t) \mid L_i(t)] \ne p_i L_i(t) + 1
+\]</span> However, the unconditional expectation formula <em>is</em> correct and can be proven using <strong>Wald’s equation</strong>, which will be presented in Section 7.3.</p></li>
+<li><p>This example has been applied in <strong>drug testing</strong>. Suppose there are two drugs with unknown cure probabilities (<span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span>). At each stage, a patient receives a drug determined by drawing a ball. If a type <span class="math inline">\(i\)</span> ball is drawn, drug <span class="math inline">\(i\)</span> is used. A successful outcome results in another ball of the same type being added.</p></li>
+<li><p>For <span class="math inline">\(p_1 = 0.7\)</span>, <span class="math inline">\(p_2 = 0.4\)</span>, after <span class="math inline">\(n = 500\)</span> stages:<br>
+</p></li>
+</ol>
+<ul>
+<li>True expected number of type 1 balls: 288.92<br>
+</li>
+<li>True expected number of type 2 balls: 36.47<br>
+</li>
+<li>Approximate values: 304.09 and 26.23</li>
+</ul>
+<p>After 1000 stages:<br>
+- True means: 600.77 and 58.28<br>
+- Approximations: 630.37 and 39.79</p>
+<hr>
+<p>We shall now derive a set of differential equations that the transition probabilities <span class="math inline">\(P_{ij}(t)\)</span> satisfy in a general continuous-time Markov chain. However, first we need a definition and a pair of lemmas.</p>
+<p>For any pair of states <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>, let <span class="math display">\[
+q_{ij} = \nu_i P_{ij}
+\]</span></p>
+<p>Since <span class="math inline">\(\nu_i\)</span> is the rate at which the process makes a transition when in state <span class="math inline">\(i\)</span> and <span class="math inline">\(P_{ij}\)</span> is the probability that this transition is into state <span class="math inline">\(j\)</span>, it follows that <span class="math inline">\(q_{ij}\)</span> is the <strong>rate</strong>, when in state <span class="math inline">\(i\)</span>, at which the process makes a transition into state <span class="math inline">\(j\)</span>. The quantities <span class="math inline">\(q_{ij}\)</span> are called the <strong>instantaneous transition rates</strong>.</p>
+<p>Since <span class="math display">\[
+\nu_i = \sum_j \nu_i P_{ij} = \sum_j q_{ij}
+\]</span> and <span class="math display">\[
+P_{ij} = \frac{q_{ij}}{\nu_i} = \frac{q_{ij}}{\sum_j q_{ij}},
+\]</span> it follows that specifying the instantaneous transition rates determines the parameters of the continuous-time Markov chain.</p>
+<hr>
+<p><strong>Lemma 6.2.</strong><br>
+(a)<br>
+<span class="math display">\[
+\lim_{h \to 0} \frac{1 - P_{ii}(h)}{h} = \nu_i
+\]</span></p>
+<ol start="2" type="a">
+<li><span class="math display">\[
+\lim_{h \to 0} \frac{P_{ij}(h)}{h} = q_{ij}, \quad \text{when } i \ne j
+\]</span></li>
+</ol>
+<p><strong>Proof.</strong><br>
+We first note that since the amount of time until a transition occurs is exponentially distributed, it follows that the probability of two or more transitions in a time <span class="math inline">\(h\)</span> is <span class="math inline">\(o(h)\)</span> (i.e., vanishes faster than <span class="math inline">\(h\)</span>).</p>
+<p>Thus, <span class="math inline">\(1 - P_{ii}(h)\)</span>, the probability that a process in state <span class="math inline">\(i\)</span> at time 0 will <strong>not</strong> be in state <span class="math inline">\(i\)</span> at time <span class="math inline">\(h\)</span>, equals the probability that a transition occurs within time <span class="math inline">\(h\)</span> plus something small compared to <span class="math inline">\(h\)</span>. Therefore, <span class="math display">\[
+1 - P_{ii}(h) = \nu_i h + o(h)
+\]</span> and part (a) is proven.</p>
+<p>To prove part (b), we note that <span class="math inline">\(P_{ij}(h)\)</span>, the probability that the process goes from state <span class="math inline">\(i\)</span> to state <span class="math inline">\(j\)</span> in a time <span class="math inline">\(h\)</span>, equals the probability that a transition occurs in this time multiplied by the probability that the transition is into state <span class="math inline">\(j\)</span>, plus something small compared to <span class="math inline">\(h\)</span>. That is, <span class="math display">\[
+P_{ij}(h) = h \nu_i P_{ij} + o(h)
+\]</span> and part (b) is proven. <span class="math inline">\(\blacksquare\)</span></p>
+<hr>
+<p><strong>Lemma 6.3.</strong><br>
+For all <span class="math inline">\(s \ge 0\)</span>, <span class="math inline">\(t \ge 0\)</span>, <span class="math display">\[
+P_{ij}(t + s) = \sum_{k=0}^{\infty} P_{ik}(t) P_{kj}(s) \tag{6.8}
+\]</span></p>
+<p><strong>Proof.</strong><br>
+In order for the process to go from state <span class="math inline">\(i\)</span> to state <span class="math inline">\(j\)</span> in time <span class="math inline">\(t + s\)</span>, it must be somewhere at time <span class="math inline">\(t\)</span>, and thus: <span class="math display">\[
+P_{ij}(t + s) = \mathbb{P}\{X(t + s) = j \mid X(0) = i\}
+\]</span></p>
+<p>By the law of total probability: <span class="math display">\[
+= \sum_{k=0}^{\infty} \mathbb{P}\{X(t + s) = j, X(t) = k \mid X(0) = i\}
+\]</span></p>
+<p>By conditional probability: <span class="math display">\[
+= \sum_{k=0}^{\infty} \mathbb{P}\{X(t + s) = j \mid X(t) = k, X(0) = i\} \cdot \mathbb{P}\{X(t) = k \mid X(0) = i\}
+\]</span></p>
+<p>By the <strong>Markov property</strong>: <span class="math display">\[
+= \sum_{k=0}^{\infty} \mathbb{P}\{X(t + s) = j \mid X(t) = k\} \cdot \mathbb{P}\{X(t) = k \mid X(0) = i\}
+\]</span> <span class="math display">\[
+= \sum_{k=0}^{\infty} P_{kj}(s) P_{ik}(t)
+\]</span> and the proof is completed. <span class="math inline">\(\blacksquare\)</span></p>
+<p>The set of equations (6.8) is known as the <strong>Chapman–Kolmogorov equations</strong>.</p>
+<p>From Lemma 6.3, we obtain: <span class="math display">\[
+P_{ij}(h + t) - P_{ij}(t) = \sum_{k \ne i} P_{ik}(h) P_{kj}(t) - [1 - P_{ii}(h)] P_{ij}(t)
+\]</span></p>
+<p>Thus, <span class="math display">\[
+\frac{P_{ij}(t + h) - P_{ij}(t)}{h} = \sum_{k \ne i} \frac{P_{ik}(h)}{h} P_{kj}(t) - \frac{1 - P_{ii}(h)}{h} P_{ij}(t)
+\]</span></p>
+<p>Now, assuming that we can interchange the limit and the summation, and applying Lemma 6.2: <span class="math display">\[
+\lim_{h \to 0} \frac{P_{ij}(t + h) - P_{ij}(t)}{h} = \sum_{k \ne i} q_{ik} P_{kj}(t) - \nu_i P_{ij}(t)
+\]</span></p>
+<p>It turns out that this interchange can indeed be justified, and hence…</p>
+</section>
+</section>
+</div>
+</div>
 
 
 
