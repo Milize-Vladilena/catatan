@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/src/core.html",
       "/src/metpar/sarima.html",
       "/src/asum/Contoh-5.12.html",
       "/src/asum/min-Var-2firm.html",

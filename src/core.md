@@ -1,21 +1,3 @@
----
-title: "Cek Bawah 👇🏼"
-format: 
-  html:
-    code-block-bg: true
-    code-block-border-left: "#31BAE9"
-listing:
-  contents: src
-  sort: "date desc"
-  type: default
-  fields: [date, title, subtitle, author, description, reading-time, categories]
-  categories: true
-  sort-ui: true
-  filter-ui: true
-page-layout: full
-title-block-banner: true
----
-
 # 🌸 Selamat Datang di Dunia Pikiranku!  
 `🐧✍️` **Tempat dimana kalkulus bertemu kopi, dan kode bercerita**  
 
@@ -53,5 +35,3 @@ title-block-banner: true
     src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/12345"></iframe>
 </details>
 ```
-
----

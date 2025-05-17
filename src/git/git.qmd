@@ -235,7 +235,7 @@ Kalau ada, lanjut.
 2. 📤 Tambahkan Public Key ke GitHub
 Ambil isi **public key** kamu:
 
-```{.mardown filename="bash"}
+```{.markdown filename="bash"}
 cat ~/.ssh/id_rsa_main.pub
 ```
 
