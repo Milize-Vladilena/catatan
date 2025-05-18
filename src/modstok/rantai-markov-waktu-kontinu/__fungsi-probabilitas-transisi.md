@@ -32,7 +32,7 @@ $$
 Ingat lagi, karena parameter waktunya kontinu. Tapi ruang keadaannya tetap **diskrit**. Maka,
 
 $$
-\mathbb{P}\{X<x\}=\mathbb{P}\{X<x+1\} - \mathbb{P}\{X<x\}
+\mathbb{P}\{X=x\}=\mathbb{P}\{X<x+1\} - \mathbb{P}\{X<x\}
 $$
 
 yakni
