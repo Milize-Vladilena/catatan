@@ -56,3 +56,41 @@ $$
 P_{ii}(t) = e^{-\lambda_i t}
 $$
 
+### Contoh 6.8
+
+Ingat lagi **proses Yule** dimana proses kelahiran murni yang masing-masing individu di populasi itu independen yang memberikan rate kelahiran $\lambda$, dan begitu juga untuk $\lambda_n = n\lambda, n \geq 1$. Misalkan $i=1$, kita peroleh dari proposisi 6.1:
+
+$$
+P_{1j}(t) = \sum_{k=1}^{j} e^{-k\lambda t} \prod_{\substack{r=1 \\ r \ne k}}^{j} \frac{r}{r - k} - \sum_{k=1}^{j-1} e^{-k\lambda t} \prod_{\substack{r=1 \\ r \ne k}}^{j-1} \frac{r}{r - k}
+$$
+
+Ini disederhanakan menjadi:
+$$
+P_{1j}(t) = e^{-j\lambda t} \prod_{r=1}^{j-1} \frac{r}{r - j} + \sum_{k=1}^{j-1} e^{-k\lambda t} \left( \prod_{\substack{r=1 \\ r \ne k}}^{j} \frac{r}{r - k} - \prod_{\substack{r=1 \\ r \ne k}}^{j-1} \frac{r}{r - k} \right)
+$$
+
+Lebih lanjut kita dapat sederhanakan menjadi:
+$$
+\frac{k}{j-k} \prod_{\substack{r=1 \\ r \ne k}}^{j-1} \frac{r}{r - k} = \frac{(j-1)!}{(1-k)(2-k)\cdots(k-1-k)(j-k)!} = (-1)^{k-1} \binom{j-1}{k-1}
+$$
+
+Sehingga:
+$$
+P_{1j}(t) = \sum_{k=1}^{j} \binom{j-1}{k-1} e^{-k\lambda t} (-1)^{k-1}
+$$
+
+Misalkan $i = j-k$, dan menyederhanakan index menjadi:
+$$
+P_{1j}(t) = e^{-\lambda t} \sum_{i=0}^{j-1} \binom{j-1}{i} e^{-i\lambda t} (-1)^i = e^{-\lambda t} (1 - e^{-\lambda t})^{j-1}
+$$
+
+Oleh karenanya, dimulai dari individu tunggal, ukuran populasi dimulai dari waktu $t$ memiliki **distribusi geometrik** dengan rerata $e^{\lambdat}$. Jika populasi dimulai dari individu $i$, kita dapat pertimbangkan masing-masing individu dimulai dari **proses Yule independen** sendiri, dan begitu populasi pada waktu $t$ akan dijumlahkan dari independen $i$ dan variabel acak distribusi geometrik identik dengan parameter $e^{-\lambdat}.
+
+Sehingga, ukuran populasi di waktu $t$ memiliki **distribusi binomial negatif** dengan parameter $i$ dan $e^{\lambdat}$, jadi:
+
+$$
+P_{ij}(t) = \binom{j-1}{i-1} e^{-i\lambda t} (1 - e^{-\lambda t})^{j-i}, \quad j \ge i \ge 1
+$$
+
+### Contoh 6.9
+Sebuah gentong mengandung satu bola tipe 1 dan satu bola tipe 2. 
