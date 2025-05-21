@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/src/ml/ml.html",
       "/src/modstok/rantai-markov-waktu-kontinu.html",
       "/src/metpar/sarima.html",
       "/src/asum/Contoh-5.12.html",

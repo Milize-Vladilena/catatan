@@ -132,6 +132,8 @@ window.Quarto = {
   <li><a href="#fungsi-probabilitas-transisi" id="toc-fungsi-probabilitas-transisi" class="nav-link active" data-scroll-target="#fungsi-probabilitas-transisi">6.4 Fungsi Probabilitas Transisi</a>
   <ul class="collapse">
   <li><a href="#proposition-6.1-1" id="toc-proposition-6.1-1" class="nav-link" data-scroll-target="#proposition-6.1-1">Proposition 6.1</a></li>
+  <li><a href="#contoh-6.8" id="toc-contoh-6.8" class="nav-link" data-scroll-target="#contoh-6.8">Contoh 6.8</a></li>
+  <li><a href="#contoh-6.9" id="toc-contoh-6.9" class="nav-link" data-scroll-target="#contoh-6.9">Contoh 6.9</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -1175,6 +1177,34 @@ P_{ij}(t) = \sum_{k=i}^{j} e^{-\lambda_k t} \prod_{\substack{r=i \\ r \ne k}}^{j
 <p><span class="math display">\[
 P_{ii}(t) = e^{-\lambda_i t}
 \]</span></p>
+</section>
+<section id="contoh-6.8" class="level3">
+<h3 class="anchored" data-anchor-id="contoh-6.8">Contoh 6.8</h3>
+<p>Ingat lagi <strong>proses Yule</strong> dimana proses kelahiran murni yang masing-masing individu di populasi itu independen yang memberikan rate kelahiran <span class="math inline">\(\lambda\)</span>, dan begitu juga untuk <span class="math inline">\(\lambda_n = n\lambda, n \geq 1\)</span>. Misalkan <span class="math inline">\(i=1\)</span>, kita peroleh dari proposisi 6.1:</p>
+<p><span class="math display">\[
+P_{1j}(t) = \sum_{k=1}^{j} e^{-k\lambda t} \prod_{\substack{r=1 \\ r \ne k}}^{j} \frac{r}{r - k} - \sum_{k=1}^{j-1} e^{-k\lambda t} \prod_{\substack{r=1 \\ r \ne k}}^{j-1} \frac{r}{r - k}
+\]</span></p>
+<p>Ini disederhanakan menjadi: <span class="math display">\[
+P_{1j}(t) = e^{-j\lambda t} \prod_{r=1}^{j-1} \frac{r}{r - j} + \sum_{k=1}^{j-1} e^{-k\lambda t} \left( \prod_{\substack{r=1 \\ r \ne k}}^{j} \frac{r}{r - k} - \prod_{\substack{r=1 \\ r \ne k}}^{j-1} \frac{r}{r - k} \right)
+\]</span></p>
+<p>Lebih lanjut kita dapat sederhanakan menjadi: <span class="math display">\[
+\frac{k}{j-k} \prod_{\substack{r=1 \\ r \ne k}}^{j-1} \frac{r}{r - k} = \frac{(j-1)!}{(1-k)(2-k)\cdots(k-1-k)(j-k)!} = (-1)^{k-1} \binom{j-1}{k-1}
+\]</span></p>
+<p>Sehingga: <span class="math display">\[
+P_{1j}(t) = \sum_{k=1}^{j} \binom{j-1}{k-1} e^{-k\lambda t} (-1)^{k-1}
+\]</span></p>
+<p>Misalkan <span class="math inline">\(i = j-k\)</span>, dan menyederhanakan index menjadi: <span class="math display">\[
+P_{1j}(t) = e^{-\lambda t} \sum_{i=0}^{j-1} \binom{j-1}{i} e^{-i\lambda t} (-1)^i = e^{-\lambda t} (1 - e^{-\lambda t})^{j-1}
+\]</span></p>
+<p>Oleh karenanya, dimulai dari individu tunggal, ukuran populasi dimulai dari waktu <span class="math inline">\(t\)</span> memiliki <strong>distribusi geometrik</strong> dengan rerata <span class="math inline">\(e^{\lambdat}\)</span>. Jika populasi dimulai dari individu <span class="math inline">\(i\)</span>, kita dapat pertimbangkan masing-masing individu dimulai dari <strong>proses Yule independen</strong> sendiri, dan begitu populasi pada waktu <span class="math inline">\(t\)</span> akan dijumlahkan dari independen <span class="math inline">\(i\)</span> dan variabel acak distribusi geometrik identik dengan parameter $e^{-}.</p>
+<p>Sehingga, ukuran populasi di waktu <span class="math inline">\(t\)</span> memiliki <strong>distribusi binomial negatif</strong> dengan parameter <span class="math inline">\(i\)</span> dan <span class="math inline">\(e^{\lambdat}\)</span>, jadi:</p>
+<p><span class="math display">\[
+P_{ij}(t) = \binom{j-1}{i-1} e^{-i\lambda t} (1 - e^{-\lambda t})^{j-i}, \quad j \ge i \ge 1
+\]</span></p>
+</section>
+<section id="contoh-6.9" class="level3">
+<h3 class="anchored" data-anchor-id="contoh-6.9">Contoh 6.9</h3>
+<p>Sebuah gentong mengandung satu bola tipe 1 dan satu bola tipe 2.</p>
 
 
 </section>

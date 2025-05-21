@@ -1,0 +1,51 @@
+---
+title: Machine Learning
+date: May 21, 2025
+categories: [ml, ildat, kuliah]
+---
+
+hari ini aku ketemu video bagus banget. Ia menjelaskan kalo dia belajar Machine Learning dari awal, dia akan seperti apa belajarnya. 
+
+
+```{=html}
+<a href="https://www.youtube.com/watch?v=_xIwjmCH6D4&ab_channel=BorisMeinardus" 
+   target="_blank" 
+   class="btn btn-primary">
+  Tonton disini
+</a>
+```
+Ini buku-bukunya:
+
+::: {.callout-note title="Understand Deep Learning" collapse="true"}
+
+```{=html}
+<iframe
+  src="https://drive.google.com/file/d/1FynZOA8hr6M-AL3_I4vYZkdLiCh2PG8-/preview"
+  width="100%"
+  height="600"
+  allow="autoplay"
+  style="border: 1px solid #ccc; margin-top: 20px;"
+>Browser Anda tidak mendukung iframe.
+<a href="https://drive.google.com/uc?export=download&id=1FynZOA8hr6M-AL3_I4vYZkdLiCh2PG8-">Download PDF</a>.
+</iframe>
+```
+:::
+
+::: {.callout-note title="Math behind machine learning" collapse="true"}
+
+```{=html}
+<iframe
+  src="https://drive.google.com/file/d/170Gbz2hTPbi1Jj9YpovOsuTlglgLx5cD/preview"
+  width="100%"
+  height="600"
+  allow="autoplay"
+  style="border: 1px solid #ccc; margin-top: 20px;"
+>Browser Anda tidak mendukung iframe.
+<a href="https://drive.google.com/uc?export=download&id=170Gbz2hTPbi1Jj9YpovOsuTlglgLx5cD">Download PDF</a>.
+</iframe>
+```
+
+:::
+
+
+Buat belajarnya bisa include dari sini
