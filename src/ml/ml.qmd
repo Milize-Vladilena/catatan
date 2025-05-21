@@ -6,15 +6,27 @@ categories: [ml, ildat, kuliah]
 
 hari ini aku ketemu video bagus banget. Ia menjelaskan kalo dia belajar Machine Learning dari awal, dia akan seperti apa belajarnya. 
 
+::: {.position-relative}
 
-```{=html}
-<a href="https://www.youtube.com/watch?v=_xIwjmCH6D4&ab_channel=BorisMeinardus" 
-   target="_blank" 
-   class="btn btn-primary">
-  Tonton disini
-</a>
-```
+[Tonton disini](https://www.youtube.com/watch?v=_xIwjmCH6D4&ab_channel=BorisMeinardus){class="btn btn-primary position-absolute top-0 start-50 translate-middle" target="_blank"}
+
+:::
+
 Ini buku-bukunya:
+
+:::{.grid class="row justify-content-center" style="--bs-columns: 2; --bs-gap: 5rem;"}
+
+::: {.class="g-col-3"}
+
+[Buku Understand Deep Learning](https://drive.google.com/file/d/1FynZOA8hr6M-AL3_I4vYZkdLiCh2PG8-/view){class="btn btn-primary" target="_blank"}
+
+:::
+
+::: {.class="g-col-3"}
+[Buku Why Machine Learning](https://drive.google.com/file/d/170Gbz2hTPbi1Jj9YpovOsuTlglgLx5cD/view){class="btn btn-primary" target="_blank"}
+:::
+
+:::
 
 ::: {.callout-note title="Understand Deep Learning" collapse="true"}
 
