@@ -14,20 +14,6 @@ hari ini aku ketemu video bagus banget. Ia menjelaskan kalo dia belajar Machine 
 
 Ini buku-bukunya:
 
-:::{.grid class="row justify-content-center" style="--bs-columns: 2; --bs-gap: 5rem;"}
-
-::: {.class="g-col-3"}
-
-[Buku Understand Deep Learning](https://drive.google.com/file/d/1FynZOA8hr6M-AL3_I4vYZkdLiCh2PG8-/view){class="btn btn-primary" target="_blank"}
-
-:::
-
-::: {.class="g-col-3"}
-[Buku Why Machine Learning](https://drive.google.com/file/d/170Gbz2hTPbi1Jj9YpovOsuTlglgLx5cD/view){class="btn btn-primary" target="_blank"}
-:::
-
-:::
-
 ::: {.callout-note title="Understand Deep Learning" collapse="true"}
 
 ```{=html}
@@ -58,6 +44,25 @@ Ini buku-bukunya:
 ```
 
 :::
+
+kalau nggak bisa pakai ini saja
+
+
+:::{.grid class="row justify-content-center" style="--bs-columns: 2; --bs-gap: 5rem;"}
+
+::: {.class="g-col-3"}
+
+[Buku Understand Deep Learning](https://drive.google.com/file/d/1FynZOA8hr6M-AL3_I4vYZkdLiCh2PG8-/view){class="btn btn-primary" target="_blank"}
+
+:::
+
+::: {.class="g-col-3"}
+[Buku Why Machine Learning](https://drive.google.com/file/d/170Gbz2hTPbi1Jj9YpovOsuTlglgLx5cD/view){class="btn btn-primary" target="_blank"}
+:::
+
+:::
+
+---
 
 
 Buat belajarnya bisa include dari sini
