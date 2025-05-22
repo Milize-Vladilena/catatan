@@ -68,3 +68,5 @@ kalau nggak bisa pakai ini saja
 
 
 Buat belajarnya bisa include dari sini
+
+{{< include src/__3_1_Shallow_Networks_I.qmd >}}

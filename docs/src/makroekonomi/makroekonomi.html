@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2025-05-22">
+
+<title>Makroekonomi – Catatan 📝</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-8aa8884591a9136173b71f6048871fae.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Catatan 📝</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#peran-penting-akumulasi-modal-capital-accumulation" id="toc-peran-penting-akumulasi-modal-capital-accumulation" class="nav-link active" data-scroll-target="#peran-penting-akumulasi-modal-capital-accumulation"><strong>1. Peran Penting Akumulasi Modal (Capital Accumulation)</strong></a></li>
+  <li><a href="#mekanisme-pasar-bebas-laissez-faire" id="toc-mekanisme-pasar-bebas-laissez-faire" class="nav-link" data-scroll-target="#mekanisme-pasar-bebas-laissez-faire"><strong>2. Mekanisme Pasar Bebas (Laissez-Faire)</strong></a></li>
+  <li><a href="#pentingnya-tabungan-dan-investasi" id="toc-pentingnya-tabungan-dan-investasi" class="nav-link" data-scroll-target="#pentingnya-tabungan-dan-investasi"><strong>3. Pentingnya Tabungan dan Investasi</strong></a></li>
+  <li><a href="#peran-tenaga-kerja-dan-populasi-teori-malthusian" id="toc-peran-tenaga-kerja-dan-populasi-teori-malthusian" class="nav-link" data-scroll-target="#peran-tenaga-kerja-dan-populasi-teori-malthusian"><strong>4. Peran Tenaga Kerja dan Populasi (Teori Malthusian)</strong></a></li>
+  <li><a href="#perdagangan-internasional-keunggulan-komparatif---david-ricardo" id="toc-perdagangan-internasional-keunggulan-komparatif---david-ricardo" class="nav-link" data-scroll-target="#perdagangan-internasional-keunggulan-komparatif---david-ricardo"><strong>5. Perdagangan Internasional (Keunggulan Komparatif - David Ricardo)</strong></a></li>
+  <li><a href="#batasan-pertumbuhan-jangka-panjang-stagnasi-ekonomi-klasik" id="toc-batasan-pertumbuhan-jangka-panjang-stagnasi-ekonomi-klasik" class="nav-link" data-scroll-target="#batasan-pertumbuhan-jangka-panjang-stagnasi-ekonomi-klasik"><strong>6. Batasan Pertumbuhan Jangka Panjang (Stagnasi Ekonomi Klasik)</strong></a></li>
+  <li><a href="#relevansi-dengan-umkm-usaha-mikro-kecil-dan-menengah" id="toc-relevansi-dengan-umkm-usaha-mikro-kecil-dan-menengah" class="nav-link" data-scroll-target="#relevansi-dengan-umkm-usaha-mikro-kecil-dan-menengah"><strong>Relevansi dengan UMKM (Usaha Mikro, Kecil, dan Menengah)</strong></a></li>
+  <li><a href="#kritik-terhadap-pandangan-klasik" id="toc-kritik-terhadap-pandangan-klasik" class="nav-link" data-scroll-target="#kritik-terhadap-pandangan-klasik"><strong>Kritik terhadap Pandangan Klasik</strong></a></li>
+  <li><a href="#peran-inovasi-sebagai-penggerak-utama-pertumbuhan" id="toc-peran-inovasi-sebagai-penggerak-utama-pertumbuhan" class="nav-link" data-scroll-target="#peran-inovasi-sebagai-penggerak-utama-pertumbuhan"><strong>1. Peran Inovasi sebagai Penggerak Utama Pertumbuhan</strong></a></li>
+  <li><a href="#entrepreneur-sebagai-aktor-kunci" id="toc-entrepreneur-sebagai-aktor-kunci" class="nav-link" data-scroll-target="#entrepreneur-sebagai-aktor-kunci"><strong>2. Entrepreneur sebagai Aktor Kunci</strong></a></li>
+  <li><a href="#creative-destruction-perusakan-kreatif" id="toc-creative-destruction-perusakan-kreatif" class="nav-link" data-scroll-target="#creative-destruction-perusakan-kreatif"><strong>3. Creative Destruction (Perusakan Kreatif)</strong></a></li>
+  <li><a href="#siklus-bisnis-business-cycles-dan-gelombang-inovasi" id="toc-siklus-bisnis-business-cycles-dan-gelombang-inovasi" class="nav-link" data-scroll-target="#siklus-bisnis-business-cycles-dan-gelombang-inovasi"><strong>4. Siklus Bisnis (Business Cycles) dan Gelombang Inovasi</strong></a></li>
+  <li><a href="#peran-monopoli-sementara-dalam-inovasi" id="toc-peran-monopoli-sementara-dalam-inovasi" class="nav-link" data-scroll-target="#peran-monopoli-sementara-dalam-inovasi"><strong>5. Peran Monopoli Sementara dalam Inovasi</strong></a></li>
+  <li><a href="#kritik-terhadap-teori-schumpeter" id="toc-kritik-terhadap-teori-schumpeter" class="nav-link" data-scroll-target="#kritik-terhadap-teori-schumpeter"><strong>6. Kritik terhadap Teori Schumpeter</strong></a></li>
+  <li><a href="#relevansi-dengan-umkm-usaha-mikro-kecil-dan-menengah-1" id="toc-relevansi-dengan-umkm-usaha-mikro-kecil-dan-menengah-1" class="nav-link" data-scroll-target="#relevansi-dengan-umkm-usaha-mikro-kecil-dan-menengah-1"><strong>Relevansi dengan UMKM (Usaha Mikro, Kecil, dan Menengah)</strong></a></li>
+  <li><a href="#perbandingan-dengan-teori-lain" id="toc-perbandingan-dengan-teori-lain" class="nav-link" data-scroll-target="#perbandingan-dengan-teori-lain"><strong>Perbandingan dengan Teori Lain</strong></a></li>
+  <li><a href="#kesimpulan" id="toc-kesimpulan" class="nav-link" data-scroll-target="#kesimpulan"><strong>Kesimpulan</strong></a></li>
+  <li><a href="#pertumbuhan-ekonomi-dalam-perspektif-ekonomi-new-classical" id="toc-pertumbuhan-ekonomi-dalam-perspektif-ekonomi-new-classical" class="nav-link" data-scroll-target="#pertumbuhan-ekonomi-dalam-perspektif-ekonomi-new-classical"><strong>Pertumbuhan Ekonomi dalam Perspektif Ekonomi New Classical</strong></a></li>
+  <li><a href="#asumsi-dasar-ekonomi-new-classical" id="toc-asumsi-dasar-ekonomi-new-classical" class="nav-link" data-scroll-target="#asumsi-dasar-ekonomi-new-classical"><strong>1. Asumsi Dasar Ekonomi New Classical</strong></a></li>
+  <li><a href="#mekanisme-pertumbuhan-ekonomi-dalam-new-classical" id="toc-mekanisme-pertumbuhan-ekonomi-dalam-new-classical" class="nav-link" data-scroll-target="#mekanisme-pertumbuhan-ekonomi-dalam-new-classical"><strong>2. Mekanisme Pertumbuhan Ekonomi dalam New Classical</strong></a>
+  <ul class="collapse">
+  <li><a href="#a.-pertumbuhan-jangka-panjang-ditentukan-oleh-faktor-riil" id="toc-a.-pertumbuhan-jangka-panjang-ditentukan-oleh-faktor-riil" class="nav-link" data-scroll-target="#a.-pertumbuhan-jangka-panjang-ditentukan-oleh-faktor-riil"><strong>A. Pertumbuhan Jangka Panjang Ditentukan oleh Faktor Riil</strong></a></li>
+  <li><a href="#b.-peran-kebijakan-yang-minimal" id="toc-b.-peran-kebijakan-yang-minimal" class="nav-link" data-scroll-target="#b.-peran-kebijakan-yang-minimal"><strong>B. Peran Kebijakan yang Minimal</strong></a></li>
+  <li><a href="#c.-kritik-terhadap-intervensi-pemerintah" id="toc-c.-kritik-terhadap-intervensi-pemerintah" class="nav-link" data-scroll-target="#c.-kritik-terhadap-intervensi-pemerintah"><strong>C. Kritik terhadap Intervensi Pemerintah</strong></a></li>
+  </ul></li>
+  <li><a href="#model-real-business-cycle-rbc" id="toc-model-real-business-cycle-rbc" class="nav-link" data-scroll-target="#model-real-business-cycle-rbc"><strong>3. Model Real Business Cycle (RBC)</strong></a>
+  <ul class="collapse">
+  <li><a href="#a.-asumsi-rbc" id="toc-a.-asumsi-rbc" class="nav-link" data-scroll-target="#a.-asumsi-rbc"><strong>A. Asumsi RBC</strong></a></li>
+  <li><a href="#b.-contoh-shock-dalam-rbc" id="toc-b.-contoh-shock-dalam-rbc" class="nav-link" data-scroll-target="#b.-contoh-shock-dalam-rbc"><strong>B. Contoh Shock dalam RBC</strong></a></li>
+  <li><a href="#c.-implikasi-kebijakan" id="toc-c.-implikasi-kebijakan" class="nav-link" data-scroll-target="#c.-implikasi-kebijakan"><strong>C. Implikasi Kebijakan</strong></a></li>
+  </ul></li>
+  <li><a href="#perbandingan-dengan-mazhab-lain" id="toc-perbandingan-dengan-mazhab-lain" class="nav-link" data-scroll-target="#perbandingan-dengan-mazhab-lain"><strong>4. Perbandingan dengan Mazhab Lain</strong></a></li>
+  <li><a href="#kritik-terhadap-new-classical" id="toc-kritik-terhadap-new-classical" class="nav-link" data-scroll-target="#kritik-terhadap-new-classical"><strong>5. Kritik terhadap New Classical</strong></a></li>
+  <li><a href="#relevansi-untuk-kebijakan-ekonomi-modern" id="toc-relevansi-untuk-kebijakan-ekonomi-modern" class="nav-link" data-scroll-target="#relevansi-untuk-kebijakan-ekonomi-modern"><strong>6. Relevansi untuk Kebijakan Ekonomi Modern</strong></a>
+  <ul class="collapse">
+  <li><a href="#kesimpulan-1" id="toc-kesimpulan-1" class="nav-link" data-scroll-target="#kesimpulan-1"><strong>Kesimpulan</strong></a></li>
+  <li><a href="#pertumbuhan-ekonomi-dalam-perspektif-keynesian" id="toc-pertumbuhan-ekonomi-dalam-perspektif-keynesian" class="nav-link" data-scroll-target="#pertumbuhan-ekonomi-dalam-perspektif-keynesian"><strong>Pertumbuhan Ekonomi dalam Perspektif Keynesian</strong></a></li>
+  </ul></li>
+  <li><a href="#asumsi-dasar-keynesian" id="toc-asumsi-dasar-keynesian" class="nav-link" data-scroll-target="#asumsi-dasar-keynesian"><strong>1. Asumsi Dasar Keynesian</strong></a></li>
+  <li><a href="#mekanisme-pertumbuhan-keynesian" id="toc-mekanisme-pertumbuhan-keynesian" class="nav-link" data-scroll-target="#mekanisme-pertumbuhan-keynesian"><strong>2. Mekanisme Pertumbuhan Keynesian</strong></a>
+  <ul class="collapse">
+  <li><a href="#a.-komponen-permintaan-agregat-ad-c-i-g-x-m" id="toc-a.-komponen-permintaan-agregat-ad-c-i-g-x-m" class="nav-link" data-scroll-target="#a.-komponen-permintaan-agregat-ad-c-i-g-x-m"><strong>A. Komponen Permintaan Agregat (AD = C + I + G + (X-M))</strong></a></li>
+  <li><a href="#b.-multiplier-effect" id="toc-b.-multiplier-effect" class="nav-link" data-scroll-target="#b.-multiplier-effect"><strong>B. Multiplier Effect</strong></a></li>
+  <li><a href="#c.-peran-kebijakan-pemerintah" id="toc-c.-peran-kebijakan-pemerintah" class="nav-link" data-scroll-target="#c.-peran-kebijakan-pemerintah"><strong>C. Peran Kebijakan Pemerintah</strong></a></li>
+  </ul></li>
+  <li><a href="#kritik-terhadap-teori-keynesian" id="toc-kritik-terhadap-teori-keynesian" class="nav-link" data-scroll-target="#kritik-terhadap-teori-keynesian"><strong>3. Kritik terhadap Teori Keynesian</strong></a></li>
+  <li><a href="#perbandingan-dengan-mazhab-lain-1" id="toc-perbandingan-dengan-mazhab-lain-1" class="nav-link" data-scroll-target="#perbandingan-dengan-mazhab-lain-1"><strong>4. Perbandingan dengan Mazhab Lain</strong></a></li>
+  <li><a href="#relevansi-untuk-kebijakan-modern" id="toc-relevansi-untuk-kebijakan-modern" class="nav-link" data-scroll-target="#relevansi-untuk-kebijakan-modern"><strong>5. Relevansi untuk Kebijakan Modern</strong></a>
+  <ul class="collapse">
+  <li><a href="#kesimpulan-2" id="toc-kesimpulan-2" class="nav-link" data-scroll-target="#kesimpulan-2"><strong>Kesimpulan</strong></a></li>
+  <li><a href="#pertumbuhan-ekonomi-dalam-perspektif-new-macroeconomic-synthesis-nms" id="toc-pertumbuhan-ekonomi-dalam-perspektif-new-macroeconomic-synthesis-nms" class="nav-link" data-scroll-target="#pertumbuhan-ekonomi-dalam-perspektif-new-macroeconomic-synthesis-nms"><strong>Pertumbuhan Ekonomi dalam Perspektif New Macroeconomic Synthesis (NMS)</strong></a></li>
+  </ul></li>
+  <li><a href="#ciri-kunci-new-macroeconomic-synthesis" id="toc-ciri-kunci-new-macroeconomic-synthesis" class="nav-link" data-scroll-target="#ciri-kunci-new-macroeconomic-synthesis"><strong>1. Ciri Kunci New Macroeconomic Synthesis</strong></a></li>
+  <li><a href="#model-utama-dalam-new-macroeconomic-synthesis" id="toc-model-utama-dalam-new-macroeconomic-synthesis" class="nav-link" data-scroll-target="#model-utama-dalam-new-macroeconomic-synthesis"><strong>2. Model Utama dalam New Macroeconomic Synthesis</strong></a>
+  <ul class="collapse">
+  <li><a href="#a.-dynamic-stochastic-general-equilibrium-dsge" id="toc-a.-dynamic-stochastic-general-equilibrium-dsge" class="nav-link" data-scroll-target="#a.-dynamic-stochastic-general-equilibrium-dsge"><strong>A. Dynamic Stochastic General Equilibrium (DSGE)</strong></a></li>
+  <li><a href="#b.-hybrid-phillips-curve" id="toc-b.-hybrid-phillips-curve" class="nav-link" data-scroll-target="#b.-hybrid-phillips-curve"><strong>B. Hybrid Phillips Curve</strong></a></li>
+  <li><a href="#c.-peran-kebijakan-moneter-taylor-rule" id="toc-c.-peran-kebijakan-moneter-taylor-rule" class="nav-link" data-scroll-target="#c.-peran-kebijakan-moneter-taylor-rule"><strong>C. Peran Kebijakan Moneter (Taylor Rule)</strong></a></li>
+  </ul></li>
+  <li><a href="#implikasi-kebijakan" id="toc-implikasi-kebijakan" class="nav-link" data-scroll-target="#implikasi-kebijakan"><strong>3. Implikasi Kebijakan</strong></a></li>
+  <li><a href="#kritik-terhadap-new-macroeconomic-synthesis" id="toc-kritik-terhadap-new-macroeconomic-synthesis" class="nav-link" data-scroll-target="#kritik-terhadap-new-macroeconomic-synthesis"><strong>4. Kritik terhadap New Macroeconomic Synthesis</strong></a></li>
+  <li><a href="#perbandingan-dengan-mazhab-lain-2" id="toc-perbandingan-dengan-mazhab-lain-2" class="nav-link" data-scroll-target="#perbandingan-dengan-mazhab-lain-2"><strong>5. Perbandingan dengan Mazhab Lain</strong></a></li>
+  <li><a href="#relevansi-untuk-indonesia" id="toc-relevansi-untuk-indonesia" class="nav-link" data-scroll-target="#relevansi-untuk-indonesia"><strong>6. Relevansi untuk Indonesia</strong></a>
+  <ul class="collapse">
+  <li><a href="#kesimpulan-3" id="toc-kesimpulan-3" class="nav-link" data-scroll-target="#kesimpulan-3"><strong>Kesimpulan</strong></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Makroekonomi</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">kuliah</div>
+    <div class="quarto-category">makroekonomi</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 22, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Pertumbuhan Ekonomi dalam Perspektif Ekonomi Klasik</strong></p>
+<p>Ekonomi klasik, yang dipelopori oleh Adam Smith, David Ricardo, dan Thomas Malthus, memiliki pandangan tersendiri tentang pertumbuhan ekonomi. Berikut adalah penjelasan utama dari sisi ekonomi klasik:</p>
+<section id="peran-penting-akumulasi-modal-capital-accumulation" class="level3">
+<h3 class="anchored" data-anchor-id="peran-penting-akumulasi-modal-capital-accumulation"><strong>1. Peran Penting Akumulasi Modal (Capital Accumulation)</strong></h3>
+<ul>
+<li>Menurut ekonomi klasik, pertumbuhan ekonomi terutama didorong oleh <strong>akumulasi modal</strong> (investasi dalam barang-barang produktif seperti mesin, infrastruktur, dan teknologi).<br>
+</li>
+<li>Adam Smith dalam <em>“The Wealth of Nations”</em> (1776) menekankan bahwa <strong>pembagian kerja (division of labor)</strong> dan <strong>spesialisasi</strong> meningkatkan produktivitas, yang pada akhirnya mendorong pertumbuhan ekonomi.<br>
+</li>
+<li>Investasi meningkatkan kapasitas produksi, sehingga output ekonomi (PDB) tumbuh.</li>
+</ul>
+</section>
+<section id="mekanisme-pasar-bebas-laissez-faire" class="level3">
+<h3 class="anchored" data-anchor-id="mekanisme-pasar-bebas-laissez-faire"><strong>2. Mekanisme Pasar Bebas (Laissez-Faire)</strong></h3>
+<ul>
+<li>Ekonom klasik percaya bahwa <strong>pasar bebas</strong> (tanpa intervensi pemerintah yang berlebihan) akan mengarah pada alokasi sumber daya yang efisien.<br>
+</li>
+<li><strong>“Invisible Hand”</strong> (Adam Smith) menjelaskan bagaimana individu yang mengejar kepentingan pribadi justru akan memaksimalkan kesejahteraan sosial melalui mekanisme harga dan persaingan.<br>
+</li>
+<li>Pasar yang kompetitif mendorong inovasi dan efisiensi, yang berkontribusi pada pertumbuhan jangka panjang.</li>
+</ul>
+</section>
+<section id="pentingnya-tabungan-dan-investasi" class="level3">
+<h3 class="anchored" data-anchor-id="pentingnya-tabungan-dan-investasi"><strong>3. Pentingnya Tabungan dan Investasi</strong></h3>
+<ul>
+<li>David Ricardo mengembangkan teori <strong>pertumbuhan berbasis tabungan</strong>, di mana tabungan masyarakat digunakan untuk investasi produktif.<br>
+</li>
+<li>Semakin tinggi tabungan, semakin besar modal yang bisa diinvestasikan, sehingga meningkatkan output ekonomi.<br>
+</li>
+<li>Namun, ekonomi klasik juga memperingatkan tentang <strong>law of diminishing returns</strong> (hasil yang semakin berkurang) dalam jangka panjang jika modal terus ditambah tanpa peningkatan teknologi.</li>
+</ul>
+</section>
+<section id="peran-tenaga-kerja-dan-populasi-teori-malthusian" class="level3">
+<h3 class="anchored" data-anchor-id="peran-tenaga-kerja-dan-populasi-teori-malthusian"><strong>4. Peran Tenaga Kerja dan Populasi (Teori Malthusian)</strong></h3>
+<ul>
+<li>Thomas Malthus berpendapat bahwa pertumbuhan penduduk yang cepat akan melebihi pertumbuhan pasokan makanan, sehingga upah riil akan turun dan ekonomi mencapai <strong>tingkat subsisten</strong>.<br>
+</li>
+<li>Namun, dalam jangka pendek, peningkatan tenaga kerja dapat mendorong produksi, asalkan diimbangi dengan akumulasi modal.</li>
+</ul>
+</section>
+<section id="perdagangan-internasional-keunggulan-komparatif---david-ricardo" class="level3">
+<h3 class="anchored" data-anchor-id="perdagangan-internasional-keunggulan-komparatif---david-ricardo"><strong>5. Perdagangan Internasional (Keunggulan Komparatif - David Ricardo)</strong></h3>
+<ul>
+<li>Ekonom klasik percaya bahwa <strong>perdagangan bebas</strong> mendorong pertumbuhan ekonomi melalui <strong>keunggulan komparatif</strong>.<br>
+</li>
+<li>Negara akan berspesialisasi dalam produksi barang yang paling efisien, meningkatkan produktivitas global dan pertumbuhan ekonomi.</li>
+</ul>
+</section>
+<section id="batasan-pertumbuhan-jangka-panjang-stagnasi-ekonomi-klasik" class="level3">
+<h3 class="anchored" data-anchor-id="batasan-pertumbuhan-jangka-panjang-stagnasi-ekonomi-klasik"><strong>6. Batasan Pertumbuhan Jangka Panjang (Stagnasi Ekonomi Klasik)</strong></h3>
+<ul>
+<li>Ekonom klasik percaya bahwa dalam jangka panjang, ekonomi akan mencapai <strong>steady-state growth</strong>, di mana akumulasi modal tidak lagi memberikan pertumbuhan signifikan karena diminishing returns.<br>
+</li>
+<li>Solusinya adalah <strong>kemajuan teknologi</strong> dan inovasi, meskipun ekonomi klasik belum sepenuhnya mengembangkan teori pertumbuhan berbasis teknologi seperti yang dilakukan ekonomi modern (Solow, Romer).</li>
+</ul>
+</section>
+<section id="relevansi-dengan-umkm-usaha-mikro-kecil-dan-menengah" class="level3">
+<h3 class="anchored" data-anchor-id="relevansi-dengan-umkm-usaha-mikro-kecil-dan-menengah"><strong>Relevansi dengan UMKM (Usaha Mikro, Kecil, dan Menengah)</strong></h3>
+<ul>
+<li>Dalam perspektif klasik, UMKM dapat berkontribusi pada pertumbuhan ekonomi melalui:
+<ul>
+<li><strong>Akumulasi modal kecil-kecilan</strong> (investasi dalam peralatan/usaha).<br>
+</li>
+<li><strong>Pembagian kerja</strong> (spesialisasi UMKM dalam sektor tertentu).<br>
+</li>
+<li><strong>Persaingan pasar</strong> yang mendorong efisiensi.<br>
+</li>
+</ul></li>
+<li>Namun, tantangan UMKM adalah keterbatasan modal dan akses teknologi, yang sesuai dengan peringatan klasik tentang diminishing returns tanpa inovasi.</li>
+</ul>
+</section>
+<section id="kritik-terhadap-pandangan-klasik" class="level3">
+<h3 class="anchored" data-anchor-id="kritik-terhadap-pandangan-klasik"><strong>Kritik terhadap Pandangan Klasik</strong></h3>
+<ul>
+<li>Tidak memperhitungkan <strong>peran pemerintah</strong> dalam mengatasi kegagalan pasar.<br>
+</li>
+<li>Kurang fokus pada <strong>inovasi teknologi</strong> sebagai pendorong utama pertumbuhan jangka panjang.<br>
+</li>
+<li>Teori Malthus terbukti tidak sepenuhnya benar karena kemajuan teknologi pertanian dan industri mengatasi keterbatasan sumber daya.</li>
+</ul>
+<p><strong>Pertumbuhan Ekonomi dalam Perspektif Joseph Schumpeter</strong></p>
+<p>Joseph Schumpeter (1883–1950) adalah seorang ekonom yang memberikan pandangan unik tentang pertumbuhan ekonomi, terutama melalui konsep <strong>“inovasi”</strong> dan <strong>“perusakan kreatif” (creative destruction)</strong>. Berbeda dengan ekonomi klasik yang berfokus pada akumulasi modal atau ekonomi neoklasik yang menekankan keseimbangan pasar, Schumpeter melihat pertumbuhan ekonomi sebagai hasil dari <strong>dinamika kewirausahaan dan inovasi teknologi</strong>.</p>
+</section>
+<section id="peran-inovasi-sebagai-penggerak-utama-pertumbuhan" class="level3">
+<h3 class="anchored" data-anchor-id="peran-inovasi-sebagai-penggerak-utama-pertumbuhan"><strong>1. Peran Inovasi sebagai Penggerak Utama Pertumbuhan</strong></h3>
+<p>Menurut Schumpeter, pertumbuhan ekonomi tidak hanya terjadi karena akumulasi faktor produksi (modal, tenaga kerja), tetapi terutama karena <strong>inovasi</strong> yang dilakukan oleh <strong>entrepreneur (wirausahawan)</strong>. Inovasi ini mencakup:<br>
+- <strong>Pengenalan produk baru</strong> (contoh: smartphone menggantikan telepon biasa).<br>
+- <strong>Metode produksi baru</strong> (contoh: revolusi industri 4.0 dengan otomatisasi).<br>
+- <strong>Pembukaan pasar baru</strong> (contoh: ekspansi e-commerce global).<br>
+- <strong>Penggunaan sumber daya baru</strong> (contoh: energi terbarukan).<br>
+- <strong>Reorganisasi industri</strong> (contoh: bisnis model disruptif seperti Uber vs taksi konvensional).</p>
+</section>
+<section id="entrepreneur-sebagai-aktor-kunci" class="level3">
+<h3 class="anchored" data-anchor-id="entrepreneur-sebagai-aktor-kunci"><strong>2. Entrepreneur sebagai Aktor Kunci</strong></h3>
+<ul>
+<li>Schumpeter menekankan bahwa <strong>entrepreneur</strong> (bukan hanya kapitalis atau pekerja) adalah pelaku utama yang mendorong inovasi.<br>
+</li>
+<li>Mereka mengambil risiko untuk memperkenalkan perubahan radikal, bukan hanya mengoptimalkan sumber daya yang ada.<br>
+</li>
+<li>Keuntungan (profit) dalam jangka pendek adalah insentif bagi entrepreneur untuk berinovasi.</li>
+</ul>
+</section>
+<section id="creative-destruction-perusakan-kreatif" class="level3">
+<h3 class="anchored" data-anchor-id="creative-destruction-perusakan-kreatif"><strong>3. Creative Destruction (Perusakan Kreatif)</strong></h3>
+<ul>
+<li>Proses pertumbuhan ekonomi tidak linier, melainkan melalui <strong>kehancuran teknologi dan bisnis lama</strong> yang digantikan oleh yang baru.<br>
+</li>
+<li>Contoh:
+<ul>
+<li>Toko ritel tradisional tergantikan oleh e-commerce (Amazon, Shopee).<br>
+</li>
+<li>Transportasi konvensional tergantikan oleh ride-hailing (Gojek, Uber).<br>
+</li>
+</ul></li>
+<li><strong>Implikasi:</strong> Pertumbuhan ekonomi jangka panjang membutuhkan kehancuran sektor-sektor yang tidak efisien.</li>
+</ul>
+</section>
+<section id="siklus-bisnis-business-cycles-dan-gelombang-inovasi" class="level3">
+<h3 class="anchored" data-anchor-id="siklus-bisnis-business-cycles-dan-gelombang-inovasi"><strong>4. Siklus Bisnis (Business Cycles) dan Gelombang Inovasi</strong></h3>
+<ul>
+<li>Schumpeter mengaitkan pertumbuhan ekonomi dengan <strong>siklus bisnis panjang (Kondratieff waves)</strong> yang didorong oleh inovasi besar.<br>
+</li>
+<li>Contoh:
+<ul>
+<li>Revolusi industri (mesin uap → listrik → digital).<br>
+</li>
+<li>Setiap gelombang inovasi menciptakan fase boom (pertumbuhan pesat) diikuti resesi ketika inovasi matang.</li>
+</ul></li>
+</ul>
+</section>
+<section id="peran-monopoli-sementara-dalam-inovasi" class="level3">
+<h3 class="anchored" data-anchor-id="peran-monopoli-sementara-dalam-inovasi"><strong>5. Peran Monopoli Sementara dalam Inovasi</strong></h3>
+<ul>
+<li>Berbeda dengan pandangan klasik yang mengkritik monopoli, Schumpeter berargumen bahwa <strong>monopoli sementara</strong> (karena paten atau keunggulan teknologi) justru memberi insentif bagi perusahaan untuk berinovasi.<br>
+</li>
+<li>Contoh: Perusahaan seperti Apple atau Tesla mendapat keuntungan besar dari inovasi sebelum pesaing meniru.</li>
+</ul>
+</section>
+<section id="kritik-terhadap-teori-schumpeter" class="level3">
+<h3 class="anchored" data-anchor-id="kritik-terhadap-teori-schumpeter"><strong>6. Kritik terhadap Teori Schumpeter</strong></h3>
+<ul>
+<li><strong>Ketergantungan pada entrepreneur langka</strong> → Tidak semua negara memiliki kultur kewirausahaan kuat.<br>
+</li>
+<li><strong>Ketidakpastian inovasi</strong> → Tidak semua inovasi berhasil mendorong pertumbuhan.<br>
+</li>
+<li><strong>Ketimpangan akibat creative destruction</strong> → PHK massal di sektor tradisional bisa menimbulkan gejolak sosial.</li>
+</ul>
+</section>
+<section id="relevansi-dengan-umkm-usaha-mikro-kecil-dan-menengah-1" class="level3">
+<h3 class="anchored" data-anchor-id="relevansi-dengan-umkm-usaha-mikro-kecil-dan-menengah-1"><strong>Relevansi dengan UMKM (Usaha Mikro, Kecil, dan Menengah)</strong></h3>
+<ul>
+<li>UMKM bisa menjadi <strong>agen inovasi</strong> jika mampu mengadopsi teknologi atau model bisnis baru.<br>
+</li>
+<li>Contoh:
+<ul>
+<li>UMKM makanan yang beralih ke pemasaran digital (TikTok Shop, Instagram).<br>
+</li>
+<li>Penggunaan fintech untuk akses modal (pinjaman online, crowdfunding).<br>
+</li>
+</ul></li>
+<li>Tantangan:
+<ul>
+<li>Minimnya sumber daya untuk riset dan pengembangan (R&amp;D).<br>
+</li>
+<li>Risiko tinggi dalam mencoba inovasi.</li>
+</ul></li>
+</ul>
+</section>
+<section id="perbandingan-dengan-teori-lain" class="level3">
+<h3 class="anchored" data-anchor-id="perbandingan-dengan-teori-lain"><strong>Perbandingan dengan Teori Lain</strong></h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 25%">
+<col style="width: 29%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Aspek</strong></th>
+<th><strong>Schumpeter</strong></th>
+<th><strong>Ekonomi Klasik</strong></th>
+<th><strong>Neoklasik (Solow)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Pendorong Pertumbuhan</strong></td>
+<td>Inovasi &amp; entrepreneur</td>
+<td>Akumulasi modal &amp; pasar bebas</td>
+<td>Modal, tenaga kerja, teknologi</td>
+</tr>
+<tr class="even">
+<td><strong>Peran Pemerintah</strong></td>
+<td>Minimal (kecuali dukungan riset)</td>
+<td>Laissez-faire</td>
+<td>Intervensi untuk stabilitas</td>
+</tr>
+<tr class="odd">
+<td><strong>Siklus Ekonomi</strong></td>
+<td>Dinamis (creative destruction)</td>
+<td>Steady-state dalam jangka panjang</td>
+<td>Konvergensi ke steady-state</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="kesimpulan" class="level3">
+<h3 class="anchored" data-anchor-id="kesimpulan"><strong>Kesimpulan</strong></h3>
+<p>Schumpeter menawarkan perspektif yang dinamis tentang pertumbuhan ekonomi, di mana <strong>perubahan teknologi dan kewirausahaan</strong> menjadi intinya. Pertumbuhan tidak terjadi secara gradual, tetapi melalui lompatan inovasi yang menghancurkan tatanan lama.</p>
+<p><strong>Implikasi Kebijakan:</strong><br>
+- Negara perlu mendukung ekosistem inovasi (pendidikan, riset, akses modal).<br>
+- UMKM harus didorong untuk beradaptasi dengan teknologi baru.<br>
+- Pemerintah perlu mengelola dampak sosial dari creative destruction (pelatihan ulang tenaga kerja).</p>
+</section>
+<section id="pertumbuhan-ekonomi-dalam-perspektif-ekonomi-new-classical" class="level3">
+<h3 class="anchored" data-anchor-id="pertumbuhan-ekonomi-dalam-perspektif-ekonomi-new-classical"><strong>Pertumbuhan Ekonomi dalam Perspektif Ekonomi New Classical</strong></h3>
+<p>Ekonomi <strong>New Classical</strong> (muncul tahun 1970-an, dipelopori oleh Robert Lucas, Thomas Sargent, dan Edward Prescott) adalah mazhab pemikiran yang menekankan <strong>peran ekspektasi rasional, pasar yang selalu menyeimbangkan diri (market clearing), dan ketidakefektifan kebijakan pemerintah</strong> dalam memengaruhi pertumbuhan ekonomi jangka panjang. Berbeda dengan Keynesian yang fokus pada intervensi pemerintah, New Classical percaya bahwa pertumbuhan ekonomi terutama ditentukan oleh <strong>faktor riil</strong> (teknologi, produktivitas, dan preferensi individu) dan <strong>mekanisme pasar yang efisien</strong>.</p>
+<hr>
+</section>
+<section id="asumsi-dasar-ekonomi-new-classical" class="level2">
+<h2 class="anchored" data-anchor-id="asumsi-dasar-ekonomi-new-classical"><strong>1. Asumsi Dasar Ekonomi New Classical</strong></h2>
+<ol type="1">
+<li><strong>Ekspektasi Rasional (Rational Expectations)</strong>
+<ul>
+<li>Pelaku ekonomi (rumah tangga, perusahaan) menggunakan semua informasi yang tersedia untuk membuat keputusan optimal, termasuk memprediksi kebijakan pemerintah dan dampaknya.<br>
+</li>
+<li>Implikasi: Kebijakan pemerintah yang sistematis (seperti stimulus fiskal/moneter) tidak akan memiliki efek riil jangka panjang karena sudah diantisipasi oleh pasar.</li>
+</ul></li>
+<li><strong>Pasar Selalu Menyeimbangkan Diri (Market Clearing)</strong>
+<ul>
+<li>Harga dan upah fleksibel, sehingga pasar tenaga kerja dan barang selalu mencapai keseimbangan (tidak ada pengangguran involunter dalam jangka panjang).<br>
+</li>
+<li>Resesi hanya terjadi karena <strong>gangguan sementara (shocks)</strong> atau <strong>ketidaksesuaian informasi</strong>.</li>
+</ul></li>
+<li><strong>Kebijakan Pemerintah Tidak Efektif</strong>
+<ul>
+<li><strong>Kebijakan fiskal/moneter diskresioner</strong> hanya menciptakan inflasi, bukan pertumbuhan riil.<br>
+</li>
+<li>Pertumbuhan jangka panjang hanya bisa dicapai melalui <strong>peningkatan produktivitas dan efisiensi pasar</strong>.</li>
+</ul></li>
+<li><strong>Siklus Bisnis Riil (Real Business Cycle - RBC)</strong>
+<ul>
+<li>Fluktuasi ekonomi (booms &amp; recessions) disebabkan oleh <strong>shock teknologi</strong> atau <strong>perubahan preferensi konsumen</strong>, bukan kegagalan pasar.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="mekanisme-pertumbuhan-ekonomi-dalam-new-classical" class="level2">
+<h2 class="anchored" data-anchor-id="mekanisme-pertumbuhan-ekonomi-dalam-new-classical"><strong>2. Mekanisme Pertumbuhan Ekonomi dalam New Classical</strong></h2>
+<section id="a.-pertumbuhan-jangka-panjang-ditentukan-oleh-faktor-riil" class="level3">
+<h3 class="anchored" data-anchor-id="a.-pertumbuhan-jangka-panjang-ditentukan-oleh-faktor-riil"><strong>A. Pertumbuhan Jangka Panjang Ditentukan oleh Faktor Riil</strong></h3>
+<ul>
+<li><strong>Teknologi</strong>: Peningkatan produktivitas (seperti dalam model Solow).<br>
+</li>
+<li><strong>Akumulasi Modal</strong>: Investasi swasta yang efisien (bukan melalui intervensi negara).<br>
+</li>
+<li><strong>Tenaga Kerja</strong>: Pasokan tenaga kerja tergantung pada insentif (upah riil, pajak).</li>
+</ul>
+</section>
+<section id="b.-peran-kebijakan-yang-minimal" class="level3">
+<h3 class="anchored" data-anchor-id="b.-peran-kebijakan-yang-minimal"><strong>B. Peran Kebijakan yang Minimal</strong></h3>
+<ul>
+<li>Pemerintah hanya perlu menjamin:
+<ul>
+<li><strong>Stabilitas hukum</strong> (hak properti, kontrak).<br>
+</li>
+<li><strong>Pasar kompetitif</strong> (minimalisasi monopoli).<br>
+</li>
+<li><strong>Regulasi yang tidak distortif</strong> (pajak rendah, birokrasi efisien).</li>
+</ul></li>
+</ul>
+</section>
+<section id="c.-kritik-terhadap-intervensi-pemerintah" class="level3">
+<h3 class="anchored" data-anchor-id="c.-kritik-terhadap-intervensi-pemerintah"><strong>C. Kritik terhadap Intervensi Pemerintah</strong></h3>
+<ul>
+<li><strong>Kebijakan fiskal ekspansif</strong> (seperti defisit anggaran) hanya menggeser sumber daya dari sektor produktif ke tidak produktif.<br>
+</li>
+<li><strong>Kebijakan moneter ekspansif</strong> hanya menaikkan harga (inflasi), bukan output riil (prinsip <strong>Netralitas Uang</strong>).</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="model-real-business-cycle-rbc" class="level2">
+<h2 class="anchored" data-anchor-id="model-real-business-cycle-rbc"><strong>3. Model Real Business Cycle (RBC)</strong></h2>
+<p><em>(Contoh aplikasi New Classical dalam analisis pertumbuhan &amp; siklus ekonomi)</em></p>
+<section id="a.-asumsi-rbc" class="level3">
+<h3 class="anchored" data-anchor-id="a.-asumsi-rbc"><strong>A. Asumsi RBC</strong></h3>
+<ul>
+<li>Fluktuasi ekonomi disebabkan oleh <strong>shock produktivitas</strong> (misalnya: penemuan teknologi baru, bencana alam).<br>
+</li>
+<li>Pasar merespons secara efisien, dan resesi adalah hasil optimal dari perubahan kondisi riil.</li>
+</ul>
+</section>
+<section id="b.-contoh-shock-dalam-rbc" class="level3">
+<h3 class="anchored" data-anchor-id="b.-contoh-shock-dalam-rbc"><strong>B. Contoh Shock dalam RBC</strong></h3>
+<ol type="1">
+<li><strong>Positive Technology Shock</strong> (Contoh: Revolusi digital 1990-an)
+<ul>
+<li>Meningkatkan produktivitas → pertumbuhan ekonomi.<br>
+</li>
+</ul></li>
+<li><strong>Negative Shock</strong> (Contoh: Krisis minyak 1970-an)
+<ul>
+<li>Menurunkan produktivitas → resesi.</li>
+</ul></li>
+</ol>
+</section>
+<section id="c.-implikasi-kebijakan" class="level3">
+<h3 class="anchored" data-anchor-id="c.-implikasi-kebijakan"><strong>C. Implikasi Kebijakan</strong></h3>
+<ul>
+<li>Pemerintah <strong>tidak perlu menstabilkan siklus</strong> karena pasar sudah merespons optimal.<br>
+</li>
+<li>Fokus harus pada <strong>meningkatkan fleksibilitas pasar</strong> (upah fleksibel, deregulasi).</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="perbandingan-dengan-mazhab-lain" class="level2">
+<h2 class="anchored" data-anchor-id="perbandingan-dengan-mazhab-lain"><strong>4. Perbandingan dengan Mazhab Lain</strong></h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Aspek</strong></th>
+<th><strong>New Classical</strong></th>
+<th><strong>Keynesian</strong></th>
+<th><strong>Neoklasik (Solow)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Peran Pemerintah</strong></td>
+<td>Minimal (hanya aturan dasar)</td>
+<td>Intervensi aktif (fiskal/moneter)</td>
+<td>Netral (fokus teknologi)</td>
+</tr>
+<tr class="even">
+<td><strong>Penyebab Resesi</strong></td>
+<td>Shock teknologi/preferensi</td>
+<td>Permintaan agregat rendah</td>
+<td>Depresiasi modal/teknologi</td>
+</tr>
+<tr class="odd">
+<td><strong>Ekspektasi</strong></td>
+<td>Rasional</td>
+<td>Adaptif</td>
+<td>Tidak eksplisit</td>
+</tr>
+<tr class="even">
+<td><strong>Kebijakan Efektif?</strong></td>
+<td>Tidak (hanya inflasi)</td>
+<td>Ya (stimulus)</td>
+<td>Hanya jangka pendek</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="kritik-terhadap-new-classical" class="level2">
+<h2 class="anchored" data-anchor-id="kritik-terhadap-new-classical"><strong>5. Kritik terhadap New Classical</strong></h2>
+<ol type="1">
+<li><strong>Ketidakrealistisan Asumsi Pasar Selaras</strong>
+<ul>
+<li>Nyatanya, upah &amp; harga sering kaku (sticky), dan pengangguran involunter ada.<br>
+</li>
+</ul></li>
+<li><strong>Mengabaikan Kegagalan Pasar</strong>
+<ul>
+<li>Eksternalitas, asimetri informasi, dan ketidaksetaraan tidak dianggap masalah.<br>
+</li>
+</ul></li>
+<li><strong>Ekspektasi Rasional Terlalu Ekstrem</strong>
+<ul>
+<li>Pelaku ekonomi tidak selalu memiliki informasi sempurna.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="relevansi-untuk-kebijakan-ekonomi-modern" class="level2">
+<h2 class="anchored" data-anchor-id="relevansi-untuk-kebijakan-ekonomi-modern"><strong>6. Relevansi untuk Kebijakan Ekonomi Modern</strong></h2>
+<ul>
+<li><strong>Negara dengan Pasar Fleksibel</strong>:
+<ul>
+<li>Contoh: Singapura (pertumbuhan tinggi dengan pajak rendah &amp; regulasi minimal).<br>
+</li>
+</ul></li>
+<li><strong>Aplikasi di Indonesia</strong>:
+<ul>
+<li><strong>Reformasi struktural</strong> (seperti UU Cipta Kerja) sejalan dengan filosofi New Classical.<br>
+</li>
+<li><strong>Bank Indonesia</strong> menggunakan <strong>inflation targeting</strong> (konsep netralitas uang).</li>
+</ul></li>
+</ul>
+<hr>
+<section id="kesimpulan-1" class="level3">
+<h3 class="anchored" data-anchor-id="kesimpulan-1"><strong>Kesimpulan</strong></h3>
+<p>New Classical menekankan:<br>
+1. Pertumbuhan ekonomi berasal dari <strong>faktor riil</strong> (teknologi, produktivitas, insentif individu).<br>
+2. <strong>Pasar lebih efisien daripada pemerintah</strong> dalam mengalokasikan sumber daya.<br>
+3. <strong>Kebijakan makro diskresioner (fiskal/moneter) tidak efektif</strong> dalam jangka panjang.</p>
+<p><strong>Pelajaran untuk Indonesia</strong>:<br>
+- Fokus pada <strong>peningkatan produktivitas</strong> (infrastruktur, pendidikan).<br>
+- Kurangi <strong>distorsi pasar</strong> (subsidi tidak tepat, birokrasi berbelit).<br>
+- <strong>Kebijakan stabil &amp; prediktif</strong> untuk mendorong investasi swasta.</p>
+<p>Teori ini cocok untuk ekonomi yang sudah maju dengan pasar efisien, tetapi kurang aplikatif di negara dengan ketimpangan tinggi atau kegagalan pasar masif.</p>
+</section>
+<section id="pertumbuhan-ekonomi-dalam-perspektif-keynesian" class="level3">
+<h3 class="anchored" data-anchor-id="pertumbuhan-ekonomi-dalam-perspektif-keynesian"><strong>Pertumbuhan Ekonomi dalam Perspektif Keynesian</strong></h3>
+<p>Teori Keynesian, yang dikembangkan oleh <strong>John Maynard Keynes</strong> dalam bukunya <em>“The General Theory of Employment, Interest, and Money”</em> (1936), menawarkan pandangan yang berbeda dari mazhab klasik/new classical. Keynesian menekankan <strong>peran permintaan agregat (aggregate demand/AD)</strong> sebagai penggerak utama pertumbuhan ekonomi, serta pentingnya <strong>intervensi pemerintah</strong> untuk mengatasi ketidakstabilan pasar, terutama selama resesi.</p>
+<hr>
+</section>
+</section>
+<section id="asumsi-dasar-keynesian" class="level2">
+<h2 class="anchored" data-anchor-id="asumsi-dasar-keynesian"><strong>1. Asumsi Dasar Keynesian</strong></h2>
+<ol type="1">
+<li><strong>Permintaan Agregat (AD) Menentukan Output</strong>
+<ul>
+<li>Ekonomi tidak selalu mencapai <em>full employment</em> (kesempatan kerja penuh) karena permintaan bisa kurang.<br>
+</li>
+<li><strong>Harga dan upah bersifat kaku (sticky)</strong> dalam jangka pendek, sehingga pasar tidak selalu menyeimbangkan diri (<em>non-market clearing</em>).</li>
+</ul></li>
+<li><strong>Pengangguran Involunter</strong>
+<ul>
+<li>Pengangguran tidak selalu disebabkan oleh keengganan bekerja (seperti dalam teori klasik), tetapi oleh <strong>kekurangan permintaan</strong>.</li>
+</ul></li>
+<li><strong>Peran Sentral Pemerintah</strong>
+<ul>
+<li>Pemerintah harus aktif menstabilkan ekonomi melalui <strong>kebijakan fiskal (pajak &amp; belanja)</strong> dan <strong>moneter (suku bunga &amp; uang beredar)</strong>.</li>
+</ul></li>
+<li><strong>Paradoks Berhemat (Paradox of Thrift)</strong>
+<ul>
+<li>Jika semua orang menabung lebih banyak selama resesi, permintaan agregat akan turun → memperburuk resesi.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="mekanisme-pertumbuhan-keynesian" class="level2">
+<h2 class="anchored" data-anchor-id="mekanisme-pertumbuhan-keynesian"><strong>2. Mekanisme Pertumbuhan Keynesian</strong></h2>
+<section id="a.-komponen-permintaan-agregat-ad-c-i-g-x-m" class="level3">
+<h3 class="anchored" data-anchor-id="a.-komponen-permintaan-agregat-ad-c-i-g-x-m"><strong>A. Komponen Permintaan Agregat (AD = C + I + G + (X-M))</strong></h3>
+<p>Pertumbuhan ekonomi terjadi ketika <strong>AD meningkat</strong>, yang terdiri dari:<br>
+1. <strong>Konsumsi (C)</strong>: Dipengaruhi oleh pendapatan disposabel dan <em>MPC</em> (marginal propensity to consume).<br>
+2. <strong>Investasi (I)</strong>: Sensitif terhadap suku bunga dan ekspektasi bisnis (<em>animal spirits</em>).<br>
+3. <strong>Belanja Pemerintah (G)</strong>: Alat utama stimulasi ekonomi.<br>
+4. <strong>Ekspor Bersih (X-M)</strong>: Tergantung daya saing dan permintaan global.</p>
+</section>
+<section id="b.-multiplier-effect" class="level3">
+<h3 class="anchored" data-anchor-id="b.-multiplier-effect"><strong>B. Multiplier Effect</strong></h3>
+<ul>
+<li>Setiap kenaikan belanja pemerintah (G) atau investasi (I) akan menghasilkan pertumbuhan output yang lebih besar melalui efek berantai.<br>
+</li>
+<li><strong>Rumus Multiplier</strong>:<br>
+<span class="math display">\[
+\text{Multiplier} = \frac{1}{1 - MPC}
+\]</span><br>
+<em>(MPC = Marginal Propensity to Consume)</em></li>
+</ul>
+<p><strong>Contoh</strong>:<br>
+- Jika pemerintah menambah belanja Rp 1 triliun dan MPC = 0.8, maka total kenaikan output:<br>
+<span class="math display">\[
+  \Delta Y = \frac{1}{1-0.8} \times 1 \text{ triliun} = 5 \text{ triliun}.
+  \]</span></p>
+</section>
+<section id="c.-peran-kebijakan-pemerintah" class="level3">
+<h3 class="anchored" data-anchor-id="c.-peran-kebijakan-pemerintah"><strong>C. Peran Kebijakan Pemerintah</strong></h3>
+<ol type="1">
+<li><strong>Kebijakan Fiskal Ekspansif</strong>
+<ul>
+<li><strong>Menurunkan pajak</strong> → Meningkatkan daya beli masyarakat (C).<br>
+</li>
+<li><strong>Menambah belanja pemerintah (G)</strong> → Proyek infrastruktur, subsidi UMKM.<br>
+</li>
+<li>Contoh: <em>New Deal</em> di AS (1930-an), stimulus COVID-19.</li>
+</ul></li>
+<li><strong>Kebijakan Moneter Ekspansif</strong>
+<ul>
+<li><strong>Menurunkan suku bunga</strong> → Dorong investasi (I).<br>
+</li>
+<li>**Quantitative easing* (cetak uang) → Tingkatkan likuiditas.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="kritik-terhadap-teori-keynesian" class="level2">
+<h2 class="anchored" data-anchor-id="kritik-terhadap-teori-keynesian"><strong>3. Kritik terhadap Teori Keynesian</strong></h2>
+<ol type="1">
+<li><strong>Efek Crowding Out</strong>
+<ul>
+<li>Defisit anggaran pemerintah bisa menaikkan suku bunga, mengurangi investasi swasta.<br>
+</li>
+</ul></li>
+<li><strong>Inflasi dalam Jangka Panjang</strong>
+<ul>
+<li>Stimulus berlebihan bisa memicu inflasi (contoh: stagflasi 1970-an).<br>
+</li>
+</ul></li>
+<li><strong>Ketergantungan pada Intervensi Pemerintah</strong>
+<ul>
+<li>Risiko salah alokasi sumber daya (proyek tidak produktif).</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="perbandingan-dengan-mazhab-lain-1" class="level2">
+<h2 class="anchored" data-anchor-id="perbandingan-dengan-mazhab-lain-1"><strong>4. Perbandingan dengan Mazhab Lain</strong></h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 27%">
+<col style="width: 27%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Aspek</strong></th>
+<th><strong>Keynesian</strong></th>
+<th><strong>New Classical</strong></th>
+<th><strong>Neoklasik (Solow)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Penyebab Resesi</strong></td>
+<td>Permintaan agregat rendah</td>
+<td>Shock teknologi</td>
+<td>Depresiasi modal</td>
+</tr>
+<tr class="even">
+<td><strong>Peran Pemerintah</strong></td>
+<td>Aktif (fiskal/moneter)</td>
+<td>Minimal</td>
+<td>Netral</td>
+</tr>
+<tr class="odd">
+<td><strong>Harga &amp; Upah</strong></td>
+<td>Kaku (short-run)</td>
+<td>Fleksibel</td>
+<td>Fleksibel</td>
+</tr>
+<tr class="even">
+<td><strong>Solusi Pertumbuhan</strong></td>
+<td>Stimulus AD</td>
+<td>Reforma struktural</td>
+<td>Teknologi &amp; tabungan</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="relevansi-untuk-kebijakan-modern" class="level2">
+<h2 class="anchored" data-anchor-id="relevansi-untuk-kebijakan-modern"><strong>5. Relevansi untuk Kebijakan Modern</strong></h2>
+<ul>
+<li><strong>Great Recession (2008)</strong>: AS &amp; Eropa gunakan stimulus Keynesian (bailout bank, <em>quantitative easing</em>).<br>
+</li>
+<li><strong>Pandemi COVID-19</strong>: Banyak negara pakai bantuan langsung (BLT), subsidi UMKM.<br>
+</li>
+<li><strong>Indonesia</strong>:
+<ul>
+<li><strong>Pemulihan Ekonomi Nasional (PEN)</strong> → Stimulus fiskal Rp 695 triliun (2020).<br>
+</li>
+<li><strong>Bansos &amp; KUR</strong> → Jaga daya beli masyarakat.</li>
+</ul></li>
+</ul>
+<hr>
+<section id="kesimpulan-2" class="level3">
+<h3 class="anchored" data-anchor-id="kesimpulan-2"><strong>Kesimpulan</strong></h3>
+<p>Keynesian menekankan:<br>
+1. <strong>Permintaan agregat adalah kunci pertumbuhan jangka pendek-menengah</strong>.<br>
+2. <strong>Pasar tidak selalu stabil</strong> → butuh intervensi pemerintah.<br>
+3. <strong>Multiplier effect</strong> membuat stimulus fiskal efektif selama resesi.</p>
+<p><strong>Pelajaran untuk Indonesia</strong>:<br>
+- Stimulus fiskal (seperti bansos) penting saat krisis.<br>
+- Namun, perlu diimbangi dengan <strong>reformasi struktural</strong> (perbaikan iklim investasi) untuk pertumbuhan jangka panjang.</p>
+<p>Teori ini cocok untuk kondisi <strong>underemployment</strong>, tetapi kurang menjawab tantangan jangka panjang seperti produktivitas.</p>
+</section>
+<section id="pertumbuhan-ekonomi-dalam-perspektif-new-macroeconomic-synthesis-nms" class="level3">
+<h3 class="anchored" data-anchor-id="pertumbuhan-ekonomi-dalam-perspektif-new-macroeconomic-synthesis-nms"><strong>Pertumbuhan Ekonomi dalam Perspektif New Macroeconomic Synthesis (NMS)</strong></h3>
+<p><strong>New Macroeconomic Synthesis</strong> (NMS) atau sintesis makroekonomi baru adalah pendekatan modern yang menggabungkan <strong>unsur-unsur Keynesian, New Classical, dan Teori Pertumbuhan Endogen</strong> untuk menjelaskan fluktuasi jangka pendek dan pertumbuhan jangka panjang. Pendekatan ini muncul sebagai respons terhadap keterbatasan mazhab-mazhab sebelumnya dan berkembang sejak akhir 1980-an hingga 2000-an, terutama setelah krisis finansial global 2008.</p>
+<hr>
+</section>
+</section>
+<section id="ciri-kunci-new-macroeconomic-synthesis" class="level2">
+<h2 class="anchored" data-anchor-id="ciri-kunci-new-macroeconomic-synthesis"><strong>1. Ciri Kunci New Macroeconomic Synthesis</strong></h2>
+<ol type="1">
+<li><strong>Menggabungkan Fleksibilitas Harga Jangka Panjang (New Classical) dengan Kekakuan Harga Jangka Pendek (Keynesian)</strong>
+<ul>
+<li>Dalam jangka pendek, harga dan upah bersifat <strong>sticky</strong> (kaku), sehingga kebijakan moneter/fiskal bisa memengaruhi output.<br>
+</li>
+<li>Dalam jangka panjang, harga fleksibel, dan ekonomi kembali ke <strong>tingkat alamiah (natural rate)</strong>.</li>
+</ul></li>
+<li><strong>Peran Ekspektasi Rasional (New Classical) dengan Kegagalan Pasar (Keynesian)</strong>
+<ul>
+<li>Pelaku ekonomi menggunakan informasi secara rasional, tetapi <strong>ketidaksempurnaan pasar</strong> (seperti asimetri informasi) membuat intervensi pemerintah tetap diperlukan.</li>
+</ul></li>
+<li><strong>Fokus pada Kebijakan yang Berbasis Aturan (Rule-Based Policy)</strong>
+<ul>
+<li>Kebijakan moneter mengikuti <strong>inflation targeting</strong> (target inflasi) untuk menjaga stabilitas.<br>
+</li>
+<li>Kebijakan fiskal didisain untuk <strong>otomatis stabil (automatic stabilizers)</strong> seperti pajak progresif dan tunjangan pengangguran.</li>
+</ul></li>
+<li><strong>Integrasi Teori Pertumbuhan Endogen</strong>
+<ul>
+<li>Pertumbuhan jangka panjang ditentukan oleh <strong>inovasi, human capital, dan institusi</strong>, bukan hanya akumulasi modal (seperti dalam Solow).</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="model-utama-dalam-new-macroeconomic-synthesis" class="level2">
+<h2 class="anchored" data-anchor-id="model-utama-dalam-new-macroeconomic-synthesis"><strong>2. Model Utama dalam New Macroeconomic Synthesis</strong></h2>
+<section id="a.-dynamic-stochastic-general-equilibrium-dsge" class="level3">
+<h3 class="anchored" data-anchor-id="a.-dynamic-stochastic-general-equilibrium-dsge"><strong>A. Dynamic Stochastic General Equilibrium (DSGE)</strong></h3>
+<ul>
+<li>Model utama NMS yang menggabungkan:
+<ul>
+<li><strong>Mikrofoundations</strong> (perilaku optimasi rumah tangga &amp; perusahaan).<br>
+</li>
+<li><strong>Ekspektasi rasional</strong>.<br>
+</li>
+<li><strong>Guncangan ekonomi (shocks)</strong> seperti teknologi, preferensi, atau kebijakan.<br>
+</li>
+</ul></li>
+<li>Contoh: Model <strong>New Keynesian DSGE</strong> yang memasukkan <strong>harga sticky</strong> dan <strong>monopoli kompetitif</strong>.</li>
+</ul>
+</section>
+<section id="b.-hybrid-phillips-curve" class="level3">
+<h3 class="anchored" data-anchor-id="b.-hybrid-phillips-curve"><strong>B. Hybrid Phillips Curve</strong></h3>
+<ul>
+<li>Menggabungkan <strong>ekspektasi inflasi (New Classical)</strong> dan <strong>kekakuan harga (Keynesian)</strong>:<br>
+<span class="math display">\[
+\pi_t = \beta E_t \pi_{t+1} + \kappa y_t + \epsilon_t
+\]</span>
+<ul>
+<li><span class="math inline">\(\pi_t\)</span> = inflasi, <span class="math inline">\(E_t \pi_{t+1}\)</span> = ekspektasi inflasi masa depan, <span class="math inline">\(y_t\)</span> = output gap.</li>
+</ul></li>
+</ul>
+</section>
+<section id="c.-peran-kebijakan-moneter-taylor-rule" class="level3">
+<h3 class="anchored" data-anchor-id="c.-peran-kebijakan-moneter-taylor-rule"><strong>C. Peran Kebijakan Moneter (Taylor Rule)</strong></h3>
+<ul>
+<li>Bank sentral menetapkan suku bunga berdasarkan <strong>inflasi dan output gap</strong>:<br>
+<span class="math display">\[
+i_t = r^* + \pi_t + 0.5 (\pi_t - \pi^*) + 0.5 (y_t - y^*)
+\]</span>
+<ul>
+<li><span class="math inline">\(i_t\)</span> = suku bunga kebijakan, <span class="math inline">\(\pi^*\)</span> = target inflasi, <span class="math inline">\(y^*\)</span> = output potensial.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="implikasi-kebijakan" class="level2">
+<h2 class="anchored" data-anchor-id="implikasi-kebijakan"><strong>3. Implikasi Kebijakan</strong></h2>
+<ol type="1">
+<li><strong>Kebijakan Moneter Aktif tetapi Terkendali</strong>
+<ul>
+<li>Bank sentral menggunakan <strong>inflation targeting</strong> (seperti BI di Indonesia) untuk menghindari ketidakpastian.<br>
+</li>
+<li>Contoh: The Fed (AS) dan ECB (Eropa) memakai forward guidance.</li>
+</ul></li>
+<li><strong>Kebijakan Fiskal yang Bijak</strong>
+<ul>
+<li>Fiskal ekspansif hanya dipakai saat <strong>resesi dalam</strong>, dengan mempertimbangkan utang jangka panjang.<br>
+</li>
+<li>Contoh: Stimulus COVID-19 di AS dan UE.</li>
+</ul></li>
+<li><strong>Reformasi Struktural untuk Pertumbuhan Jangka Panjang</strong>
+<ul>
+<li>Meningkatkan <strong>produktivitas</strong> melalui inovasi (R&amp;D) dan pendidikan.<br>
+</li>
+<li>Memperbaiki <strong>iklim investasi</strong> (kemudahan berbisnis, pajak kompetitif).</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="kritik-terhadap-new-macroeconomic-synthesis" class="level2">
+<h2 class="anchored" data-anchor-id="kritik-terhadap-new-macroeconomic-synthesis"><strong>4. Kritik terhadap New Macroeconomic Synthesis</strong></h2>
+<ol type="1">
+<li><strong>Terlalu Bergantung pada Asumsi Ekspektasi Rasional</strong>
+<ul>
+<li>Pada kenyataannya, pelaku ekonomi sering irasional (<em>behavioral economics</em>).<br>
+</li>
+</ul></li>
+<li><strong>Model DSGE Terlalu Sederhana untuk Dunia Nyata</strong>
+<ul>
+<li>Sulit memprediksi krisis seperti 2008 karena mengabaikan sektor keuangan.<br>
+</li>
+</ul></li>
+<li><strong>Ketimpangan Ekonomi Kurang Diperhatikan</strong>
+<ul>
+<li>Fokus pada stabilitas makro, tetapi kurang pada distribusi pendapatan.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="perbandingan-dengan-mazhab-lain-2" class="level2">
+<h2 class="anchored" data-anchor-id="perbandingan-dengan-mazhab-lain-2"><strong>5. Perbandingan dengan Mazhab Lain</strong></h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 27%">
+<col style="width: 26%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Aspek</strong></th>
+<th><strong>New Macro Synthesis</strong></th>
+<th><strong>Keynesian</strong></th>
+<th><strong>New Classical</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Kebijakan</strong></td>
+<td>Rule-based (inflation targeting)</td>
+<td>Diskresioner (stimulus)</td>
+<td>Non-intervensi</td>
+</tr>
+<tr class="even">
+<td><strong>Harga</strong></td>
+<td>Sticky (short-run), fleksibel (long-run)</td>
+<td>Selalu sticky</td>
+<td>Selalu fleksibel</td>
+</tr>
+<tr class="odd">
+<td><strong>Pertumbuhan</strong></td>
+<td>Teknologi &amp; institusi (endogen)</td>
+<td>Permintaan agregat</td>
+<td>Modal &amp; tenaga kerja</td>
+</tr>
+<tr class="even">
+<td><strong>Respon Krisis</strong></td>
+<td>Gabungan moneter &amp; struktural</td>
+<td>Fiskal ekspansif</td>
+<td>Biarkan pasar pulih sendiri</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="relevansi-untuk-indonesia" class="level2">
+<h2 class="anchored" data-anchor-id="relevansi-untuk-indonesia"><strong>6. Relevansi untuk Indonesia</strong></h2>
+<ol type="1">
+<li><strong>Bank Indonesia</strong> sudah memakai <strong>inflation targeting framework</strong> (sesuai NMS).<br>
+</li>
+<li><strong>Reformasi struktural</strong> (UU Cipta Kerja) sejalan dengan dorongan produktivitas jangka panjang.<br>
+</li>
+<li><strong>Tantangan</strong>:
+<ul>
+<li>Masih tingginya ketimpangan.<br>
+</li>
+<li>Ketergantungan pada konsumsi domestik (kurang inovasi).</li>
+</ul></li>
+</ol>
+<hr>
+<section id="kesimpulan-3" class="level3">
+<h3 class="anchored" data-anchor-id="kesimpulan-3"><strong>Kesimpulan</strong></h3>
+<p>New Macroeconomic Synthesis adalah kerangka modern yang:<br>
+1. <strong>Mengakui peran intervensi pemerintah jangka pendek</strong>, tetapi tetap menjaga stabilitas jangka panjang.<br>
+2. <strong>Memadukan teori pertumbuhan endogen</strong> untuk menjelaskan kemajuan ekonomi.<br>
+3. <strong>Lebih realistis daripada pendekatan klasik/keynesian murni</strong>, tetapi masih memiliki keterbatasan.</p>
+<p><strong>Pelajaran untuk Indonesia</strong>:<br>
+- Pertahankan <strong>kebijakan moneter yang prudent</strong> (seperti BI 7-day RR).<br>
+- Perkuat <strong>otomatic stabilizers</strong> (pajak progresif, bansos tepat sasaran).<br>
+- Dorong <strong>investasi dalam SDM &amp; teknologi</strong> untuk pertumbuhan berkelanjutan.</p>
+<p>Sintesis ini terus berkembang, terutama pasca-krisis 2008, dengan memasukkan faktor <strong>ketidaksetaraan dan stabilitas finansial</strong>.</p>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,7 @@
+---
+title: Makroekonomi
+date: May 22, 2025
+categories: [kuliah, makroekonomi]
+---
+
+{{< include src/__note.md >}}
